@@ -1,15 +1,99 @@
 # Rubifont
 
-漢字にはひらがな、登録した英単語にはカタカナの読みを表示する、Furifontの派生フォントです。
-現在はRubifont Sans Regular。日本語の既存処理に、英語2,562語・7,684表記を追加しています。
+漢字の上にひらがな、登録した英単語の上にカタカナを表示するフォントです。同じ文章の中で、日本語と英語の両方に読みを添えられます。
 
-配布用フォントは[RubifontのReleases](https://github.com/hajimeno-ipoo/Rubifont/releases)からダウンロードできます。
-[0.4.0のZIP](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.4.0/Rubifont-0.4.0.zip)を展開すると、OTF・WOFF2・見本ページ・使い方・対応語一覧・ライセンスが揃っています。
-MacではOTFをFont Bookでインストールし、使いたいアプリで「Rubifont Sans」を選びます。
+配布している書体は **Rubifont Sans Regular** です。横書き・Regularの一種類で、インストール用のOTFとWeb用のWOFF2を用意しています。
 
-日本語はFurifont v0.5.0の辞書・読み規則を使い、228,356件の読みパターンを収録しています。部品で同じ読みになる規則を整理し、従来の271,747件の読みと読み範囲は生成規則の全件比較で維持を確認しています。日本郵便の住所データは字形上限のため追加対象から外しています。英語の読みはカタカナによる目安で、未登録語や文脈による読み分けは対象外です。
-MacのChromium・WebKit・CoreTextで通常の読み表示を確認しています。WebKitでは、異体字セレクターによる単語の別読み指定が正しく働かない場合があります。
-MacのFirefox、Font Bookへのインストール・個々の文書アプリでの操作は未確認です。環境別の検証結果は配布版の`verification.md`に記載します。
+## 主な機能
+
+- 日本語の漢字・単語に、辞書に基づくひらがなの読みを表示します。
+- 英語2,562語に対応し、小文字・頭だけ大文字・全大文字の7,684表記を収録しています。たとえば`save`・`Save`・`SAVE`には「セーブ」が付きます。
+- 本文の文字データは元のままです。読みはフォントの文字の形として表示します。
+- Webでは`font-feature-settings: 'ss01' 1`で、日英の読みをまとめて非表示にできます。
+
+## ダウンロード
+
+[Rubifont 0.4.0のZIPをダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.4.0/Rubifont-0.4.0.zip)
+
+ほかの配布版は[Releases](https://github.com/hajimeno-ipoo/Rubifont/releases)から取得できます。ZIPを展開すると、次のファイルを使えます。
+
+| ファイル | 用途 |
+| --- | --- |
+| `RubifontSans-Regular.otf` | インストール用フォント |
+| `RubifontSans-Regular.woff2` | Web用フォント |
+| `index.html` | 自分の文章を入力できる見本ページ |
+| `usage.html` | 使い方とライセンス原文 |
+| `english.html` | 英単語とカタカナ読みの対応一覧 |
+
+ZIPには、読み選択用の一覧、生成記録、検証報告書、ライセンス文書も同梱しています。
+
+## 使い方
+
+### Macで使う
+
+1. ダウンロードしたZIPを展開します。
+2. `RubifontSans-Regular.otf`を開き、Font Bookでインストールします。
+3. 使いたいアプリで、フォントを「Rubifont Sans」に指定します。
+
+読みが切れる場合は、アプリの行間設定を広げてください。表示はアプリのOpenType対応や組版の設定によって異なります。
+
+### Webサイトで使う
+
+`RubifontSans-Regular.woff2`をページと同じフォルダに置き、CSSで読み込みます。
+
+```css
+@font-face {
+  font-family: 'Rubifont Sans';
+  src: url('./RubifontSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+.reading {
+  font-family: 'Rubifont Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.9;
+}
+```
+
+```html
+<p class="reading">日本語で Hello。Settings を開いて Save。</p>
+```
+
+ダウンロードしたZIPの`index.html`を開くと、Webページを作らずに表示を試せます。
+
+## 対応範囲と制限
+
+| 対象 | 対応内容 |
+| --- | --- |
+| 日本語 | 228,356の読みパターンと、単独漢字1,703字への読み設定 |
+| 英語 | 登録した2,562語・7,684表記。複数形や活用形は一覧にある表記のみ |
+| 書体 | 横書きのSans Regular一種類 |
+
+日本語のパターン数は生成規則の数で、正しく読める単語の総数ではありません。部品の組み合わせで同じ読みになる単語もあります。日本郵便の住所データは、フォントの字形数の上限を超えるため収録対象から外しています。
+
+辞書にない語や、文脈によって読みが変わる語には対応できない場合があります。日本語の誤読や、読みが付かない場合もあります。英語のカタカナは発音の目安で、未知語や任意の大小文字混在、文脈による発音の変更には対応しません。
+
+単語が別の要素や書式に分かれると、フォントから見える範囲も分かれます。英語では、長い単語の一部分へ読みが付かないよう、前後の英字・数字などを確認しています。
+
+WebKitでは、異体字セレクターによる単語の別読み指定が正しく働かない場合があります。読みを指定する場合は、フォントと同じ配布版の`RubifontSans-Regular.ivs.json`を使ってください。
+
+確認した環境と検証結果の詳細は、配布ZIP内の`verification.md`をご覧ください。
+
+## 出典とライセンス
+
+Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語のカタカナ読みを追加しています。現在の基準はFurifont v0.5.0です。書体にはAdobeのSource Han Sans JP Regularを使用しています。
+
+| 対象 | ライセンス |
+| --- | --- |
+| FurifontのコードとRubifontの追加コード | [MIT](LICENSE.md) |
+| 生成フォント | [SIL Open Font License 1.1](OFL.txt) |
+| 日本語辞書・読み規則 | 主にCC BY-SA 4.0、TatoebaはCC BY 2.0 FR。[出典と個別条件](packages/dictionary/LICENSE.md) |
+| Rubifont用に作成した英語2,562語の一覧 | CC0 1.0。外部辞書の転載はありません |
+
+配布ZIPには、`CODE-LICENSE.md`・`OFL.txt`・`DATA-LICENSE.md`としてライセンス文書を同梱しています。基になったFurifontの説明・謝辞は[元のREADME](https://github.com/antfu/furifont/blob/v0.5.0/README.md)を参照してください。
+
+## 開発者向け：フォントの再生成
+
+ソースコードを取得したリポジトリで、Node.js 22.18以上と`package.json`で指定したpnpmを使います。
 
 ```sh
 pnpm install --frozen-lockfile --ignore-scripts
@@ -17,83 +101,6 @@ pnpm build
 pnpm rubifont
 ```
 
-フォントと見本ページは`outputs/`へ生成します。Mac用は`RubifontSans-Regular.otf`、Web用は`RubifontSans-Regular.woff2`です。
-使い方と対応範囲は[Rubifontの説明](rubifont/README.md)、構成は[開発用の説明](<FOR[hazimeno_ipoo].md>)を参照してください。
-テストはフォント生成後に`pnpm test`と`pnpm test:e2e`で実行します。
+フォント・見本ページ・対応語一覧は`outputs/`へ生成します。初回はAdobeの元フォントを取得し、`.cache/fonts/`へ保存します。
 
-元作者の更新元は[antfu/furifont](https://github.com/antfu/furifont)です。コードはMIT、生成フォントはSIL OFL 1.1、日本語データは同梱文書記載の各ライセンスです。
-
-以下は、基にしたFurifontの説明です。元の出典とライセンスを保持しています。
-
-![Furifont](./packages/app/public/og.png)
-
-## Furifont
-
-<img src="logo.svg" style="float: right;" alt="Furifont" width="96" height="96">
-
-**Furigana, set by the font.** A Japanese font that shows furigana by itself. The text stays plain: no `<ruby>` markup, no JavaScript, no plugin. It works everywhere that supports custom fonts.
-
-Check out the demo and playground on **[furifont.antfu.me](https://furifont.antfu.me)**
-
-<!-- eslint-skip -->
-
-```html
-<p class="furifont">今日は日本語の勉強をします。</p>
-
-<style>
-.furifont {
-  font-family: 'Furifont Sans';
-  line-height: 1.7;
-}
-</style>
-```
-
-### How it works
-
-Furifont is compiled from Source Han Sans JP or Source Han Serif JP. A build step reads a dictionary of thousands of words and draws the furigana into new glyphs. For each word, the font holds a ligature: 今日 becomes one glyph with きょう above it. Longer words win (日本語 before 日本), and a kanji with no clear reading stays bare. Details on the [website](https://furifont.antfu.me) and in [docs/design.md](docs/design.md).
-
-> [!WARNING]
-> Furigana might be incorrect, due to the limits of fonts: a font sees one run of kanji at a time, not the sentence around it. Keep that in mind when you read.
-
-### Download
-
-Each [release](https://github.com/antfu/furifont/releases/latest) has Sans and Serif, in Hiragana and Romaji, Regular as OpenType and WOFF2, and a variable font of every weight from ExtraLight to Heavy (`Furifont Sans VF`), as TrueType and WOFF2, whose furigana follows the weight of the text. Set `line-height` to 1.6 or more so the furigana is not clipped.
-
-### Use on websites
-
-The [website](https://furifont.antfu.me) has a bookmarklet and a [userscript](https://furifont.antfu.me/furifont.user.js) that set any page in Furifont, with optional okurigana readings.
-
-### Build your own
-
-Choose another base font, word list, furigana letters or sizes. Needs Node 22.18 or later.
-
-```sh
-npx furifont dev     # Customize: live preview in your browser
-npx furifont build --base "Source Han Serif JP Bold" --script hepburn --family "My Furigana"
-```
-
-Settings live in `furifont.config.json`; their defaults are in [`packages/core/src/defaults.ts`](packages/core/src/defaults.ts).
-
-| Package | |
-| --- | --- |
-| [`furifont`](packages/cli) | The CLI and the server behind Customize |
-| [`@furifont/core`](packages/core) | Plans glyphs and OpenType rules from a dictionary |
-| [`@furifont/compiler`](packages/compiler) | Draws the planned glyphs into a base font |
-| [`@furifont/dictionary`](packages/dictionary) | The compiled dictionary |
-| [`@furifont/helper-web`](packages/helper-web) | Sets the Japanese text of any web page in Furifont: the bookmarklet's and the userscript's engine |
-| [`packages/app`](packages/app) | The website and Customize (Nuxt) |
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) to work on it.
-
-### Credits
-
-Furifont is inspired by:
-
-- [Mengshen-pinyin-font](https://github.com/MaruTama/Mengshen-pinyin-font), which puts pinyin on Chinese characters inside the font.
-- [Fira Code](https://github.com/tonsky/firacode), which uses OpenType ligatures to change how text looks.
-
-### License
-
-- **Code:** [MIT](LICENSE.md).
-- **Fonts:** [SIL OFL 1.1](OFL.txt), derived from Source Han Sans and Serif by Adobe.
-- **Dictionary data and reading rules:** [CC BY-SA 4.0](packages/dictionary/LICENSE.md), from JMdict, JMnedict, KANJIDIC2 (EDRDG), JmdictFurigana, yomitan-jlpt-vocab and Tatoeba (CC BY 2.0 FR), with place names from Japan Post's postal code data and JR station names from Desktop Tetsu.
+英語の一覧は`rubifont/english.json`、生成処理は`scripts/build-rubifont.ts`です。構成の詳細は[開発用の説明](<FOR[hazimeno_ipoo].md>)を参照してください。
