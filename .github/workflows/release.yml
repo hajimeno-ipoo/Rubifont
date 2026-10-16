@@ -7,6 +7,8 @@ on:
 
 jobs:
   release:
+    # This publishes the upstream npm packages, not Rubifont.
+    if: github.repository == 'antfu/furifont'
     uses: sxzz/workflows/.github/workflows/release.yml@main
     with:
       publish: true
@@ -15,6 +17,7 @@ jobs:
       id-token: write
 
   fonts:
+    if: github.repository == 'antfu/furifont'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5

@@ -2,6 +2,8 @@
 
 漢字の上にひらがな、登録した英単語の上にカタカナを表示するフォントです。Furifontを基に作成しています。
 
+[ソースコード](https://github.com/hajimeno-ipoo/Rubifont)・[配布版](https://github.com/hajimeno-ipoo/Rubifont/releases)
+
 ## 使い方
 
 - Macへのインストール：`RubifontSans-Regular.otf`を開き、Font Bookでインストールします。

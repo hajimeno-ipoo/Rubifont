@@ -3,6 +3,13 @@
 漢字にはひらがな、登録した英単語にはカタカナの読みを表示する、Furifontの派生フォントです。
 現在はRubifont Sans Regular。日本語の既存処理に、英語2,562語・7,684表記を追加しています。
 
+配布用フォントは[RubifontのReleases](https://github.com/hajimeno-ipoo/Rubifont/releases)からダウンロードできます。
+[0.2.0のZIP](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.2.0/Rubifont-0.2.0.zip)を展開すると、OTF・WOFF2・見本ページ・使い方・対応語一覧・ライセンスが揃っています。
+MacではOTFをFont Bookでインストールし、使いたいアプリで「Rubifont Sans」を選びます。
+
+日本語はFurifontのv0.3.0時点の辞書・読み規則を引き継いでいます。英語の読みはカタカナによる目安で、未登録語や文脈による読み分けは対象外です。
+Chromium・WebKitとMac CoreTextで確認済みです。Firefoxと、Font Bookへのインストール・個々の文書アプリでの操作は未確認です。
+
 ```sh
 pnpm install --frozen-lockfile --ignore-scripts
 pnpm build
@@ -12,6 +19,8 @@ pnpm rubifont
 フォントと見本ページは`outputs/`へ生成します。Mac用は`RubifontSans-Regular.otf`、Web用は`RubifontSans-Regular.woff2`です。
 使い方と対応範囲は[Rubifontの説明](rubifont/README.md)、構成は[開発用の説明](<FOR[hazimeno_ipoo].md>)を参照してください。
 テストはフォント生成後に`pnpm test`と`pnpm test:e2e`で実行します。
+
+元作者の更新元は[antfu/furifont](https://github.com/antfu/furifont)です。コードはMIT、生成フォントはSIL OFL 1.1、日本語データは同梱文書記載の各ライセンスです。
 
 以下は、基にしたFurifontの説明です。元の出典とライセンスを保持しています。
 
