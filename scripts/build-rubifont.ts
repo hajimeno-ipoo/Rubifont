@@ -16,7 +16,7 @@ const output = new URL(process.argv[2] ?? 'outputs/', root)
 const cache = fileURLToPath(new URL('.cache/fonts/', root))
 // Fixed release epoch: midnight in Japan. Rebuilding the same inputs keeps font bytes stable.
 const date = new Date('2026-10-16T00:00:00+09:00')
-const version = '0.3.0'
+const version = '0.4.0'
 await mkdir(output, { recursive: true })
 const source = BASE_FONTS.find(f => f.name === 'Source Han Sans JP Regular')!
 const base = new Uint8Array(await readFile(await fetchBaseFont(source, cache)))
@@ -51,8 +51,8 @@ const manifest = {
   version,
   fontDate: date.toISOString(),
   createdAt: new Date().toISOString(),
-  upstreamVersion: '0.4.2',
-  upstreamCommit: '03c58cb5acfe444bf74f3dbba047b019e55f8bd8',
+  upstreamVersion: '0.5.0',
+  upstreamCommit: 'c8fc985db18860cfe2b3f48e87714302253e9a36',
   japaneseSources: sources,
   base: { name: source.name, url: source.url, sha256: createHash('sha256').update(base).digest('hex'), glyphs: info.glyphCount },
   japanese: report.stats,

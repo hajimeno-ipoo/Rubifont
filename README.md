@@ -4,10 +4,10 @@
 現在はRubifont Sans Regular。日本語の既存処理に、英語2,562語・7,684表記を追加しています。
 
 配布用フォントは[RubifontのReleases](https://github.com/hajimeno-ipoo/Rubifont/releases)からダウンロードできます。
-[0.3.0のZIP](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.3.0/Rubifont-0.3.0.zip)を展開すると、OTF・WOFF2・見本ページ・使い方・対応語一覧・ライセンスが揃っています。
+[0.4.0のZIP](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.4.0/Rubifont-0.4.0.zip)を展開すると、OTF・WOFF2・見本ページ・使い方・対応語一覧・ライセンスが揃っています。
 MacではOTFをFont Bookでインストールし、使いたいアプリで「Rubifont Sans」を選びます。
 
-日本語はFurifont v0.4.2の辞書・読み規則を使い、271,747件の読みパターンを収録しています。新規の日本郵便の住所データは字形上限のため追加対象から外しています。英語の読みはカタカナによる目安で、未登録語や文脈による読み分けは対象外です。
+日本語はFurifont v0.5.0の辞書・読み規則を使い、228,356件の読みパターンを収録しています。部品で同じ読みになる規則を整理し、従来の271,747件の読みと読み範囲は生成規則の全件比較で維持を確認しています。日本郵便の住所データは字形上限のため追加対象から外しています。英語の読みはカタカナによる目安で、未登録語や文脈による読み分けは対象外です。
 MacのChromium・WebKit・CoreTextで通常の読み表示を確認しています。WebKitでは、異体字セレクターによる単語の別読み指定が正しく働かない場合があります。
 MacのFirefox、Font Bookへのインストール・個々の文書アプリでの操作は未確認です。環境別の検証結果は配布版の`verification.md`に記載します。
 
@@ -50,14 +50,14 @@ Check out the demo and playground on **[furifont.antfu.me](https://furifont.antf
 
 ### How it works
 
-Furifont is compiled from Source Han Sans JP or Source Han Serif JP. A build step reads a dictionary of thousands of words and draws the ruby into new glyphs. For each word, the font holds a ligature: 今日 becomes one glyph with きょう above it. Longer words win (日本語 before 日本), and a kanji with no clear reading stays bare. Details on the [website](https://furifont.antfu.me) and in [docs/design.md](docs/design.md).
+Furifont is compiled from Source Han Sans JP or Source Han Serif JP. A build step reads a dictionary of thousands of words and draws the furigana into new glyphs. For each word, the font holds a ligature: 今日 becomes one glyph with きょう above it. Longer words win (日本語 before 日本), and a kanji with no clear reading stays bare. Details on the [website](https://furifont.antfu.me) and in [docs/design.md](docs/design.md).
 
 > [!WARNING]
 > Furigana might be incorrect, due to the limits of fonts: a font sees one run of kanji at a time, not the sentence around it. Keep that in mind when you read.
 
 ### Download
 
-Each [release](https://github.com/antfu/furifont/releases/latest) has Sans and Serif, in Hiragana and Romaji, Regular as OpenType and WOFF2, and a variable font of every weight from ExtraLight to Heavy (`Furifont Sans VF`), as TrueType and WOFF2, whose ruby follows the weight of the text. Set `line-height` to 1.6 or more so the ruby is not clipped.
+Each [release](https://github.com/antfu/furifont/releases/latest) has Sans and Serif, in Hiragana and Romaji, Regular as OpenType and WOFF2, and a variable font of every weight from ExtraLight to Heavy (`Furifont Sans VF`), as TrueType and WOFF2, whose furigana follows the weight of the text. Set `line-height` to 1.6 or more so the furigana is not clipped.
 
 ### Use on websites
 
@@ -65,7 +65,7 @@ The [website](https://furifont.antfu.me) has a bookmarklet and a [userscript](ht
 
 ### Build your own
 
-Choose another base font, word list, ruby letters or sizes. Needs Node 22.18 or later.
+Choose another base font, word list, furigana letters or sizes. Needs Node 22.18 or later.
 
 ```sh
 npx furifont dev     # Customize: live preview in your browser
