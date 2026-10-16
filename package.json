@@ -32,8 +32,9 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "typecheck": "tsc && pnpm -F @furifont/app run typecheck",
-    "ci": "pnpm run lint && pnpm run build && pnpm run typecheck && pnpm run knip && pnpm run test",
-    "prepare": "git config core.hooksPath .githooks && simple-git-hooks && skills experimental_sync -y"
+    "ci": "pnpm run lint && pnpm run build && pnpm run typecheck && pnpm run knip && pnpm run rubifont && pnpm run test",
+    "prepare": "git config core.hooksPath .githooks && simple-git-hooks && skills experimental_sync -y",
+    "rubifont": "node scripts/build-rubifont.ts"
   },
   "scripts-info": {
     "setup": "Install dependencies and the test browsers, then build; run it as `pnpm run setup`",
@@ -57,6 +58,9 @@
     "@antfu/eslint-config": "catalog:cli",
     "@antfu/skills": "catalog:agentic",
     "@antfu/utils": "catalog:inlined",
+    "@furifont/compiler": "workspace:*",
+    "@furifont/core": "workspace:*",
+    "@furifont/dictionary": "workspace:*",
     "@playwright/test": "catalog:testing",
     "@types/node": "catalog:types",
     "bumpp": "catalog:cli",

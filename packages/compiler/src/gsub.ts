@@ -144,6 +144,92 @@ function chainGlyphSubtables(rules: ChainRule[], index: (name: string) => number
   })))))
 }
 
+/** Class definitions for disjoint sets; overlapping classes need format 3. */
+function chainClasses(parts: ChainRule['input']): Map<number, number> | undefined {
+  const classes = new Map<string, number>()
+  const glyphs = new Map<number, number>()
+  for (const part of parts) {
+    const key = [...new Set(part.glyphs)].sort((a, b) => a - b).join(',')
+    if (classes.has(key))
+      continue
+    const id = classes.size + 1
+    for (const glyph of new Set(part.glyphs)) {
+      if (glyphs.has(glyph))
+        return
+      glyphs.set(glyph, id)
+    }
+    classes.set(key, id)
+  }
+  return glyphs
+}
+
+function classDefinition(classes: Map<number, number>): Uint8Array {
+  const ranges: { start: number, end: number, id: number }[] = []
+  for (const [glyph, id] of [...classes].sort(([a], [b]) => a - b)) {
+    const previous = ranges.at(-1)
+    if (previous && previous.end + 1 === glyph && previous.id === id)
+      previous.end = glyph
+    else
+      ranges.push({ start: glyph, end: glyph, id })
+  }
+  const w = new Writer().u16(2).u16(ranges.length)
+  ranges.forEach(r => w.u16(r.start).u16(r.end).u16(r.id))
+  return w.finish()
+}
+
+/** Group singleton inputs and disjoint context classes into format 2. */
+function chainClassSubtables(rules: ChainRule[], index: (name: string) => number): Uint8Array[] | undefined {
+  if (rules.some(r => r.input.some(p => p.isClass)))
+    return
+  const parts = [
+    rules.flatMap(r => r.backtrack),
+    rules.flatMap(r => r.input),
+    rules.flatMap(r => r.lookahead),
+  ]
+  const classes = parts.map(chainClasses)
+  if (classes.some(c => !c))
+    return
+  const [backtrack, input, lookahead] = classes as [Map<number, number>, Map<number, number>, Map<number, number>]
+  const sets = new Map<number, ChainRule[]>()
+  for (const rule of rules) {
+    const first = rule.input[0]!.glyphs[0]!
+    if (!sets.has(first))
+      sets.set(first, [])
+    sets.get(first)!.push(rule)
+  }
+  const count = new Set(input.values()).size + 1
+  return keyed(sets, (keys, values) => {
+    const w = new Writer().u16(2)
+    const cov = w.slot16()
+    const definitions = classes.map(() => w.slot16())
+    w.u16(count)
+    const slots = Array.from({ length: count }, () => w.slot16())
+    for (const [i, key] of keys.entries()) {
+      w.link16(slots[input.get(key)!]!)
+      w.bytes(offsetList(values[i]!.map((rule) => {
+        const r = new Writer()
+        const records = lookupRecords(rule, index)
+        r.u16(rule.backtrack.length)
+        rule.backtrack.toReversed().forEach(p => r.u16(backtrack.get(p.glyphs[0]!)!))
+        r.u16(rule.input.length)
+        rule.input.slice(1).forEach(p => r.u16(input.get(p.glyphs[0]!)!))
+        r.u16(rule.lookahead.length)
+        rule.lookahead.forEach(p => r.u16(lookahead.get(p.glyphs[0]!)!))
+        r.u16(records.length)
+        records.forEach(([at, lookup]) => r.u16(at).u16(lookup))
+        return r.finish()
+      })))
+    }
+    w.link16(cov)
+    w.bytes(coverage(keys))
+    definitions.forEach((slot, i) => {
+      w.link16(slot)
+      w.bytes(classDefinition(classes[i]!))
+    })
+    return w.finish()
+  })
+}
+
 /** A rule over glyph classes (format 3). */
 function chainClassSubtable(rule: ChainRule, index: (name: string) => number): Uint8Array {
   const w = new Writer().u16(3)
@@ -173,7 +259,7 @@ function compileLookups(lookups: Lookup[], index: (name: string) => number): Com
     if (lookup.kind === 'chain') {
       subtables = lookup.segments.flatMap(rules => rules.every(r => [...r.backtrack, ...r.input, ...r.lookahead].every(p => !p.isClass))
         ? chainGlyphSubtables(rules, index)
-        : rules.map(r => chainClassSubtable(r, index)))
+        : chainClassSubtables(rules, index) ?? rules.map(r => chainClassSubtable(r, index)))
     }
     else if (lookup.kind === 'ligature') {
       subtables = lookup.segments.flatMap(ligatureSubtables)

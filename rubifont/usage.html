@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>使い方・ライセンス — Rubifont</title>
+<style>
+:root{color-scheme:light;background:#f7f5ef;color:#282d28;font-family:system-ui,sans-serif;line-height:1.9}*{box-sizing:border-box}body{margin:0}main{max-width:860px;margin:auto;padding:40px 28px 72px}a{color:#385d45;text-underline-offset:4px}h1{font-size:clamp(28px,5vw,42px);font-weight:500;line-height:1.5;margin:24px 0 8px}h2{font-size:21px;font-weight:600;margin:32px 0 12px}section{border-top:1px solid #d6d9cc;margin-top:28px}pre{white-space:pre-wrap;overflow-wrap:anywhere;border:1px solid #d6d9cc;padding:18px;font:13px/1.8 ui-monospace,monospace}code{overflow-wrap:anywhere}li{margin:8px 0}summary{cursor:pointer;padding:12px 0;font-weight:600}details{border-bottom:1px solid #d6d9cc}footer{margin-top:40px;font-size:13px;color:#656d63}.caption{color:#656d63}
+</style>
+</head>
+<body><main>
+<a href="./index.html">← フォントの見本へ戻る</a>
+<h1>使い方・ライセンス</h1>
+<p class="caption">Rubifont Sans Regular 0.2.0</p>
+<p>漢字の上にひらがな、登録した英単語の上にカタカナを表示するフォントです。</p>
+<section><h2>Macで使う</h2>
+<ol><li><a href="./RubifontSans-Regular.otf" download>インストール用フォント（OTF）</a>をダウンロードします。</li><li>OTFファイルを開き、Font Bookでインストールします。</li><li>使いたいアプリで、フォントを「Rubifont Sans」に指定します。</li></ol>
+<p>横書き・Regularの一種類です。アプリのOpenType対応や行間設定によって表示が異なります。</p></section>
+<section><h2>Webサイトで使う</h2>
+<p><a href="./RubifontSans-Regular.woff2" download>Web用フォント（WOFF2）</a>をページと同じフォルダへ置き、次のように指定します。</p>
+<pre><code>@font-face {
+  font-family: 'Rubifont Sans';
+  src: url('./RubifontSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+.reading {
+  font-family: 'Rubifont Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.9;
+}</code></pre>
+<p>読みが切れないよう、行間を広めに設定してください。<code>font-feature-settings: 'ss01' 1</code>で日英の読みを非表示にできます。</p></section>
+<section><h2>対応範囲</h2>
+<p>英語は同梱の一覧にある<!-- ENGLISH_COUNT -->語が対象です。小文字・頭だけ大文字・全大文字の<!-- FORM_COUNT -->表記に対応しています。未知語、任意の大小文字混在、文脈による読み分けは対象外です。カタカナは発音の目安です。</p>
+<!-- JAPANESE_COVERAGE -->
+<p>送り仮名による読み分けを補助するJavaScriptは、この配布物には含みません。</p>
+<p>本文の文字データは元のままです。単語が別の要素や書式に分かれる場合、フォントから見える範囲も分かれます。</p></section>
+<section><h2>出典とライセンス</h2>
+<ul><li>基にしたコード：<a href="https://github.com/antfu/furifont">Anthony FuのFurifont</a>。MITライセンスです。</li><li>基にした書体：Adobe Source Han Sans JP。派生フォントはSIL Open Font License 1.1です。</li><li>日本語辞書・読み規則：主にCC BY-SA 4.0。TatoebaのデータはCC BY 2.0 FRです。個別の出典は下の「日本語データの出典・条件」を確認してください。</li><li>英語<!-- ENGLISH_COUNT -->語：Rubifont用に作成した一覧です。外部辞書の転載はありません。CC0 1.0として提供します。</li><li>Rubifontの追加コード：MITライセンスです。</li></ul>
+<p>次の項目を開くと、配布物に同梱した原文を読めます。</p>
+<details><summary>フォントのライセンス原文（SIL OFL 1.1）</summary><pre><!-- FONT_LICENSE --></pre></details>
+<details><summary>コードのライセンス原文（MIT）</summary><pre><!-- CODE_LICENSE --></pre></details>
+<details><summary>日本語データの出典・条件</summary><pre><!-- DATA_LICENSE --></pre></details>
+</section>
+<footer>Rubifont / Based on Furifont &amp; Source Han Sans JP</footer>
+</main></body></html>

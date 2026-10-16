@@ -99,6 +99,8 @@ export const PlanSchema = v.object({
   }),
   /** Base characters the rules name; each must be in the base font's cmap. */
   codepoints: v.array(Codepoint),
+  /** Names for localized base glyphs, resolved after subsetting. No new outlines are added. */
+  aliases: v.optional(v.array(v.object({ name: v.pipe(v.string(), v.regex(/^[A-Z_][\w.]{0,62}$/i)), codepoint: Codepoint, script: v.string() }))),
   /**
    * Base + variation selector sequences to map in `cmap` format 14, each to an
    * empty glyph named `name`, with the base's advance: the rules replace it.
@@ -108,6 +110,8 @@ export const PlanSchema = v.object({
     name: v.pipe(v.string(), v.regex(/^[A-Z_][\w.]{0,62}$/i)),
     /** The base characters drawn side by side; more than one makes a ligature. */
     bases: v.pipe(v.array(Codepoint), v.minLength(1)),
+    /** Optional width cap in em for a whole-word ruby, leaving Japanese metrics unchanged. */
+    maxRubyWidth: v.optional(v.pipe(v.number(), v.minValue(1))),
     /** Ruby text drawn above characters `[start, end)` of `bases`. */
     ruby: v.array(v.object({ start: v.number(), end: v.number(), text: v.pipe(v.string(), v.nonEmpty()) })),
   })),

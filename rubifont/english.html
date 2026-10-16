@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>英語の対応語一覧 — Rubifont</title>
+<style>
+:root{color-scheme:light;background:#f7f5ef;color:#282d28;font-family:system-ui,sans-serif;line-height:1.9}*{box-sizing:border-box}body{margin:0}main{max-width:860px;margin:auto;padding:40px 28px 72px}a{color:#385d45;text-underline-offset:4px}h1{font-size:clamp(28px,5vw,42px);font-weight:500;line-height:1.5;margin:24px 0 8px}table{width:100%;border-collapse:collapse;margin-top:28px;text-align:left}caption{text-align:left;color:#656d63;margin-bottom:12px}th,td{padding:12px 8px;border-bottom:1px solid #d6d9cc;overflow-wrap:anywhere}th{font-weight:600}footer{margin-top:40px;font-size:13px;color:#656d63}
+</style>
+</head>
+<body><main>
+<a href="./index.html">← フォントの見本へ戻る</a>
+<h1>英語の対応語一覧</h1>
+<p>英単語と、フォントに収録したカタカナの読みを掲載しています。</p>
+<p>小文字・頭だけ大文字・全大文字に対応します。たとえば、save・Save・SAVEには同じ読みが付きます。カタカナは発音の目安です。</p>
+<details><summary>日本語の対応範囲</summary><!-- JAPANESE_COVERAGE --></details>
+<p><label for="word-search">英単語・カタカナで絞り込み <input id="word-search" type="search" style="max-width:100%;font:inherit" placeholder="例：network、ネットワーク"></label></p>
+<p id="search-status" role="status" aria-live="polite"></p>
+<table>
+<caption><!-- ENGLISH_COUNT -->語・<!-- FORM_COUNT -->表記</caption>
+<thead><tr><th scope="col">英単語</th><th scope="col">カタカナの読み</th></tr></thead>
+<tbody>
+<!-- ENGLISH_ROWS -->
+</tbody>
+</table>
+<footer>Rubifont / <a href="./usage.html">使い方・ライセンス</a></footer>
+</main>
+<script>
+const search=document.querySelector('#word-search'), rows=[...document.querySelectorAll('tbody tr')], status=document.querySelector('#search-status');
+search.addEventListener('input',()=>{const query=search.value.trim().toLowerCase();let shown=0;for(const row of rows){row.hidden=!row.textContent.toLowerCase().includes(query);if(!row.hidden)shown++}status.textContent=`${rows.length.toLocaleString('ja-JP')}語中 ${shown.toLocaleString('ja-JP')}語を表示`});
+</script>
+</body></html>

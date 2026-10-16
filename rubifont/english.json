@@ -1,0 +1,10250 @@
+[
+  {
+    "word": "a",
+    "reading": "ア"
+  },
+  {
+    "word": "ability",
+    "reading": "アビリティ"
+  },
+  {
+    "word": "able",
+    "reading": "エイブル"
+  },
+  {
+    "word": "about",
+    "reading": "アバウト"
+  },
+  {
+    "word": "above",
+    "reading": "アバヴ"
+  },
+  {
+    "word": "abroad",
+    "reading": "アブロード"
+  },
+  {
+    "word": "accelerate",
+    "reading": "アクセラレイト"
+  },
+  {
+    "word": "accept",
+    "reading": "アクセプト"
+  },
+  {
+    "word": "access",
+    "reading": "アクセス"
+  },
+  {
+    "word": "accessibility",
+    "reading": "アクセシビリティ"
+  },
+  {
+    "word": "accessible",
+    "reading": "アクセシブル"
+  },
+  {
+    "word": "accident",
+    "reading": "アクシデント"
+  },
+  {
+    "word": "account",
+    "reading": "アカウント"
+  },
+  {
+    "word": "achieve",
+    "reading": "アチーヴ"
+  },
+  {
+    "word": "across",
+    "reading": "アクロス"
+  },
+  {
+    "word": "action",
+    "reading": "アクション"
+  },
+  {
+    "word": "active",
+    "reading": "アクティヴ"
+  },
+  {
+    "word": "activity",
+    "reading": "アクティヴィティ"
+  },
+  {
+    "word": "actual",
+    "reading": "アクチュアル"
+  },
+  {
+    "word": "adapter",
+    "reading": "アダプター"
+  },
+  {
+    "word": "add",
+    "reading": "アド"
+  },
+  {
+    "word": "addition",
+    "reading": "アディション"
+  },
+  {
+    "word": "additional",
+    "reading": "アディショナル"
+  },
+  {
+    "word": "address",
+    "reading": "アドレス"
+  },
+  {
+    "word": "adjust",
+    "reading": "アジャスト"
+  },
+  {
+    "word": "administrator",
+    "reading": "アドミニストレイター"
+  },
+  {
+    "word": "adult",
+    "reading": "アダルト"
+  },
+  {
+    "word": "advance",
+    "reading": "アドヴァンス"
+  },
+  {
+    "word": "advanced",
+    "reading": "アドヴァンスト"
+  },
+  {
+    "word": "advantage",
+    "reading": "アドヴァンティッジ"
+  },
+  {
+    "word": "adventure",
+    "reading": "アドヴェンチャー"
+  },
+  {
+    "word": "afraid",
+    "reading": "アフレイド"
+  },
+  {
+    "word": "after",
+    "reading": "アフター"
+  },
+  {
+    "word": "afternoon",
+    "reading": "アフタヌーン"
+  },
+  {
+    "word": "again",
+    "reading": "アゲン"
+  },
+  {
+    "word": "against",
+    "reading": "アゲンスト"
+  },
+  {
+    "word": "age",
+    "reading": "エイジ"
+  },
+  {
+    "word": "agency",
+    "reading": "エイジェンシー"
+  },
+  {
+    "word": "agent",
+    "reading": "エイジェント"
+  },
+  {
+    "word": "ago",
+    "reading": "アゴウ"
+  },
+  {
+    "word": "agree",
+    "reading": "アグリー"
+  },
+  {
+    "word": "agreement",
+    "reading": "アグリーメント"
+  },
+  {
+    "word": "ahead",
+    "reading": "アヘッド"
+  },
+  {
+    "word": "aid",
+    "reading": "エイド"
+  },
+  {
+    "word": "air",
+    "reading": "エア"
+  },
+  {
+    "word": "airline",
+    "reading": "エアライン"
+  },
+  {
+    "word": "airport",
+    "reading": "エアポート"
+  },
+  {
+    "word": "alarm",
+    "reading": "アラーム"
+  },
+  {
+    "word": "album",
+    "reading": "アルバム"
+  },
+  {
+    "word": "alcohol",
+    "reading": "アルコホール"
+  },
+  {
+    "word": "alert",
+    "reading": "アラート"
+  },
+  {
+    "word": "algorithm",
+    "reading": "アルゴリズム"
+  },
+  {
+    "word": "all",
+    "reading": "オール"
+  },
+  {
+    "word": "allow",
+    "reading": "アラウ"
+  },
+  {
+    "word": "almost",
+    "reading": "オールモウスト"
+  },
+  {
+    "word": "alone",
+    "reading": "アロウン"
+  },
+  {
+    "word": "along",
+    "reading": "アロング"
+  },
+  {
+    "word": "already",
+    "reading": "オールレディ"
+  },
+  {
+    "word": "also",
+    "reading": "オールソウ"
+  },
+  {
+    "word": "although",
+    "reading": "オールゾウ"
+  },
+  {
+    "word": "always",
+    "reading": "オールウェイズ"
+  },
+  {
+    "word": "am",
+    "reading": "アム"
+  },
+  {
+    "word": "amount",
+    "reading": "アマウント"
+  },
+  {
+    "word": "an",
+    "reading": "アン"
+  },
+  {
+    "word": "analysis",
+    "reading": "アナリシス"
+  },
+  {
+    "word": "analyze",
+    "reading": "アナライズ"
+  },
+  {
+    "word": "and",
+    "reading": "アンド"
+  },
+  {
+    "word": "angle",
+    "reading": "アングル"
+  },
+  {
+    "word": "angry",
+    "reading": "アングリー"
+  },
+  {
+    "word": "animal",
+    "reading": "アニマル"
+  },
+  {
+    "word": "animation",
+    "reading": "アニメイション"
+  },
+  {
+    "word": "another",
+    "reading": "アナザー"
+  },
+  {
+    "word": "answer",
+    "reading": "アンサー"
+  },
+  {
+    "word": "any",
+    "reading": "エニー"
+  },
+  {
+    "word": "anybody",
+    "reading": "エニーボディ"
+  },
+  {
+    "word": "anyone",
+    "reading": "エニーワン"
+  },
+  {
+    "word": "anything",
+    "reading": "エニシング"
+  },
+  {
+    "word": "anyway",
+    "reading": "エニーウェイ"
+  },
+  {
+    "word": "anywhere",
+    "reading": "エニーウェア"
+  },
+  {
+    "word": "apartment",
+    "reading": "アパートメント"
+  },
+  {
+    "word": "appear",
+    "reading": "アピア"
+  },
+  {
+    "word": "append",
+    "reading": "アペンド"
+  },
+  {
+    "word": "apple",
+    "reading": "アップル"
+  },
+  {
+    "word": "application",
+    "reading": "アプリケイション"
+  },
+  {
+    "word": "apply",
+    "reading": "アプライ"
+  },
+  {
+    "word": "architecture",
+    "reading": "アーキテクチャー"
+  },
+  {
+    "word": "archive",
+    "reading": "アーカイヴ"
+  },
+  {
+    "word": "are",
+    "reading": "アー"
+  },
+  {
+    "word": "area",
+    "reading": "エリア"
+  },
+  {
+    "word": "argument",
+    "reading": "アーギュメント"
+  },
+  {
+    "word": "arithmetic",
+    "reading": "アリスメティック"
+  },
+  {
+    "word": "arm",
+    "reading": "アーム"
+  },
+  {
+    "word": "army",
+    "reading": "アーミー"
+  },
+  {
+    "word": "around",
+    "reading": "アラウンド"
+  },
+  {
+    "word": "arrange",
+    "reading": "アレインジ"
+  },
+  {
+    "word": "array",
+    "reading": "アレイ"
+  },
+  {
+    "word": "arrive",
+    "reading": "アライヴ"
+  },
+  {
+    "word": "arrow",
+    "reading": "アロウ"
+  },
+  {
+    "word": "art",
+    "reading": "アート"
+  },
+  {
+    "word": "as",
+    "reading": "アズ"
+  },
+  {
+    "word": "ask",
+    "reading": "アスク"
+  },
+  {
+    "word": "asset",
+    "reading": "アセット"
+  },
+  {
+    "word": "assist",
+    "reading": "アシスト"
+  },
+  {
+    "word": "assistant",
+    "reading": "アシスタント"
+  },
+  {
+    "word": "asynchronous",
+    "reading": "エイシンクロナス"
+  },
+  {
+    "word": "at",
+    "reading": "アット"
+  },
+  {
+    "word": "attach",
+    "reading": "アタッチ"
+  },
+  {
+    "word": "attachment",
+    "reading": "アタッチメント"
+  },
+  {
+    "word": "attack",
+    "reading": "アタック"
+  },
+  {
+    "word": "attend",
+    "reading": "アテンド"
+  },
+  {
+    "word": "attention",
+    "reading": "アテンション"
+  },
+  {
+    "word": "audience",
+    "reading": "オーディエンス"
+  },
+  {
+    "word": "audio",
+    "reading": "オーディオ"
+  },
+  {
+    "word": "authentication",
+    "reading": "オーセンティケイション"
+  },
+  {
+    "word": "author",
+    "reading": "オーサー"
+  },
+  {
+    "word": "automatic",
+    "reading": "オートマティック"
+  },
+  {
+    "word": "automation",
+    "reading": "オートメイション"
+  },
+  {
+    "word": "autumn",
+    "reading": "オータム"
+  },
+  {
+    "word": "available",
+    "reading": "アヴェイラブル"
+  },
+  {
+    "word": "average",
+    "reading": "アヴェリッジ"
+  },
+  {
+    "word": "avoid",
+    "reading": "アヴォイド"
+  },
+  {
+    "word": "away",
+    "reading": "アウェイ"
+  },
+  {
+    "word": "awesome",
+    "reading": "オーサム"
+  },
+  {
+    "word": "baby",
+    "reading": "ベイビー"
+  },
+  {
+    "word": "back",
+    "reading": "バック"
+  },
+  {
+    "word": "background",
+    "reading": "バックグラウンド"
+  },
+  {
+    "word": "backpack",
+    "reading": "バックパック"
+  },
+  {
+    "word": "backup",
+    "reading": "バックアップ"
+  },
+  {
+    "word": "backward",
+    "reading": "バックワード"
+  },
+  {
+    "word": "bad",
+    "reading": "バッド"
+  },
+  {
+    "word": "bag",
+    "reading": "バッグ"
+  },
+  {
+    "word": "bake",
+    "reading": "ベイク"
+  },
+  {
+    "word": "balance",
+    "reading": "バランス"
+  },
+  {
+    "word": "ball",
+    "reading": "ボール"
+  },
+  {
+    "word": "banana",
+    "reading": "バナナ"
+  },
+  {
+    "word": "band",
+    "reading": "バンド"
+  },
+  {
+    "word": "bandwidth",
+    "reading": "バンドウィズ"
+  },
+  {
+    "word": "bank",
+    "reading": "バンク"
+  },
+  {
+    "word": "banner",
+    "reading": "バナー"
+  },
+  {
+    "word": "bar",
+    "reading": "バー"
+  },
+  {
+    "word": "base",
+    "reading": "ベイス"
+  },
+  {
+    "word": "basic",
+    "reading": "ベイシック"
+  },
+  {
+    "word": "basketball",
+    "reading": "バスケットボール"
+  },
+  {
+    "word": "batch",
+    "reading": "バッチ"
+  },
+  {
+    "word": "bath",
+    "reading": "バス"
+  },
+  {
+    "word": "bathroom",
+    "reading": "バスルーム"
+  },
+  {
+    "word": "battery",
+    "reading": "バッテリー"
+  },
+  {
+    "word": "be",
+    "reading": "ビー"
+  },
+  {
+    "word": "beach",
+    "reading": "ビーチ"
+  },
+  {
+    "word": "beautiful",
+    "reading": "ビューティフル"
+  },
+  {
+    "word": "because",
+    "reading": "ビコーズ"
+  },
+  {
+    "word": "become",
+    "reading": "ビカム"
+  },
+  {
+    "word": "bed",
+    "reading": "ベッド"
+  },
+  {
+    "word": "beef",
+    "reading": "ビーフ"
+  },
+  {
+    "word": "been",
+    "reading": "ビン"
+  },
+  {
+    "word": "before",
+    "reading": "ビフォー"
+  },
+  {
+    "word": "begin",
+    "reading": "ビギン"
+  },
+  {
+    "word": "behind",
+    "reading": "ビハインド"
+  },
+  {
+    "word": "being",
+    "reading": "ビーイング"
+  },
+  {
+    "word": "believe",
+    "reading": "ビリーヴ"
+  },
+  {
+    "word": "below",
+    "reading": "ビロウ"
+  },
+  {
+    "word": "best",
+    "reading": "ベスト"
+  },
+  {
+    "word": "better",
+    "reading": "ベター"
+  },
+  {
+    "word": "between",
+    "reading": "ビトゥイーン"
+  },
+  {
+    "word": "bicycle",
+    "reading": "バイシクル"
+  },
+  {
+    "word": "big",
+    "reading": "ビッグ"
+  },
+  {
+    "word": "bill",
+    "reading": "ビル"
+  },
+  {
+    "word": "binary",
+    "reading": "バイナリー"
+  },
+  {
+    "word": "bird",
+    "reading": "バード"
+  },
+  {
+    "word": "bit",
+    "reading": "ビット"
+  },
+  {
+    "word": "bite",
+    "reading": "バイト"
+  },
+  {
+    "word": "black",
+    "reading": "ブラック"
+  },
+  {
+    "word": "blank",
+    "reading": "ブランク"
+  },
+  {
+    "word": "blend",
+    "reading": "ブレンド"
+  },
+  {
+    "word": "blind",
+    "reading": "ブラインド"
+  },
+  {
+    "word": "block",
+    "reading": "ブロック"
+  },
+  {
+    "word": "blog",
+    "reading": "ブログ"
+  },
+  {
+    "word": "blood",
+    "reading": "ブラッド"
+  },
+  {
+    "word": "blue",
+    "reading": "ブルー"
+  },
+  {
+    "word": "board",
+    "reading": "ボード"
+  },
+  {
+    "word": "boat",
+    "reading": "ボウト"
+  },
+  {
+    "word": "body",
+    "reading": "ボディ"
+  },
+  {
+    "word": "bold",
+    "reading": "ボウルド"
+  },
+  {
+    "word": "bonus",
+    "reading": "ボウナス"
+  },
+  {
+    "word": "book",
+    "reading": "ブック"
+  },
+  {
+    "word": "bookmark",
+    "reading": "ブックマーク"
+  },
+  {
+    "word": "boot",
+    "reading": "ブート"
+  },
+  {
+    "word": "border",
+    "reading": "ボーダー"
+  },
+  {
+    "word": "borrow",
+    "reading": "ボロウ"
+  },
+  {
+    "word": "boss",
+    "reading": "ボス"
+  },
+  {
+    "word": "both",
+    "reading": "ボウス"
+  },
+  {
+    "word": "bottle",
+    "reading": "ボトル"
+  },
+  {
+    "word": "bottom",
+    "reading": "ボトム"
+  },
+  {
+    "word": "bought",
+    "reading": "ボート"
+  },
+  {
+    "word": "box",
+    "reading": "ボックス"
+  },
+  {
+    "word": "boy",
+    "reading": "ボイ"
+  },
+  {
+    "word": "brain",
+    "reading": "ブレイン"
+  },
+  {
+    "word": "branch",
+    "reading": "ブランチ"
+  },
+  {
+    "word": "brand",
+    "reading": "ブランド"
+  },
+  {
+    "word": "bread",
+    "reading": "ブレッド"
+  },
+  {
+    "word": "break",
+    "reading": "ブレイク"
+  },
+  {
+    "word": "breakfast",
+    "reading": "ブレックファスト"
+  },
+  {
+    "word": "bridge",
+    "reading": "ブリッジ"
+  },
+  {
+    "word": "bright",
+    "reading": "ブライト"
+  },
+  {
+    "word": "brightness",
+    "reading": "ブライトネス"
+  },
+  {
+    "word": "broadcast",
+    "reading": "ブロードキャスト"
+  },
+  {
+    "word": "brother",
+    "reading": "ブラザー"
+  },
+  {
+    "word": "brown",
+    "reading": "ブラウン"
+  },
+  {
+    "word": "browse",
+    "reading": "ブラウズ"
+  },
+  {
+    "word": "browser",
+    "reading": "ブラウザー"
+  },
+  {
+    "word": "budget",
+    "reading": "バジェット"
+  },
+  {
+    "word": "buffer",
+    "reading": "バッファー"
+  },
+  {
+    "word": "bug",
+    "reading": "バグ"
+  },
+  {
+    "word": "build",
+    "reading": "ビルド"
+  },
+  {
+    "word": "building",
+    "reading": "ビルディング"
+  },
+  {
+    "word": "built",
+    "reading": "ビルト"
+  },
+  {
+    "word": "bus",
+    "reading": "バス"
+  },
+  {
+    "word": "business",
+    "reading": "ビジネス"
+  },
+  {
+    "word": "busy",
+    "reading": "ビジー"
+  },
+  {
+    "word": "but",
+    "reading": "バット"
+  },
+  {
+    "word": "butter",
+    "reading": "バター"
+  },
+  {
+    "word": "button",
+    "reading": "バトン"
+  },
+  {
+    "word": "buy",
+    "reading": "バイ"
+  },
+  {
+    "word": "by",
+    "reading": "バイ"
+  },
+  {
+    "word": "cable",
+    "reading": "ケイブル"
+  },
+  {
+    "word": "cache",
+    "reading": "キャッシュ"
+  },
+  {
+    "word": "cake",
+    "reading": "ケイク"
+  },
+  {
+    "word": "calculator",
+    "reading": "カルキュレイター"
+  },
+  {
+    "word": "calendar",
+    "reading": "カレンダー"
+  },
+  {
+    "word": "call",
+    "reading": "コール"
+  },
+  {
+    "word": "callback",
+    "reading": "コールバック"
+  },
+  {
+    "word": "came",
+    "reading": "ケイム"
+  },
+  {
+    "word": "camera",
+    "reading": "カメラ"
+  },
+  {
+    "word": "camp",
+    "reading": "キャンプ"
+  },
+  {
+    "word": "can",
+    "reading": "キャン"
+  },
+  {
+    "word": "cancel",
+    "reading": "キャンセル"
+  },
+  {
+    "word": "cannot",
+    "reading": "キャノット"
+  },
+  {
+    "word": "canvas",
+    "reading": "キャンヴァス"
+  },
+  {
+    "word": "caption",
+    "reading": "キャプション"
+  },
+  {
+    "word": "capture",
+    "reading": "キャプチャー"
+  },
+  {
+    "word": "car",
+    "reading": "カー"
+  },
+  {
+    "word": "card",
+    "reading": "カード"
+  },
+  {
+    "word": "care",
+    "reading": "ケア"
+  },
+  {
+    "word": "career",
+    "reading": "カリア"
+  },
+  {
+    "word": "cart",
+    "reading": "カート"
+  },
+  {
+    "word": "case",
+    "reading": "ケイス"
+  },
+  {
+    "word": "cash",
+    "reading": "キャッシュ"
+  },
+  {
+    "word": "cat",
+    "reading": "キャット"
+  },
+  {
+    "word": "catalog",
+    "reading": "カタログ"
+  },
+  {
+    "word": "catch",
+    "reading": "キャッチ"
+  },
+  {
+    "word": "category",
+    "reading": "カテゴリー"
+  },
+  {
+    "word": "cell",
+    "reading": "セル"
+  },
+  {
+    "word": "center",
+    "reading": "センター"
+  },
+  {
+    "word": "central",
+    "reading": "セントラル"
+  },
+  {
+    "word": "certificate",
+    "reading": "サーティフィケット"
+  },
+  {
+    "word": "chair",
+    "reading": "チェア"
+  },
+  {
+    "word": "challenge",
+    "reading": "チャレンジ"
+  },
+  {
+    "word": "chance",
+    "reading": "チャンス"
+  },
+  {
+    "word": "change",
+    "reading": "チェインジ"
+  },
+  {
+    "word": "channel",
+    "reading": "チャネル"
+  },
+  {
+    "word": "chapter",
+    "reading": "チャプター"
+  },
+  {
+    "word": "character",
+    "reading": "キャラクター"
+  },
+  {
+    "word": "charge",
+    "reading": "チャージ"
+  },
+  {
+    "word": "chart",
+    "reading": "チャート"
+  },
+  {
+    "word": "cheap",
+    "reading": "チープ"
+  },
+  {
+    "word": "check",
+    "reading": "チェック"
+  },
+  {
+    "word": "checkbox",
+    "reading": "チェックボックス"
+  },
+  {
+    "word": "cheese",
+    "reading": "チーズ"
+  },
+  {
+    "word": "chemical",
+    "reading": "ケミカル"
+  },
+  {
+    "word": "chicken",
+    "reading": "チキン"
+  },
+  {
+    "word": "chief",
+    "reading": "チーフ"
+  },
+  {
+    "word": "child",
+    "reading": "チャイルド"
+  },
+  {
+    "word": "children",
+    "reading": "チルドレン"
+  },
+  {
+    "word": "chip",
+    "reading": "チップ"
+  },
+  {
+    "word": "chocolate",
+    "reading": "チョコレット"
+  },
+  {
+    "word": "choose",
+    "reading": "チューズ"
+  },
+  {
+    "word": "chunk",
+    "reading": "チャンク"
+  },
+  {
+    "word": "cinema",
+    "reading": "シネマ"
+  },
+  {
+    "word": "circle",
+    "reading": "サークル"
+  },
+  {
+    "word": "circuit",
+    "reading": "サーキット"
+  },
+  {
+    "word": "city",
+    "reading": "シティ"
+  },
+  {
+    "word": "claim",
+    "reading": "クレイム"
+  },
+  {
+    "word": "class",
+    "reading": "クラス"
+  },
+  {
+    "word": "classroom",
+    "reading": "クラスルーム"
+  },
+  {
+    "word": "clean",
+    "reading": "クリーン"
+  },
+  {
+    "word": "clear",
+    "reading": "クリア"
+  },
+  {
+    "word": "click",
+    "reading": "クリック"
+  },
+  {
+    "word": "client",
+    "reading": "クライアント"
+  },
+  {
+    "word": "climate",
+    "reading": "クライメット"
+  },
+  {
+    "word": "climb",
+    "reading": "クライム"
+  },
+  {
+    "word": "clip",
+    "reading": "クリップ"
+  },
+  {
+    "word": "clipboard",
+    "reading": "クリップボード"
+  },
+  {
+    "word": "clock",
+    "reading": "クロック"
+  },
+  {
+    "word": "clone",
+    "reading": "クロウン"
+  },
+  {
+    "word": "close",
+    "reading": "クローズ"
+  },
+  {
+    "word": "closed",
+    "reading": "クロウズド"
+  },
+  {
+    "word": "clothes",
+    "reading": "クロウズ"
+  },
+  {
+    "word": "cloud",
+    "reading": "クラウド"
+  },
+  {
+    "word": "club",
+    "reading": "クラブ"
+  },
+  {
+    "word": "cluster",
+    "reading": "クラスター"
+  },
+  {
+    "word": "code",
+    "reading": "コウド"
+  },
+  {
+    "word": "coffee",
+    "reading": "コフィー"
+  },
+  {
+    "word": "coin",
+    "reading": "コイン"
+  },
+  {
+    "word": "cold",
+    "reading": "コウルド"
+  },
+  {
+    "word": "collect",
+    "reading": "コレクト"
+  },
+  {
+    "word": "color",
+    "reading": "カラー"
+  },
+  {
+    "word": "column",
+    "reading": "カラム"
+  },
+  {
+    "word": "combine",
+    "reading": "コンバイン"
+  },
+  {
+    "word": "come",
+    "reading": "カム"
+  },
+  {
+    "word": "comma",
+    "reading": "コマ"
+  },
+  {
+    "word": "command",
+    "reading": "コマンド"
+  },
+  {
+    "word": "comment",
+    "reading": "コメント"
+  },
+  {
+    "word": "commit",
+    "reading": "コミット"
+  },
+  {
+    "word": "common",
+    "reading": "コモン"
+  },
+  {
+    "word": "community",
+    "reading": "コミューニティ"
+  },
+  {
+    "word": "company",
+    "reading": "カンパニー"
+  },
+  {
+    "word": "compare",
+    "reading": "コンペア"
+  },
+  {
+    "word": "comparison",
+    "reading": "コンパリソン"
+  },
+  {
+    "word": "compatible",
+    "reading": "コンパティブル"
+  },
+  {
+    "word": "compile",
+    "reading": "コンパイル"
+  },
+  {
+    "word": "compiler",
+    "reading": "コンパイラー"
+  },
+  {
+    "word": "complete",
+    "reading": "コンプリート"
+  },
+  {
+    "word": "complex",
+    "reading": "コンプレックス"
+  },
+  {
+    "word": "component",
+    "reading": "コンポウネント"
+  },
+  {
+    "word": "compress",
+    "reading": "コンプレス"
+  },
+  {
+    "word": "compute",
+    "reading": "コンピュート"
+  },
+  {
+    "word": "computer",
+    "reading": "コンピューター"
+  },
+  {
+    "word": "concept",
+    "reading": "コンセプト"
+  },
+  {
+    "word": "concern",
+    "reading": "コンサーン"
+  },
+  {
+    "word": "concert",
+    "reading": "コンサート"
+  },
+  {
+    "word": "condition",
+    "reading": "コンディション"
+  },
+  {
+    "word": "configuration",
+    "reading": "コンフィギュレイション"
+  },
+  {
+    "word": "confirm",
+    "reading": "コンファーム"
+  },
+  {
+    "word": "conflict",
+    "reading": "コンフリクト"
+  },
+  {
+    "word": "connect",
+    "reading": "コネクト"
+  },
+  {
+    "word": "connection",
+    "reading": "コネクション"
+  },
+  {
+    "word": "consider",
+    "reading": "コンシダー"
+  },
+  {
+    "word": "constant",
+    "reading": "コンスタント"
+  },
+  {
+    "word": "construct",
+    "reading": "コンストラクト"
+  },
+  {
+    "word": "construction",
+    "reading": "コンストラクション"
+  },
+  {
+    "word": "consult",
+    "reading": "コンサルト"
+  },
+  {
+    "word": "consume",
+    "reading": "コンスーム"
+  },
+  {
+    "word": "contact",
+    "reading": "コンタクト"
+  },
+  {
+    "word": "contain",
+    "reading": "コンテイン"
+  },
+  {
+    "word": "container",
+    "reading": "コンテイナー"
+  },
+  {
+    "word": "context",
+    "reading": "コンテクスト"
+  },
+  {
+    "word": "continue",
+    "reading": "コンティニュー"
+  },
+  {
+    "word": "continuous",
+    "reading": "コンティニュアス"
+  },
+  {
+    "word": "control",
+    "reading": "コントロウル"
+  },
+  {
+    "word": "controller",
+    "reading": "コントロウラー"
+  },
+  {
+    "word": "convenient",
+    "reading": "コンヴィーニエント"
+  },
+  {
+    "word": "conversation",
+    "reading": "カンヴァセイション"
+  },
+  {
+    "word": "convert",
+    "reading": "コンヴァート"
+  },
+  {
+    "word": "cook",
+    "reading": "クック"
+  },
+  {
+    "word": "cookie",
+    "reading": "クッキー"
+  },
+  {
+    "word": "cool",
+    "reading": "クール"
+  },
+  {
+    "word": "cooperate",
+    "reading": "コウオペレイト"
+  },
+  {
+    "word": "copper",
+    "reading": "コパー"
+  },
+  {
+    "word": "copy",
+    "reading": "コピー"
+  },
+  {
+    "word": "copyright",
+    "reading": "コピーライト"
+  },
+  {
+    "word": "core",
+    "reading": "コア"
+  },
+  {
+    "word": "corner",
+    "reading": "コーナー"
+  },
+  {
+    "word": "corporate",
+    "reading": "コーポレイト"
+  },
+  {
+    "word": "correct",
+    "reading": "コレクト"
+  },
+  {
+    "word": "correlation",
+    "reading": "コレレイション"
+  },
+  {
+    "word": "cost",
+    "reading": "コスト"
+  },
+  {
+    "word": "couch",
+    "reading": "カウチ"
+  },
+  {
+    "word": "could",
+    "reading": "クッド"
+  },
+  {
+    "word": "count",
+    "reading": "カウント"
+  },
+  {
+    "word": "country",
+    "reading": "カントリー"
+  },
+  {
+    "word": "couple",
+    "reading": "カプル"
+  },
+  {
+    "word": "course",
+    "reading": "コース"
+  },
+  {
+    "word": "court",
+    "reading": "コート"
+  },
+  {
+    "word": "cousin",
+    "reading": "カズン"
+  },
+  {
+    "word": "cover",
+    "reading": "カヴァー"
+  },
+  {
+    "word": "crack",
+    "reading": "クラック"
+  },
+  {
+    "word": "crash",
+    "reading": "クラッシュ"
+  },
+  {
+    "word": "crazy",
+    "reading": "クレイジー"
+  },
+  {
+    "word": "cream",
+    "reading": "クリーム"
+  },
+  {
+    "word": "create",
+    "reading": "クリエイト"
+  },
+  {
+    "word": "creative",
+    "reading": "クリエイティヴ"
+  },
+  {
+    "word": "creator",
+    "reading": "クリエイター"
+  },
+  {
+    "word": "creature",
+    "reading": "クリーチャー"
+  },
+  {
+    "word": "credit",
+    "reading": "クレディット"
+  },
+  {
+    "word": "crew",
+    "reading": "クルー"
+  },
+  {
+    "word": "crime",
+    "reading": "クライム"
+  },
+  {
+    "word": "crisis",
+    "reading": "クライシス"
+  },
+  {
+    "word": "critical",
+    "reading": "クリティカル"
+  },
+  {
+    "word": "crop",
+    "reading": "クロップ"
+  },
+  {
+    "word": "cross",
+    "reading": "クロス"
+  },
+  {
+    "word": "crowd",
+    "reading": "クラウド"
+  },
+  {
+    "word": "cry",
+    "reading": "クライ"
+  },
+  {
+    "word": "cube",
+    "reading": "キューブ"
+  },
+  {
+    "word": "culture",
+    "reading": "カルチャー"
+  },
+  {
+    "word": "cup",
+    "reading": "カップ"
+  },
+  {
+    "word": "curious",
+    "reading": "キュリアス"
+  },
+  {
+    "word": "currency",
+    "reading": "カレンシー"
+  },
+  {
+    "word": "current",
+    "reading": "カレント"
+  },
+  {
+    "word": "currently",
+    "reading": "カレントリー"
+  },
+  {
+    "word": "cursor",
+    "reading": "カーサー"
+  },
+  {
+    "word": "curve",
+    "reading": "カーヴ"
+  },
+  {
+    "word": "custom",
+    "reading": "カスタム"
+  },
+  {
+    "word": "customer",
+    "reading": "カスタマー"
+  },
+  {
+    "word": "customize",
+    "reading": "カスタマイズ"
+  },
+  {
+    "word": "cut",
+    "reading": "カット"
+  },
+  {
+    "word": "cycle",
+    "reading": "サイクル"
+  },
+  {
+    "word": "daily",
+    "reading": "デイリー"
+  },
+  {
+    "word": "damage",
+    "reading": "ダミッジ"
+  },
+  {
+    "word": "dance",
+    "reading": "ダンス"
+  },
+  {
+    "word": "danger",
+    "reading": "デインジャー"
+  },
+  {
+    "word": "dangerous",
+    "reading": "デインジャラス"
+  },
+  {
+    "word": "dashboard",
+    "reading": "ダッシュボード"
+  },
+  {
+    "word": "data",
+    "reading": "デイタ"
+  },
+  {
+    "word": "database",
+    "reading": "デイタベイス"
+  },
+  {
+    "word": "date",
+    "reading": "デイト"
+  },
+  {
+    "word": "daughter",
+    "reading": "ドーター"
+  },
+  {
+    "word": "day",
+    "reading": "デイ"
+  },
+  {
+    "word": "dead",
+    "reading": "デッド"
+  },
+  {
+    "word": "deadline",
+    "reading": "デッドライン"
+  },
+  {
+    "word": "deal",
+    "reading": "ディール"
+  },
+  {
+    "word": "death",
+    "reading": "デス"
+  },
+  {
+    "word": "debug",
+    "reading": "ディバグ"
+  },
+  {
+    "word": "debugger",
+    "reading": "ディバガー"
+  },
+  {
+    "word": "decide",
+    "reading": "ディサイド"
+  },
+  {
+    "word": "decimal",
+    "reading": "デシマル"
+  },
+  {
+    "word": "decision",
+    "reading": "ディシジョン"
+  },
+  {
+    "word": "decode",
+    "reading": "ディコウド"
+  },
+  {
+    "word": "decrease",
+    "reading": "ディクリース"
+  },
+  {
+    "word": "deep",
+    "reading": "ディープ"
+  },
+  {
+    "word": "default",
+    "reading": "ディフォールト"
+  },
+  {
+    "word": "define",
+    "reading": "ディファイン"
+  },
+  {
+    "word": "definition",
+    "reading": "デフィニション"
+  },
+  {
+    "word": "degree",
+    "reading": "ディグリー"
+  },
+  {
+    "word": "delay",
+    "reading": "ディレイ"
+  },
+  {
+    "word": "delete",
+    "reading": "デリート"
+  },
+  {
+    "word": "delicious",
+    "reading": "ディリシャス"
+  },
+  {
+    "word": "delivery",
+    "reading": "ディリヴァリー"
+  },
+  {
+    "word": "demand",
+    "reading": "ディマンド"
+  },
+  {
+    "word": "democracy",
+    "reading": "ディモクラシー"
+  },
+  {
+    "word": "depend",
+    "reading": "ディペンド"
+  },
+  {
+    "word": "dependency",
+    "reading": "ディペンデンシー"
+  },
+  {
+    "word": "deploy",
+    "reading": "ディプロイ"
+  },
+  {
+    "word": "deposit",
+    "reading": "ディポジット"
+  },
+  {
+    "word": "depth",
+    "reading": "デプス"
+  },
+  {
+    "word": "describe",
+    "reading": "ディスクライブ"
+  },
+  {
+    "word": "description",
+    "reading": "ディスクリプション"
+  },
+  {
+    "word": "design",
+    "reading": "ディザイン"
+  },
+  {
+    "word": "designer",
+    "reading": "ディザイナー"
+  },
+  {
+    "word": "desk",
+    "reading": "デスク"
+  },
+  {
+    "word": "desktop",
+    "reading": "デスクトップ"
+  },
+  {
+    "word": "detail",
+    "reading": "ディテイル"
+  },
+  {
+    "word": "details",
+    "reading": "ディテイルズ"
+  },
+  {
+    "word": "detect",
+    "reading": "ディテクト"
+  },
+  {
+    "word": "develop",
+    "reading": "ディヴェロップ"
+  },
+  {
+    "word": "developer",
+    "reading": "ディヴェロパー"
+  },
+  {
+    "word": "development",
+    "reading": "ディヴェロップメント"
+  },
+  {
+    "word": "device",
+    "reading": "ディヴァイス"
+  },
+  {
+    "word": "dialog",
+    "reading": "ダイアログ"
+  },
+  {
+    "word": "dialogue",
+    "reading": "ダイアログ"
+  },
+  {
+    "word": "diamond",
+    "reading": "ダイアモンド"
+  },
+  {
+    "word": "dictionary",
+    "reading": "ディクショナリー"
+  },
+  {
+    "word": "did",
+    "reading": "ディド"
+  },
+  {
+    "word": "die",
+    "reading": "ダイ"
+  },
+  {
+    "word": "diet",
+    "reading": "ダイエット"
+  },
+  {
+    "word": "difference",
+    "reading": "ディファレンス"
+  },
+  {
+    "word": "different",
+    "reading": "ディファレント"
+  },
+  {
+    "word": "difficult",
+    "reading": "ディフィカルト"
+  },
+  {
+    "word": "dig",
+    "reading": "ディグ"
+  },
+  {
+    "word": "digit",
+    "reading": "ディジット"
+  },
+  {
+    "word": "digital",
+    "reading": "ディジタル"
+  },
+  {
+    "word": "dinner",
+    "reading": "ディナー"
+  },
+  {
+    "word": "direct",
+    "reading": "ディレクト"
+  },
+  {
+    "word": "direction",
+    "reading": "ディレクション"
+  },
+  {
+    "word": "director",
+    "reading": "ディレクター"
+  },
+  {
+    "word": "directory",
+    "reading": "ディレクトリー"
+  },
+  {
+    "word": "dirty",
+    "reading": "ダーティ"
+  },
+  {
+    "word": "disable",
+    "reading": "ディセイブル"
+  },
+  {
+    "word": "disc",
+    "reading": "ディスク"
+  },
+  {
+    "word": "discard",
+    "reading": "ディスカード"
+  },
+  {
+    "word": "disconnect",
+    "reading": "ディスコネクト"
+  },
+  {
+    "word": "discover",
+    "reading": "ディスカヴァー"
+  },
+  {
+    "word": "discuss",
+    "reading": "ディスカス"
+  },
+  {
+    "word": "discussion",
+    "reading": "ディスカッション"
+  },
+  {
+    "word": "dish",
+    "reading": "ディッシュ"
+  },
+  {
+    "word": "disk",
+    "reading": "ディスク"
+  },
+  {
+    "word": "dislike",
+    "reading": "ディスライク"
+  },
+  {
+    "word": "disorder",
+    "reading": "ディスオーダー"
+  },
+  {
+    "word": "display",
+    "reading": "ディスプレイ"
+  },
+  {
+    "word": "dispute",
+    "reading": "ディスピュート"
+  },
+  {
+    "word": "distance",
+    "reading": "ディスタンス"
+  },
+  {
+    "word": "distribute",
+    "reading": "ディストリビュート"
+  },
+  {
+    "word": "district",
+    "reading": "ディストリクト"
+  },
+  {
+    "word": "divide",
+    "reading": "ディヴァイド"
+  },
+  {
+    "word": "do",
+    "reading": "ドゥー"
+  },
+  {
+    "word": "dock",
+    "reading": "ドック"
+  },
+  {
+    "word": "doctor",
+    "reading": "ドクター"
+  },
+  {
+    "word": "document",
+    "reading": "ドキュメント"
+  },
+  {
+    "word": "documentation",
+    "reading": "ドキュメンテイション"
+  },
+  {
+    "word": "does",
+    "reading": "ダズ"
+  },
+  {
+    "word": "dog",
+    "reading": "ドッグ"
+  },
+  {
+    "word": "dollar",
+    "reading": "ドラー"
+  },
+  {
+    "word": "domain",
+    "reading": "ドメイン"
+  },
+  {
+    "word": "done",
+    "reading": "ダン"
+  },
+  {
+    "word": "door",
+    "reading": "ドア"
+  },
+  {
+    "word": "dot",
+    "reading": "ドット"
+  },
+  {
+    "word": "double",
+    "reading": "ダブル"
+  },
+  {
+    "word": "down",
+    "reading": "ダウン"
+  },
+  {
+    "word": "download",
+    "reading": "ダウンロード"
+  },
+  {
+    "word": "draft",
+    "reading": "ドラフト"
+  },
+  {
+    "word": "drag",
+    "reading": "ドラグ"
+  },
+  {
+    "word": "draw",
+    "reading": "ドロー"
+  },
+  {
+    "word": "drawing",
+    "reading": "ドローイング"
+  },
+  {
+    "word": "dream",
+    "reading": "ドリーム"
+  },
+  {
+    "word": "dress",
+    "reading": "ドレス"
+  },
+  {
+    "word": "drill",
+    "reading": "ドリル"
+  },
+  {
+    "word": "drink",
+    "reading": "ドリンク"
+  },
+  {
+    "word": "drive",
+    "reading": "ドライヴ"
+  },
+  {
+    "word": "driver",
+    "reading": "ドライヴァー"
+  },
+  {
+    "word": "driving",
+    "reading": "ドライヴィング"
+  },
+  {
+    "word": "drop",
+    "reading": "ドロップ"
+  },
+  {
+    "word": "drum",
+    "reading": "ドラム"
+  },
+  {
+    "word": "dry",
+    "reading": "ドライ"
+  },
+  {
+    "word": "duck",
+    "reading": "ダック"
+  },
+  {
+    "word": "dump",
+    "reading": "ダンプ"
+  },
+  {
+    "word": "duration",
+    "reading": "デュレイション"
+  },
+  {
+    "word": "during",
+    "reading": "デュアリング"
+  },
+  {
+    "word": "dust",
+    "reading": "ダスト"
+  },
+  {
+    "word": "dynamic",
+    "reading": "ダイナミック"
+  },
+  {
+    "word": "each",
+    "reading": "イーチ"
+  },
+  {
+    "word": "ear",
+    "reading": "イア"
+  },
+  {
+    "word": "early",
+    "reading": "アーリー"
+  },
+  {
+    "word": "earn",
+    "reading": "アーン"
+  },
+  {
+    "word": "earth",
+    "reading": "アース"
+  },
+  {
+    "word": "earthquake",
+    "reading": "アースクエイク"
+  },
+  {
+    "word": "ease",
+    "reading": "イーズ"
+  },
+  {
+    "word": "easily",
+    "reading": "イージリー"
+  },
+  {
+    "word": "east",
+    "reading": "イースト"
+  },
+  {
+    "word": "easy",
+    "reading": "イージー"
+  },
+  {
+    "word": "eat",
+    "reading": "イート"
+  },
+  {
+    "word": "echo",
+    "reading": "エコウ"
+  },
+  {
+    "word": "economic",
+    "reading": "イコノミック"
+  },
+  {
+    "word": "economy",
+    "reading": "イコノミー"
+  },
+  {
+    "word": "edge",
+    "reading": "エッジ"
+  },
+  {
+    "word": "edit",
+    "reading": "エディット"
+  },
+  {
+    "word": "edition",
+    "reading": "エディション"
+  },
+  {
+    "word": "editor",
+    "reading": "エディター"
+  },
+  {
+    "word": "educate",
+    "reading": "エジュケイト"
+  },
+  {
+    "word": "education",
+    "reading": "エジュケイション"
+  },
+  {
+    "word": "educational",
+    "reading": "エジュケイショナル"
+  },
+  {
+    "word": "effect",
+    "reading": "イフェクト"
+  },
+  {
+    "word": "effective",
+    "reading": "イフェクティヴ"
+  },
+  {
+    "word": "efficiency",
+    "reading": "イフィシェンシー"
+  },
+  {
+    "word": "efficient",
+    "reading": "イフィシェント"
+  },
+  {
+    "word": "effort",
+    "reading": "エフォート"
+  },
+  {
+    "word": "egg",
+    "reading": "エグ"
+  },
+  {
+    "word": "eight",
+    "reading": "エイト"
+  },
+  {
+    "word": "eighteen",
+    "reading": "エイティーン"
+  },
+  {
+    "word": "eighty",
+    "reading": "エイティ"
+  },
+  {
+    "word": "either",
+    "reading": "イーザー"
+  },
+  {
+    "word": "electric",
+    "reading": "イレクトリック"
+  },
+  {
+    "word": "electrical",
+    "reading": "イレクトリカル"
+  },
+  {
+    "word": "electricity",
+    "reading": "イレクトリシティ"
+  },
+  {
+    "word": "electronic",
+    "reading": "イレクトロニック"
+  },
+  {
+    "word": "electronics",
+    "reading": "イレクトロニクス"
+  },
+  {
+    "word": "element",
+    "reading": "エレメント"
+  },
+  {
+    "word": "elementary",
+    "reading": "エレメンタリー"
+  },
+  {
+    "word": "elephant",
+    "reading": "エレファント"
+  },
+  {
+    "word": "elevator",
+    "reading": "エレヴェイター"
+  },
+  {
+    "word": "eleven",
+    "reading": "イレヴン"
+  },
+  {
+    "word": "else",
+    "reading": "エルス"
+  },
+  {
+    "word": "elsewhere",
+    "reading": "エルスウェア"
+  },
+  {
+    "word": "email",
+    "reading": "イーメール"
+  },
+  {
+    "word": "embed",
+    "reading": "エンベッド"
+  },
+  {
+    "word": "embedded",
+    "reading": "エンベディド"
+  },
+  {
+    "word": "emergency",
+    "reading": "イマージェンシー"
+  },
+  {
+    "word": "emotion",
+    "reading": "イモウション"
+  },
+  {
+    "word": "emphasis",
+    "reading": "エンファシス"
+  },
+  {
+    "word": "employee",
+    "reading": "エンプロイイー"
+  },
+  {
+    "word": "employment",
+    "reading": "エンプロイメント"
+  },
+  {
+    "word": "enable",
+    "reading": "イネイブル"
+  },
+  {
+    "word": "encode",
+    "reading": "エンコウド"
+  },
+  {
+    "word": "encrypt",
+    "reading": "エンクリプト"
+  },
+  {
+    "word": "encryption",
+    "reading": "エンクリプション"
+  },
+  {
+    "word": "end",
+    "reading": "エンド"
+  },
+  {
+    "word": "endpoint",
+    "reading": "エンドポイント"
+  },
+  {
+    "word": "energy",
+    "reading": "エナジー"
+  },
+  {
+    "word": "engine",
+    "reading": "エンジン"
+  },
+  {
+    "word": "engineer",
+    "reading": "エンジニア"
+  },
+  {
+    "word": "engineering",
+    "reading": "エンジニアリング"
+  },
+  {
+    "word": "english",
+    "reading": "イングリッシュ"
+  },
+  {
+    "word": "enhance",
+    "reading": "エンハンス"
+  },
+  {
+    "word": "enjoy",
+    "reading": "エンジョイ"
+  },
+  {
+    "word": "enough",
+    "reading": "イナフ"
+  },
+  {
+    "word": "ensure",
+    "reading": "エンシュア"
+  },
+  {
+    "word": "enter",
+    "reading": "エンター"
+  },
+  {
+    "word": "enterprise",
+    "reading": "エンタプライズ"
+  },
+  {
+    "word": "entertain",
+    "reading": "エンタテイン"
+  },
+  {
+    "word": "entertainment",
+    "reading": "エンタテインメント"
+  },
+  {
+    "word": "entire",
+    "reading": "エンタイア"
+  },
+  {
+    "word": "entirely",
+    "reading": "エンタイアリー"
+  },
+  {
+    "word": "entity",
+    "reading": "エンティティ"
+  },
+  {
+    "word": "entry",
+    "reading": "エントリー"
+  },
+  {
+    "word": "envelope",
+    "reading": "エンヴェロウプ"
+  },
+  {
+    "word": "environment",
+    "reading": "インヴァイロンメント"
+  },
+  {
+    "word": "environmental",
+    "reading": "インヴァイロンメンタル"
+  },
+  {
+    "word": "episode",
+    "reading": "エピソウド"
+  },
+  {
+    "word": "equal",
+    "reading": "イークワル"
+  },
+  {
+    "word": "equality",
+    "reading": "イクウォリティ"
+  },
+  {
+    "word": "equally",
+    "reading": "イークワリー"
+  },
+  {
+    "word": "equation",
+    "reading": "イクウェイジョン"
+  },
+  {
+    "word": "equip",
+    "reading": "イクウィップ"
+  },
+  {
+    "word": "erase",
+    "reading": "イレイス"
+  },
+  {
+    "word": "error",
+    "reading": "エラー"
+  },
+  {
+    "word": "escape",
+    "reading": "エスケイプ"
+  },
+  {
+    "word": "especially",
+    "reading": "エスペシャリー"
+  },
+  {
+    "word": "essential",
+    "reading": "エセンシャル"
+  },
+  {
+    "word": "establish",
+    "reading": "エスタブリッシュ"
+  },
+  {
+    "word": "even",
+    "reading": "イーヴン"
+  },
+  {
+    "word": "evening",
+    "reading": "イーヴニング"
+  },
+  {
+    "word": "event",
+    "reading": "イヴェント"
+  },
+  {
+    "word": "ever",
+    "reading": "エヴァー"
+  },
+  {
+    "word": "every",
+    "reading": "エヴリ"
+  },
+  {
+    "word": "everyone",
+    "reading": "エヴリワン"
+  },
+  {
+    "word": "everything",
+    "reading": "エヴリシング"
+  },
+  {
+    "word": "everywhere",
+    "reading": "エヴリウェア"
+  },
+  {
+    "word": "evidence",
+    "reading": "エヴィデンス"
+  },
+  {
+    "word": "exact",
+    "reading": "イグザクト"
+  },
+  {
+    "word": "exactly",
+    "reading": "イグザクトリー"
+  },
+  {
+    "word": "exam",
+    "reading": "イグザム"
+  },
+  {
+    "word": "example",
+    "reading": "イグザンプル"
+  },
+  {
+    "word": "excellent",
+    "reading": "エクセレント"
+  },
+  {
+    "word": "except",
+    "reading": "イクセプト"
+  },
+  {
+    "word": "exception",
+    "reading": "イクセプション"
+  },
+  {
+    "word": "exchange",
+    "reading": "イクスチェインジ"
+  },
+  {
+    "word": "exciting",
+    "reading": "イクサイティング"
+  },
+  {
+    "word": "execute",
+    "reading": "エクセキュート"
+  },
+  {
+    "word": "exercise",
+    "reading": "エクササイズ"
+  },
+  {
+    "word": "exhibition",
+    "reading": "エクシビション"
+  },
+  {
+    "word": "exist",
+    "reading": "イグジスト"
+  },
+  {
+    "word": "exit",
+    "reading": "エグジット"
+  },
+  {
+    "word": "expand",
+    "reading": "イクスパンド"
+  },
+  {
+    "word": "expect",
+    "reading": "イクスペクト"
+  },
+  {
+    "word": "expense",
+    "reading": "イクスペンス"
+  },
+  {
+    "word": "expensive",
+    "reading": "イクスペンシヴ"
+  },
+  {
+    "word": "experience",
+    "reading": "イクスピアリエンス"
+  },
+  {
+    "word": "experiment",
+    "reading": "イクスペリメント"
+  },
+  {
+    "word": "expert",
+    "reading": "エクスパート"
+  },
+  {
+    "word": "expire",
+    "reading": "イクスパイア"
+  },
+  {
+    "word": "explain",
+    "reading": "イクスプレイン"
+  },
+  {
+    "word": "explicit",
+    "reading": "イクスプリシット"
+  },
+  {
+    "word": "explore",
+    "reading": "イクスプロア"
+  },
+  {
+    "word": "export",
+    "reading": "エクスポート"
+  },
+  {
+    "word": "express",
+    "reading": "イクスプレス"
+  },
+  {
+    "word": "extend",
+    "reading": "イクステンド"
+  },
+  {
+    "word": "extension",
+    "reading": "イクステンション"
+  },
+  {
+    "word": "external",
+    "reading": "イクスターナル"
+  },
+  {
+    "word": "extra",
+    "reading": "エクストラ"
+  },
+  {
+    "word": "extreme",
+    "reading": "イクストリーム"
+  },
+  {
+    "word": "eye",
+    "reading": "アイ"
+  },
+  {
+    "word": "fabric",
+    "reading": "ファブリック"
+  },
+  {
+    "word": "face",
+    "reading": "フェイス"
+  },
+  {
+    "word": "facility",
+    "reading": "ファシリティ"
+  },
+  {
+    "word": "fact",
+    "reading": "ファクト"
+  },
+  {
+    "word": "factor",
+    "reading": "ファクター"
+  },
+  {
+    "word": "factory",
+    "reading": "ファクトリー"
+  },
+  {
+    "word": "fade",
+    "reading": "フェイド"
+  },
+  {
+    "word": "fail",
+    "reading": "フェイル"
+  },
+  {
+    "word": "failure",
+    "reading": "フェイリャー"
+  },
+  {
+    "word": "fair",
+    "reading": "フェア"
+  },
+  {
+    "word": "fake",
+    "reading": "フェイク"
+  },
+  {
+    "word": "fall",
+    "reading": "フォール"
+  },
+  {
+    "word": "false",
+    "reading": "フォールス"
+  },
+  {
+    "word": "familiar",
+    "reading": "ファミリア"
+  },
+  {
+    "word": "family",
+    "reading": "ファミリー"
+  },
+  {
+    "word": "famous",
+    "reading": "フェイマス"
+  },
+  {
+    "word": "fan",
+    "reading": "ファン"
+  },
+  {
+    "word": "fancy",
+    "reading": "ファンシー"
+  },
+  {
+    "word": "fantastic",
+    "reading": "ファンタスティック"
+  },
+  {
+    "word": "fantasy",
+    "reading": "ファンタシー"
+  },
+  {
+    "word": "far",
+    "reading": "ファー"
+  },
+  {
+    "word": "fare",
+    "reading": "フェア"
+  },
+  {
+    "word": "farm",
+    "reading": "ファーム"
+  },
+  {
+    "word": "farmer",
+    "reading": "ファーマー"
+  },
+  {
+    "word": "fashion",
+    "reading": "ファッション"
+  },
+  {
+    "word": "fast",
+    "reading": "ファスト"
+  },
+  {
+    "word": "fat",
+    "reading": "ファット"
+  },
+  {
+    "word": "fatal",
+    "reading": "フェイタル"
+  },
+  {
+    "word": "father",
+    "reading": "ファーザー"
+  },
+  {
+    "word": "favorite",
+    "reading": "フェイヴァリット"
+  },
+  {
+    "word": "fear",
+    "reading": "フィア"
+  },
+  {
+    "word": "feather",
+    "reading": "フェザー"
+  },
+  {
+    "word": "feature",
+    "reading": "フィーチャー"
+  },
+  {
+    "word": "fee",
+    "reading": "フィー"
+  },
+  {
+    "word": "feed",
+    "reading": "フィード"
+  },
+  {
+    "word": "feedback",
+    "reading": "フィードバック"
+  },
+  {
+    "word": "feel",
+    "reading": "フィール"
+  },
+  {
+    "word": "feeling",
+    "reading": "フィーリング"
+  },
+  {
+    "word": "fence",
+    "reading": "フェンス"
+  },
+  {
+    "word": "festival",
+    "reading": "フェスティヴァル"
+  },
+  {
+    "word": "fetch",
+    "reading": "フェッチ"
+  },
+  {
+    "word": "few",
+    "reading": "フュー"
+  },
+  {
+    "word": "fiction",
+    "reading": "フィクション"
+  },
+  {
+    "word": "field",
+    "reading": "フィールド"
+  },
+  {
+    "word": "fifteen",
+    "reading": "フィフティーン"
+  },
+  {
+    "word": "fifty",
+    "reading": "フィフティ"
+  },
+  {
+    "word": "fight",
+    "reading": "ファイト"
+  },
+  {
+    "word": "file",
+    "reading": "ファイル"
+  },
+  {
+    "word": "filename",
+    "reading": "ファイルネイム"
+  },
+  {
+    "word": "fill",
+    "reading": "フィル"
+  },
+  {
+    "word": "film",
+    "reading": "フィルム"
+  },
+  {
+    "word": "filter",
+    "reading": "フィルター"
+  },
+  {
+    "word": "final",
+    "reading": "ファイナル"
+  },
+  {
+    "word": "finally",
+    "reading": "ファイナリー"
+  },
+  {
+    "word": "finance",
+    "reading": "ファイナンス"
+  },
+  {
+    "word": "find",
+    "reading": "ファインド"
+  },
+  {
+    "word": "fine",
+    "reading": "ファイン"
+  },
+  {
+    "word": "finger",
+    "reading": "フィンガー"
+  },
+  {
+    "word": "finish",
+    "reading": "フィニッシュ"
+  },
+  {
+    "word": "fire",
+    "reading": "ファイア"
+  },
+  {
+    "word": "firm",
+    "reading": "ファーム"
+  },
+  {
+    "word": "first",
+    "reading": "ファースト"
+  },
+  {
+    "word": "fish",
+    "reading": "フィッシュ"
+  },
+  {
+    "word": "fit",
+    "reading": "フィット"
+  },
+  {
+    "word": "five",
+    "reading": "ファイヴ"
+  },
+  {
+    "word": "fix",
+    "reading": "フィクス"
+  },
+  {
+    "word": "fixed",
+    "reading": "フィクスト"
+  },
+  {
+    "word": "flag",
+    "reading": "フラグ"
+  },
+  {
+    "word": "flame",
+    "reading": "フレイム"
+  },
+  {
+    "word": "flash",
+    "reading": "フラッシュ"
+  },
+  {
+    "word": "flat",
+    "reading": "フラット"
+  },
+  {
+    "word": "flavor",
+    "reading": "フレイヴァー"
+  },
+  {
+    "word": "flexible",
+    "reading": "フレクシブル"
+  },
+  {
+    "word": "flight",
+    "reading": "フライト"
+  },
+  {
+    "word": "flip",
+    "reading": "フリップ"
+  },
+  {
+    "word": "float",
+    "reading": "フロウト"
+  },
+  {
+    "word": "flood",
+    "reading": "フラッド"
+  },
+  {
+    "word": "floor",
+    "reading": "フロア"
+  },
+  {
+    "word": "flow",
+    "reading": "フロウ"
+  },
+  {
+    "word": "flower",
+    "reading": "フラワー"
+  },
+  {
+    "word": "flush",
+    "reading": "フラッシュ"
+  },
+  {
+    "word": "fly",
+    "reading": "フライ"
+  },
+  {
+    "word": "focus",
+    "reading": "フォウカス"
+  },
+  {
+    "word": "fog",
+    "reading": "フォグ"
+  },
+  {
+    "word": "fold",
+    "reading": "フォウルド"
+  },
+  {
+    "word": "folder",
+    "reading": "フォルダー"
+  },
+  {
+    "word": "follow",
+    "reading": "フォロウ"
+  },
+  {
+    "word": "font",
+    "reading": "フォント"
+  },
+  {
+    "word": "food",
+    "reading": "フード"
+  },
+  {
+    "word": "foot",
+    "reading": "フット"
+  },
+  {
+    "word": "football",
+    "reading": "フットボール"
+  },
+  {
+    "word": "for",
+    "reading": "フォー"
+  },
+  {
+    "word": "force",
+    "reading": "フォース"
+  },
+  {
+    "word": "foreign",
+    "reading": "フォリン"
+  },
+  {
+    "word": "forest",
+    "reading": "フォレスト"
+  },
+  {
+    "word": "forget",
+    "reading": "フォーゲット"
+  },
+  {
+    "word": "forgotten",
+    "reading": "フォーゴットン"
+  },
+  {
+    "word": "fork",
+    "reading": "フォーク"
+  },
+  {
+    "word": "form",
+    "reading": "フォーム"
+  },
+  {
+    "word": "formal",
+    "reading": "フォーマル"
+  },
+  {
+    "word": "format",
+    "reading": "フォーマット"
+  },
+  {
+    "word": "formation",
+    "reading": "フォーメイション"
+  },
+  {
+    "word": "formula",
+    "reading": "フォーミュラ"
+  },
+  {
+    "word": "fortunate",
+    "reading": "フォーチュネット"
+  },
+  {
+    "word": "forty",
+    "reading": "フォーティ"
+  },
+  {
+    "word": "forum",
+    "reading": "フォーラム"
+  },
+  {
+    "word": "forward",
+    "reading": "フォーワード"
+  },
+  {
+    "word": "found",
+    "reading": "ファウンド"
+  },
+  {
+    "word": "four",
+    "reading": "フォー"
+  },
+  {
+    "word": "fourth",
+    "reading": "フォース"
+  },
+  {
+    "word": "fox",
+    "reading": "フォックス"
+  },
+  {
+    "word": "fragment",
+    "reading": "フラグメント"
+  },
+  {
+    "word": "frame",
+    "reading": "フレイム"
+  },
+  {
+    "word": "framework",
+    "reading": "フレイムワーク"
+  },
+  {
+    "word": "free",
+    "reading": "フリー"
+  },
+  {
+    "word": "freeze",
+    "reading": "フリーズ"
+  },
+  {
+    "word": "frequency",
+    "reading": "フリークエンシー"
+  },
+  {
+    "word": "frequently",
+    "reading": "フリークエントリー"
+  },
+  {
+    "word": "fresh",
+    "reading": "フレッシュ"
+  },
+  {
+    "word": "friend",
+    "reading": "フレンド"
+  },
+  {
+    "word": "friendly",
+    "reading": "フレンドリー"
+  },
+  {
+    "word": "frog",
+    "reading": "フログ"
+  },
+  {
+    "word": "from",
+    "reading": "フロム"
+  },
+  {
+    "word": "front",
+    "reading": "フロント"
+  },
+  {
+    "word": "fruit",
+    "reading": "フルート"
+  },
+  {
+    "word": "fuel",
+    "reading": "フューエル"
+  },
+  {
+    "word": "full",
+    "reading": "フル"
+  },
+  {
+    "word": "fun",
+    "reading": "ファン"
+  },
+  {
+    "word": "function",
+    "reading": "ファンクション"
+  },
+  {
+    "word": "fund",
+    "reading": "ファンド"
+  },
+  {
+    "word": "funny",
+    "reading": "ファニー"
+  },
+  {
+    "word": "furniture",
+    "reading": "ファーニチャー"
+  },
+  {
+    "word": "further",
+    "reading": "ファーザー"
+  },
+  {
+    "word": "future",
+    "reading": "フューチャー"
+  },
+  {
+    "word": "gain",
+    "reading": "ゲイン"
+  },
+  {
+    "word": "galaxy",
+    "reading": "ギャラクシー"
+  },
+  {
+    "word": "gallery",
+    "reading": "ギャラリー"
+  },
+  {
+    "word": "game",
+    "reading": "ゲイム"
+  },
+  {
+    "word": "gaming",
+    "reading": "ゲイミング"
+  },
+  {
+    "word": "gap",
+    "reading": "ギャップ"
+  },
+  {
+    "word": "garage",
+    "reading": "ガラージュ"
+  },
+  {
+    "word": "garbage",
+    "reading": "ガービッジ"
+  },
+  {
+    "word": "garden",
+    "reading": "ガーデン"
+  },
+  {
+    "word": "garlic",
+    "reading": "ガーリック"
+  },
+  {
+    "word": "gas",
+    "reading": "ギャス"
+  },
+  {
+    "word": "gate",
+    "reading": "ゲイト"
+  },
+  {
+    "word": "gateway",
+    "reading": "ゲイトウェイ"
+  },
+  {
+    "word": "gather",
+    "reading": "ギャザー"
+  },
+  {
+    "word": "gave",
+    "reading": "ゲイヴ"
+  },
+  {
+    "word": "gaze",
+    "reading": "ゲイズ"
+  },
+  {
+    "word": "gear",
+    "reading": "ギア"
+  },
+  {
+    "word": "gender",
+    "reading": "ジェンダー"
+  },
+  {
+    "word": "gene",
+    "reading": "ジーン"
+  },
+  {
+    "word": "general",
+    "reading": "ジェネラル"
+  },
+  {
+    "word": "generally",
+    "reading": "ジェネラリー"
+  },
+  {
+    "word": "generate",
+    "reading": "ジェネレイト"
+  },
+  {
+    "word": "generation",
+    "reading": "ジェネレイション"
+  },
+  {
+    "word": "generator",
+    "reading": "ジェネレイター"
+  },
+  {
+    "word": "generic",
+    "reading": "ジェネリック"
+  },
+  {
+    "word": "generous",
+    "reading": "ジェネラス"
+  },
+  {
+    "word": "genius",
+    "reading": "ジーニアス"
+  },
+  {
+    "word": "gentle",
+    "reading": "ジェントル"
+  },
+  {
+    "word": "genuine",
+    "reading": "ジェニュイン"
+  },
+  {
+    "word": "geography",
+    "reading": "ジオグラフィー"
+  },
+  {
+    "word": "gesture",
+    "reading": "ジェスチャー"
+  },
+  {
+    "word": "get",
+    "reading": "ゲット"
+  },
+  {
+    "word": "getting",
+    "reading": "ゲティング"
+  },
+  {
+    "word": "ghost",
+    "reading": "ゴウスト"
+  },
+  {
+    "word": "giant",
+    "reading": "ジャイアント"
+  },
+  {
+    "word": "gift",
+    "reading": "ギフト"
+  },
+  {
+    "word": "girl",
+    "reading": "ガール"
+  },
+  {
+    "word": "give",
+    "reading": "ギヴ"
+  },
+  {
+    "word": "given",
+    "reading": "ギヴン"
+  },
+  {
+    "word": "giving",
+    "reading": "ギヴィング"
+  },
+  {
+    "word": "glad",
+    "reading": "グラッド"
+  },
+  {
+    "word": "glance",
+    "reading": "グランス"
+  },
+  {
+    "word": "glass",
+    "reading": "グラス"
+  },
+  {
+    "word": "glasses",
+    "reading": "グラシズ"
+  },
+  {
+    "word": "global",
+    "reading": "グロウバル"
+  },
+  {
+    "word": "globe",
+    "reading": "グロウブ"
+  },
+  {
+    "word": "glorious",
+    "reading": "グローリアス"
+  },
+  {
+    "word": "glory",
+    "reading": "グローリー"
+  },
+  {
+    "word": "glossary",
+    "reading": "グロサリー"
+  },
+  {
+    "word": "glove",
+    "reading": "グラヴ"
+  },
+  {
+    "word": "glow",
+    "reading": "グロウ"
+  },
+  {
+    "word": "glue",
+    "reading": "グルー"
+  },
+  {
+    "word": "go",
+    "reading": "ゴウ"
+  },
+  {
+    "word": "goal",
+    "reading": "ゴウル"
+  },
+  {
+    "word": "goat",
+    "reading": "ゴウト"
+  },
+  {
+    "word": "god",
+    "reading": "ゴッド"
+  },
+  {
+    "word": "goes",
+    "reading": "ゴウズ"
+  },
+  {
+    "word": "going",
+    "reading": "ゴウイング"
+  },
+  {
+    "word": "gold",
+    "reading": "ゴウルド"
+  },
+  {
+    "word": "golden",
+    "reading": "ゴウルデン"
+  },
+  {
+    "word": "golf",
+    "reading": "ゴルフ"
+  },
+  {
+    "word": "gone",
+    "reading": "ゴーン"
+  },
+  {
+    "word": "good",
+    "reading": "グッド"
+  },
+  {
+    "word": "goodbye",
+    "reading": "グッドバイ"
+  },
+  {
+    "word": "goods",
+    "reading": "グッズ"
+  },
+  {
+    "word": "gorgeous",
+    "reading": "ゴージャス"
+  },
+  {
+    "word": "got",
+    "reading": "ゴット"
+  },
+  {
+    "word": "govern",
+    "reading": "ガヴァン"
+  },
+  {
+    "word": "government",
+    "reading": "ガヴァンメント"
+  },
+  {
+    "word": "governor",
+    "reading": "ガヴァナー"
+  },
+  {
+    "word": "grace",
+    "reading": "グレイス"
+  },
+  {
+    "word": "grade",
+    "reading": "グレイド"
+  },
+  {
+    "word": "gradient",
+    "reading": "グレイディエント"
+  },
+  {
+    "word": "gradual",
+    "reading": "グラジュアル"
+  },
+  {
+    "word": "gradually",
+    "reading": "グラジュアリー"
+  },
+  {
+    "word": "grain",
+    "reading": "グレイン"
+  },
+  {
+    "word": "grammar",
+    "reading": "グラマー"
+  },
+  {
+    "word": "grand",
+    "reading": "グランド"
+  },
+  {
+    "word": "grandfather",
+    "reading": "グランドファーザー"
+  },
+  {
+    "word": "grandmother",
+    "reading": "グランドマザー"
+  },
+  {
+    "word": "grant",
+    "reading": "グラント"
+  },
+  {
+    "word": "grape",
+    "reading": "グレイプ"
+  },
+  {
+    "word": "graph",
+    "reading": "グラフ"
+  },
+  {
+    "word": "graphic",
+    "reading": "グラフィック"
+  },
+  {
+    "word": "graphics",
+    "reading": "グラフィクス"
+  },
+  {
+    "word": "grasp",
+    "reading": "グラスプ"
+  },
+  {
+    "word": "grass",
+    "reading": "グラス"
+  },
+  {
+    "word": "grateful",
+    "reading": "グレイトフル"
+  },
+  {
+    "word": "gravity",
+    "reading": "グラヴィティ"
+  },
+  {
+    "word": "gray",
+    "reading": "グレイ"
+  },
+  {
+    "word": "great",
+    "reading": "グレイト"
+  },
+  {
+    "word": "greatly",
+    "reading": "グレイトリー"
+  },
+  {
+    "word": "green",
+    "reading": "グリーン"
+  },
+  {
+    "word": "greenhouse",
+    "reading": "グリーンハウス"
+  },
+  {
+    "word": "greet",
+    "reading": "グリート"
+  },
+  {
+    "word": "greeting",
+    "reading": "グリーティング"
+  },
+  {
+    "word": "grew",
+    "reading": "グルー"
+  },
+  {
+    "word": "grey",
+    "reading": "グレイ"
+  },
+  {
+    "word": "grid",
+    "reading": "グリッド"
+  },
+  {
+    "word": "grief",
+    "reading": "グリーフ"
+  },
+  {
+    "word": "grill",
+    "reading": "グリル"
+  },
+  {
+    "word": "grip",
+    "reading": "グリップ"
+  },
+  {
+    "word": "grocery",
+    "reading": "グロウサリー"
+  },
+  {
+    "word": "gross",
+    "reading": "グロウス"
+  },
+  {
+    "word": "ground",
+    "reading": "グラウンド"
+  },
+  {
+    "word": "group",
+    "reading": "グループ"
+  },
+  {
+    "word": "grow",
+    "reading": "グロウ"
+  },
+  {
+    "word": "growth",
+    "reading": "グロウス"
+  },
+  {
+    "word": "guarantee",
+    "reading": "ギャランティー"
+  },
+  {
+    "word": "guard",
+    "reading": "ガード"
+  },
+  {
+    "word": "guess",
+    "reading": "ゲス"
+  },
+  {
+    "word": "guest",
+    "reading": "ゲスト"
+  },
+  {
+    "word": "guidance",
+    "reading": "ガイダンス"
+  },
+  {
+    "word": "guide",
+    "reading": "ガイド"
+  },
+  {
+    "word": "guideline",
+    "reading": "ガイドライン"
+  },
+  {
+    "word": "guilty",
+    "reading": "ギルティ"
+  },
+  {
+    "word": "guitar",
+    "reading": "ギター"
+  },
+  {
+    "word": "gum",
+    "reading": "ガム"
+  },
+  {
+    "word": "gun",
+    "reading": "ガン"
+  },
+  {
+    "word": "gym",
+    "reading": "ジム"
+  },
+  {
+    "word": "habit",
+    "reading": "ハビット"
+  },
+  {
+    "word": "had",
+    "reading": "ハド"
+  },
+  {
+    "word": "hair",
+    "reading": "ヘア"
+  },
+  {
+    "word": "half",
+    "reading": "ハーフ"
+  },
+  {
+    "word": "hall",
+    "reading": "ホール"
+  },
+  {
+    "word": "hammer",
+    "reading": "ハンマー"
+  },
+  {
+    "word": "hand",
+    "reading": "ハンド"
+  },
+  {
+    "word": "handbook",
+    "reading": "ハンドブック"
+  },
+  {
+    "word": "handle",
+    "reading": "ハンドル"
+  },
+  {
+    "word": "handler",
+    "reading": "ハンドラー"
+  },
+  {
+    "word": "handmade",
+    "reading": "ハンドメイド"
+  },
+  {
+    "word": "handwriting",
+    "reading": "ハンドライティング"
+  },
+  {
+    "word": "hang",
+    "reading": "ハング"
+  },
+  {
+    "word": "happen",
+    "reading": "ハプン"
+  },
+  {
+    "word": "happiness",
+    "reading": "ハピネス"
+  },
+  {
+    "word": "happy",
+    "reading": "ハッピー"
+  },
+  {
+    "word": "hard",
+    "reading": "ハード"
+  },
+  {
+    "word": "hardly",
+    "reading": "ハードリー"
+  },
+  {
+    "word": "hardware",
+    "reading": "ハードウェア"
+  },
+  {
+    "word": "harm",
+    "reading": "ハーム"
+  },
+  {
+    "word": "has",
+    "reading": "ハズ"
+  },
+  {
+    "word": "hat",
+    "reading": "ハット"
+  },
+  {
+    "word": "hate",
+    "reading": "ヘイト"
+  },
+  {
+    "word": "have",
+    "reading": "ハヴ"
+  },
+  {
+    "word": "he",
+    "reading": "ヒー"
+  },
+  {
+    "word": "head",
+    "reading": "ヘッド"
+  },
+  {
+    "word": "headache",
+    "reading": "ヘッドエイク"
+  },
+  {
+    "word": "header",
+    "reading": "ヘッダー"
+  },
+  {
+    "word": "heading",
+    "reading": "ヘディング"
+  },
+  {
+    "word": "headphones",
+    "reading": "ヘッドフォンズ"
+  },
+  {
+    "word": "health",
+    "reading": "ヘルス"
+  },
+  {
+    "word": "healthy",
+    "reading": "ヘルシー"
+  },
+  {
+    "word": "hear",
+    "reading": "ヒア"
+  },
+  {
+    "word": "heard",
+    "reading": "ハード"
+  },
+  {
+    "word": "hearing",
+    "reading": "ヒアリング"
+  },
+  {
+    "word": "heart",
+    "reading": "ハート"
+  },
+  {
+    "word": "heat",
+    "reading": "ヒート"
+  },
+  {
+    "word": "heater",
+    "reading": "ヒーター"
+  },
+  {
+    "word": "height",
+    "reading": "ハイト"
+  },
+  {
+    "word": "hello",
+    "reading": "ハロー"
+  },
+  {
+    "word": "helmet",
+    "reading": "ヘルメット"
+  },
+  {
+    "word": "help",
+    "reading": "ヘルプ"
+  },
+  {
+    "word": "helper",
+    "reading": "ヘルパー"
+  },
+  {
+    "word": "helpful",
+    "reading": "ヘルプフル"
+  },
+  {
+    "word": "her",
+    "reading": "ハー"
+  },
+  {
+    "word": "here",
+    "reading": "ヒア"
+  },
+  {
+    "word": "hero",
+    "reading": "ヒーロー"
+  },
+  {
+    "word": "hers",
+    "reading": "ハーズ"
+  },
+  {
+    "word": "herself",
+    "reading": "ハーセルフ"
+  },
+  {
+    "word": "hidden",
+    "reading": "ヒドゥン"
+  },
+  {
+    "word": "hide",
+    "reading": "ハイド"
+  },
+  {
+    "word": "hierarchy",
+    "reading": "ハイアラーキー"
+  },
+  {
+    "word": "high",
+    "reading": "ハイ"
+  },
+  {
+    "word": "highest",
+    "reading": "ハイエスト"
+  },
+  {
+    "word": "highlight",
+    "reading": "ハイライト"
+  },
+  {
+    "word": "hill",
+    "reading": "ヒル"
+  },
+  {
+    "word": "him",
+    "reading": "ヒム"
+  },
+  {
+    "word": "himself",
+    "reading": "ヒムセルフ"
+  },
+  {
+    "word": "hint",
+    "reading": "ヒント"
+  },
+  {
+    "word": "hire",
+    "reading": "ハイアー"
+  },
+  {
+    "word": "his",
+    "reading": "ヒズ"
+  },
+  {
+    "word": "history",
+    "reading": "ヒストリー"
+  },
+  {
+    "word": "hit",
+    "reading": "ヒット"
+  },
+  {
+    "word": "hobby",
+    "reading": "ホビー"
+  },
+  {
+    "word": "hold",
+    "reading": "ホールド"
+  },
+  {
+    "word": "holder",
+    "reading": "ホールダー"
+  },
+  {
+    "word": "hole",
+    "reading": "ホール"
+  },
+  {
+    "word": "holiday",
+    "reading": "ホリデイ"
+  },
+  {
+    "word": "hollow",
+    "reading": "ホロウ"
+  },
+  {
+    "word": "home",
+    "reading": "ホーム"
+  },
+  {
+    "word": "homepage",
+    "reading": "ホームページ"
+  },
+  {
+    "word": "hometown",
+    "reading": "ホームタウン"
+  },
+  {
+    "word": "homework",
+    "reading": "ホームワーク"
+  },
+  {
+    "word": "honest",
+    "reading": "オネスト"
+  },
+  {
+    "word": "honesty",
+    "reading": "オネスティー"
+  },
+  {
+    "word": "hook",
+    "reading": "フック"
+  },
+  {
+    "word": "hope",
+    "reading": "ホープ"
+  },
+  {
+    "word": "hopefully",
+    "reading": "ホープフリー"
+  },
+  {
+    "word": "horizontal",
+    "reading": "ホリゾンタル"
+  },
+  {
+    "word": "horse",
+    "reading": "ホース"
+  },
+  {
+    "word": "hospital",
+    "reading": "ホスピタル"
+  },
+  {
+    "word": "host",
+    "reading": "ホスト"
+  },
+  {
+    "word": "hosting",
+    "reading": "ホスティング"
+  },
+  {
+    "word": "hot",
+    "reading": "ホット"
+  },
+  {
+    "word": "hotel",
+    "reading": "ホテル"
+  },
+  {
+    "word": "hour",
+    "reading": "アワー"
+  },
+  {
+    "word": "hours",
+    "reading": "アワーズ"
+  },
+  {
+    "word": "household",
+    "reading": "ハウスホールド"
+  },
+  {
+    "word": "how",
+    "reading": "ハウ"
+  },
+  {
+    "word": "however",
+    "reading": "ハウエヴァー"
+  },
+  {
+    "word": "huge",
+    "reading": "ヒュージ"
+  },
+  {
+    "word": "human",
+    "reading": "ヒューマン"
+  },
+  {
+    "word": "hundred",
+    "reading": "ハンドレッド"
+  },
+  {
+    "word": "hungry",
+    "reading": "ハングリー"
+  },
+  {
+    "word": "hurry",
+    "reading": "ハリー"
+  },
+  {
+    "word": "hurt",
+    "reading": "ハート"
+  },
+  {
+    "word": "husband",
+    "reading": "ハズバンド"
+  },
+  {
+    "word": "hybrid",
+    "reading": "ハイブリッド"
+  },
+  {
+    "word": "hypothesis",
+    "reading": "ハイポセシス"
+  },
+  {
+    "word": "i",
+    "reading": "アイ"
+  },
+  {
+    "word": "ice",
+    "reading": "アイス"
+  },
+  {
+    "word": "icon",
+    "reading": "アイコン"
+  },
+  {
+    "word": "idea",
+    "reading": "アイディア"
+  },
+  {
+    "word": "identifier",
+    "reading": "アイデンティファイアー"
+  },
+  {
+    "word": "identify",
+    "reading": "アイデンティファイ"
+  },
+  {
+    "word": "identity",
+    "reading": "アイデンティティー"
+  },
+  {
+    "word": "idle",
+    "reading": "アイドル"
+  },
+  {
+    "word": "if",
+    "reading": "イフ"
+  },
+  {
+    "word": "ignore",
+    "reading": "イグノア"
+  },
+  {
+    "word": "ill",
+    "reading": "イル"
+  },
+  {
+    "word": "illegal",
+    "reading": "イリーガル"
+  },
+  {
+    "word": "illustration",
+    "reading": "イラストレーション"
+  },
+  {
+    "word": "image",
+    "reading": "イメージ"
+  },
+  {
+    "word": "imagine",
+    "reading": "イマジン"
+  },
+  {
+    "word": "impact",
+    "reading": "インパクト"
+  },
+  {
+    "word": "implement",
+    "reading": "インプリメント"
+  },
+  {
+    "word": "implementation",
+    "reading": "インプリメンテーション"
+  },
+  {
+    "word": "import",
+    "reading": "インポート"
+  },
+  {
+    "word": "important",
+    "reading": "インポータント"
+  },
+  {
+    "word": "impossible",
+    "reading": "インポシブル"
+  },
+  {
+    "word": "improve",
+    "reading": "インプルーヴ"
+  },
+  {
+    "word": "improvement",
+    "reading": "インプルーヴメント"
+  },
+  {
+    "word": "in",
+    "reading": "イン"
+  },
+  {
+    "word": "inbox",
+    "reading": "インボックス"
+  },
+  {
+    "word": "inch",
+    "reading": "インチ"
+  },
+  {
+    "word": "incident",
+    "reading": "インシデント"
+  },
+  {
+    "word": "include",
+    "reading": "インクルード"
+  },
+  {
+    "word": "incompatible",
+    "reading": "インコンパティブル"
+  },
+  {
+    "word": "incomplete",
+    "reading": "インコンプリート"
+  },
+  {
+    "word": "increase",
+    "reading": "インクリース"
+  },
+  {
+    "word": "increment",
+    "reading": "インクリメント"
+  },
+  {
+    "word": "independent",
+    "reading": "インディペンデント"
+  },
+  {
+    "word": "index",
+    "reading": "インデックス"
+  },
+  {
+    "word": "indoor",
+    "reading": "インドア"
+  },
+  {
+    "word": "infinite",
+    "reading": "インフィニット"
+  },
+  {
+    "word": "information",
+    "reading": "インフォメーション"
+  },
+  {
+    "word": "infrastructure",
+    "reading": "インフラストラクチャー"
+  },
+  {
+    "word": "initial",
+    "reading": "イニシャル"
+  },
+  {
+    "word": "initialization",
+    "reading": "イニシャライゼーション"
+  },
+  {
+    "word": "initialize",
+    "reading": "イニシャライズ"
+  },
+  {
+    "word": "injury",
+    "reading": "インジャリー"
+  },
+  {
+    "word": "ink",
+    "reading": "インク"
+  },
+  {
+    "word": "inline",
+    "reading": "インライン"
+  },
+  {
+    "word": "inner",
+    "reading": "インナー"
+  },
+  {
+    "word": "innovation",
+    "reading": "イノベーション"
+  },
+  {
+    "word": "innovative",
+    "reading": "イノベーティブ"
+  },
+  {
+    "word": "input",
+    "reading": "インプット"
+  },
+  {
+    "word": "insect",
+    "reading": "インセクト"
+  },
+  {
+    "word": "insert",
+    "reading": "インサート"
+  },
+  {
+    "word": "insertion",
+    "reading": "インサーション"
+  },
+  {
+    "word": "inside",
+    "reading": "インサイド"
+  },
+  {
+    "word": "inspect",
+    "reading": "インスペクト"
+  },
+  {
+    "word": "inspection",
+    "reading": "インスペクション"
+  },
+  {
+    "word": "inspire",
+    "reading": "インスパイア"
+  },
+  {
+    "word": "install",
+    "reading": "インストール"
+  },
+  {
+    "word": "installation",
+    "reading": "インスタレーション"
+  },
+  {
+    "word": "installer",
+    "reading": "インストーラー"
+  },
+  {
+    "word": "instance",
+    "reading": "インスタンス"
+  },
+  {
+    "word": "instant",
+    "reading": "インスタント"
+  },
+  {
+    "word": "instantly",
+    "reading": "インスタントリー"
+  },
+  {
+    "word": "instead",
+    "reading": "インステッド"
+  },
+  {
+    "word": "instruction",
+    "reading": "インストラクション"
+  },
+  {
+    "word": "instrument",
+    "reading": "インストゥルメント"
+  },
+  {
+    "word": "insurance",
+    "reading": "インシュアランス"
+  },
+  {
+    "word": "integer",
+    "reading": "インティジャー"
+  },
+  {
+    "word": "integrate",
+    "reading": "インテグレート"
+  },
+  {
+    "word": "integration",
+    "reading": "インテグレーション"
+  },
+  {
+    "word": "integrity",
+    "reading": "インテグリティー"
+  },
+  {
+    "word": "intelligence",
+    "reading": "インテリジェンス"
+  },
+  {
+    "word": "intelligent",
+    "reading": "インテリジェント"
+  },
+  {
+    "word": "intend",
+    "reading": "インテンド"
+  },
+  {
+    "word": "intensity",
+    "reading": "インテンシティー"
+  },
+  {
+    "word": "intent",
+    "reading": "インテント"
+  },
+  {
+    "word": "intention",
+    "reading": "インテンション"
+  },
+  {
+    "word": "interact",
+    "reading": "インタラクト"
+  },
+  {
+    "word": "interaction",
+    "reading": "インタラクション"
+  },
+  {
+    "word": "interactive",
+    "reading": "インタラクティヴ"
+  },
+  {
+    "word": "interest",
+    "reading": "インタレスト"
+  },
+  {
+    "word": "interested",
+    "reading": "インタレスティッド"
+  },
+  {
+    "word": "interesting",
+    "reading": "インタレスティング"
+  },
+  {
+    "word": "interface",
+    "reading": "インターフェイス"
+  },
+  {
+    "word": "interior",
+    "reading": "インテリア"
+  },
+  {
+    "word": "intermediate",
+    "reading": "インターミーディエット"
+  },
+  {
+    "word": "internal",
+    "reading": "インターナル"
+  },
+  {
+    "word": "international",
+    "reading": "インターナショナル"
+  },
+  {
+    "word": "internet",
+    "reading": "インターネット"
+  },
+  {
+    "word": "interpret",
+    "reading": "インタープリット"
+  },
+  {
+    "word": "interpretation",
+    "reading": "インタープリテイション"
+  },
+  {
+    "word": "interpreter",
+    "reading": "インタープリター"
+  },
+  {
+    "word": "interrupt",
+    "reading": "インタラプト"
+  },
+  {
+    "word": "intersection",
+    "reading": "インターセクション"
+  },
+  {
+    "word": "interval",
+    "reading": "インターヴァル"
+  },
+  {
+    "word": "interview",
+    "reading": "インタヴュー"
+  },
+  {
+    "word": "into",
+    "reading": "イントゥー"
+  },
+  {
+    "word": "introduce",
+    "reading": "イントロデュース"
+  },
+  {
+    "word": "introduction",
+    "reading": "イントロダクション"
+  },
+  {
+    "word": "intuitive",
+    "reading": "インテュイティヴ"
+  },
+  {
+    "word": "inventory",
+    "reading": "インヴェントリー"
+  },
+  {
+    "word": "invest",
+    "reading": "インヴェスト"
+  },
+  {
+    "word": "investigate",
+    "reading": "インヴェスティゲイト"
+  },
+  {
+    "word": "investigation",
+    "reading": "インヴェスティゲイション"
+  },
+  {
+    "word": "investment",
+    "reading": "インヴェストメント"
+  },
+  {
+    "word": "investor",
+    "reading": "インヴェスター"
+  },
+  {
+    "word": "invitation",
+    "reading": "インビテーション"
+  },
+  {
+    "word": "invite",
+    "reading": "インヴァイト"
+  },
+  {
+    "word": "invoice",
+    "reading": "インヴォイス"
+  },
+  {
+    "word": "involve",
+    "reading": "インヴォルヴ"
+  },
+  {
+    "word": "iron",
+    "reading": "アイアン"
+  },
+  {
+    "word": "is",
+    "reading": "イズ"
+  },
+  {
+    "word": "island",
+    "reading": "アイランド"
+  },
+  {
+    "word": "isolate",
+    "reading": "アイソレイト"
+  },
+  {
+    "word": "isolation",
+    "reading": "アイソレーション"
+  },
+  {
+    "word": "issue",
+    "reading": "イシュー"
+  },
+  {
+    "word": "it",
+    "reading": "イット"
+  },
+  {
+    "word": "item",
+    "reading": "アイテム"
+  },
+  {
+    "word": "iteration",
+    "reading": "イテレーション"
+  },
+  {
+    "word": "its",
+    "reading": "イッツ"
+  },
+  {
+    "word": "itself",
+    "reading": "イットセルフ"
+  },
+  {
+    "word": "jacket",
+    "reading": "ジャケット"
+  },
+  {
+    "word": "jam",
+    "reading": "ジャム"
+  },
+  {
+    "word": "japanese",
+    "reading": "ジャパニーズ"
+  },
+  {
+    "word": "jar",
+    "reading": "ジャー"
+  },
+  {
+    "word": "jazz",
+    "reading": "ジャズ"
+  },
+  {
+    "word": "jeans",
+    "reading": "ジーンズ"
+  },
+  {
+    "word": "jet",
+    "reading": "ジェット"
+  },
+  {
+    "word": "jewel",
+    "reading": "ジュエル"
+  },
+  {
+    "word": "job",
+    "reading": "ジョブ"
+  },
+  {
+    "word": "join",
+    "reading": "ジョイン"
+  },
+  {
+    "word": "joint",
+    "reading": "ジョイント"
+  },
+  {
+    "word": "joke",
+    "reading": "ジョーク"
+  },
+  {
+    "word": "journal",
+    "reading": "ジャーナル"
+  },
+  {
+    "word": "journalist",
+    "reading": "ジャーナリスト"
+  },
+  {
+    "word": "journey",
+    "reading": "ジャーニー"
+  },
+  {
+    "word": "joy",
+    "reading": "ジョイ"
+  },
+  {
+    "word": "judge",
+    "reading": "ジャッジ"
+  },
+  {
+    "word": "juice",
+    "reading": "ジュース"
+  },
+  {
+    "word": "jump",
+    "reading": "ジャンプ"
+  },
+  {
+    "word": "junction",
+    "reading": "ジャンクション"
+  },
+  {
+    "word": "jungle",
+    "reading": "ジャングル"
+  },
+  {
+    "word": "junior",
+    "reading": "ジュニア"
+  },
+  {
+    "word": "junk",
+    "reading": "ジャンク"
+  },
+  {
+    "word": "just",
+    "reading": "ジャスト"
+  },
+  {
+    "word": "justice",
+    "reading": "ジャスティス"
+  },
+  {
+    "word": "justify",
+    "reading": "ジャスティファイ"
+  },
+  {
+    "word": "keep",
+    "reading": "キープ"
+  },
+  {
+    "word": "kept",
+    "reading": "ケプト"
+  },
+  {
+    "word": "kernel",
+    "reading": "カーネル"
+  },
+  {
+    "word": "kettle",
+    "reading": "ケトル"
+  },
+  {
+    "word": "key",
+    "reading": "キー"
+  },
+  {
+    "word": "keyboard",
+    "reading": "キーボード"
+  },
+  {
+    "word": "keyframe",
+    "reading": "キーフレイム"
+  },
+  {
+    "word": "keypad",
+    "reading": "キーパッド"
+  },
+  {
+    "word": "keys",
+    "reading": "キーズ"
+  },
+  {
+    "word": "keystroke",
+    "reading": "キーストローク"
+  },
+  {
+    "word": "keyword",
+    "reading": "キーワード"
+  },
+  {
+    "word": "kick",
+    "reading": "キック"
+  },
+  {
+    "word": "kid",
+    "reading": "キッド"
+  },
+  {
+    "word": "kidney",
+    "reading": "キドニー"
+  },
+  {
+    "word": "kids",
+    "reading": "キッズ"
+  },
+  {
+    "word": "kill",
+    "reading": "キル"
+  },
+  {
+    "word": "kilogram",
+    "reading": "キログラム"
+  },
+  {
+    "word": "kilometer",
+    "reading": "キロミーター"
+  },
+  {
+    "word": "kind",
+    "reading": "カインド"
+  },
+  {
+    "word": "kindness",
+    "reading": "カインドネス"
+  },
+  {
+    "word": "king",
+    "reading": "キング"
+  },
+  {
+    "word": "kiss",
+    "reading": "キス"
+  },
+  {
+    "word": "kit",
+    "reading": "キット"
+  },
+  {
+    "word": "kitchen",
+    "reading": "キッチン"
+  },
+  {
+    "word": "kite",
+    "reading": "カイト"
+  },
+  {
+    "word": "knee",
+    "reading": "ニー"
+  },
+  {
+    "word": "knife",
+    "reading": "ナイフ"
+  },
+  {
+    "word": "knock",
+    "reading": "ノック"
+  },
+  {
+    "word": "know",
+    "reading": "ノウ"
+  },
+  {
+    "word": "knowledge",
+    "reading": "ノリッジ"
+  },
+  {
+    "word": "known",
+    "reading": "ノウン"
+  },
+  {
+    "word": "label",
+    "reading": "ラベル"
+  },
+  {
+    "word": "lack",
+    "reading": "ラック"
+  },
+  {
+    "word": "lady",
+    "reading": "レディー"
+  },
+  {
+    "word": "lake",
+    "reading": "レイク"
+  },
+  {
+    "word": "lamp",
+    "reading": "ランプ"
+  },
+  {
+    "word": "land",
+    "reading": "ランド"
+  },
+  {
+    "word": "landing",
+    "reading": "ランディング"
+  },
+  {
+    "word": "landscape",
+    "reading": "ランドスケープ"
+  },
+  {
+    "word": "language",
+    "reading": "ランゲージ"
+  },
+  {
+    "word": "laptop",
+    "reading": "ラップトップ"
+  },
+  {
+    "word": "large",
+    "reading": "ラージ"
+  },
+  {
+    "word": "last",
+    "reading": "ラスト"
+  },
+  {
+    "word": "late",
+    "reading": "レイト"
+  },
+  {
+    "word": "later",
+    "reading": "レイター"
+  },
+  {
+    "word": "latest",
+    "reading": "レイテスト"
+  },
+  {
+    "word": "laugh",
+    "reading": "ラフ"
+  },
+  {
+    "word": "launch",
+    "reading": "ローンチ"
+  },
+  {
+    "word": "laundry",
+    "reading": "ランドリー"
+  },
+  {
+    "word": "law",
+    "reading": "ロー"
+  },
+  {
+    "word": "lawyer",
+    "reading": "ロイヤー"
+  },
+  {
+    "word": "layer",
+    "reading": "レイヤー"
+  },
+  {
+    "word": "layout",
+    "reading": "レイアウト"
+  },
+  {
+    "word": "lazy",
+    "reading": "レイジー"
+  },
+  {
+    "word": "leader",
+    "reading": "リーダー"
+  },
+  {
+    "word": "leaf",
+    "reading": "リーフ"
+  },
+  {
+    "word": "learn",
+    "reading": "ラーン"
+  },
+  {
+    "word": "learning",
+    "reading": "ラーニング"
+  },
+  {
+    "word": "least",
+    "reading": "リースト"
+  },
+  {
+    "word": "leave",
+    "reading": "リーヴ"
+  },
+  {
+    "word": "left",
+    "reading": "レフト"
+  },
+  {
+    "word": "leg",
+    "reading": "レッグ"
+  },
+  {
+    "word": "legacy",
+    "reading": "レガシー"
+  },
+  {
+    "word": "legal",
+    "reading": "リーガル"
+  },
+  {
+    "word": "length",
+    "reading": "レングス"
+  },
+  {
+    "word": "less",
+    "reading": "レス"
+  },
+  {
+    "word": "lesson",
+    "reading": "レッスン"
+  },
+  {
+    "word": "let",
+    "reading": "レット"
+  },
+  {
+    "word": "letter",
+    "reading": "レター"
+  },
+  {
+    "word": "level",
+    "reading": "レベル"
+  },
+  {
+    "word": "library",
+    "reading": "ライブラリー"
+  },
+  {
+    "word": "license",
+    "reading": "ライセンス"
+  },
+  {
+    "word": "life",
+    "reading": "ライフ"
+  },
+  {
+    "word": "lifetime",
+    "reading": "ライフタイム"
+  },
+  {
+    "word": "lift",
+    "reading": "リフト"
+  },
+  {
+    "word": "light",
+    "reading": "ライト"
+  },
+  {
+    "word": "lighting",
+    "reading": "ライティング"
+  },
+  {
+    "word": "lightning",
+    "reading": "ライトニング"
+  },
+  {
+    "word": "lightweight",
+    "reading": "ライトウェイト"
+  },
+  {
+    "word": "like",
+    "reading": "ライク"
+  },
+  {
+    "word": "likely",
+    "reading": "ライクリー"
+  },
+  {
+    "word": "limit",
+    "reading": "リミット"
+  },
+  {
+    "word": "limitation",
+    "reading": "リミテイション"
+  },
+  {
+    "word": "line",
+    "reading": "ライン"
+  },
+  {
+    "word": "linear",
+    "reading": "リニア"
+  },
+  {
+    "word": "link",
+    "reading": "リンク"
+  },
+  {
+    "word": "list",
+    "reading": "リスト"
+  },
+  {
+    "word": "listen",
+    "reading": "リスン"
+  },
+  {
+    "word": "listener",
+    "reading": "リスナー"
+  },
+  {
+    "word": "little",
+    "reading": "リトル"
+  },
+  {
+    "word": "load",
+    "reading": "ロード"
+  },
+  {
+    "word": "loading",
+    "reading": "ローディング"
+  },
+  {
+    "word": "local",
+    "reading": "ローカル"
+  },
+  {
+    "word": "locale",
+    "reading": "ロケール"
+  },
+  {
+    "word": "localization",
+    "reading": "ローカライゼーション"
+  },
+  {
+    "word": "locate",
+    "reading": "ロケート"
+  },
+  {
+    "word": "location",
+    "reading": "ロケーション"
+  },
+  {
+    "word": "lock",
+    "reading": "ロック"
+  },
+  {
+    "word": "log",
+    "reading": "ログ"
+  },
+  {
+    "word": "logic",
+    "reading": "ロジック"
+  },
+  {
+    "word": "login",
+    "reading": "ログイン"
+  },
+  {
+    "word": "logo",
+    "reading": "ロゴ"
+  },
+  {
+    "word": "logout",
+    "reading": "ログアウト"
+  },
+  {
+    "word": "long",
+    "reading": "ロング"
+  },
+  {
+    "word": "look",
+    "reading": "ルック"
+  },
+  {
+    "word": "loop",
+    "reading": "ループ"
+  },
+  {
+    "word": "lose",
+    "reading": "ルーズ"
+  },
+  {
+    "word": "loss",
+    "reading": "ロス"
+  },
+  {
+    "word": "lost",
+    "reading": "ロスト"
+  },
+  {
+    "word": "lot",
+    "reading": "ロット"
+  },
+  {
+    "word": "loud",
+    "reading": "ラウド"
+  },
+  {
+    "word": "love",
+    "reading": "ラブ"
+  },
+  {
+    "word": "low",
+    "reading": "ロー"
+  },
+  {
+    "word": "lower",
+    "reading": "ローワー"
+  },
+  {
+    "word": "luck",
+    "reading": "ラック"
+  },
+  {
+    "word": "lucky",
+    "reading": "ラッキー"
+  },
+  {
+    "word": "lunch",
+    "reading": "ランチ"
+  },
+  {
+    "word": "luxury",
+    "reading": "ラグジュアリー"
+  },
+  {
+    "word": "machine",
+    "reading": "マシーン"
+  },
+  {
+    "word": "magic",
+    "reading": "マジック"
+  },
+  {
+    "word": "mail",
+    "reading": "メール"
+  },
+  {
+    "word": "mailbox",
+    "reading": "メールボックス"
+  },
+  {
+    "word": "main",
+    "reading": "メイン"
+  },
+  {
+    "word": "maintain",
+    "reading": "メインテイン"
+  },
+  {
+    "word": "maintenance",
+    "reading": "メンテナンス"
+  },
+  {
+    "word": "major",
+    "reading": "メジャー"
+  },
+  {
+    "word": "make",
+    "reading": "メイク"
+  },
+  {
+    "word": "malware",
+    "reading": "マルウェア"
+  },
+  {
+    "word": "man",
+    "reading": "マン"
+  },
+  {
+    "word": "manage",
+    "reading": "マネージ"
+  },
+  {
+    "word": "management",
+    "reading": "マネジメント"
+  },
+  {
+    "word": "manager",
+    "reading": "マネージャー"
+  },
+  {
+    "word": "mandatory",
+    "reading": "マンダトリー"
+  },
+  {
+    "word": "manual",
+    "reading": "マニュアル"
+  },
+  {
+    "word": "many",
+    "reading": "メニー"
+  },
+  {
+    "word": "map",
+    "reading": "マップ"
+  },
+  {
+    "word": "mapping",
+    "reading": "マッピング"
+  },
+  {
+    "word": "mark",
+    "reading": "マーク"
+  },
+  {
+    "word": "market",
+    "reading": "マーケット"
+  },
+  {
+    "word": "mask",
+    "reading": "マスク"
+  },
+  {
+    "word": "mass",
+    "reading": "マス"
+  },
+  {
+    "word": "master",
+    "reading": "マスター"
+  },
+  {
+    "word": "match",
+    "reading": "マッチ"
+  },
+  {
+    "word": "material",
+    "reading": "マテリアル"
+  },
+  {
+    "word": "math",
+    "reading": "マス"
+  },
+  {
+    "word": "matter",
+    "reading": "マター"
+  },
+  {
+    "word": "may",
+    "reading": "メイ"
+  },
+  {
+    "word": "maybe",
+    "reading": "メイビー"
+  },
+  {
+    "word": "me",
+    "reading": "ミー"
+  },
+  {
+    "word": "meal",
+    "reading": "ミール"
+  },
+  {
+    "word": "mean",
+    "reading": "ミーン"
+  },
+  {
+    "word": "meaning",
+    "reading": "ミーニング"
+  },
+  {
+    "word": "measure",
+    "reading": "メジャー"
+  },
+  {
+    "word": "media",
+    "reading": "メディア"
+  },
+  {
+    "word": "medical",
+    "reading": "メディカル"
+  },
+  {
+    "word": "meet",
+    "reading": "ミート"
+  },
+  {
+    "word": "meeting",
+    "reading": "ミーティング"
+  },
+  {
+    "word": "member",
+    "reading": "メンバー"
+  },
+  {
+    "word": "memory",
+    "reading": "メモリー"
+  },
+  {
+    "word": "menu",
+    "reading": "メニュー"
+  },
+  {
+    "word": "merge",
+    "reading": "マージ"
+  },
+  {
+    "word": "message",
+    "reading": "メッセージ"
+  },
+  {
+    "word": "metal",
+    "reading": "メタル"
+  },
+  {
+    "word": "meter",
+    "reading": "ミーター"
+  },
+  {
+    "word": "method",
+    "reading": "メソッド"
+  },
+  {
+    "word": "microphone",
+    "reading": "マイクロフォン"
+  },
+  {
+    "word": "middle",
+    "reading": "ミドル"
+  },
+  {
+    "word": "might",
+    "reading": "マイト"
+  },
+  {
+    "word": "mild",
+    "reading": "マイルド"
+  },
+  {
+    "word": "mile",
+    "reading": "マイル"
+  },
+  {
+    "word": "milk",
+    "reading": "ミルク"
+  },
+  {
+    "word": "million",
+    "reading": "ミリオン"
+  },
+  {
+    "word": "mind",
+    "reading": "マインド"
+  },
+  {
+    "word": "mine",
+    "reading": "マイン"
+  },
+  {
+    "word": "minimal",
+    "reading": "ミニマル"
+  },
+  {
+    "word": "minimize",
+    "reading": "ミニマイズ"
+  },
+  {
+    "word": "minimum",
+    "reading": "ミニマム"
+  },
+  {
+    "word": "mirror",
+    "reading": "ミラー"
+  },
+  {
+    "word": "miss",
+    "reading": "ミス"
+  },
+  {
+    "word": "missing",
+    "reading": "ミシング"
+  },
+  {
+    "word": "mission",
+    "reading": "ミッション"
+  },
+  {
+    "word": "mistake",
+    "reading": "ミステイク"
+  },
+  {
+    "word": "mix",
+    "reading": "ミックス"
+  },
+  {
+    "word": "mixed",
+    "reading": "ミックスト"
+  },
+  {
+    "word": "mixer",
+    "reading": "ミキサー"
+  },
+  {
+    "word": "mobile",
+    "reading": "モバイル"
+  },
+  {
+    "word": "mode",
+    "reading": "モード"
+  },
+  {
+    "word": "model",
+    "reading": "モデル"
+  },
+  {
+    "word": "modern",
+    "reading": "モダン"
+  },
+  {
+    "word": "modification",
+    "reading": "モディフィケーション"
+  },
+  {
+    "word": "modify",
+    "reading": "モディファイ"
+  },
+  {
+    "word": "modular",
+    "reading": "モジュラー"
+  },
+  {
+    "word": "module",
+    "reading": "モジュール"
+  },
+  {
+    "word": "moment",
+    "reading": "モーメント"
+  },
+  {
+    "word": "money",
+    "reading": "マネー"
+  },
+  {
+    "word": "monitor",
+    "reading": "モニター"
+  },
+  {
+    "word": "monkey",
+    "reading": "モンキー"
+  },
+  {
+    "word": "month",
+    "reading": "マンス"
+  },
+  {
+    "word": "monthly",
+    "reading": "マンスリー"
+  },
+  {
+    "word": "mood",
+    "reading": "ムード"
+  },
+  {
+    "word": "moon",
+    "reading": "ムーン"
+  },
+  {
+    "word": "more",
+    "reading": "モア"
+  },
+  {
+    "word": "morning",
+    "reading": "モーニング"
+  },
+  {
+    "word": "most",
+    "reading": "モウスト"
+  },
+  {
+    "word": "mostly",
+    "reading": "モウストリー"
+  },
+  {
+    "word": "mother",
+    "reading": "マザー"
+  },
+  {
+    "word": "motion",
+    "reading": "モーション"
+  },
+  {
+    "word": "motivation",
+    "reading": "モチベーション"
+  },
+  {
+    "word": "motor",
+    "reading": "モーター"
+  },
+  {
+    "word": "mount",
+    "reading": "マウント"
+  },
+  {
+    "word": "mountain",
+    "reading": "マウンテン"
+  },
+  {
+    "word": "mouse",
+    "reading": "マウス"
+  },
+  {
+    "word": "move",
+    "reading": "ムーブ"
+  },
+  {
+    "word": "movement",
+    "reading": "ムーブメント"
+  },
+  {
+    "word": "movie",
+    "reading": "ムービー"
+  },
+  {
+    "word": "moving",
+    "reading": "ムービング"
+  },
+  {
+    "word": "much",
+    "reading": "マッチ"
+  },
+  {
+    "word": "multiple",
+    "reading": "マルティプル"
+  },
+  {
+    "word": "multiplication",
+    "reading": "マルティプリケーション"
+  },
+  {
+    "word": "multiply",
+    "reading": "マルティプライ"
+  },
+  {
+    "word": "multitasking",
+    "reading": "マルティタスキング"
+  },
+  {
+    "word": "muscle",
+    "reading": "マッスル"
+  },
+  {
+    "word": "museum",
+    "reading": "ミュージアム"
+  },
+  {
+    "word": "music",
+    "reading": "ミュージック"
+  },
+  {
+    "word": "musical",
+    "reading": "ミュージカル"
+  },
+  {
+    "word": "musician",
+    "reading": "ミュージシャン"
+  },
+  {
+    "word": "must",
+    "reading": "マスト"
+  },
+  {
+    "word": "mute",
+    "reading": "ミュート"
+  },
+  {
+    "word": "mutual",
+    "reading": "ミューチュアル"
+  },
+  {
+    "word": "my",
+    "reading": "マイ"
+  },
+  {
+    "word": "myself",
+    "reading": "マイセルフ"
+  },
+  {
+    "word": "mysterious",
+    "reading": "ミスティリアス"
+  },
+  {
+    "word": "mystery",
+    "reading": "ミステリー"
+  },
+  {
+    "word": "myth",
+    "reading": "ミス"
+  },
+  {
+    "word": "name",
+    "reading": "ネーム"
+  },
+  {
+    "word": "narrow",
+    "reading": "ナロウ"
+  },
+  {
+    "word": "native",
+    "reading": "ネイティヴ"
+  },
+  {
+    "word": "natural",
+    "reading": "ナチュラル"
+  },
+  {
+    "word": "nature",
+    "reading": "ネイチャー"
+  },
+  {
+    "word": "navigate",
+    "reading": "ナヴィゲイト"
+  },
+  {
+    "word": "navigation",
+    "reading": "ナビゲーション"
+  },
+  {
+    "word": "near",
+    "reading": "ニア"
+  },
+  {
+    "word": "necessary",
+    "reading": "ネセサリー"
+  },
+  {
+    "word": "neck",
+    "reading": "ネック"
+  },
+  {
+    "word": "need",
+    "reading": "ニード"
+  },
+  {
+    "word": "negative",
+    "reading": "ネガティヴ"
+  },
+  {
+    "word": "negotiate",
+    "reading": "ネゴシエイト"
+  },
+  {
+    "word": "neighbor",
+    "reading": "ネイバー"
+  },
+  {
+    "word": "neither",
+    "reading": "ニーザー"
+  },
+  {
+    "word": "nervous",
+    "reading": "ナーヴァス"
+  },
+  {
+    "word": "net",
+    "reading": "ネット"
+  },
+  {
+    "word": "network",
+    "reading": "ネットワーク"
+  },
+  {
+    "word": "never",
+    "reading": "ネヴァー"
+  },
+  {
+    "word": "new",
+    "reading": "ニュー"
+  },
+  {
+    "word": "news",
+    "reading": "ニューズ"
+  },
+  {
+    "word": "newsletter",
+    "reading": "ニューズレター"
+  },
+  {
+    "word": "newspaper",
+    "reading": "ニューズペイパー"
+  },
+  {
+    "word": "next",
+    "reading": "ネクスト"
+  },
+  {
+    "word": "nice",
+    "reading": "ナイス"
+  },
+  {
+    "word": "night",
+    "reading": "ナイト"
+  },
+  {
+    "word": "nine",
+    "reading": "ナイン"
+  },
+  {
+    "word": "no",
+    "reading": "ノウ"
+  },
+  {
+    "word": "nobody",
+    "reading": "ノウバディー"
+  },
+  {
+    "word": "node",
+    "reading": "ノード"
+  },
+  {
+    "word": "noise",
+    "reading": "ノイズ"
+  },
+  {
+    "word": "noisy",
+    "reading": "ノイジー"
+  },
+  {
+    "word": "none",
+    "reading": "ナン"
+  },
+  {
+    "word": "noon",
+    "reading": "ヌーン"
+  },
+  {
+    "word": "nor",
+    "reading": "ノー"
+  },
+  {
+    "word": "normal",
+    "reading": "ノーマル"
+  },
+  {
+    "word": "normalize",
+    "reading": "ノーマライズ"
+  },
+  {
+    "word": "normally",
+    "reading": "ノーマリー"
+  },
+  {
+    "word": "north",
+    "reading": "ノース"
+  },
+  {
+    "word": "northern",
+    "reading": "ノーザン"
+  },
+  {
+    "word": "nose",
+    "reading": "ノーズ"
+  },
+  {
+    "word": "not",
+    "reading": "ノット"
+  },
+  {
+    "word": "note",
+    "reading": "ノート"
+  },
+  {
+    "word": "notebook",
+    "reading": "ノートブック"
+  },
+  {
+    "word": "nothing",
+    "reading": "ナッシング"
+  },
+  {
+    "word": "notice",
+    "reading": "ノーティス"
+  },
+  {
+    "word": "notification",
+    "reading": "ノーティフィケーション"
+  },
+  {
+    "word": "notify",
+    "reading": "ノーティファイ"
+  },
+  {
+    "word": "novel",
+    "reading": "ノヴェル"
+  },
+  {
+    "word": "now",
+    "reading": "ナウ"
+  },
+  {
+    "word": "nowhere",
+    "reading": "ノウウェア"
+  },
+  {
+    "word": "nuclear",
+    "reading": "ニュークリア"
+  },
+  {
+    "word": "null",
+    "reading": "ナル"
+  },
+  {
+    "word": "number",
+    "reading": "ナンバー"
+  },
+  {
+    "word": "numeric",
+    "reading": "ニューメリック"
+  },
+  {
+    "word": "nurse",
+    "reading": "ナース"
+  },
+  {
+    "word": "nutrition",
+    "reading": "ニュートリション"
+  },
+  {
+    "word": "obey",
+    "reading": "オベイ"
+  },
+  {
+    "word": "objective",
+    "reading": "オブジェクティヴ"
+  },
+  {
+    "word": "observe",
+    "reading": "オブザーヴ"
+  },
+  {
+    "word": "obtain",
+    "reading": "オブテイン"
+  },
+  {
+    "word": "obvious",
+    "reading": "オブヴィアス"
+  },
+  {
+    "word": "occasion",
+    "reading": "オケイジョン"
+  },
+  {
+    "word": "occur",
+    "reading": "オカー"
+  },
+  {
+    "word": "ocean",
+    "reading": "オーシャン"
+  },
+  {
+    "word": "of",
+    "reading": "オヴ"
+  },
+  {
+    "word": "off",
+    "reading": "オフ"
+  },
+  {
+    "word": "offer",
+    "reading": "オファー"
+  },
+  {
+    "word": "office",
+    "reading": "オフィス"
+  },
+  {
+    "word": "offline",
+    "reading": "オフライン"
+  },
+  {
+    "word": "oil",
+    "reading": "オイル"
+  },
+  {
+    "word": "okay",
+    "reading": "オーケー"
+  },
+  {
+    "word": "old",
+    "reading": "オールド"
+  },
+  {
+    "word": "omit",
+    "reading": "オミット"
+  },
+  {
+    "word": "on",
+    "reading": "オン"
+  },
+  {
+    "word": "once",
+    "reading": "ワンス"
+  },
+  {
+    "word": "one",
+    "reading": "ワン"
+  },
+  {
+    "word": "ongoing",
+    "reading": "オンゴウイング"
+  },
+  {
+    "word": "online",
+    "reading": "オンライン"
+  },
+  {
+    "word": "only",
+    "reading": "オンリー"
+  },
+  {
+    "word": "onto",
+    "reading": "オントゥー"
+  },
+  {
+    "word": "open",
+    "reading": "オープン"
+  },
+  {
+    "word": "operate",
+    "reading": "オペレート"
+  },
+  {
+    "word": "operation",
+    "reading": "オペレーション"
+  },
+  {
+    "word": "operator",
+    "reading": "オペレーター"
+  },
+  {
+    "word": "opinion",
+    "reading": "オピニオン"
+  },
+  {
+    "word": "opportunity",
+    "reading": "オポチュニティー"
+  },
+  {
+    "word": "opposite",
+    "reading": "オポジット"
+  },
+  {
+    "word": "optimization",
+    "reading": "オプティマイゼーション"
+  },
+  {
+    "word": "optimize",
+    "reading": "オプティマイズ"
+  },
+  {
+    "word": "option",
+    "reading": "オプション"
+  },
+  {
+    "word": "optional",
+    "reading": "オプショナル"
+  },
+  {
+    "word": "or",
+    "reading": "オア"
+  },
+  {
+    "word": "orange",
+    "reading": "オレンジ"
+  },
+  {
+    "word": "order",
+    "reading": "オーダー"
+  },
+  {
+    "word": "ordinary",
+    "reading": "オーディナリー"
+  },
+  {
+    "word": "organization",
+    "reading": "オーガナイゼーション"
+  },
+  {
+    "word": "organize",
+    "reading": "オーガナイズ"
+  },
+  {
+    "word": "origin",
+    "reading": "オリジン"
+  },
+  {
+    "word": "original",
+    "reading": "オリジナル"
+  },
+  {
+    "word": "other",
+    "reading": "アザー"
+  },
+  {
+    "word": "others",
+    "reading": "アザーズ"
+  },
+  {
+    "word": "otherwise",
+    "reading": "アザーワイズ"
+  },
+  {
+    "word": "our",
+    "reading": "アワー"
+  },
+  {
+    "word": "ours",
+    "reading": "アワーズ"
+  },
+  {
+    "word": "ourselves",
+    "reading": "アワーセルヴズ"
+  },
+  {
+    "word": "out",
+    "reading": "アウト"
+  },
+  {
+    "word": "outcome",
+    "reading": "アウトカム"
+  },
+  {
+    "word": "outdoor",
+    "reading": "アウトドア"
+  },
+  {
+    "word": "outer",
+    "reading": "アウター"
+  },
+  {
+    "word": "outline",
+    "reading": "アウトライン"
+  },
+  {
+    "word": "output",
+    "reading": "アウトプット"
+  },
+  {
+    "word": "outside",
+    "reading": "アウトサイド"
+  },
+  {
+    "word": "oven",
+    "reading": "アヴン"
+  },
+  {
+    "word": "over",
+    "reading": "オーバー"
+  },
+  {
+    "word": "overflow",
+    "reading": "オーバーフロー"
+  },
+  {
+    "word": "overlap",
+    "reading": "オーバーラップ"
+  },
+  {
+    "word": "overlay",
+    "reading": "オーバーレイ"
+  },
+  {
+    "word": "overload",
+    "reading": "オーバーロード"
+  },
+  {
+    "word": "override",
+    "reading": "オーバーライド"
+  },
+  {
+    "word": "overview",
+    "reading": "オーバービュー"
+  },
+  {
+    "word": "overwrite",
+    "reading": "オーバーライト"
+  },
+  {
+    "word": "own",
+    "reading": "オウン"
+  },
+  {
+    "word": "owner",
+    "reading": "オーナー"
+  },
+  {
+    "word": "ownership",
+    "reading": "オーナーシップ"
+  },
+  {
+    "word": "oxygen",
+    "reading": "オクシジェン"
+  },
+  {
+    "word": "pack",
+    "reading": "パック"
+  },
+  {
+    "word": "package",
+    "reading": "パッケージ"
+  },
+  {
+    "word": "padding",
+    "reading": "パディング"
+  },
+  {
+    "word": "page",
+    "reading": "ページ"
+  },
+  {
+    "word": "pain",
+    "reading": "ペイン"
+  },
+  {
+    "word": "panel",
+    "reading": "パネル"
+  },
+  {
+    "word": "paper",
+    "reading": "ペーパー"
+  },
+  {
+    "word": "paragraph",
+    "reading": "パラグラフ"
+  },
+  {
+    "word": "parallel",
+    "reading": "パラレル"
+  },
+  {
+    "word": "parameter",
+    "reading": "パラメーター"
+  },
+  {
+    "word": "parent",
+    "reading": "ペアレント"
+  },
+  {
+    "word": "park",
+    "reading": "パーク"
+  },
+  {
+    "word": "parse",
+    "reading": "パース"
+  },
+  {
+    "word": "parser",
+    "reading": "パーサー"
+  },
+  {
+    "word": "part",
+    "reading": "パート"
+  },
+  {
+    "word": "partial",
+    "reading": "パーシャル"
+  },
+  {
+    "word": "partner",
+    "reading": "パートナー"
+  },
+  {
+    "word": "party",
+    "reading": "パーティー"
+  },
+  {
+    "word": "pass",
+    "reading": "パス"
+  },
+  {
+    "word": "password",
+    "reading": "パスワード"
+  },
+  {
+    "word": "past",
+    "reading": "パスト"
+  },
+  {
+    "word": "paste",
+    "reading": "ペースト"
+  },
+  {
+    "word": "path",
+    "reading": "パス"
+  },
+  {
+    "word": "patient",
+    "reading": "ペイシェント"
+  },
+  {
+    "word": "pattern",
+    "reading": "パターン"
+  },
+  {
+    "word": "pause",
+    "reading": "ポーズ"
+  },
+  {
+    "word": "pay",
+    "reading": "ペイ"
+  },
+  {
+    "word": "payment",
+    "reading": "ペイメント"
+  },
+  {
+    "word": "peace",
+    "reading": "ピース"
+  },
+  {
+    "word": "pen",
+    "reading": "ペン"
+  },
+  {
+    "word": "pending",
+    "reading": "ペンディング"
+  },
+  {
+    "word": "penguin",
+    "reading": "ペンギン"
+  },
+  {
+    "word": "people",
+    "reading": "ピープル"
+  },
+  {
+    "word": "per",
+    "reading": "パー"
+  },
+  {
+    "word": "percent",
+    "reading": "パーセント"
+  },
+  {
+    "word": "percentage",
+    "reading": "パーセンテージ"
+  },
+  {
+    "word": "perform",
+    "reading": "パフォーム"
+  },
+  {
+    "word": "performance",
+    "reading": "パフォーマンス"
+  },
+  {
+    "word": "perhaps",
+    "reading": "パハップス"
+  },
+  {
+    "word": "period",
+    "reading": "ピリオド"
+  },
+  {
+    "word": "permission",
+    "reading": "パーミッション"
+  },
+  {
+    "word": "persistent",
+    "reading": "パーシステント"
+  },
+  {
+    "word": "person",
+    "reading": "パーソン"
+  },
+  {
+    "word": "personal",
+    "reading": "パーソナル"
+  },
+  {
+    "word": "personality",
+    "reading": "パーソナリティー"
+  },
+  {
+    "word": "pet",
+    "reading": "ペット"
+  },
+  {
+    "word": "phase",
+    "reading": "フェイズ"
+  },
+  {
+    "word": "phone",
+    "reading": "フォン"
+  },
+  {
+    "word": "photo",
+    "reading": "フォト"
+  },
+  {
+    "word": "photograph",
+    "reading": "フォトグラフ"
+  },
+  {
+    "word": "photographer",
+    "reading": "フォトグラファー"
+  },
+  {
+    "word": "photography",
+    "reading": "フォトグラフィー"
+  },
+  {
+    "word": "phrase",
+    "reading": "フレイズ"
+  },
+  {
+    "word": "physical",
+    "reading": "フィジカル"
+  },
+  {
+    "word": "physics",
+    "reading": "フィジクス"
+  },
+  {
+    "word": "piano",
+    "reading": "ピアノ"
+  },
+  {
+    "word": "pick",
+    "reading": "ピック"
+  },
+  {
+    "word": "picture",
+    "reading": "ピクチャー"
+  },
+  {
+    "word": "piece",
+    "reading": "ピース"
+  },
+  {
+    "word": "pin",
+    "reading": "ピン"
+  },
+  {
+    "word": "pink",
+    "reading": "ピンク"
+  },
+  {
+    "word": "pipe",
+    "reading": "パイプ"
+  },
+  {
+    "word": "pipeline",
+    "reading": "パイプライン"
+  },
+  {
+    "word": "pixel",
+    "reading": "ピクセル"
+  },
+  {
+    "word": "pizza",
+    "reading": "ピッツァ"
+  },
+  {
+    "word": "place",
+    "reading": "プレイス"
+  },
+  {
+    "word": "placeholder",
+    "reading": "プレースホルダー"
+  },
+  {
+    "word": "plain",
+    "reading": "プレーン"
+  },
+  {
+    "word": "plan",
+    "reading": "プラン"
+  },
+  {
+    "word": "plane",
+    "reading": "プレーン"
+  },
+  {
+    "word": "planet",
+    "reading": "プラネット"
+  },
+  {
+    "word": "planning",
+    "reading": "プランニング"
+  },
+  {
+    "word": "plant",
+    "reading": "プラント"
+  },
+  {
+    "word": "plastic",
+    "reading": "プラスティック"
+  },
+  {
+    "word": "plate",
+    "reading": "プレート"
+  },
+  {
+    "word": "platform",
+    "reading": "プラットフォーム"
+  },
+  {
+    "word": "play",
+    "reading": "プレイ"
+  },
+  {
+    "word": "playback",
+    "reading": "プレイバック"
+  },
+  {
+    "word": "player",
+    "reading": "プレイヤー"
+  },
+  {
+    "word": "playlist",
+    "reading": "プレイリスト"
+  },
+  {
+    "word": "pleasant",
+    "reading": "プレザント"
+  },
+  {
+    "word": "please",
+    "reading": "プリーズ"
+  },
+  {
+    "word": "pleased",
+    "reading": "プリーズド"
+  },
+  {
+    "word": "plenty",
+    "reading": "プレンティー"
+  },
+  {
+    "word": "plot",
+    "reading": "プロット"
+  },
+  {
+    "word": "plug",
+    "reading": "プラグ"
+  },
+  {
+    "word": "plugin",
+    "reading": "プラグイン"
+  },
+  {
+    "word": "plural",
+    "reading": "プルーラル"
+  },
+  {
+    "word": "plus",
+    "reading": "プラス"
+  },
+  {
+    "word": "pocket",
+    "reading": "ポケット"
+  },
+  {
+    "word": "point",
+    "reading": "ポイント"
+  },
+  {
+    "word": "pointer",
+    "reading": "ポインター"
+  },
+  {
+    "word": "poison",
+    "reading": "ポイズン"
+  },
+  {
+    "word": "police",
+    "reading": "ポリース"
+  },
+  {
+    "word": "policy",
+    "reading": "ポリシー"
+  },
+  {
+    "word": "polite",
+    "reading": "ポライト"
+  },
+  {
+    "word": "politics",
+    "reading": "ポリティクス"
+  },
+  {
+    "word": "poll",
+    "reading": "ポウル"
+  },
+  {
+    "word": "pollution",
+    "reading": "ポリューション"
+  },
+  {
+    "word": "pool",
+    "reading": "プール"
+  },
+  {
+    "word": "poor",
+    "reading": "プア"
+  },
+  {
+    "word": "pop",
+    "reading": "ポップ"
+  },
+  {
+    "word": "popular",
+    "reading": "ポピュラー"
+  },
+  {
+    "word": "population",
+    "reading": "ポピュレイション"
+  },
+  {
+    "word": "popup",
+    "reading": "ポップアップ"
+  },
+  {
+    "word": "port",
+    "reading": "ポート"
+  },
+  {
+    "word": "portable",
+    "reading": "ポータブル"
+  },
+  {
+    "word": "portal",
+    "reading": "ポータル"
+  },
+  {
+    "word": "portrait",
+    "reading": "ポートレート"
+  },
+  {
+    "word": "position",
+    "reading": "ポジション"
+  },
+  {
+    "word": "positive",
+    "reading": "ポジティヴ"
+  },
+  {
+    "word": "possibility",
+    "reading": "ポシビリティー"
+  },
+  {
+    "word": "possible",
+    "reading": "ポシブル"
+  },
+  {
+    "word": "possibly",
+    "reading": "ポシブリー"
+  },
+  {
+    "word": "post",
+    "reading": "ポスト"
+  },
+  {
+    "word": "postpone",
+    "reading": "ポストポーン"
+  },
+  {
+    "word": "potential",
+    "reading": "ポテンシャル"
+  },
+  {
+    "word": "power",
+    "reading": "パワー"
+  },
+  {
+    "word": "powerful",
+    "reading": "パワフル"
+  },
+  {
+    "word": "practical",
+    "reading": "プラクティカル"
+  },
+  {
+    "word": "practice",
+    "reading": "プラクティス"
+  },
+  {
+    "word": "pray",
+    "reading": "プレイ"
+  },
+  {
+    "word": "precious",
+    "reading": "プレシャス"
+  },
+  {
+    "word": "precise",
+    "reading": "プリサイス"
+  },
+  {
+    "word": "precisely",
+    "reading": "プリサイスリー"
+  },
+  {
+    "word": "precision",
+    "reading": "プリシジョン"
+  },
+  {
+    "word": "predict",
+    "reading": "プリディクト"
+  },
+  {
+    "word": "prediction",
+    "reading": "プリディクション"
+  },
+  {
+    "word": "prefer",
+    "reading": "プリファー"
+  },
+  {
+    "word": "preference",
+    "reading": "プレファレンス"
+  },
+  {
+    "word": "prefix",
+    "reading": "プリーフィックス"
+  },
+  {
+    "word": "premium",
+    "reading": "プリーミアム"
+  },
+  {
+    "word": "preparation",
+    "reading": "プレパレーション"
+  },
+  {
+    "word": "prepare",
+    "reading": "プリペア"
+  },
+  {
+    "word": "prepared",
+    "reading": "プリペアド"
+  },
+  {
+    "word": "presence",
+    "reading": "プレゼンス"
+  },
+  {
+    "word": "presentation",
+    "reading": "プレゼンテーション"
+  },
+  {
+    "word": "preserve",
+    "reading": "プリザーヴ"
+  },
+  {
+    "word": "president",
+    "reading": "プレジデント"
+  },
+  {
+    "word": "press",
+    "reading": "プレス"
+  },
+  {
+    "word": "pressure",
+    "reading": "プレシャー"
+  },
+  {
+    "word": "prevent",
+    "reading": "プリヴェント"
+  },
+  {
+    "word": "preview",
+    "reading": "プレビュー"
+  },
+  {
+    "word": "previous",
+    "reading": "プリーヴィアス"
+  },
+  {
+    "word": "price",
+    "reading": "プライス"
+  },
+  {
+    "word": "primary",
+    "reading": "プライマリー"
+  },
+  {
+    "word": "print",
+    "reading": "プリント"
+  },
+  {
+    "word": "printer",
+    "reading": "プリンター"
+  },
+  {
+    "word": "printing",
+    "reading": "プリンティング"
+  },
+  {
+    "word": "prior",
+    "reading": "プライアー"
+  },
+  {
+    "word": "priority",
+    "reading": "プライオリティー"
+  },
+  {
+    "word": "prison",
+    "reading": "プリズン"
+  },
+  {
+    "word": "privacy",
+    "reading": "プライヴァシー"
+  },
+  {
+    "word": "private",
+    "reading": "プライベート"
+  },
+  {
+    "word": "prize",
+    "reading": "プライズ"
+  },
+  {
+    "word": "probably",
+    "reading": "プロバブリー"
+  },
+  {
+    "word": "problem",
+    "reading": "プロブレム"
+  },
+  {
+    "word": "procedure",
+    "reading": "プロシージャー"
+  },
+  {
+    "word": "proceed",
+    "reading": "プロシード"
+  },
+  {
+    "word": "process",
+    "reading": "プロセス"
+  },
+  {
+    "word": "processing",
+    "reading": "プロセシング"
+  },
+  {
+    "word": "processor",
+    "reading": "プロセサー"
+  },
+  {
+    "word": "product",
+    "reading": "プロダクト"
+  },
+  {
+    "word": "production",
+    "reading": "プロダクション"
+  },
+  {
+    "word": "profession",
+    "reading": "プロフェッション"
+  },
+  {
+    "word": "professional",
+    "reading": "プロフェッショナル"
+  },
+  {
+    "word": "profile",
+    "reading": "プロファイル"
+  },
+  {
+    "word": "profit",
+    "reading": "プロフィット"
+  },
+  {
+    "word": "program",
+    "reading": "プログラム"
+  },
+  {
+    "word": "programmer",
+    "reading": "プログラマー"
+  },
+  {
+    "word": "programming",
+    "reading": "プログラミング"
+  },
+  {
+    "word": "promise",
+    "reading": "プロミス"
+  },
+  {
+    "word": "promote",
+    "reading": "プロモート"
+  },
+  {
+    "word": "prompt",
+    "reading": "プロンプト"
+  },
+  {
+    "word": "proof",
+    "reading": "プルーフ"
+  },
+  {
+    "word": "proper",
+    "reading": "プロパー"
+  },
+  {
+    "word": "property",
+    "reading": "プロパティー"
+  },
+  {
+    "word": "propose",
+    "reading": "プロポーズ"
+  },
+  {
+    "word": "protect",
+    "reading": "プロテクト"
+  },
+  {
+    "word": "protection",
+    "reading": "プロテクション"
+  },
+  {
+    "word": "protocol",
+    "reading": "プロトコル"
+  },
+  {
+    "word": "prove",
+    "reading": "プルーヴ"
+  },
+  {
+    "word": "provide",
+    "reading": "プロヴァイド"
+  },
+  {
+    "word": "provider",
+    "reading": "プロヴァイダー"
+  },
+  {
+    "word": "public",
+    "reading": "パブリック"
+  },
+  {
+    "word": "publication",
+    "reading": "パブリケーション"
+  },
+  {
+    "word": "publish",
+    "reading": "パブリッシュ"
+  },
+  {
+    "word": "publisher",
+    "reading": "パブリッシャー"
+  },
+  {
+    "word": "pull",
+    "reading": "プル"
+  },
+  {
+    "word": "pump",
+    "reading": "パンプ"
+  },
+  {
+    "word": "punish",
+    "reading": "パニッシュ"
+  },
+  {
+    "word": "purchase",
+    "reading": "パーチェス"
+  },
+  {
+    "word": "pure",
+    "reading": "ピュア"
+  },
+  {
+    "word": "purple",
+    "reading": "パープル"
+  },
+  {
+    "word": "purpose",
+    "reading": "パーパス"
+  },
+  {
+    "word": "push",
+    "reading": "プッシュ"
+  },
+  {
+    "word": "put",
+    "reading": "プット"
+  },
+  {
+    "word": "puzzle",
+    "reading": "パズル"
+  },
+  {
+    "word": "qualification",
+    "reading": "クオリフィケーション"
+  },
+  {
+    "word": "qualified",
+    "reading": "クオリファイド"
+  },
+  {
+    "word": "qualify",
+    "reading": "クオリファイ"
+  },
+  {
+    "word": "quality",
+    "reading": "クオリティー"
+  },
+  {
+    "word": "quantity",
+    "reading": "クオンティティー"
+  },
+  {
+    "word": "quantum",
+    "reading": "クオンタム"
+  },
+  {
+    "word": "quarter",
+    "reading": "クォーター"
+  },
+  {
+    "word": "quarterly",
+    "reading": "クォータリー"
+  },
+  {
+    "word": "queen",
+    "reading": "クイーン"
+  },
+  {
+    "word": "query",
+    "reading": "クエリー"
+  },
+  {
+    "word": "question",
+    "reading": "クエスチョン"
+  },
+  {
+    "word": "questionnaire",
+    "reading": "クエスチョネア"
+  },
+  {
+    "word": "queue",
+    "reading": "キュー"
+  },
+  {
+    "word": "quick",
+    "reading": "クイック"
+  },
+  {
+    "word": "quickly",
+    "reading": "クイックリー"
+  },
+  {
+    "word": "quiet",
+    "reading": "クワイエット"
+  },
+  {
+    "word": "quit",
+    "reading": "クイット"
+  },
+  {
+    "word": "quite",
+    "reading": "クワイト"
+  },
+  {
+    "word": "quiz",
+    "reading": "クイズ"
+  },
+  {
+    "word": "quote",
+    "reading": "クォート"
+  },
+  {
+    "word": "race",
+    "reading": "レース"
+  },
+  {
+    "word": "racing",
+    "reading": "レーシング"
+  },
+  {
+    "word": "rack",
+    "reading": "ラック"
+  },
+  {
+    "word": "radar",
+    "reading": "レーダー"
+  },
+  {
+    "word": "radio",
+    "reading": "レイディオ"
+  },
+  {
+    "word": "radius",
+    "reading": "レイディアス"
+  },
+  {
+    "word": "rail",
+    "reading": "レイル"
+  },
+  {
+    "word": "rain",
+    "reading": "レイン"
+  },
+  {
+    "word": "rainy",
+    "reading": "レイニー"
+  },
+  {
+    "word": "raise",
+    "reading": "レイズ"
+  },
+  {
+    "word": "raised",
+    "reading": "レイズド"
+  },
+  {
+    "word": "rally",
+    "reading": "ラリー"
+  },
+  {
+    "word": "ram",
+    "reading": "ラム"
+  },
+  {
+    "word": "random",
+    "reading": "ランダム"
+  },
+  {
+    "word": "range",
+    "reading": "レインジ"
+  },
+  {
+    "word": "rank",
+    "reading": "ランク"
+  },
+  {
+    "word": "rapid",
+    "reading": "ラピッド"
+  },
+  {
+    "word": "rare",
+    "reading": "レア"
+  },
+  {
+    "word": "rarely",
+    "reading": "レアリー"
+  },
+  {
+    "word": "rate",
+    "reading": "レイト"
+  },
+  {
+    "word": "rating",
+    "reading": "レイティング"
+  },
+  {
+    "word": "ratio",
+    "reading": "レイシオ"
+  },
+  {
+    "word": "raw",
+    "reading": "ロー"
+  },
+  {
+    "word": "reach",
+    "reading": "リーチ"
+  },
+  {
+    "word": "react",
+    "reading": "リアクト"
+  },
+  {
+    "word": "reader",
+    "reading": "リーダー"
+  },
+  {
+    "word": "ready",
+    "reading": "レディ"
+  },
+  {
+    "word": "real",
+    "reading": "リアル"
+  },
+  {
+    "word": "really",
+    "reading": "リアリー"
+  },
+  {
+    "word": "reason",
+    "reading": "リーズン"
+  },
+  {
+    "word": "reboot",
+    "reading": "リブート"
+  },
+  {
+    "word": "rebuild",
+    "reading": "リビルド"
+  },
+  {
+    "word": "receipt",
+    "reading": "レシート"
+  },
+  {
+    "word": "receive",
+    "reading": "リシーヴ"
+  },
+  {
+    "word": "recent",
+    "reading": "リーセント"
+  },
+  {
+    "word": "recipe",
+    "reading": "レシピ"
+  },
+  {
+    "word": "recognition",
+    "reading": "レコグニション"
+  },
+  {
+    "word": "recommend",
+    "reading": "レコメンド"
+  },
+  {
+    "word": "reconnect",
+    "reading": "リコネクト"
+  },
+  {
+    "word": "recovery",
+    "reading": "リカヴァリー"
+  },
+  {
+    "word": "recycle",
+    "reading": "リサイクル"
+  },
+  {
+    "word": "red",
+    "reading": "レッド"
+  },
+  {
+    "word": "redirect",
+    "reading": "リダイレクト"
+  },
+  {
+    "word": "reduce",
+    "reading": "リデュース"
+  },
+  {
+    "word": "refer",
+    "reading": "リファー"
+  },
+  {
+    "word": "reference",
+    "reading": "レファレンス"
+  },
+  {
+    "word": "refine",
+    "reading": "リファイン"
+  },
+  {
+    "word": "refresh",
+    "reading": "リフレッシュ"
+  },
+  {
+    "word": "regard",
+    "reading": "リガード"
+  },
+  {
+    "word": "region",
+    "reading": "リージョン"
+  },
+  {
+    "word": "register",
+    "reading": "レジスター"
+  },
+  {
+    "word": "registration",
+    "reading": "レジストレーション"
+  },
+  {
+    "word": "regular",
+    "reading": "レギュラー"
+  },
+  {
+    "word": "related",
+    "reading": "リレイティッド"
+  },
+  {
+    "word": "relax",
+    "reading": "リラックス"
+  },
+  {
+    "word": "release",
+    "reading": "リリース"
+  },
+  {
+    "word": "reliable",
+    "reading": "リライアブル"
+  },
+  {
+    "word": "relief",
+    "reading": "リリーフ"
+  },
+  {
+    "word": "reload",
+    "reading": "リロード"
+  },
+  {
+    "word": "rely",
+    "reading": "リライ"
+  },
+  {
+    "word": "remain",
+    "reading": "リメイン"
+  },
+  {
+    "word": "remind",
+    "reading": "リマインド"
+  },
+  {
+    "word": "reminder",
+    "reading": "リマインダー"
+  },
+  {
+    "word": "remote",
+    "reading": "リモート"
+  },
+  {
+    "word": "remove",
+    "reading": "リムーヴ"
+  },
+  {
+    "word": "rename",
+    "reading": "リネイム"
+  },
+  {
+    "word": "render",
+    "reading": "レンダー"
+  },
+  {
+    "word": "renderer",
+    "reading": "レンダラー"
+  },
+  {
+    "word": "rendering",
+    "reading": "レンダリング"
+  },
+  {
+    "word": "renew",
+    "reading": "リニュー"
+  },
+  {
+    "word": "rent",
+    "reading": "レント"
+  },
+  {
+    "word": "rental",
+    "reading": "レンタル"
+  },
+  {
+    "word": "repair",
+    "reading": "リペア"
+  },
+  {
+    "word": "repeat",
+    "reading": "リピート"
+  },
+  {
+    "word": "replace",
+    "reading": "リプレイス"
+  },
+  {
+    "word": "replay",
+    "reading": "リプレイ"
+  },
+  {
+    "word": "reply",
+    "reading": "リプライ"
+  },
+  {
+    "word": "report",
+    "reading": "リポート"
+  },
+  {
+    "word": "request",
+    "reading": "リクエスト"
+  },
+  {
+    "word": "require",
+    "reading": "リクワイア"
+  },
+  {
+    "word": "required",
+    "reading": "リクワイアード"
+  },
+  {
+    "word": "requirement",
+    "reading": "リクワイアメント"
+  },
+  {
+    "word": "rescue",
+    "reading": "レスキュー"
+  },
+  {
+    "word": "reservation",
+    "reading": "レザヴェーション"
+  },
+  {
+    "word": "reset",
+    "reading": "リセット"
+  },
+  {
+    "word": "resist",
+    "reading": "リジスト"
+  },
+  {
+    "word": "resize",
+    "reading": "リサイズ"
+  },
+  {
+    "word": "resolution",
+    "reading": "レゾリューション"
+  },
+  {
+    "word": "resolve",
+    "reading": "リゾルヴ"
+  },
+  {
+    "word": "resource",
+    "reading": "リソース"
+  },
+  {
+    "word": "response",
+    "reading": "リスポンス"
+  },
+  {
+    "word": "responsibility",
+    "reading": "リスポンシビリティ"
+  },
+  {
+    "word": "responsible",
+    "reading": "リスポンシブル"
+  },
+  {
+    "word": "rest",
+    "reading": "レスト"
+  },
+  {
+    "word": "restart",
+    "reading": "リスタート"
+  },
+  {
+    "word": "restore",
+    "reading": "リストア"
+  },
+  {
+    "word": "restrict",
+    "reading": "リストリクト"
+  },
+  {
+    "word": "restriction",
+    "reading": "リストリクション"
+  },
+  {
+    "word": "result",
+    "reading": "リザルト"
+  },
+  {
+    "word": "return",
+    "reading": "リターン"
+  },
+  {
+    "word": "reveal",
+    "reading": "リヴィール"
+  },
+  {
+    "word": "reverse",
+    "reading": "リヴァース"
+  },
+  {
+    "word": "review",
+    "reading": "リヴュー"
+  },
+  {
+    "word": "revise",
+    "reading": "リヴァイズ"
+  },
+  {
+    "word": "revision",
+    "reading": "リヴィジョン"
+  },
+  {
+    "word": "reward",
+    "reading": "リウォード"
+  },
+  {
+    "word": "rhythm",
+    "reading": "リズム"
+  },
+  {
+    "word": "rice",
+    "reading": "ライス"
+  },
+  {
+    "word": "rich",
+    "reading": "リッチ"
+  },
+  {
+    "word": "ride",
+    "reading": "ライド"
+  },
+  {
+    "word": "rider",
+    "reading": "ライダー"
+  },
+  {
+    "word": "riding",
+    "reading": "ライディング"
+  },
+  {
+    "word": "right",
+    "reading": "ライト"
+  },
+  {
+    "word": "rights",
+    "reading": "ライツ"
+  },
+  {
+    "word": "ring",
+    "reading": "リング"
+  },
+  {
+    "word": "rise",
+    "reading": "ライズ"
+  },
+  {
+    "word": "rising",
+    "reading": "ライジング"
+  },
+  {
+    "word": "risk",
+    "reading": "リスク"
+  },
+  {
+    "word": "river",
+    "reading": "リヴァー"
+  },
+  {
+    "word": "road",
+    "reading": "ロード"
+  },
+  {
+    "word": "robot",
+    "reading": "ロボット"
+  },
+  {
+    "word": "robotics",
+    "reading": "ロボティクス"
+  },
+  {
+    "word": "rock",
+    "reading": "ロック"
+  },
+  {
+    "word": "role",
+    "reading": "ロール"
+  },
+  {
+    "word": "roll",
+    "reading": "ロール"
+  },
+  {
+    "word": "roof",
+    "reading": "ルーフ"
+  },
+  {
+    "word": "room",
+    "reading": "ルーム"
+  },
+  {
+    "word": "root",
+    "reading": "ルート"
+  },
+  {
+    "word": "rope",
+    "reading": "ロープ"
+  },
+  {
+    "word": "rose",
+    "reading": "ローズ"
+  },
+  {
+    "word": "rough",
+    "reading": "ラフ"
+  },
+  {
+    "word": "round",
+    "reading": "ラウンド"
+  },
+  {
+    "word": "routine",
+    "reading": "ルーティーン"
+  },
+  {
+    "word": "royal",
+    "reading": "ロイヤル"
+  },
+  {
+    "word": "rubber",
+    "reading": "ラバー"
+  },
+  {
+    "word": "ruby",
+    "reading": "ルビー"
+  },
+  {
+    "word": "rude",
+    "reading": "ルード"
+  },
+  {
+    "word": "rug",
+    "reading": "ラグ"
+  },
+  {
+    "word": "rule",
+    "reading": "ルール"
+  },
+  {
+    "word": "ruler",
+    "reading": "ルーラー"
+  },
+  {
+    "word": "run",
+    "reading": "ラン"
+  },
+  {
+    "word": "runner",
+    "reading": "ランナー"
+  },
+  {
+    "word": "running",
+    "reading": "ランニング"
+  },
+  {
+    "word": "runtime",
+    "reading": "ランタイム"
+  },
+  {
+    "word": "rural",
+    "reading": "ルーラル"
+  },
+  {
+    "word": "rush",
+    "reading": "ラッシュ"
+  },
+  {
+    "word": "sad",
+    "reading": "サッド"
+  },
+  {
+    "word": "sadly",
+    "reading": "サッドリー"
+  },
+  {
+    "word": "safe",
+    "reading": "セイフ"
+  },
+  {
+    "word": "safely",
+    "reading": "セイフリー"
+  },
+  {
+    "word": "safety",
+    "reading": "セイフティ"
+  },
+  {
+    "word": "sail",
+    "reading": "セイル"
+  },
+  {
+    "word": "salad",
+    "reading": "サラダ"
+  },
+  {
+    "word": "salary",
+    "reading": "サラリー"
+  },
+  {
+    "word": "sale",
+    "reading": "セイル"
+  },
+  {
+    "word": "sales",
+    "reading": "セイルズ"
+  },
+  {
+    "word": "salt",
+    "reading": "ソルト"
+  },
+  {
+    "word": "same",
+    "reading": "セイム"
+  },
+  {
+    "word": "sample",
+    "reading": "サンプル"
+  },
+  {
+    "word": "sampling",
+    "reading": "サンプリング"
+  },
+  {
+    "word": "sand",
+    "reading": "サンド"
+  },
+  {
+    "word": "sauce",
+    "reading": "ソース"
+  },
+  {
+    "word": "save",
+    "reading": "セーブ"
+  },
+  {
+    "word": "saved",
+    "reading": "セイヴド"
+  },
+  {
+    "word": "saving",
+    "reading": "セイヴィング"
+  },
+  {
+    "word": "say",
+    "reading": "セイ"
+  },
+  {
+    "word": "saying",
+    "reading": "セイイング"
+  },
+  {
+    "word": "says",
+    "reading": "セズ"
+  },
+  {
+    "word": "scale",
+    "reading": "スケイル"
+  },
+  {
+    "word": "scan",
+    "reading": "スキャン"
+  },
+  {
+    "word": "scanner",
+    "reading": "スキャナー"
+  },
+  {
+    "word": "scanning",
+    "reading": "スキャニング"
+  },
+  {
+    "word": "scare",
+    "reading": "スケア"
+  },
+  {
+    "word": "scared",
+    "reading": "スケアード"
+  },
+  {
+    "word": "scary",
+    "reading": "スケアリー"
+  },
+  {
+    "word": "scene",
+    "reading": "シーン"
+  },
+  {
+    "word": "schedule",
+    "reading": "スケジュール"
+  },
+  {
+    "word": "schema",
+    "reading": "スキーマ"
+  },
+  {
+    "word": "scheme",
+    "reading": "スキーム"
+  },
+  {
+    "word": "school",
+    "reading": "スクール"
+  },
+  {
+    "word": "science",
+    "reading": "サイエンス"
+  },
+  {
+    "word": "scientific",
+    "reading": "サイエンティフィック"
+  },
+  {
+    "word": "scientist",
+    "reading": "サイエンティスト"
+  },
+  {
+    "word": "scope",
+    "reading": "スコープ"
+  },
+  {
+    "word": "score",
+    "reading": "スコア"
+  },
+  {
+    "word": "screen",
+    "reading": "スクリーン"
+  },
+  {
+    "word": "screenshot",
+    "reading": "スクリーンショット"
+  },
+  {
+    "word": "script",
+    "reading": "スクリプト"
+  },
+  {
+    "word": "scroll",
+    "reading": "スクロール"
+  },
+  {
+    "word": "sea",
+    "reading": "シー"
+  },
+  {
+    "word": "search",
+    "reading": "サーチ"
+  },
+  {
+    "word": "season",
+    "reading": "シーズン"
+  },
+  {
+    "word": "seat",
+    "reading": "シート"
+  },
+  {
+    "word": "second",
+    "reading": "セカンド"
+  },
+  {
+    "word": "secret",
+    "reading": "シークレット"
+  },
+  {
+    "word": "section",
+    "reading": "セクション"
+  },
+  {
+    "word": "sector",
+    "reading": "セクター"
+  },
+  {
+    "word": "secure",
+    "reading": "セキュア"
+  },
+  {
+    "word": "security",
+    "reading": "セキュリティ"
+  },
+  {
+    "word": "see",
+    "reading": "シー"
+  },
+  {
+    "word": "seed",
+    "reading": "シード"
+  },
+  {
+    "word": "seek",
+    "reading": "シーク"
+  },
+  {
+    "word": "seem",
+    "reading": "シーム"
+  },
+  {
+    "word": "seen",
+    "reading": "シーン"
+  },
+  {
+    "word": "segment",
+    "reading": "セグメント"
+  },
+  {
+    "word": "select",
+    "reading": "セレクト"
+  },
+  {
+    "word": "selected",
+    "reading": "セレクティッド"
+  },
+  {
+    "word": "selection",
+    "reading": "セレクション"
+  },
+  {
+    "word": "selector",
+    "reading": "セレクター"
+  },
+  {
+    "word": "self",
+    "reading": "セルフ"
+  },
+  {
+    "word": "sell",
+    "reading": "セル"
+  },
+  {
+    "word": "seller",
+    "reading": "セラー"
+  },
+  {
+    "word": "send",
+    "reading": "センド"
+  },
+  {
+    "word": "sender",
+    "reading": "センダー"
+  },
+  {
+    "word": "senior",
+    "reading": "シニア"
+  },
+  {
+    "word": "sense",
+    "reading": "センス"
+  },
+  {
+    "word": "sensitive",
+    "reading": "センシティヴ"
+  },
+  {
+    "word": "sensor",
+    "reading": "センサー"
+  },
+  {
+    "word": "sent",
+    "reading": "セント"
+  },
+  {
+    "word": "sentence",
+    "reading": "センテンス"
+  },
+  {
+    "word": "sequence",
+    "reading": "シークエンス"
+  },
+  {
+    "word": "serial",
+    "reading": "シリアル"
+  },
+  {
+    "word": "series",
+    "reading": "シリーズ"
+  },
+  {
+    "word": "serve",
+    "reading": "サーヴ"
+  },
+  {
+    "word": "server",
+    "reading": "サーヴァー"
+  },
+  {
+    "word": "service",
+    "reading": "サーヴィス"
+  },
+  {
+    "word": "session",
+    "reading": "セッション"
+  },
+  {
+    "word": "set",
+    "reading": "セット"
+  },
+  {
+    "word": "setting",
+    "reading": "セッティング"
+  },
+  {
+    "word": "settings",
+    "reading": "セッティングス"
+  },
+  {
+    "word": "settle",
+    "reading": "セトル"
+  },
+  {
+    "word": "seven",
+    "reading": "セヴン"
+  },
+  {
+    "word": "shade",
+    "reading": "シェイド"
+  },
+  {
+    "word": "shadow",
+    "reading": "シャドウ"
+  },
+  {
+    "word": "shake",
+    "reading": "シェイク"
+  },
+  {
+    "word": "shame",
+    "reading": "シェイム"
+  },
+  {
+    "word": "shape",
+    "reading": "シェイプ"
+  },
+  {
+    "word": "share",
+    "reading": "シェア"
+  },
+  {
+    "word": "shared",
+    "reading": "シェアード"
+  },
+  {
+    "word": "sharing",
+    "reading": "シェアリング"
+  },
+  {
+    "word": "sharp",
+    "reading": "シャープ"
+  },
+  {
+    "word": "she",
+    "reading": "シー"
+  },
+  {
+    "word": "sheep",
+    "reading": "シープ"
+  },
+  {
+    "word": "sheet",
+    "reading": "シート"
+  },
+  {
+    "word": "shelf",
+    "reading": "シェルフ"
+  },
+  {
+    "word": "shell",
+    "reading": "シェル"
+  },
+  {
+    "word": "shift",
+    "reading": "シフト"
+  },
+  {
+    "word": "shine",
+    "reading": "シャイン"
+  },
+  {
+    "word": "shiny",
+    "reading": "シャイニー"
+  },
+  {
+    "word": "ship",
+    "reading": "シップ"
+  },
+  {
+    "word": "shipping",
+    "reading": "シッピング"
+  },
+  {
+    "word": "shirt",
+    "reading": "シャート"
+  },
+  {
+    "word": "shock",
+    "reading": "ショック"
+  },
+  {
+    "word": "shoe",
+    "reading": "シュー"
+  },
+  {
+    "word": "shoes",
+    "reading": "シューズ"
+  },
+  {
+    "word": "shoot",
+    "reading": "シュート"
+  },
+  {
+    "word": "shop",
+    "reading": "ショップ"
+  },
+  {
+    "word": "short",
+    "reading": "ショート"
+  },
+  {
+    "word": "shortcut",
+    "reading": "ショートカット"
+  },
+  {
+    "word": "shot",
+    "reading": "ショット"
+  },
+  {
+    "word": "should",
+    "reading": "シュッド"
+  },
+  {
+    "word": "shout",
+    "reading": "シャウト"
+  },
+  {
+    "word": "show",
+    "reading": "ショウ"
+  },
+  {
+    "word": "shower",
+    "reading": "シャワー"
+  },
+  {
+    "word": "shown",
+    "reading": "ショウン"
+  },
+  {
+    "word": "shut",
+    "reading": "シャット"
+  },
+  {
+    "word": "shutdown",
+    "reading": "シャットダウン"
+  },
+  {
+    "word": "shy",
+    "reading": "シャイ"
+  },
+  {
+    "word": "sick",
+    "reading": "シック"
+  },
+  {
+    "word": "side",
+    "reading": "サイド"
+  },
+  {
+    "word": "sidebar",
+    "reading": "サイドバー"
+  },
+  {
+    "word": "sight",
+    "reading": "サイト"
+  },
+  {
+    "word": "sign",
+    "reading": "サイン"
+  },
+  {
+    "word": "signal",
+    "reading": "シグナル"
+  },
+  {
+    "word": "signature",
+    "reading": "シグナチャー"
+  },
+  {
+    "word": "silence",
+    "reading": "サイレンス"
+  },
+  {
+    "word": "silent",
+    "reading": "サイレント"
+  },
+  {
+    "word": "silk",
+    "reading": "シルク"
+  },
+  {
+    "word": "silver",
+    "reading": "シルヴァー"
+  },
+  {
+    "word": "similar",
+    "reading": "シミラー"
+  },
+  {
+    "word": "simple",
+    "reading": "シンプル"
+  },
+  {
+    "word": "simply",
+    "reading": "シンプリー"
+  },
+  {
+    "word": "simulate",
+    "reading": "シミュレイト"
+  },
+  {
+    "word": "simulation",
+    "reading": "シミュレーション"
+  },
+  {
+    "word": "since",
+    "reading": "シンス"
+  },
+  {
+    "word": "sing",
+    "reading": "シング"
+  },
+  {
+    "word": "singer",
+    "reading": "シンガー"
+  },
+  {
+    "word": "single",
+    "reading": "シングル"
+  },
+  {
+    "word": "sink",
+    "reading": "シンク"
+  },
+  {
+    "word": "sister",
+    "reading": "シスター"
+  },
+  {
+    "word": "sit",
+    "reading": "シット"
+  },
+  {
+    "word": "site",
+    "reading": "サイト"
+  },
+  {
+    "word": "situation",
+    "reading": "シチュエーション"
+  },
+  {
+    "word": "six",
+    "reading": "シックス"
+  },
+  {
+    "word": "sixth",
+    "reading": "シックスス"
+  },
+  {
+    "word": "sixty",
+    "reading": "シックスティ"
+  },
+  {
+    "word": "size",
+    "reading": "サイズ"
+  },
+  {
+    "word": "skill",
+    "reading": "スキル"
+  },
+  {
+    "word": "skin",
+    "reading": "スキン"
+  },
+  {
+    "word": "skip",
+    "reading": "スキップ"
+  },
+  {
+    "word": "sky",
+    "reading": "スカイ"
+  },
+  {
+    "word": "sleep",
+    "reading": "スリープ"
+  },
+  {
+    "word": "slice",
+    "reading": "スライス"
+  },
+  {
+    "word": "slide",
+    "reading": "スライド"
+  },
+  {
+    "word": "slider",
+    "reading": "スライダー"
+  },
+  {
+    "word": "slight",
+    "reading": "スライト"
+  },
+  {
+    "word": "slim",
+    "reading": "スリム"
+  },
+  {
+    "word": "slip",
+    "reading": "スリップ"
+  },
+  {
+    "word": "slow",
+    "reading": "スロウ"
+  },
+  {
+    "word": "slowly",
+    "reading": "スロウリー"
+  },
+  {
+    "word": "small",
+    "reading": "スモール"
+  },
+  {
+    "word": "smart",
+    "reading": "スマート"
+  },
+  {
+    "word": "smell",
+    "reading": "スメル"
+  },
+  {
+    "word": "smile",
+    "reading": "スマイル"
+  },
+  {
+    "word": "smoke",
+    "reading": "スモウク"
+  },
+  {
+    "word": "smooth",
+    "reading": "スムーズ"
+  },
+  {
+    "word": "snack",
+    "reading": "スナック"
+  },
+  {
+    "word": "snake",
+    "reading": "スネイク"
+  },
+  {
+    "word": "snapshot",
+    "reading": "スナップショット"
+  },
+  {
+    "word": "snow",
+    "reading": "スノウ"
+  },
+  {
+    "word": "so",
+    "reading": "ソウ"
+  },
+  {
+    "word": "soap",
+    "reading": "ソウプ"
+  },
+  {
+    "word": "soccer",
+    "reading": "サッカー"
+  },
+  {
+    "word": "social",
+    "reading": "ソーシャル"
+  },
+  {
+    "word": "socket",
+    "reading": "ソケット"
+  },
+  {
+    "word": "soft",
+    "reading": "ソフト"
+  },
+  {
+    "word": "software",
+    "reading": "ソフトウェア"
+  },
+  {
+    "word": "soil",
+    "reading": "ソイル"
+  },
+  {
+    "word": "solar",
+    "reading": "ソウラー"
+  },
+  {
+    "word": "sold",
+    "reading": "ソウルド"
+  },
+  {
+    "word": "solid",
+    "reading": "ソリッド"
+  },
+  {
+    "word": "solution",
+    "reading": "ソリューション"
+  },
+  {
+    "word": "solve",
+    "reading": "ソルヴ"
+  },
+  {
+    "word": "some",
+    "reading": "サム"
+  },
+  {
+    "word": "somebody",
+    "reading": "サムバディ"
+  },
+  {
+    "word": "somehow",
+    "reading": "サムハウ"
+  },
+  {
+    "word": "someone",
+    "reading": "サムワン"
+  },
+  {
+    "word": "something",
+    "reading": "サムシング"
+  },
+  {
+    "word": "sometimes",
+    "reading": "サムタイムズ"
+  },
+  {
+    "word": "somewhere",
+    "reading": "サムウェア"
+  },
+  {
+    "word": "son",
+    "reading": "サン"
+  },
+  {
+    "word": "song",
+    "reading": "ソング"
+  },
+  {
+    "word": "soon",
+    "reading": "スーン"
+  },
+  {
+    "word": "sorry",
+    "reading": "ソリー"
+  },
+  {
+    "word": "sort",
+    "reading": "ソート"
+  },
+  {
+    "word": "soul",
+    "reading": "ソウル"
+  },
+  {
+    "word": "sound",
+    "reading": "サウンド"
+  },
+  {
+    "word": "soup",
+    "reading": "スープ"
+  },
+  {
+    "word": "source",
+    "reading": "ソース"
+  },
+  {
+    "word": "south",
+    "reading": "サウス"
+  },
+  {
+    "word": "space",
+    "reading": "スペイス"
+  },
+  {
+    "word": "spare",
+    "reading": "スペア"
+  },
+  {
+    "word": "speak",
+    "reading": "スピーク"
+  },
+  {
+    "word": "speaker",
+    "reading": "スピーカー"
+  },
+  {
+    "word": "special",
+    "reading": "スペシャル"
+  },
+  {
+    "word": "specialist",
+    "reading": "スペシャリスト"
+  },
+  {
+    "word": "specific",
+    "reading": "スペシフィック"
+  },
+  {
+    "word": "specification",
+    "reading": "スペシフィケーション"
+  },
+  {
+    "word": "specify",
+    "reading": "スペシファイ"
+  },
+  {
+    "word": "speech",
+    "reading": "スピーチ"
+  },
+  {
+    "word": "speed",
+    "reading": "スピード"
+  },
+  {
+    "word": "spell",
+    "reading": "スペル"
+  },
+  {
+    "word": "spelling",
+    "reading": "スペリング"
+  },
+  {
+    "word": "spend",
+    "reading": "スペンド"
+  },
+  {
+    "word": "spent",
+    "reading": "スペント"
+  },
+  {
+    "word": "spice",
+    "reading": "スパイス"
+  },
+  {
+    "word": "spicy",
+    "reading": "スパイシー"
+  },
+  {
+    "word": "spider",
+    "reading": "スパイダー"
+  },
+  {
+    "word": "spin",
+    "reading": "スピン"
+  },
+  {
+    "word": "spirit",
+    "reading": "スピリット"
+  },
+  {
+    "word": "split",
+    "reading": "スプリット"
+  },
+  {
+    "word": "sport",
+    "reading": "スポート"
+  },
+  {
+    "word": "sports",
+    "reading": "スポーツ"
+  },
+  {
+    "word": "spot",
+    "reading": "スポット"
+  },
+  {
+    "word": "spread",
+    "reading": "スプレッド"
+  },
+  {
+    "word": "spring",
+    "reading": "スプリング"
+  },
+  {
+    "word": "square",
+    "reading": "スクウェア"
+  },
+  {
+    "word": "stable",
+    "reading": "ステイブル"
+  },
+  {
+    "word": "stack",
+    "reading": "スタック"
+  },
+  {
+    "word": "staff",
+    "reading": "スタッフ"
+  },
+  {
+    "word": "stage",
+    "reading": "ステイジ"
+  },
+  {
+    "word": "stair",
+    "reading": "ステア"
+  },
+  {
+    "word": "stairs",
+    "reading": "ステアズ"
+  },
+  {
+    "word": "stamp",
+    "reading": "スタンプ"
+  },
+  {
+    "word": "stand",
+    "reading": "スタンド"
+  },
+  {
+    "word": "standard",
+    "reading": "スタンダード"
+  },
+  {
+    "word": "star",
+    "reading": "スター"
+  },
+  {
+    "word": "start",
+    "reading": "スタート"
+  },
+  {
+    "word": "startup",
+    "reading": "スタートアップ"
+  },
+  {
+    "word": "statement",
+    "reading": "ステイトメント"
+  },
+  {
+    "word": "statistic",
+    "reading": "スタティスティック"
+  },
+  {
+    "word": "statistics",
+    "reading": "スタティスティックス"
+  },
+  {
+    "word": "status",
+    "reading": "ステイタス"
+  },
+  {
+    "word": "stay",
+    "reading": "ステイ"
+  },
+  {
+    "word": "steady",
+    "reading": "ステディ"
+  },
+  {
+    "word": "steal",
+    "reading": "スティール"
+  },
+  {
+    "word": "steam",
+    "reading": "スティーム"
+  },
+  {
+    "word": "steel",
+    "reading": "スティール"
+  },
+  {
+    "word": "step",
+    "reading": "ステップ"
+  },
+  {
+    "word": "stick",
+    "reading": "スティック"
+  },
+  {
+    "word": "still",
+    "reading": "スティル"
+  },
+  {
+    "word": "stock",
+    "reading": "ストック"
+  },
+  {
+    "word": "stone",
+    "reading": "ストウン"
+  },
+  {
+    "word": "stood",
+    "reading": "ストゥッド"
+  },
+  {
+    "word": "stop",
+    "reading": "ストップ"
+  },
+  {
+    "word": "storage",
+    "reading": "ストレージ"
+  },
+  {
+    "word": "store",
+    "reading": "ストア"
+  },
+  {
+    "word": "storm",
+    "reading": "ストーム"
+  },
+  {
+    "word": "story",
+    "reading": "ストーリー"
+  },
+  {
+    "word": "stream",
+    "reading": "ストリーム"
+  },
+  {
+    "word": "streaming",
+    "reading": "ストリーミング"
+  },
+  {
+    "word": "street",
+    "reading": "ストリート"
+  },
+  {
+    "word": "strength",
+    "reading": "ストレングス"
+  },
+  {
+    "word": "stress",
+    "reading": "ストレス"
+  },
+  {
+    "word": "strict",
+    "reading": "ストリクト"
+  },
+  {
+    "word": "string",
+    "reading": "ストリング"
+  },
+  {
+    "word": "strip",
+    "reading": "ストリップ"
+  },
+  {
+    "word": "stroke",
+    "reading": "ストロウク"
+  },
+  {
+    "word": "strong",
+    "reading": "ストロング"
+  },
+  {
+    "word": "structure",
+    "reading": "ストラクチャー"
+  },
+  {
+    "word": "student",
+    "reading": "スチューデント"
+  },
+  {
+    "word": "studio",
+    "reading": "スタジオ"
+  },
+  {
+    "word": "study",
+    "reading": "スタディ"
+  },
+  {
+    "word": "stuff",
+    "reading": "スタッフ"
+  },
+  {
+    "word": "style",
+    "reading": "スタイル"
+  },
+  {
+    "word": "submit",
+    "reading": "サブミット"
+  },
+  {
+    "word": "subscription",
+    "reading": "サブスクリプション"
+  },
+  {
+    "word": "subset",
+    "reading": "サブセット"
+  },
+  {
+    "word": "subtract",
+    "reading": "サブトラクト"
+  },
+  {
+    "word": "suburb",
+    "reading": "サバーブ"
+  },
+  {
+    "word": "succeed",
+    "reading": "サクシード"
+  },
+  {
+    "word": "success",
+    "reading": "サクセス"
+  },
+  {
+    "word": "successful",
+    "reading": "サクセスフル"
+  },
+  {
+    "word": "such",
+    "reading": "サッチ"
+  },
+  {
+    "word": "sudden",
+    "reading": "サドゥン"
+  },
+  {
+    "word": "suddenly",
+    "reading": "サドゥンリー"
+  },
+  {
+    "word": "suffer",
+    "reading": "サファー"
+  },
+  {
+    "word": "sugar",
+    "reading": "シュガー"
+  },
+  {
+    "word": "suggest",
+    "reading": "サジェスト"
+  },
+  {
+    "word": "suggestion",
+    "reading": "サジェスチョン"
+  },
+  {
+    "word": "sum",
+    "reading": "サム"
+  },
+  {
+    "word": "summary",
+    "reading": "サマリー"
+  },
+  {
+    "word": "summer",
+    "reading": "サマー"
+  },
+  {
+    "word": "sun",
+    "reading": "サン"
+  },
+  {
+    "word": "sunny",
+    "reading": "サニー"
+  },
+  {
+    "word": "super",
+    "reading": "スーパー"
+  },
+  {
+    "word": "supply",
+    "reading": "サプライ"
+  },
+  {
+    "word": "support",
+    "reading": "サポート"
+  },
+  {
+    "word": "supported",
+    "reading": "サポーティッド"
+  },
+  {
+    "word": "sure",
+    "reading": "シュア"
+  },
+  {
+    "word": "surely",
+    "reading": "シュアリー"
+  },
+  {
+    "word": "surface",
+    "reading": "サーフィス"
+  },
+  {
+    "word": "survey",
+    "reading": "サーヴェイ"
+  },
+  {
+    "word": "suspend",
+    "reading": "サスペンド"
+  },
+  {
+    "word": "swap",
+    "reading": "スワップ"
+  },
+  {
+    "word": "swear",
+    "reading": "スウェア"
+  },
+  {
+    "word": "sweat",
+    "reading": "スウェット"
+  },
+  {
+    "word": "sweet",
+    "reading": "スウィート"
+  },
+  {
+    "word": "swim",
+    "reading": "スウィム"
+  },
+  {
+    "word": "switch",
+    "reading": "スウィッチ"
+  },
+  {
+    "word": "symbol",
+    "reading": "シンボル"
+  },
+  {
+    "word": "symmetric",
+    "reading": "シメトリック"
+  },
+  {
+    "word": "sync",
+    "reading": "シンク"
+  },
+  {
+    "word": "synchronize",
+    "reading": "シンクロナイズ"
+  },
+  {
+    "word": "syntax",
+    "reading": "シンタックス"
+  },
+  {
+    "word": "system",
+    "reading": "システム"
+  },
+  {
+    "word": "tab",
+    "reading": "タブ"
+  },
+  {
+    "word": "table",
+    "reading": "テイブル"
+  },
+  {
+    "word": "tablet",
+    "reading": "タブレット"
+  },
+  {
+    "word": "tag",
+    "reading": "タグ"
+  },
+  {
+    "word": "tail",
+    "reading": "テイル"
+  },
+  {
+    "word": "take",
+    "reading": "テイク"
+  },
+  {
+    "word": "taken",
+    "reading": "テイクン"
+  },
+  {
+    "word": "taking",
+    "reading": "テイキング"
+  },
+  {
+    "word": "tale",
+    "reading": "テイル"
+  },
+  {
+    "word": "talent",
+    "reading": "タレント"
+  },
+  {
+    "word": "talk",
+    "reading": "トーク"
+  },
+  {
+    "word": "tall",
+    "reading": "トール"
+  },
+  {
+    "word": "tank",
+    "reading": "タンク"
+  },
+  {
+    "word": "tap",
+    "reading": "タップ"
+  },
+  {
+    "word": "target",
+    "reading": "ターゲット"
+  },
+  {
+    "word": "task",
+    "reading": "タスク"
+  },
+  {
+    "word": "taste",
+    "reading": "テイスト"
+  },
+  {
+    "word": "tasty",
+    "reading": "テイスティ"
+  },
+  {
+    "word": "tax",
+    "reading": "タックス"
+  },
+  {
+    "word": "taxi",
+    "reading": "タクシー"
+  },
+  {
+    "word": "tea",
+    "reading": "ティー"
+  },
+  {
+    "word": "teach",
+    "reading": "ティーチ"
+  },
+  {
+    "word": "team",
+    "reading": "ティーム"
+  },
+  {
+    "word": "technical",
+    "reading": "テクニカル"
+  },
+  {
+    "word": "technique",
+    "reading": "テクニーク"
+  },
+  {
+    "word": "technology",
+    "reading": "テクノロジー"
+  },
+  {
+    "word": "tell",
+    "reading": "テル"
+  },
+  {
+    "word": "template",
+    "reading": "テンプレイト"
+  },
+  {
+    "word": "temporary",
+    "reading": "テンポラリー"
+  },
+  {
+    "word": "ten",
+    "reading": "テン"
+  },
+  {
+    "word": "tenant",
+    "reading": "テナント"
+  },
+  {
+    "word": "tend",
+    "reading": "テンド"
+  },
+  {
+    "word": "tender",
+    "reading": "テンダー"
+  },
+  {
+    "word": "tennis",
+    "reading": "テニス"
+  },
+  {
+    "word": "tent",
+    "reading": "テント"
+  },
+  {
+    "word": "term",
+    "reading": "ターム"
+  },
+  {
+    "word": "terminal",
+    "reading": "ターミナル"
+  },
+  {
+    "word": "terms",
+    "reading": "タームズ"
+  },
+  {
+    "word": "test",
+    "reading": "テスト"
+  },
+  {
+    "word": "testing",
+    "reading": "テスティング"
+  },
+  {
+    "word": "text",
+    "reading": "テクスト"
+  },
+  {
+    "word": "texture",
+    "reading": "テクスチャー"
+  },
+  {
+    "word": "than",
+    "reading": "ザン"
+  },
+  {
+    "word": "thank",
+    "reading": "サンク"
+  },
+  {
+    "word": "thanks",
+    "reading": "サンクス"
+  },
+  {
+    "word": "that",
+    "reading": "ザット"
+  },
+  {
+    "word": "the",
+    "reading": "ザ"
+  },
+  {
+    "word": "their",
+    "reading": "ゼア"
+  },
+  {
+    "word": "them",
+    "reading": "ゼム"
+  },
+  {
+    "word": "theme",
+    "reading": "シーム"
+  },
+  {
+    "word": "themselves",
+    "reading": "ゼムセルヴズ"
+  },
+  {
+    "word": "then",
+    "reading": "ゼン"
+  },
+  {
+    "word": "theory",
+    "reading": "シアリー"
+  },
+  {
+    "word": "there",
+    "reading": "ゼア"
+  },
+  {
+    "word": "therefore",
+    "reading": "ゼアフォー"
+  },
+  {
+    "word": "these",
+    "reading": "ジーズ"
+  },
+  {
+    "word": "they",
+    "reading": "ゼイ"
+  },
+  {
+    "word": "thick",
+    "reading": "シック"
+  },
+  {
+    "word": "thin",
+    "reading": "シン"
+  },
+  {
+    "word": "thing",
+    "reading": "シング"
+  },
+  {
+    "word": "think",
+    "reading": "シンク"
+  },
+  {
+    "word": "third",
+    "reading": "サード"
+  },
+  {
+    "word": "thirty",
+    "reading": "サーティ"
+  },
+  {
+    "word": "this",
+    "reading": "ジス"
+  },
+  {
+    "word": "those",
+    "reading": "ゾウズ"
+  },
+  {
+    "word": "though",
+    "reading": "ゾウ"
+  },
+  {
+    "word": "thought",
+    "reading": "ソート"
+  },
+  {
+    "word": "thousand",
+    "reading": "サウザンド"
+  },
+  {
+    "word": "thread",
+    "reading": "スレッド"
+  },
+  {
+    "word": "threat",
+    "reading": "スレット"
+  },
+  {
+    "word": "three",
+    "reading": "スリー"
+  },
+  {
+    "word": "threshold",
+    "reading": "スレッショウルド"
+  },
+  {
+    "word": "through",
+    "reading": "スルー"
+  },
+  {
+    "word": "throughout",
+    "reading": "スルーアウト"
+  },
+  {
+    "word": "throw",
+    "reading": "スロウ"
+  },
+  {
+    "word": "thumbnail",
+    "reading": "サムネイル"
+  },
+  {
+    "word": "thus",
+    "reading": "ザス"
+  },
+  {
+    "word": "ticket",
+    "reading": "ティケット"
+  },
+  {
+    "word": "tidy",
+    "reading": "タイディ"
+  },
+  {
+    "word": "tie",
+    "reading": "タイ"
+  },
+  {
+    "word": "tiger",
+    "reading": "タイガー"
+  },
+  {
+    "word": "tight",
+    "reading": "タイト"
+  },
+  {
+    "word": "tile",
+    "reading": "タイル"
+  },
+  {
+    "word": "till",
+    "reading": "ティル"
+  },
+  {
+    "word": "time",
+    "reading": "タイム"
+  },
+  {
+    "word": "timeline",
+    "reading": "タイムライン"
+  },
+  {
+    "word": "timer",
+    "reading": "タイマー"
+  },
+  {
+    "word": "times",
+    "reading": "タイムズ"
+  },
+  {
+    "word": "tiny",
+    "reading": "タイニー"
+  },
+  {
+    "word": "tip",
+    "reading": "ティップ"
+  },
+  {
+    "word": "tired",
+    "reading": "タイアード"
+  },
+  {
+    "word": "title",
+    "reading": "タイトル"
+  },
+  {
+    "word": "to",
+    "reading": "トゥー"
+  },
+  {
+    "word": "today",
+    "reading": "トゥデイ"
+  },
+  {
+    "word": "together",
+    "reading": "トゥゲザー"
+  },
+  {
+    "word": "token",
+    "reading": "トウクン"
+  },
+  {
+    "word": "told",
+    "reading": "トウルド"
+  },
+  {
+    "word": "tolerance",
+    "reading": "トレランス"
+  },
+  {
+    "word": "tomato",
+    "reading": "トメイトウ"
+  },
+  {
+    "word": "tomorrow",
+    "reading": "トゥモロウ"
+  },
+  {
+    "word": "tonight",
+    "reading": "トゥナイト"
+  },
+  {
+    "word": "too",
+    "reading": "トゥー"
+  },
+  {
+    "word": "tool",
+    "reading": "トゥール"
+  },
+  {
+    "word": "toolbar",
+    "reading": "トゥールバー"
+  },
+  {
+    "word": "tooltip",
+    "reading": "トゥールティップ"
+  },
+  {
+    "word": "tooth",
+    "reading": "トゥース"
+  },
+  {
+    "word": "top",
+    "reading": "トップ"
+  },
+  {
+    "word": "topic",
+    "reading": "トピック"
+  },
+  {
+    "word": "total",
+    "reading": "トウタル"
+  },
+  {
+    "word": "touch",
+    "reading": "タッチ"
+  },
+  {
+    "word": "tough",
+    "reading": "タフ"
+  },
+  {
+    "word": "tour",
+    "reading": "トゥアー"
+  },
+  {
+    "word": "toward",
+    "reading": "トウォード"
+  },
+  {
+    "word": "towards",
+    "reading": "トウォーズ"
+  },
+  {
+    "word": "tower",
+    "reading": "タワー"
+  },
+  {
+    "word": "town",
+    "reading": "タウン"
+  },
+  {
+    "word": "toy",
+    "reading": "トイ"
+  },
+  {
+    "word": "trace",
+    "reading": "トレイス"
+  },
+  {
+    "word": "track",
+    "reading": "トラック"
+  },
+  {
+    "word": "tracking",
+    "reading": "トラッキング"
+  },
+  {
+    "word": "trade",
+    "reading": "トレイド"
+  },
+  {
+    "word": "traffic",
+    "reading": "トラフィック"
+  },
+  {
+    "word": "train",
+    "reading": "トレイン"
+  },
+  {
+    "word": "training",
+    "reading": "トレイニング"
+  },
+  {
+    "word": "transfer",
+    "reading": "トランスファー"
+  },
+  {
+    "word": "transform",
+    "reading": "トランスフォーム"
+  },
+  {
+    "word": "transformation",
+    "reading": "トランスフォーメーション"
+  },
+  {
+    "word": "transition",
+    "reading": "トランジション"
+  },
+  {
+    "word": "translate",
+    "reading": "トランズレイト"
+  },
+  {
+    "word": "translation",
+    "reading": "トランズレイション"
+  },
+  {
+    "word": "transmission",
+    "reading": "トランズミッション"
+  },
+  {
+    "word": "transparent",
+    "reading": "トランスペアレント"
+  },
+  {
+    "word": "transport",
+    "reading": "トランスポート"
+  },
+  {
+    "word": "trap",
+    "reading": "トラップ"
+  },
+  {
+    "word": "travel",
+    "reading": "トラヴェル"
+  },
+  {
+    "word": "tray",
+    "reading": "トレイ"
+  },
+  {
+    "word": "treat",
+    "reading": "トリート"
+  },
+  {
+    "word": "tree",
+    "reading": "トゥリー"
+  },
+  {
+    "word": "trend",
+    "reading": "トレンド"
+  },
+  {
+    "word": "trial",
+    "reading": "トライアル"
+  },
+  {
+    "word": "triangle",
+    "reading": "トライアングル"
+  },
+  {
+    "word": "trick",
+    "reading": "トリック"
+  },
+  {
+    "word": "trigger",
+    "reading": "トリガー"
+  },
+  {
+    "word": "trip",
+    "reading": "トリップ"
+  },
+  {
+    "word": "truck",
+    "reading": "トラック"
+  },
+  {
+    "word": "true",
+    "reading": "トゥルー"
+  },
+  {
+    "word": "truly",
+    "reading": "トゥルーリー"
+  },
+  {
+    "word": "trust",
+    "reading": "トラスト"
+  },
+  {
+    "word": "truth",
+    "reading": "トゥルース"
+  },
+  {
+    "word": "try",
+    "reading": "トライ"
+  },
+  {
+    "word": "trying",
+    "reading": "トライイング"
+  },
+  {
+    "word": "tube",
+    "reading": "チューブ"
+  },
+  {
+    "word": "tune",
+    "reading": "チューン"
+  },
+  {
+    "word": "turn",
+    "reading": "ターン"
+  },
+  {
+    "word": "tutorial",
+    "reading": "チュートリアル"
+  },
+  {
+    "word": "twelve",
+    "reading": "トゥウェルヴ"
+  },
+  {
+    "word": "twenty",
+    "reading": "トゥウェンティ"
+  },
+  {
+    "word": "twice",
+    "reading": "トゥワイス"
+  },
+  {
+    "word": "twin",
+    "reading": "トゥウィン"
+  },
+  {
+    "word": "two",
+    "reading": "トゥー"
+  },
+  {
+    "word": "type",
+    "reading": "タイプ"
+  },
+  {
+    "word": "typing",
+    "reading": "タイピング"
+  },
+  {
+    "word": "ugly",
+    "reading": "アグリー"
+  },
+  {
+    "word": "ultimate",
+    "reading": "アルティメット"
+  },
+  {
+    "word": "unable",
+    "reading": "アンエイブル"
+  },
+  {
+    "word": "uncertain",
+    "reading": "アンサーテン"
+  },
+  {
+    "word": "uncle",
+    "reading": "アンクル"
+  },
+  {
+    "word": "under",
+    "reading": "アンダー"
+  },
+  {
+    "word": "underline",
+    "reading": "アンダーライン"
+  },
+  {
+    "word": "underlying",
+    "reading": "アンダーライイング"
+  },
+  {
+    "word": "understand",
+    "reading": "アンダースタンド"
+  },
+  {
+    "word": "understood",
+    "reading": "アンダーストゥッド"
+  },
+  {
+    "word": "undo",
+    "reading": "アンドゥー"
+  },
+  {
+    "word": "unexpected",
+    "reading": "アンイクスペクティッド"
+  },
+  {
+    "word": "unfair",
+    "reading": "アンフェア"
+  },
+  {
+    "word": "uniform",
+    "reading": "ユニフォーム"
+  },
+  {
+    "word": "union",
+    "reading": "ユニオン"
+  },
+  {
+    "word": "unique",
+    "reading": "ユニーク"
+  },
+  {
+    "word": "unit",
+    "reading": "ユニット"
+  },
+  {
+    "word": "unite",
+    "reading": "ユナイト"
+  },
+  {
+    "word": "united",
+    "reading": "ユナイティッド"
+  },
+  {
+    "word": "unity",
+    "reading": "ユニティ"
+  },
+  {
+    "word": "universal",
+    "reading": "ユニヴァーサル"
+  },
+  {
+    "word": "universe",
+    "reading": "ユニヴァース"
+  },
+  {
+    "word": "unknown",
+    "reading": "アンノウン"
+  },
+  {
+    "word": "unless",
+    "reading": "アンレス"
+  },
+  {
+    "word": "unlike",
+    "reading": "アンライク"
+  },
+  {
+    "word": "unlimited",
+    "reading": "アンリミティッド"
+  },
+  {
+    "word": "unlock",
+    "reading": "アンロック"
+  },
+  {
+    "word": "unnecessary",
+    "reading": "アンネセサリー"
+  },
+  {
+    "word": "unpack",
+    "reading": "アンパック"
+  },
+  {
+    "word": "unsubscribe",
+    "reading": "アンサブスクライブ"
+  },
+  {
+    "word": "until",
+    "reading": "アンティル"
+  },
+  {
+    "word": "unusual",
+    "reading": "アンユージュアル"
+  },
+  {
+    "word": "up",
+    "reading": "アップ"
+  },
+  {
+    "word": "update",
+    "reading": "アップデート"
+  },
+  {
+    "word": "upgrade",
+    "reading": "アップグレイド"
+  },
+  {
+    "word": "upload",
+    "reading": "アップロード"
+  },
+  {
+    "word": "upon",
+    "reading": "アポン"
+  },
+  {
+    "word": "upper",
+    "reading": "アッパー"
+  },
+  {
+    "word": "upset",
+    "reading": "アップセット"
+  },
+  {
+    "word": "urban",
+    "reading": "アーバン"
+  },
+  {
+    "word": "urgent",
+    "reading": "アージェント"
+  },
+  {
+    "word": "us",
+    "reading": "アス"
+  },
+  {
+    "word": "usage",
+    "reading": "ユーセジ"
+  },
+  {
+    "word": "useful",
+    "reading": "ユースフル"
+  },
+  {
+    "word": "user",
+    "reading": "ユーザー"
+  },
+  {
+    "word": "username",
+    "reading": "ユーザーネイム"
+  },
+  {
+    "word": "using",
+    "reading": "ユージング"
+  },
+  {
+    "word": "usual",
+    "reading": "ユージュアル"
+  },
+  {
+    "word": "usually",
+    "reading": "ユージュアリー"
+  },
+  {
+    "word": "utility",
+    "reading": "ユーティリティ"
+  },
+  {
+    "word": "valid",
+    "reading": "ヴァリッド"
+  },
+  {
+    "word": "validate",
+    "reading": "ヴァリデイト"
+  },
+  {
+    "word": "validation",
+    "reading": "ヴァリデイション"
+  },
+  {
+    "word": "valley",
+    "reading": "ヴァリー"
+  },
+  {
+    "word": "value",
+    "reading": "ヴァリュー"
+  },
+  {
+    "word": "van",
+    "reading": "ヴァン"
+  },
+  {
+    "word": "variable",
+    "reading": "ヴェアリアブル"
+  },
+  {
+    "word": "variation",
+    "reading": "ヴェアリエイション"
+  },
+  {
+    "word": "variety",
+    "reading": "ヴァライアティ"
+  },
+  {
+    "word": "various",
+    "reading": "ヴェアリアス"
+  },
+  {
+    "word": "vary",
+    "reading": "ヴェアリー"
+  },
+  {
+    "word": "vast",
+    "reading": "ヴァスト"
+  },
+  {
+    "word": "vector",
+    "reading": "ヴェクター"
+  },
+  {
+    "word": "vendor",
+    "reading": "ヴェンダー"
+  },
+  {
+    "word": "verb",
+    "reading": "ヴァーブ"
+  },
+  {
+    "word": "verify",
+    "reading": "ヴェリファイ"
+  },
+  {
+    "word": "version",
+    "reading": "ヴァージョン"
+  },
+  {
+    "word": "vertical",
+    "reading": "ヴァーティカル"
+  },
+  {
+    "word": "very",
+    "reading": "ヴェリー"
+  },
+  {
+    "word": "via",
+    "reading": "ヴァイア"
+  },
+  {
+    "word": "victim",
+    "reading": "ヴィクティム"
+  },
+  {
+    "word": "video",
+    "reading": "ヴィディオ"
+  },
+  {
+    "word": "view",
+    "reading": "ヴュー"
+  },
+  {
+    "word": "viewer",
+    "reading": "ヴューアー"
+  },
+  {
+    "word": "virtual",
+    "reading": "ヴァーチュアル"
+  },
+  {
+    "word": "virus",
+    "reading": "ヴァイラス"
+  },
+  {
+    "word": "visible",
+    "reading": "ヴィジブル"
+  },
+  {
+    "word": "vision",
+    "reading": "ヴィジョン"
+  },
+  {
+    "word": "visit",
+    "reading": "ヴィジット"
+  },
+  {
+    "word": "visual",
+    "reading": "ヴィジュアル"
+  },
+  {
+    "word": "visualization",
+    "reading": "ヴィジュアライゼーション"
+  },
+  {
+    "word": "vital",
+    "reading": "ヴァイタル"
+  },
+  {
+    "word": "voice",
+    "reading": "ヴォイス"
+  },
+  {
+    "word": "volume",
+    "reading": "ヴォリューム"
+  },
+  {
+    "word": "vote",
+    "reading": "ヴォウト"
+  },
+  {
+    "word": "voter",
+    "reading": "ヴォウター"
+  },
+  {
+    "word": "vowel",
+    "reading": "ヴァウエル"
+  },
+  {
+    "word": "voyage",
+    "reading": "ヴォイイジ"
+  },
+  {
+    "word": "wage",
+    "reading": "ウェイジ"
+  },
+  {
+    "word": "wait",
+    "reading": "ウェイト"
+  },
+  {
+    "word": "waiting",
+    "reading": "ウェイティング"
+  },
+  {
+    "word": "wake",
+    "reading": "ウェイク"
+  },
+  {
+    "word": "walk",
+    "reading": "ウォーク"
+  },
+  {
+    "word": "wall",
+    "reading": "ウォール"
+  },
+  {
+    "word": "wallet",
+    "reading": "ウォレット"
+  },
+  {
+    "word": "want",
+    "reading": "ウォント"
+  },
+  {
+    "word": "wanted",
+    "reading": "ウォンティッド"
+  },
+  {
+    "word": "war",
+    "reading": "ウォー"
+  },
+  {
+    "word": "warm",
+    "reading": "ウォーム"
+  },
+  {
+    "word": "warn",
+    "reading": "ウォーン"
+  },
+  {
+    "word": "warning",
+    "reading": "ウォーニング"
+  },
+  {
+    "word": "wash",
+    "reading": "ウォッシュ"
+  },
+  {
+    "word": "waste",
+    "reading": "ウェイスト"
+  },
+  {
+    "word": "watch",
+    "reading": "ウォッチ"
+  },
+  {
+    "word": "water",
+    "reading": "ウォーター"
+  },
+  {
+    "word": "wave",
+    "reading": "ウェイヴ"
+  },
+  {
+    "word": "way",
+    "reading": "ウェイ"
+  },
+  {
+    "word": "we",
+    "reading": "ウィー"
+  },
+  {
+    "word": "weak",
+    "reading": "ウィーク"
+  },
+  {
+    "word": "wear",
+    "reading": "ウェア"
+  },
+  {
+    "word": "web",
+    "reading": "ウェブ"
+  },
+  {
+    "word": "website",
+    "reading": "ウェブサイト"
+  },
+  {
+    "word": "week",
+    "reading": "ウィーク"
+  },
+  {
+    "word": "weekly",
+    "reading": "ウィークリー"
+  },
+  {
+    "word": "weight",
+    "reading": "ウェイト"
+  },
+  {
+    "word": "welcome",
+    "reading": "ウェルカム"
+  },
+  {
+    "word": "well",
+    "reading": "ウェル"
+  },
+  {
+    "word": "went",
+    "reading": "ウェント"
+  },
+  {
+    "word": "were",
+    "reading": "ワー"
+  },
+  {
+    "word": "west",
+    "reading": "ウェスト"
+  },
+  {
+    "word": "wet",
+    "reading": "ウェット"
+  },
+  {
+    "word": "what",
+    "reading": "ワット"
+  },
+  {
+    "word": "whatever",
+    "reading": "ワットエヴァー"
+  },
+  {
+    "word": "wheel",
+    "reading": "ウィール"
+  },
+  {
+    "word": "when",
+    "reading": "ウェン"
+  },
+  {
+    "word": "whenever",
+    "reading": "ウェンエヴァー"
+  },
+  {
+    "word": "where",
+    "reading": "ウェア"
+  },
+  {
+    "word": "whereas",
+    "reading": "ウェアアズ"
+  },
+  {
+    "word": "wherever",
+    "reading": "ウェアエヴァー"
+  },
+  {
+    "word": "whether",
+    "reading": "ウェザー"
+  },
+  {
+    "word": "which",
+    "reading": "ウィッチ"
+  },
+  {
+    "word": "while",
+    "reading": "ワイル"
+  },
+  {
+    "word": "white",
+    "reading": "ワイト"
+  },
+  {
+    "word": "who",
+    "reading": "フー"
+  },
+  {
+    "word": "whoever",
+    "reading": "フーエヴァー"
+  },
+  {
+    "word": "whole",
+    "reading": "ホウル"
+  },
+  {
+    "word": "whom",
+    "reading": "フーム"
+  },
+  {
+    "word": "whose",
+    "reading": "フーズ"
+  },
+  {
+    "word": "why",
+    "reading": "ワイ"
+  },
+  {
+    "word": "wide",
+    "reading": "ワイド"
+  },
+  {
+    "word": "width",
+    "reading": "ウィズス"
+  },
+  {
+    "word": "wife",
+    "reading": "ワイフ"
+  },
+  {
+    "word": "wild",
+    "reading": "ワイルド"
+  },
+  {
+    "word": "will",
+    "reading": "ウィル"
+  },
+  {
+    "word": "willing",
+    "reading": "ウィリング"
+  },
+  {
+    "word": "win",
+    "reading": "ウィン"
+  },
+  {
+    "word": "window",
+    "reading": "ウィンドウ"
+  },
+  {
+    "word": "wine",
+    "reading": "ワイン"
+  },
+  {
+    "word": "wing",
+    "reading": "ウィング"
+  },
+  {
+    "word": "wire",
+    "reading": "ワイア"
+  },
+  {
+    "word": "wireless",
+    "reading": "ワイアレス"
+  },
+  {
+    "word": "wise",
+    "reading": "ワイズ"
+  },
+  {
+    "word": "wish",
+    "reading": "ウィッシュ"
+  },
+  {
+    "word": "with",
+    "reading": "ウィズ"
+  },
+  {
+    "word": "within",
+    "reading": "ウィズイン"
+  },
+  {
+    "word": "without",
+    "reading": "ウィズアウト"
+  },
+  {
+    "word": "woman",
+    "reading": "ウーマン"
+  },
+  {
+    "word": "women",
+    "reading": "ウィミン"
+  },
+  {
+    "word": "won",
+    "reading": "ワン"
+  },
+  {
+    "word": "wood",
+    "reading": "ウッド"
+  },
+  {
+    "word": "wool",
+    "reading": "ウール"
+  },
+  {
+    "word": "word",
+    "reading": "ワード"
+  },
+  {
+    "word": "work",
+    "reading": "ワーク"
+  },
+  {
+    "word": "worker",
+    "reading": "ワーカー"
+  },
+  {
+    "word": "workflow",
+    "reading": "ワークフロウ"
+  },
+  {
+    "word": "working",
+    "reading": "ワーキング"
+  },
+  {
+    "word": "workshop",
+    "reading": "ワークショップ"
+  },
+  {
+    "word": "workspace",
+    "reading": "ワークスペイス"
+  },
+  {
+    "word": "world",
+    "reading": "ワールド"
+  },
+  {
+    "word": "worry",
+    "reading": "ウォリー"
+  },
+  {
+    "word": "worse",
+    "reading": "ワース"
+  },
+  {
+    "word": "worst",
+    "reading": "ワースト"
+  },
+  {
+    "word": "worth",
+    "reading": "ワース"
+  },
+  {
+    "word": "would",
+    "reading": "ウッド"
+  },
+  {
+    "word": "wrap",
+    "reading": "ラップ"
+  },
+  {
+    "word": "write",
+    "reading": "ライト"
+  },
+  {
+    "word": "writer",
+    "reading": "ライター"
+  },
+  {
+    "word": "writing",
+    "reading": "ライティング"
+  },
+  {
+    "word": "written",
+    "reading": "リトゥン"
+  },
+  {
+    "word": "wrong",
+    "reading": "ロング"
+  },
+  {
+    "word": "wrote",
+    "reading": "ロウト"
+  },
+  {
+    "word": "yard",
+    "reading": "ヤード"
+  },
+  {
+    "word": "yeah",
+    "reading": "イェア"
+  },
+  {
+    "word": "year",
+    "reading": "イアー"
+  },
+  {
+    "word": "yes",
+    "reading": "イェス"
+  },
+  {
+    "word": "yesterday",
+    "reading": "イェスタデイ"
+  },
+  {
+    "word": "yet",
+    "reading": "イェット"
+  },
+  {
+    "word": "yield",
+    "reading": "イールド"
+  },
+  {
+    "word": "yoga",
+    "reading": "ヨウガ"
+  },
+  {
+    "word": "you",
+    "reading": "ユー"
+  },
+  {
+    "word": "young",
+    "reading": "ヤング"
+  },
+  {
+    "word": "your",
+    "reading": "ユア"
+  },
+  {
+    "word": "yours",
+    "reading": "ユアズ"
+  },
+  {
+    "word": "yourself",
+    "reading": "ユアセルフ"
+  },
+  {
+    "word": "youth",
+    "reading": "ユース"
+  },
+  {
+    "word": "zero",
+    "reading": "ズィーロウ"
+  },
+  {
+    "word": "zone",
+    "reading": "ゾウン"
+  },
+  {
+    "word": "zoo",
+    "reading": "ズー"
+  },
+  {
+    "word": "zoom",
+    "reading": "ズーム"
+  }
+]

@@ -30,6 +30,7 @@ jobs:
       - run: pnpm build
       - run: pnpm typecheck
       - run: pnpm knip
+      - run: pnpm rubifont
       - run: pnpm test
 
   e2e:
@@ -48,5 +49,6 @@ jobs:
           restore-keys: turbo-${{ runner.os }}-
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
+      - run: pnpm rubifont
       - run: pnpm exec playwright install --with-deps
       - run: pnpm test:e2e

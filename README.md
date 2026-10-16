@@ -1,6 +1,23 @@
+# Rubifont
+
+漢字にはひらがな、登録した英単語にはカタカナの読みを表示する、Furifontの派生フォントです。
+現在はRubifont Sans Regular。日本語の既存処理に、英語2,562語・7,684表記を追加しています。
+
+```sh
+pnpm install --frozen-lockfile --ignore-scripts
+pnpm build
+pnpm rubifont
+```
+
+フォントと見本ページは`outputs/`へ生成します。Mac用は`RubifontSans-Regular.otf`、Web用は`RubifontSans-Regular.woff2`です。
+使い方と対応範囲は[Rubifontの説明](rubifont/README.md)、構成は[開発用の説明](<FOR[hazimeno_ipoo].md>)を参照してください。
+テストはフォント生成後に`pnpm test`と`pnpm test:e2e`で実行します。
+
+以下は、基にしたFurifontの説明です。元の出典とライセンスを保持しています。
+
 ![Furifont](./packages/app/public/og.png)
 
-# Furifont
+## Furifont
 
 <img src="logo.svg" style="float: right;" alt="Furifont" width="96" height="96">
 
@@ -21,22 +38,22 @@ Check out the demo and playground on **[furifont.antfu.me](https://furifont.antf
 </style>
 ```
 
-## How it works
+### How it works
 
 Furifont is compiled from Source Han Sans JP or Source Han Serif JP. A build step reads a dictionary of thousands of words and draws the ruby into new glyphs. For each word, the font holds a ligature: 今日 becomes one glyph with きょう above it. Longer words win (日本語 before 日本), and a kanji with no clear reading stays bare. Details on the [website](https://furifont.antfu.me) and in [docs/design.md](docs/design.md).
 
 > [!WARNING]
 > Furigana might be incorrect, due to the limits of fonts: a font sees one run of kanji at a time, not the sentence around it. Keep that in mind when you read.
 
-## Download
+### Download
 
 Each [release](https://github.com/antfu/furifont/releases/latest) has Sans and Serif, in Hiragana and Romaji, Regular as OpenType and WOFF2, and a variable font of every weight from ExtraLight to Heavy (`Furifont Sans VF`), as TrueType and WOFF2, whose ruby follows the weight of the text. Set `line-height` to 1.6 or more so the ruby is not clipped.
 
-## Use on websites
+### Use on websites
 
 The [website](https://furifont.antfu.me) has a bookmarklet and a [userscript](https://furifont.antfu.me/furifont.user.js) that set any page in Furifont, with optional okurigana readings.
 
-## Build your own
+### Build your own
 
 Choose another base font, word list, ruby letters or sizes. Needs Node 22.18 or later.
 
@@ -58,14 +75,14 @@ Settings live in `furifont.config.json`; their defaults are in [`packages/core/s
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) to work on it.
 
-## Credits
+### Credits
 
 Furifont is inspired by:
 
 - [Mengshen-pinyin-font](https://github.com/MaruTama/Mengshen-pinyin-font), which puts pinyin on Chinese characters inside the font.
 - [Fira Code](https://github.com/tonsky/firacode), which uses OpenType ligatures to change how text looks.
 
-## License
+### License
 
 - **Code:** [MIT](LICENSE.md).
 - **Fonts:** [SIL OFL 1.1](OFL.txt), derived from Source Han Sans and Serif by Adobe.

@@ -100,7 +100,7 @@ function place(spec: PlanGlyph, ctx: DrawContext, font: hb.Font, squeezes?: numb
     })
     const natural = glyphs.reduce((sum, g) => sum + font.glyphHAdvance(g), 0) * scale
     const span = stops[ruby.end]! - stops[ruby.start]!
-    const squeeze = squeezes?.[r] ?? Math.min(natural <= span ? 1 : Math.max(span / natural, metrics.compressionFloor), metrics.maxRubyWidth * upm / natural)
+    const squeeze = squeezes?.[r] ?? Math.min(natural <= span ? 1 : Math.max(span / natural, metrics.compressionFloor), (spec.maxRubyWidth ?? metrics.maxRubyWidth) * upm / natural)
     let x = stops[ruby.start]! + (span - natural * squeeze) / 2
     for (const glyph of glyphs) {
       components.push({ glyph, transform: [scale * squeeze, scale, x, bottom - em[0] * scale] })

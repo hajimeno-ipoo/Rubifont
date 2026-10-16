@@ -14,6 +14,10 @@ export default antfu(
       '**/.output*/**',
       'packages/app/public/fonts/**',
       '**/*.css',
+      // A standalone HTML document, not a JavaScript module. Checked in browsers.
+      'rubifont/specimen.html',
+      'rubifont/usage.html',
+      'rubifont/english.html',
     ],
   },
   {

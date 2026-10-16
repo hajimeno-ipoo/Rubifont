@@ -131,6 +131,17 @@ function nameGlyphs(plan: Plan, font: hb.Font, baseCount: number, taken: Set<str
     named.add(glyph)
   }
   const ids = new Map<string, number>()
+  for (const alias of plan.aliases ?? []) {
+    const buffer = new hb.Buffer()
+    buffer.addText(String.fromCodePoint(alias.codepoint))
+    buffer.guessSegmentProperties()
+    buffer.setScript(alias.script)
+    hb.shape(font, buffer)
+    const shaped = buffer.getGlyphInfos()
+    if (shaped.length !== 1 || shaped[0]!.codepoint === 0)
+      throw new Error(`base glyph alias ${alias.name} must shape to exactly one glyph`)
+    ids.set(alias.name, shaped[0]!.codepoint)
+  }
   for (const { name } of [...plan.glyphs, ...plan.variants, { name: PROBE_NAME }]) {
     if (taken.has(name))
       throw new Error(`the base font already has a glyph named ${name}`)

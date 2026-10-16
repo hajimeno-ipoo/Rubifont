@@ -31,6 +31,32 @@ async function show(page: Page, body: string, file = TEST_FONT): Promise<void> {
 
 const shot = (page: Page, selector: string): Promise<Buffer> => page.locator(selector).screenshot()
 
+// Generate the actual deliverable first: pnpm build && pnpm rubifont.
+const RUBIFONT = new URL('../../outputs/RubifontSans-Regular.woff2', import.meta.url).pathname
+
+test('Rubifont draws English and Japanese ruby from the delivered WOFF2', async ({ page }) => {
+  const texts = ['save', 'Save', 'SAVE', 'hello', 'Hello', 'HELLO', 'file', 'File', 'confirm', 'profile', 'Settings', 'Download', '日本語', '今日', '日本語Save今日', '保存してSaveを押す', 'network', 'NETWORK', 'computer', 'language', 'water', 'the', 'a', 'I', 'English', 'Japanese']
+  await show(page, texts.map((text, i) => `<p id="on${i}">${text}</p><p id="off${i}" class="off">${text}</p>`).join(''), RUBIFONT)
+  for (let i = 0; i < texts.length; i++)
+    expect(await shot(page, `#on${i}`), texts[i]).not.toEqual(await shot(page, `#off${i}`))
+  expect(await page.locator('#on14').textContent()).toBe('日本語Save今日')
+  expect(await page.evaluate(() => {
+    const range = document.createRange()
+    range.selectNodeContents(document.querySelector('#on14')!)
+    const selection = window.getSelection()!
+    selection.removeAllRanges()
+    selection.addRange(range)
+    return selection.toString()
+  })).toBe('日本語Save今日')
+})
+
+test('Rubifont leaves unknown words and word fragments unchanged', async ({ page }) => {
+  const texts = ['qzxvunknown', 'autosaveqzxv', 'savesave', 'SaveSettings', 'save2', '2save', 'save_', '_save', 'saveé', 'ésave', 'save\'s', 'save’s', 'sAvE', 'profilex', 'offline2', 'office\'s']
+  await show(page, texts.map((text, i) => `<p id="on${i}">${text}</p><p id="off${i}" class="off">${text}</p>`).join(''), RUBIFONT)
+  for (let i = 0; i < texts.length; i++)
+    expect(await shot(page, `#on${i}`), texts[i]).toEqual(await shot(page, `#off${i}`))
+})
+
 test('draws ruby that ss01 turns off', async ({ page }) => {
   await show(page, '<p id="on">日本</p><p id="off" class="off">日本</p>')
   expect(await shot(page, '#on')).not.toEqual(await shot(page, '#off'))
