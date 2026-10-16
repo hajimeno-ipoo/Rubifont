@@ -1,17 +1,17 @@
 import { Buffer } from 'node:buffer'
 /**
  * Compiles the four-character idioms of JMdict (the entries it tags `yoji`)
- * into data/manual/yojijukugo.json: each idiom's kanji with the first reading
+ * into raw/yojijukugo.json: each idiom's kanji with the first reading
  * JMdict gives it, in inline notation, one a line.
  *
- *   node scripts/yojijukugo.ts
+ *   node scripts/manual/yojijukugo.ts
  */
 import { writeFile } from 'node:fs/promises'
 import { gunzipSync } from 'node:zlib'
 import { isHan, toHiragana } from '@furifont/core'
 
 const JMDICT = 'http://ftp.edrdg.org/pub/Nihongo/JMdict_e.gz'
-const OUTPUT = new URL('../data/manual/yojijukugo.json', import.meta.url)
+const OUTPUT = new URL('../../raw/yojijukugo.json', import.meta.url)
 
 const response = await fetch(JMDICT)
 if (!response.ok)

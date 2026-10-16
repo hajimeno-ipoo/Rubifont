@@ -4,12 +4,12 @@
 現在はRubifont Sans Regular。日本語の既存処理に、英語2,562語・7,684表記を追加しています。
 
 配布用フォントは[RubifontのReleases](https://github.com/hajimeno-ipoo/Rubifont/releases)からダウンロードできます。
-[0.2.0のZIP](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.2.0/Rubifont-0.2.0.zip)を展開すると、OTF・WOFF2・見本ページ・使い方・対応語一覧・ライセンスが揃っています。
+[0.3.0のZIP](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.3.0/Rubifont-0.3.0.zip)を展開すると、OTF・WOFF2・見本ページ・使い方・対応語一覧・ライセンスが揃っています。
 MacではOTFをFont Bookでインストールし、使いたいアプリで「Rubifont Sans」を選びます。
 
-日本語はFurifontのv0.3.0時点の辞書・読み規則を引き継いでいます。英語の読みはカタカナによる目安で、未登録語や文脈による読み分けは対象外です。
-MacのChromium・WebKit・CoreTextと、Linux CIのChromium・Firefoxで読み表示を確認済みです。
-Linux版WebKitでは英語の読み表示テストが失敗しています。MacのFirefox、Font Bookへのインストール・個々の文書アプリでの操作は未確認です。
+日本語はFurifont v0.4.2の辞書・読み規則を使い、271,747件の読みパターンを収録しています。新規の日本郵便の住所データは字形上限のため追加対象から外しています。英語の読みはカタカナによる目安で、未登録語や文脈による読み分けは対象外です。
+MacのChromium・WebKit・CoreTextで通常の読み表示を確認しています。WebKitでは、異体字セレクターによる単語の別読み指定が正しく働かない場合があります。
+MacのFirefox、Font Bookへのインストール・個々の文書アプリでの操作は未確認です。環境別の検証結果は配布版の`verification.md`に記載します。
 
 ```sh
 pnpm install --frozen-lockfile --ignore-scripts
@@ -96,4 +96,4 @@ Furifont is inspired by:
 
 - **Code:** [MIT](LICENSE.md).
 - **Fonts:** [SIL OFL 1.1](OFL.txt), derived from Source Han Sans and Serif by Adobe.
-- **Dictionary data and reading rules:** [CC BY-SA 4.0](packages/dictionary/LICENSE.md), from JMdict, JMnedict, KANJIDIC2 (EDRDG), JmdictFurigana, yomitan-jlpt-vocab and Tatoeba (CC BY 2.0 FR).
+- **Dictionary data and reading rules:** [CC BY-SA 4.0](packages/dictionary/LICENSE.md), from JMdict, JMnedict, KANJIDIC2 (EDRDG), JmdictFurigana, yomitan-jlpt-vocab and Tatoeba (CC BY 2.0 FR), with place names from Japan Post's postal code data and JR station names from Desktop Tetsu.

@@ -1,4 +1,4 @@
-# Rubifont Sans Regular 0.2.0
+# Rubifont Sans Regular 0.3.0
 
 漢字の上にひらがな、登録した英単語の上にカタカナを表示するフォントです。Furifontを基に作成しています。
 
@@ -31,14 +31,16 @@
 英字・数字・アクセント文字・アンダースコア・アポストロフィーに続く部分一致は抑制します。
 文字列が別の要素や書式に分割される場合、フォントから見える範囲も分割されます。
 
-日本語の辞書と読み選択は元のFurifontの標準設定を引き継ぎます。すべての漢字に読みが付くわけではなく、誤読もありえます。
+日本語はFurifont v0.4.2の辞書と読み規則を使い、従来の辞書ソースから271,747件の読みパターン、単独の漢字1,703字への読みを収録しています。新規の日本郵便の住所データは字形上限を超えるため、このフォントへの追加対象から外しています。すべての漢字に読みが付くわけではなく、誤読もありえます。
+読み選択用の異体字セレクター・`salt`の番号は、辞書の更新で変わる場合があります。番号を指定する場合は、同梱の`RubifontSans-Regular.ivs.json`を使ってください。
 送り仮名による読み分けを補助するJavaScriptは、この配布物には含みません。
 横書き、Regularの一種類です。アプリのOpenType対応や行間設定によって表示が異なります。
 `font-feature-settings: 'ss01' 1`で日英の読みを非表示にできます。
 検索・コピーの対象となる本文は元の文字列です。利用するアプリでの動作は確認してください。
 
-MacのChromium・WebKit・CoreTextと、Linux CIのChromium・Firefoxで読み表示を確認しています。
-Linux版WebKitでは英語の読み表示テストが失敗しています。MacのFirefox、Font Bookへのインストール・個々の文書アプリでの操作は未確認です。
+MacのChromium・WebKit・CoreTextで通常の読み表示を確認しています。
+WebKitでは異体字セレクターによる単語の別読み指定が正しく働かない場合があります。これは読みを自動で表示する通常の利用とは別の機能です。
+MacのFirefox、Font Bookへのインストール・個々の文書アプリでの操作は未確認です。環境別の検証結果は同梱の`verification.md`に記載します。
 
 ## 再生成
 
@@ -51,6 +53,7 @@ node scripts/build-rubifont.ts
 ```
 
 出力先はリポジトリ直下の`outputs/`です。ビルドは日本語比較用のフォントも`.cache/rubifont/`へ保存します。
+試作用の出力先は`pnpm rubifont .cache/rubifont/upstream-candidate/`のように指定できます。
 初回はAdobeのSource Han Sans JP Regularを取得し、`.cache/fonts/`へ保存します。
 英語の読みは`rubifont/english.json`で編集します。生成済みのフォントはGitに登録しません。
 

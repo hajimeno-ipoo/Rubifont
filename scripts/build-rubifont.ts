@@ -1,28 +1,31 @@
 /** Build the bilingual font and its Japanese reference without changing upstream presets. */
 import { createHash } from 'node:crypto'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import { BASE_FONTS, compileFont, readFontInfo, toWoff2 } from '@furifont/compiler'
 import { brotli, subsetWasm } from '@furifont/compiler/node'
-import { addEnglishReadings, createFontPlanner, resolveOptions } from '@furifont/core'
+import { addEnglishReadings, createFontPlanner, resolveOptions, WORD_SOURCES } from '@furifont/core'
 import { loadDictionary } from '@furifont/dictionary'
 import { fetchBaseFont } from '../packages/cli/src/base-fonts.ts'
 import english from '../rubifont/english.json' with { type: 'json' }
 import { writeRubifontPages } from './rubifont-pages.ts'
 
 const root = new URL('../', import.meta.url)
-const output = new URL('outputs/', root)
+const output = new URL(process.argv[2] ?? 'outputs/', root)
 const cache = fileURLToPath(new URL('.cache/fonts/', root))
 // Fixed release epoch: midnight in Japan. Rebuilding the same inputs keeps font bytes stable.
 const date = new Date('2026-10-16T00:00:00+09:00')
-const version = '0.2.0'
+const version = '0.3.0'
 await mkdir(output, { recursive: true })
 const source = BASE_FONTS.find(f => f.name === 'Source Han Sans JP Regular')!
 const base = new Uint8Array(await readFile(await fetchBaseFont(source, cache)))
 const info = readFontInfo(base)
 console.log('Base:', { family: info.family, style: info.style, glyphs: info.glyphCount })
 const coverage = new Set(info.codepoints)
-const { plan, report } = createFontPlanner(await loadDictionary())(resolveOptions({ family: 'Rubifont Sans' }), coverage)
+// Keep the existing sources. The new postal-address source alone exceeds the glyph budget.
+const sources = WORD_SOURCES.filter(source => source !== 'japan-post')
+const { plan, report } = createFontPlanner(await loadDictionary())(resolveOptions({ family: 'Rubifont Sans', sources }), coverage)
 const bilingual = addEnglishReadings(plan, english, coverage)
 console.log('Japanese:', report.stats, 'English word forms:', bilingual.glyphs.length - plan.glyphs.length)
 async function build(p: typeof plan) {
@@ -48,7 +51,9 @@ const manifest = {
   version,
   fontDate: date.toISOString(),
   createdAt: new Date().toISOString(),
-  upstreamCommit: '6b04ada127fd5d9c370266b278d4e8e4c2c0fe36',
+  upstreamVersion: '0.4.2',
+  upstreamCommit: '03c58cb5acfe444bf74f3dbba047b019e55f8bd8',
+  japaneseSources: sources,
   base: { name: source.name, url: source.url, sha256: createHash('sha256').update(base).digest('hex'), glyphs: info.glyphCount },
   japanese: report.stats,
   english: { words: english.length, wordForms: bilingual.glyphs.length - plan.glyphs.length, cases: ['lowercase', 'Titlecase', 'UPPERCASE'] },

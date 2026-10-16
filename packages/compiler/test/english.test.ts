@@ -1,6 +1,6 @@
 import type { Dictionary, Plan } from '@furifont/core'
 import { readFile } from 'node:fs/promises'
-import { addEnglishReadings, createFontPlanner, resolveOptions } from '@furifont/core'
+import { addEnglishReadings, createFontPlanner, fuseDictionary, resolveOptions } from '@furifont/core'
 import * as hb from 'harfbuzzjs'
 import { beforeAll, describe, expect, it } from 'vitest'
 import { compileFont, readFontInfo } from '../src'
@@ -19,15 +19,19 @@ const entries = [
   { word: 'office', reading: 'オフィス' },
   { word: 'offline', reading: 'オフライン' },
 ]
-const japanese: Dictionary = {
-  sources: { fixture: '1' },
+const japanese: Dictionary = fuseDictionary({
+  versions: { fixture: '1' },
   onyomi: {},
   entries: [
     { form: '日本', furigana: '0:に;1:ほん', nf: 1, priority: 'news1 nf01', order: 0 },
     { form: '日本語', furigana: '0:に;1:ほん;2:ご', nf: 2, priority: 'news1 nf02', order: 0 },
     { form: '今日', furigana: '0-1:きょう', nf: 2, priority: 'ichi1', order: 0 },
   ],
-}
+  places: [],
+  manual: {},
+  defaults: [],
+  bare: [],
+})
 
 interface Built {
   plan: Plan
@@ -56,7 +60,7 @@ describe('english readings in an actual Japanese font', () => {
   beforeAll(async () => {
     const base = await readFile(BASE)
     const coverage = new Set(readFontInfo(base).codepoints)
-    const { plan } = createFontPlanner(japanese)(resolveOptions({ family: 'Rubifont Test', untagged: false }), coverage, '日本語 今日')
+    const { plan } = createFontPlanner(japanese)(resolveOptions({ family: 'Rubifont Test' }), coverage, '日本語 今日')
     const extended = addEnglishReadings(plan, entries, coverage)
     const build = async (spec: Plan): Promise<Built> => {
       const result = await compileFont({ plan: spec, base, subsetWasm, version: '0.0.0', date: new Date(0) })
@@ -135,7 +139,7 @@ describe('english readings in an actual Japanese font', () => {
     ]
     const base = await readFile(BASE)
     const coverage = new Set(readFontInfo(base).codepoints)
-    const { plan } = createFontPlanner(japanese)(resolveOptions({ family: 'Rubifont Large Test', untagged: false }), coverage, '日本語 今日')
+    const { plan } = createFontPlanner(japanese)(resolveOptions({ family: 'Rubifont Large Test' }), coverage, '日本語 今日')
     const extended = addEnglishReadings(plan, expanded, coverage)
     // compileFont also shapes every generated spelling in the plan's smoke list.
     const result = await compileFont({ plan: extended, base, subsetWasm, version: '0.0.0', date: new Date(0) })

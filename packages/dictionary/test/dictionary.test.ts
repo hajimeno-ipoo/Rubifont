@@ -1,17 +1,42 @@
-import { createFontPlanner, MANUAL_SOURCES, resolveOptions } from '@furifont/core'
+import type { Reading, WordSource } from '@furifont/core'
+import { createFontPlanner, MANUAL_SOURCES, resolveOptions, SCORE, sourcesIn, WORD_SOURCES } from '@furifont/core'
 import { describe, expect, it } from 'vitest'
 import { loadDictionary } from '../src'
-import { OKURIGANA } from '../src/okurigana'
 
 const dictionary = await loadDictionary()
-const coverage = new Set(dictionary.entries.flatMap(e => [...e.form, ...e.furigana]).map(c => c.codePointAt(0)!))
+const coverage = new Set([dictionary.runs, dictionary.kanji].flatMap(table => Object.entries(table).flatMap(([text, readings]) => [...text, ...Object.keys(readings).join('')])).map(c => c.codePointAt(0)!))
 const planFont = createFontPlanner(dictionary)
 const { report } = planFont(resolveOptions(), coverage)
+const without = (...names: WordSource[]) => planFont(resolveOptions({ sources: WORD_SOURCES.filter(s => !names.includes(s)) }), coverage).report
+const sourcesOf = (reading: Reading | undefined) => reading && sourcesIn(reading[1])
 
 describe('compiled dictionary', () => {
   it('records the sources it was compiled from', () => {
-    expect(Object.keys(dictionary.sources)).toEqual(['JMdict', 'JMnedict', 'JmdictFurigana', 'KANJIDIC2', 'JLPT', 'Tatoeba'])
-    expect(dictionary.entries.length).toBeGreaterThan(100_000)
+    expect(Object.keys(dictionary.versions)).toEqual(['JMdict', 'JMnedict', 'JmdictFurigana', 'KANJIDIC2', 'JLPT', 'Tatoeba'])
+    expect(Object.keys(dictionary.runs).length).toBeGreaterThan(200_000)
+  })
+
+  it('scores a reading by its most telling source and merges every source of it', () => {
+    expect(dictionary.runs['日本']?.['0-1:にほん']).toEqual([61, expect.any(Number)])
+    expect(sourcesOf(dictionary.runs['日本']?.['0-1:にほん'])).toEqual(['jmdict', 'news', 'spec', 'nf', 'tatoeba', 'jr-stations', 'N3'])
+    expect(sourcesOf(dictionary.runs['明朝']?.['0:みん;1:ちょう'])).toEqual(['jmdict', 'default'])
+  })
+
+  it('merges readings of the same kana under the alignment that splits them most', () => {
+    expect(Object.keys(dictionary.runs['倉本']!)).toEqual(['0:くら;1:もと'])
+    expect(sourcesOf(dictionary.runs['倉本']!['0:くら;1:もと'])).toEqual(['jmdict', 'place', 'jr-stations', 'japan-post'])
+  })
+
+  it('ranks the readings of a run, the default first', () => {
+    expect(Object.keys(dictionary.runs['今日']!)[0]).toBe('0-1:きょう')
+    // The sentences' くにじゅう before JMnedict's くになか.
+    expect(Object.keys(dictionary.runs['国中']!).slice(0, 2)).toEqual(['0:くに;1:じゅう', '0:くに;1:なか'])
+  })
+
+  it('leaves out what no plan reads', () => {
+    // A lone kanji of a word no list tags weighs nothing but before okurigana, which 梔 くちなし has none of.
+    expect(dictionary.kanji['梔']).toBeUndefined()
+    expect(sourcesOf(dictionary.kanji['奉']?.['たてまつ'])).toEqual(['jmdict', 'inflecting'])
   })
 
   it('defaults common words to the reading people use', () => {
@@ -22,12 +47,12 @@ describe('compiled dictionary', () => {
   })
 
   it('keeps the readings a conjugating kanji takes', () => {
-    expect(dictionary.entries.find(e => e.form === '来る' && e.furigana === '0:く')?.conjugatesReading).toBe(true)
+    expect(Object.keys(dictionary.kanji['来']!)).toEqual(expect.arrayContaining(['く', 'き', 'こ']))
     expect(report.ivs.kanji['来']).toEqual(expect.arrayContaining(['く', 'き', 'こ']))
   })
 
   it('reads stations as they are called and leaves ambiguous places out', () => {
-    const place = (form: string): string | undefined => dictionary.places?.find(p => p.form === form)?.furigana
+    const place = (form: string): string | undefined => Object.entries(dictionary.runs[form] ?? {}).find(([, reading]) => sourcesOf(reading)!.includes('place'))?.[0]
     expect(place('新宿')).toBe('0:しん;1:じゅく')
     expect(place('上野')).toBe('0:うえ;1:の')
     expect(place('神戸')).toBeUndefined()
@@ -35,79 +60,62 @@ describe('compiled dictionary', () => {
   })
 
   it('aligns readings that JMdict writes with a long vowel mark', () => {
-    expect(dictionary.entries.find(e => e.form === '麻雀')?.furigana).toBe('0:まー;1:じゃん')
+    expect(Object.keys(dictionary.runs['麻雀']!)).toEqual(['0:まー;1:じゃん'])
   })
 
-  it('adds the words no list ranks, unless the plan turns them off', () => {
-    expect(dictionary.entries.find(e => e.form === '四字熟語')?.priority).toBe('')
-    const without = planFont(resolveOptions({ untagged: false }), coverage).report
-    expect(report.stats.patterns - without.stats.patterns).toBeGreaterThan(10_000)
+  it('adds the words no list ranks, unless the plan leaves JMdict out', () => {
+    expect(dictionary.runs['四字熟語']).toEqual({ '0:よ;1:じ;2:じゅく;3:ご': [SCORE.listed, 1] })
+    expect(report.stats.patterns - without('jmdict').stats.patterns).toBeGreaterThan(10_000)
   })
 
-  it('names every manual source for plans', () => {
-    expect(Object.keys(dictionary.manual ?? {}).sort()).toEqual([...MANUAL_SOURCES].sort())
+  it('lists the words of every manual source', () => {
+    const listed = new Set(Object.values(dictionary.runs).flatMap(readings => Object.values(readings).flatMap(reading => sourcesOf(reading)!.filter(name => (MANUAL_SOURCES as readonly string[]).includes(name)))))
+    expect([...listed].sort()).toEqual([...MANUAL_SOURCES].sort())
   })
 
-  it('adds the mahjong yaku, unless the plan leaves the source out', () => {
-    expect(dictionary.manual?.['mahjong-yaku']).toContain('立[りー]直[ち]')
-    const without = planFont(resolveOptions({ manual: [] }), coverage).report
-    expect(report.stats.patterns - without.stats.patterns).toBeGreaterThan(30)
-    expect(report.stats.places - without.stats.places).toBe(report.stats.patterns - without.stats.patterns)
+  it('adds the words of each manual list, unless the plan leaves it out', () => {
+    expect(sourcesOf(dictionary.runs['立直']?.['0:りー;1:ち'])).toEqual(['mahjong-yaku'])
+    expect(sourcesOf(dictionary.runs['阿蘇']?.['0:あ;1:そ'])).toEqual(['place', 'jr-stations'])
+    expect(dictionary.runs['阿鼻叫喚']?.['0:あ;1:び;2:きょう;3:かん']).toBeDefined()
+    // Names several places share keep the reading most of them use: 一宮 is いっく only in Kochi.
+    expect(sourcesOf(dictionary.runs['一宮']?.['0-1:いちのみや'])).toEqual(['japan-post'])
+    expect(sourcesOf(dictionary.runs['四宮']?.['0-1:しのみや'])).toEqual(['japan-post'])
+    for (const name of MANUAL_SOURCES) {
+      const lacking = without(name)
+      expect(report.stats.patterns - lacking.stats.patterns, name).toBeGreaterThan(0)
+      expect(report.stats.places - lacking.stats.places, name).toBe(report.stats.patterns - lacking.stats.patterns)
+    }
   })
 
-  it('adds the JR stations the places leave unread', () => {
-    expect(dictionary.manual?.['jr-stations']).toContain('阿蘇[あそ]')
-    const without = planFont(resolveOptions({ manual: ['mahjong-yaku'] }), coverage).report
-    expect(report.stats.patterns - without.stats.patterns).toBeGreaterThan(0)
-  })
-
-  it('adds four-character idioms, unless the plan leaves the source out', () => {
-    expect(dictionary.manual?.yojijukugo).toContain('阿鼻叫喚[あびきょうかん]')
-    const without = planFont(resolveOptions({ manual: ['mahjong-yaku', 'jr-stations'] }), coverage).report
-    expect(report.stats.patterns - without.stats.patterns).toBeGreaterThan(0)
-  })
-
-  it('keeps about nineteen thousand words and leaves ambiguous lone kanji out', () => {
-    const words = report.stats.patterns - report.stats.places
-    expect(words).toBeGreaterThan(15_000)
-    expect(words).toBeLessThan(23_000)
+  it('takes the most common words first and leaves ambiguous lone kanji out', () => {
+    const taken = planFont(resolveOptions({ take: 20_000 }), coverage).report
+    expect(taken.stats.patterns).toBe(20_000)
+    expect(taken.ivs.words['今日']![0]).toBe('今日[きょう]')
+    expect(taken.stats.places).toBeLessThan(2_000)
     expect(report.ivs.kanji['来']).toEqual(expect.arrayContaining(['く', 'き']))
     expect(report.ivs.lone['桜']).toBe('さくら')
   })
 
+  it('skips the most common words, and lone kanji, whole', () => {
+    const skipped = planFont(resolveOptions({ skip: 2_000 }), coverage).report
+    expect(skipped.ivs.words['今日']).toBeUndefined()
+    expect(skipped.ivs.lone['桜']).toBeUndefined()
+    expect(report.stats.patterns - skipped.stats.patterns).toBeGreaterThan(1_000)
+  })
+
   it('knows the JLPT level of words as the lists write them', () => {
-    const level = (form: string, furigana: string): number | undefined => dictionary.entries.find(e => e.form === form && e.furigana === furigana)?.jlpt
-    expect(level('今日', '0-1:きょう')).toBe(5)
-    expect(level('会う', '0:あ')).toBe(5)
+    expect(sourcesOf(dictionary.runs['今日']?.['0-1:きょう'])).toContain('N5')
+    expect(sourcesOf(dictionary.kanji['会']?.['あ'])).toContain('N5')
     const known = planFont(resolveOptions({ skipJlpt: 'N5' }), coverage).report
     expect(known.ivs.words['今日']).toBeUndefined()
     expect(known.ivs.lone['私']).toBeUndefined()
     expect(report.ivs.lone['私']).toBe('わたし')
   })
 
-  it('counts the uses of each reading in the example sentences, as the font sees them', () => {
-    const uses = (form: string, furigana: string): number | undefined => dictionary.entries.find(e => e.form === form && e.furigana === furigana)?.tatoeba
-    expect(uses('今日', '0-1:きょう')).toBeGreaterThan(uses('今日', '0:こん;1:にち') ?? 0)
-    expect(uses('資金不足', '0:し;1:きん;2:ぶ;3:そく')).toBeGreaterThanOrEqual(3)
+  it('scores the words the example sentences use, as the font sees them', () => {
+    expect(sourcesOf(dictionary.runs['資金不足']?.['0:し;1:きん;2:ぶ;3:そく'])).toContain('tatoeba')
+    expect(dictionary.runs['資金不足']!['0:し;1:きん;2:ぶ;3:そく']![0]).toBeGreaterThan(SCORE.used)
     // The sentences use 為る thousands of times, always written する.
-    expect(dictionary.entries.some(e => e.form === '為る')).toBe(true)
-    expect(uses('為る', '0:す')).toBeUndefined()
-  })
-
-  it('reads a kanji with its okurigana as one word', () => {
-    expect(OKURIGANA.get('来ない')).toBe('こ')
-    expect(OKURIGANA.get('来ます')).toBe('き')
-    expect(OKURIGANA.get('行く')).toBe('い')
-    expect(OKURIGANA.get('行い')).toBe('おこな')
-    expect(OKURIGANA.get('下りた')).toBe('お')
-    expect(OKURIGANA.get('強い')).toBe('つよ')
-    expect(OKURIGANA.get('美味し')).toBe('おい')
-  })
-
-  it('marks pairs that read two ways, and stems that only repeat a shorter key', () => {
-    expect(OKURIGANA.get('行って')).toBeNull()
-    expect(OKURIGANA.get('開く')).toBeNull()
-    expect(OKURIGANA.has('読まない')).toBe(false)
-    expect(OKURIGANA.get('読ま')).toBe('よ')
+    expect(sourcesOf(dictionary.kanji['為']?.['す'])).toEqual(['jmdict', 'inflecting'])
   })
 })

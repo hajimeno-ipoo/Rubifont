@@ -13,15 +13,15 @@ import type { RubySpan } from '@furifont/core'
 import process from 'node:process'
 import { parseArgs } from 'node:util'
 import { createRubyReader } from '@furifont/compiler'
-import { createFontPlanner, formatNotation, hanRuns, parseFurigana, resolveOptions } from '@furifont/core'
+import { createFontPlanner, formatNotation, parseFurigana, resolveOptions, SCORE } from '@furifont/core'
 import { loadDictionary } from '@furifont/dictionary'
 
 const KINDS = ['misread', 'partial', 'bare', 'compound'] as const
 
 interface Reading {
   spans: RubySpan[]
-  /** Best newspaper bucket of a word with this reading, 0 when unranked. */
-  nf: number
+  /** The dictionary's score, higher for a more common reading. */
+  score: number
   tagged: boolean
 }
 
@@ -30,7 +30,7 @@ interface Finding {
   text: string
   shown: string
   readings: string[]
-  nf: number
+  score: number
   tagged: boolean
 }
 
@@ -42,32 +42,24 @@ const { values: args } = parseArgs({ options: {
 
 const dictionary = await loadDictionary()
 const runs = new Map<string, Map<string, Reading>>()
-function addRun(text: string, spans: RubySpan[], nf: number, tagged: boolean): void {
-  const readings = runs.get(text) ?? runs.set(text, new Map()).get(text)!
-  const key = formatNotation(text, spans)
-  const current = readings.get(key)
-  if (!current)
-    return void readings.set(key, { spans, nf, tagged })
-  if (nf && (!current.nf || nf < current.nf))
-    current.nf = nf
-  current.tagged ||= tagged
+for (const [table, spansOf] of [[dictionary.runs, parseFurigana], [dictionary.kanji, (ruby: string) => [{ start: 0, end: 1, ruby }]]] as const) {
+  for (const [text, readings] of Object.entries(table)) {
+    runs.set(text, new Map(Object.entries(readings).map(([key, [score]]) => {
+      const spans = spansOf(key)
+      return [formatNotation(text, spans), { spans, score, tagged: score > SCORE.tagged }]
+    })))
+  }
 }
-for (const entry of dictionary.entries) {
-  for (const run of hanRuns(entry.form, parseFurigana(entry.furigana)))
-    addRun(run.text, run.spans, entry.priority ? entry.nf : 0, !!entry.priority)
-}
-for (const place of dictionary.places ?? [])
-  addRun(place.form, parseFurigana(place.furigana), 0, false)
 
 // Every character the dictionary writes: the font a base font with every kanji would give.
-const coverage = new Set([...runs.keys(), ...dictionary.entries.map(e => e.furigana)].flatMap(t => [...t].map(c => c.codePointAt(0)!)))
+const coverage = new Set([...runs].flatMap(([text, readings]) => [text, ...readings.keys()]).flatMap(t => [...t].map(c => c.codePointAt(0)!)))
 const { plan } = createFontPlanner(dictionary)(resolveOptions(), coverage)
 const read = createRubyReader(plan)
 
 const same = (a: RubySpan, b: RubySpan): boolean => a.start === b.start && a.end === b.end && a.ruby === b.ruby
 /** Whether some reading has every span shown. */
 const fits = (shown: RubySpan[], readings: Iterable<Reading>): boolean => [...readings].some(r => shown.every(s => r.spans.some(t => same(s, t))))
-const best = (readings: Iterable<Reading>): Reading => [...readings].sort((a, b) => Number(b.tagged) - Number(a.tagged) || (a.nf || 99) - (b.nf || 99))[0]!
+const best = (readings: Iterable<Reading>): Reading => [...readings].sort((a, b) => b.score - a.score)[0]!
 const findings: Finding[] = []
 const stats = { runs: { texts: 0, kanji: 0, annotated: 0 }, compounds: { texts: 0, kanji: 0, annotated: 0 } }
 function count(into: typeof stats.runs, text: string, shown: RubySpan[]): void {
@@ -86,7 +78,7 @@ for (const [text, readings] of runs) {
     findings.push({ kind, text, shown: formatNotation(text, shown), readings: [...readings.keys()], ...best(readings.values()) })
 }
 
-const common = [...runs].filter(([, r]) => [...r.values()].some(r => r.tagged)).sort((a, b) => (best(a[1].values()).nf || 99) - (best(b[1].values()).nf || 99)).slice(0, Number(args.words))
+const common = [...runs].filter(([, r]) => [...r.values()].some(r => r.tagged)).sort((a, b) => best(b[1].values()).score - best(a[1].values()).score).slice(0, Number(args.words))
 for (const [a, aReadings] of common) {
   const size = [...a].length
   for (const [b, bReadings] of common) {
@@ -98,12 +90,12 @@ for (const [a, aReadings] of common) {
     const head = shown.filter(s => s.end <= size)
     const tail = shown.filter(s => s.start >= size).map(s => ({ ...s, start: s.start - size, end: s.end - size }))
     if (head.length + tail.length < shown.length || !fits(head, aReadings.values()) || !fits(tail, bReadings.values())) {
-      const worst = [best(aReadings.values()), best(bReadings.values())].sort((x, y) => (y.nf || 99) - (x.nf || 99))[0]!
-      findings.push({ kind: 'compound', text, shown: formatNotation(text, shown), readings: [...aReadings.keys(), '+', ...bReadings.keys()], nf: worst.nf, tagged: true })
+      const score = Math.min(best(aReadings.values()).score, best(bReadings.values()).score)
+      findings.push({ kind: 'compound', text, shown: formatNotation(text, shown), readings: [...aReadings.keys(), '+', ...bReadings.keys()], score, tagged: true })
     }
   }
 }
-findings.sort((a, b) => Number(b.tagged) - Number(a.tagged) || (a.nf || 99) - (b.nf || 99) || a.text.localeCompare(b.text))
+findings.sort((a, b) => b.score - a.score || a.text.localeCompare(b.text))
 
 if (args.json) {
   process.stdout.write(`${JSON.stringify({ stats, findings }, null, 2)}\n`)
@@ -118,9 +110,9 @@ else {
   ]
   for (const kind of KINDS) {
     const found = findings.filter(f => f.kind === kind)
-    out.push(`## ${kind} (${found.length})\n`, '| text | shown | dictionary | nf |', '| --- | --- | --- | --- |')
+    out.push(`## ${kind} (${found.length})\n`, '| text | shown | dictionary | score |', '| --- | --- | --- | --- |')
     for (const f of found.slice(0, limit))
-      out.push(`| ${f.text} | ${f.shown} | ${f.readings.join(' ')} | ${f.tagged ? f.nf || 'tagged' : ''} |`)
+      out.push(`| ${f.text} | ${f.shown} | ${f.readings.join(' ')} | ${f.score} |`)
     out.push('')
   }
   process.stdout.write(`${out.join('\n')}\n`)

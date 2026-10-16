@@ -32,7 +32,7 @@ async function show(page: Page, body: string, file = TEST_FONT): Promise<void> {
 const shot = (page: Page, selector: string): Promise<Buffer> => page.locator(selector).screenshot()
 
 // Generate the actual deliverable first: pnpm build && pnpm rubifont.
-const RUBIFONT = new URL('../../outputs/RubifontSans-Regular.woff2', import.meta.url).pathname
+const RUBIFONT = process.env.RUBIFONT_TEST_FONT ?? new URL('../../outputs/RubifontSans-Regular.woff2', import.meta.url).pathname
 
 test('Rubifont draws English and Japanese ruby from the delivered WOFF2', async ({ page }) => {
   const texts = ['save', 'Save', 'SAVE', 'hello', 'Hello', 'HELLO', 'file', 'File', 'confirm', 'profile', 'Settings', 'Download', '日本語', '今日', '日本語Save今日', '保存してSaveを押す', 'network', 'NETWORK', 'computer', 'language', 'water', 'the', 'a', 'I', 'English', 'Japanese']
