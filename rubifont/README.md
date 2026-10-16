@@ -37,6 +37,9 @@
 `font-feature-settings: 'ss01' 1`で日英の読みを非表示にできます。
 検索・コピーの対象となる本文は元の文字列です。利用するアプリでの動作は確認してください。
 
+MacのChromium・WebKit・CoreTextと、Linux CIのChromium・Firefoxで読み表示を確認しています。
+Linux版WebKitでは英語の読み表示テストが失敗しています。MacのFirefox、Font Bookへのインストール・個々の文書アプリでの操作は未確認です。
+
 ## 再生成
 
 Node.js 22.18以上と、このリポジトリで指定したpnpmを使います。

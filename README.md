@@ -8,7 +8,8 @@
 MacではOTFをFont Bookでインストールし、使いたいアプリで「Rubifont Sans」を選びます。
 
 日本語はFurifontのv0.3.0時点の辞書・読み規則を引き継いでいます。英語の読みはカタカナによる目安で、未登録語や文脈による読み分けは対象外です。
-Chromium・WebKitとMac CoreTextで確認済みです。Firefoxと、Font Bookへのインストール・個々の文書アプリでの操作は未確認です。
+MacのChromium・WebKit・CoreTextと、Linux CIのChromium・Firefoxで読み表示を確認済みです。
+Linux版WebKitでは英語の読み表示テストが失敗しています。MacのFirefox、Font Bookへのインストール・個々の文書アプリでの操作は未確認です。
 
 ```sh
 pnpm install --frozen-lockfile --ignore-scripts
