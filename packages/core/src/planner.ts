@@ -6,14 +6,15 @@ import { formatNotation, getOrCreate, hanRuns, isHan, parseFurigana, parseNotati
 import { emitFea } from './fea'
 import { codepoints, createGlyphRegistry, createSingleLookups, glyphName, isGrouped } from './glyphs'
 import { isOnyomi, toHepburn, toKatakana } from './kana'
+import { planKanaRomaji } from './romaji'
 import { JLPT_LEVELS, SCORE, sourceBit, weightOf } from './schema'
 import { pickSuffixes } from './suffixes'
 
-/** VS225: shows the kanji before it without ruby. */
+/** VS241: shows the kanji before it without ruby. */
 export const SELECTOR_SUPPRESS = 0xE01E0
-/** VS226: reading 1 of the kanji (or word) before it; VS227 reading 2, and so on. */
+/** VS242: reading 1 of the kanji (or word) before it; VS243 reading 2, and so on. */
 export const SELECTOR_FIRST_READING = 0xE01E1
-/** The IVD leaves VS225..VS240 unregistered: one to suppress, fifteen readings. */
+/** The IVD leaves VS241..VS256 unregistered: one to suppress, fifteen readings. */
 export const MAX_READINGS = 15
 /** A lone kanji's reading needs this share of the evidence to be offered through a selector. */
 const MIN_ALTERNATE_SHARE = 0.02
@@ -67,7 +68,7 @@ export interface PlanReport {
     rules: number
   }
   /**
-   * The lists variation selectors index into, VS226 being the first entry,
+   * The lists variation selectors index into, VS242 being the first entry,
    * and `salt` 1 the same entry through `font-feature-settings`.
    * Words list their readings in inline notation, the default first. `lone`
    * is the reading a kanji alone in its run shows without a selector.
@@ -279,8 +280,8 @@ function selectWords(index: DictionaryIndex, ctx: PlanContext): Selection {
     rest: [],
   }
   const after = byScore.slice(ctx.options.skip).filter(item => item.word).map(item => item.text)
-  // No `take` means every word: slice(undefined) would hand the whole list to the rest too.
-  const take = ctx.options.take ?? after.length
+  // No `take` means every word: slice(undefined) would hand the whole list to the rest too. `'max'` is a number by now: `resolveTake` fits it.
+  const take = typeof ctx.options.take === 'number' ? ctx.options.take : after.length
   buckets.take = after.slice(0, take)
   buckets.rest = after.slice(take)
   const taken = new Set(buckets.take)
@@ -316,9 +317,16 @@ function addWordEvidence(patterns: Patterns, add: AddEvidence): void {
 /** Last in each list: readings a selector helper may need for verbs too rare to rank. */
 function addRareVerbEvidence(inflecting: DictionaryIndex['inflecting'], ctx: PlanContext, add: AddEvidence): void {
   for (const [kanji, rubies] of inflecting) {
-    for (const ruby of [...rubies].filter(ruby => !ctx.removed.has(kanji) && ctx.renderable({ text: kanji, spans: [{ start: 0, end: 1, ruby }] })))
+    for (const ruby of [...rubies].filter(ruby => ctx.renderable({ text: kanji, spans: [{ start: 0, end: 1, ruby }] })))
       add(kanji, ruby, 1e-9)
   }
+}
+
+/** What a lone kanji with a leading reading of that share becomes: left bare, shown with it, or neither. */
+function loneChoice(kanji: string, share: number, lonePins: Map<string, string>, skippedKanji: Set<string>, isolated: Map<string, string>, ctx: PlanContext): 'skip' | 'isolate' | undefined {
+  if (!lonePins.has(kanji) && skippedKanji.has(kanji))
+    return 'skip'
+  return share >= ctx.options.isolatedMinShare && ctx.options.isolated && !isolated.has(kanji) ? 'isolate' : undefined
 }
 
 /**
@@ -340,14 +348,14 @@ function chooseLoneKanji(index: DictionaryIndex, { patterns, lonePins, skippedKa
   for (const [kanji, ruby] of lonePins)
     add(kanji, ruby, 1)
   for (const [kanji, readings] of index.singles) {
-    if (ctx.removed.has(kanji))
-      continue
     const ranked = loneReadings(kanji, readings, ctx).filter(r => r.share >= MIN_ALTERNATE_SHARE)
     const top = ranked[0]
-    if (top && !lonePins.has(kanji) && skippedKanji.has(kanji))
+    // A kanji left bare still offers its readings by selector, which okurigana (行い おこな) use; it shows none alone.
+    const choice = top && !ctx.removed.has(kanji) ? loneChoice(kanji, top.share, lonePins, skippedKanji, isolated, ctx) : undefined
+    if (choice === 'skip')
       skipped.add(kanji)
-    else if (top && top.share >= ctx.options.isolatedMinShare && ctx.options.isolated && !isolated.has(kanji))
-      isolated.set(kanji, top.ruby)
+    else if (choice === 'isolate')
+      isolated.set(kanji, top!.ruby)
     for (const r of ranked)
       add(kanji, r.ruby, r.weight)
   }
@@ -424,7 +432,7 @@ type Known = Map<string, (string | undefined)[] | null>
 function findMisreadRuns(index: DictionaryIndex, patterns: Patterns, kanjiReadings: Map<string, string[]>, suffixes: Suffixes, skipped: Set<string>, ctx: PlanContext): Map<string, RubySpan[] | null> {
   const known: Known = new Map([...patterns].map(([text, readings]) => [text, assignment(readings[0]!.spans, length(text))]))
   const protectedRuns = new Map<string, RubySpan[] | null>()
-  for (const text of [...ctx.removed].filter(t => length(t) > 1)) {
+  for (const text of [...ctx.removed].filter(t => length(t) > 1 && ctx.covered(t))) {
     known.set(text, null)
     protectedRuns.set(text, null)
   }
@@ -485,7 +493,7 @@ interface VariantReading {
 function createVariants(): { name: (kanji: string, n: number) => string, all: () => Variant[] } {
   const variants = new Map<string, Variant>()
   return {
-    /** `kanji` written with VS225 + `n`: n = 0 drops the ruby, n >= 1 picks reading n. */
+    /** `kanji` written with VS241 + `n`: n = 0 drops the ruby, n >= 1 picks reading n. */
     name(kanji: string, n: number): string {
       const base = kanji.codePointAt(0)!
       const name = `${glyphName(base)}.vs${n}`
@@ -605,10 +613,14 @@ interface LoneGlyph {
 }
 
 export interface FontPlanner {
-  (options: PlanOptions, coverage: ReadonlySet<number>, previewText?: string): PlanResult
+  /** `glyphBudget` is how many new glyphs the base font has room for; `take: 'max'` needs it. */
+  (options: PlanOptions, coverage: ReadonlySet<number>, previewText?: string, glyphBudget?: number): PlanResult
   /** The words of the dictionary by what the font does with them, for the options. */
-  wordBuckets: (options: PlanOptions, coverage: ReadonlySet<number>) => WordBuckets
+  wordBuckets: (options: PlanOptions, coverage: ReadonlySet<number>, glyphBudget?: number) => WordBuckets
 }
+
+/** Words a `take: 'max'` search may leave unused: the glyphs of a hundred rare words are not worth another pass. */
+const FIT_TOLERANCE = 100
 
 /**
  * Indexes the compiled dictionary once, then plans fonts from it. Every
@@ -642,8 +654,52 @@ export function createFontPlanner(dictionary: Dictionary): FontPlanner {
     return last.analysis
   }
 
+  /** What a plan adds to the base font: its glyphs, its variants and the version probe, as the compiler counts them. */
+  function addedGlyphs(options: PlanOptions, coverage: ReadonlySet<number>): number {
+    const { plan } = planFont(options, coverage)
+    return plan.glyphs.length + plan.variants.length + 1
+  }
+
+  /** The most words, by `take`, whose glyphs fit `glyphBudget`; `undefined` when every word fits. Bisection: glyphs only grow with the words. */
+  function searchTake(options: PlanOptions, coverage: ReadonlySet<number>, glyphBudget: number): number | undefined {
+    const all = { ...options, take: undefined }
+    if (addedGlyphs(all, coverage) <= glyphBudget)
+      return undefined
+    let [fit, over] = [0, analysisFor(all, coverage).buckets.take.length]
+    // The tolerance applies once some words fit: a small dictionary is searched to the word.
+    while (over - fit > (fit ? FIT_TOLERANCE : 1)) {
+      const mid = Math.floor((fit + over) / 2)
+      if (addedGlyphs({ ...options, take: mid }, coverage) <= glyphBudget)
+        fit = mid
+      else
+        over = mid
+    }
+    if (fit === 0)
+      throw new Error(`the lone kanji and rules alone need more than ${glyphBudget} glyphs: no word fits`)
+    return fit
+  }
+
+  /** The `take: 'max'` fits that were searched, by the options they were searched for. */
+  const fits = new Map<string, number | undefined>()
+
+  /**
+   * The options with `take: 'max'` made a number. Always judged on the whole
+   * font, so a preview shows the words the build has.
+   */
+  function resolveTake(options: PlanOptions, coverage: ReadonlySet<number>, glyphBudget: number | undefined): PlanOptions {
+    if (options.take !== 'max')
+      return options
+    if (glyphBudget === undefined)
+      throw new Error(`take 'max' needs the glyph budget of the base font`)
+    const key = JSON.stringify({ ...options, take: glyphBudget })
+    if (!fits.has(key))
+      fits.set(key, searchTake(options, coverage, glyphBudget))
+    return { ...options, take: fits.get(key) }
+  }
+
   /** Plans a font; with `previewText`, keeps only what that text can trigger. */
-  function planFont(options: PlanOptions, coverage: ReadonlySet<number>, previewText?: string): PlanResult {
+  function planFont(unresolved: PlanOptions, coverage: ReadonlySet<number>, previewText?: string, glyphBudget?: number): PlanResult {
+    const options = resolveTake(unresolved, coverage, glyphBudget)
     const { patterns, buckets, isolated, kanjiReadings, protectedRuns, glyphs, rules, ligatures, singles, variants, variantReadings, alternates, ivsWords, lone, suffixes, finalSuffixes } = analysisFor(options, coverage)
 
     const sample = previewText === undefined ? undefined : new Set(codepoints(previewText))
@@ -667,6 +723,10 @@ export function createFontPlanner(dictionary: Dictionary): FontPlanner {
     ])
     const keptGlyphs = glyphs.all().filter(g => keptNames.has(g.name))
     const han = [...coverage].filter(cp => inSample([cp]) && isHan(String.fromCodePoint(cp))).sort((a, b) => a - b)
+    const { glyphs: kanaGlyphs, codepoints: kanaCodepoints, ...kana } = options.kanaRomaji && options.furiganaScript === 'hepburn'
+      ? planKanaRomaji((kana, romaji) => inSample(codepoints(kana)) && codepoints(kana + romaji).every(cp => coverage.has(cp)))
+      : { glyphs: [], codepoints: [], digraphs: [], contextual: [], singles: [] }
+    const allGlyphs = [...keptGlyphs, ...kanaGlyphs]
 
     const fea = emitFea({
       hanClass: [...han.map(glyphName), ...keptVariants.map(v => v.name), ...keptGlyphs.map(g => g.name)],
@@ -678,9 +738,10 @@ export function createFontPlanner(dictionary: Dictionary): FontPlanner {
       variantReadings: keptVariantReadings.map(v => ({ input: v.input, output: v.glyph.name })),
       alternates: keptAlternates,
       variantsOff: keptVariants.map(v => ({ input: v.name, output: glyphName(v.base) })),
-      rubyOff: keptGlyphs.map(g => ({ glyph: g.name, bases: g.bases.map(glyphName) })),
+      rubyOff: allGlyphs.map(g => ({ glyph: g.name, bases: g.bases.map(glyphName) })),
+      kana,
     })
-    const named = new Set([...han, ...keptVariants.map(v => v.base), ...keptGlyphs.flatMap(g => g.bases)])
+    const named = new Set([...han, ...keptVariants.map(v => v.base), ...keptGlyphs.flatMap(g => g.bases), ...kanaCodepoints])
 
     return {
       plan: {
@@ -692,9 +753,9 @@ export function createFontPlanner(dictionary: Dictionary): FontPlanner {
         metrics: options.metrics,
         codepoints: [...named].sort((a, b) => a - b),
         variants: keptVariants,
-        glyphs: keptGlyphs,
+        glyphs: allGlyphs,
         fea,
-        subset: sample && [...new Set([...sample, ...keptGlyphs.flatMap(g => g.ruby.flatMap(r => codepoints(r.text)))])].filter(cp => !keptVariants.some(v => v.selector === cp)).sort((a, b) => a - b),
+        subset: sample && [...new Set([...sample, ...allGlyphs.flatMap(g => g.ruby.flatMap(r => codepoints(r.text)))])].filter(cp => !keptVariants.some(v => v.selector === cp)).sort((a, b) => a - b),
         smoke: sample ? [] : smokeChecks(patterns, lone, glyphs),
       },
       report: {
@@ -707,7 +768,7 @@ export function createFontPlanner(dictionary: Dictionary): FontPlanner {
           suffixes: suffixes.length,
           protectedAnnotated: [...protectedRuns.values()].filter(Boolean).length,
           protectedBare: [...protectedRuns.values()].filter(s => !s).length,
-          glyphs: keptGlyphs.length,
+          glyphs: allGlyphs.length,
           rules: keptRules.length,
         },
         ivs: { kanji: Object.fromEntries(kanjiReadings), words: ivsWords, lone: Object.fromEntries(isolated), salt: keptAlternates.length > 0 },
@@ -716,8 +777,8 @@ export function createFontPlanner(dictionary: Dictionary): FontPlanner {
   }
 
   /** The words of the dictionary by what the font does with them, for the options. */
-  function wordBuckets(options: PlanOptions, coverage: ReadonlySet<number>): WordBuckets {
-    return analysisFor(options, coverage).buckets
+  function wordBuckets(options: PlanOptions, coverage: ReadonlySet<number>, glyphBudget?: number): WordBuckets {
+    return analysisFor(resolveTake(options, coverage, glyphBudget), coverage).buckets
   }
 
   return Object.assign(planFont, { wordBuckets })

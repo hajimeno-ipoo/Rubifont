@@ -15,7 +15,7 @@ const skip = computed({
   set: value => config.value.skip = value,
 })
 const words = computed({
-  get: () => config.value.take ?? maxWords.value + STEP,
+  get: () => typeof config.value.take === 'number' ? config.value.take : maxWords.value + STEP,
   set: value => config.value.take = value > maxWords.value ? undefined : value,
 })
 const annotated = computed(() => report.value && report.value.stats.patterns - report.value.stats.places)
@@ -29,6 +29,10 @@ const jlptLevels = computed(() => jlpt.value > 1 ? `N5–${JLPT_LEVELS[jlpt.valu
 const isolated = computed({
   get: () => config.value.isolated ?? DEFAULTS.plan.isolated,
   set: value => config.value.isolated = value,
+})
+const kanaRomaji = computed({
+  get: () => config.value.kanaRomaji ?? DEFAULTS.plan.kanaRomaji,
+  set: value => config.value.kanaRomaji = value,
 })
 const share = computed({
   get: () => config.value.isolatedMinShare ?? DEFAULTS.plan.isolatedMinShare,
@@ -73,6 +77,9 @@ function toggle(source: WordSource): void {
     <UiField :label="$t('customize.options.script')">
       <UiSegmented v-model="furiganaScript" :label="$t('customize.options.script')" :options="scripts" />
     </UiField>
+    <UiToggle v-if="furiganaScript === 'hepburn'" v-model="kanaRomaji">
+      {{ $t('customize.options.kanaRomaji') }}
+    </UiToggle>
     <div class="h-px bg-[var(--ff-line)]" />
     <!-- In the planner's order: the sources' words, those filtered out, then skip and take by score. -->
     <fieldset class="flex flex-col gap-2">

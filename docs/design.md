@@ -10,7 +10,7 @@ Reference: [Mengshen-pinyin-font](https://github.com/MaruTama/Mengshen-pinyin-fo
 
 ## Goals
 
-- Prebuilt fonts: **Furifont Sans** and **Furifont Serif**, Regular and a variable font of every weight, from Source Han Sans JP and Source Han Serif JP, with hiragana or Hepburn romaji furigana. Katakana for on'yomi is a build option.
+- Prebuilt fonts: **Furifont Sans** and **Furifont Serif**, Regular and a variable font of every weight, from Source Han Sans JP and Source Han Serif JP, with hiragana or Hepburn romaji furigana; the romaji fonts put romaji over kana too. Katakana for on'yomi is a build option, and so is turning the romaji over kana off.
 - A build anyone can run with another base font, word list or options.
 - A local studio, served by Devframe, to tune, preview and build.
 - A static demo site that loads the prebuilt fonts.
@@ -19,7 +19,6 @@ Reference: [Mengshen-pinyin-font](https://github.com/MaruTama/Mengshen-pinyin-fo
 ## Out of scope
 
 - Personal names. From JMnedict, only stations and places are read.
-- Furigana on kana. Only kanji are annotated.
 - Vertical writing. The base font's `vert` feature is kept, but furigana glyphs are drawn for horizontal text only.
 - Latin, digits, Chinese and Korean text, which are left as they are.
 
@@ -81,7 +80,7 @@ The first prototype, a hand-built font with a dozen words shaped in Chromium, Fi
 
 1. **Fonts never see okurigana.** Browsers itemize text by Unicode script before shaping, and 漢字 (Han) and かな (Hiragana) are different scripts. A rule such as "食 followed by べ" never matches in any browser, although HarfBuzz matches it when given the whole string. The planned stems derived from parts of speech (書 + [かきくけこ]) were dropped. Rules work on **Han runs** instead: maximal sequences of kanji, which is all a font is ever shown.
 2. **`rclt` can be turned off.** `font-feature-settings: "rclt" 0` disables it in all three browsers. `ss01` stays as the documented switch, because apps such as Word expose stylistic sets.
-3. **Selectors must be variation sequences.** A kanji followed by a variation selector is split off its run unless the font maps that sequence in `cmap` format 14. A rule matching 市 + VS227 + 場 then never sees 場. Each sequence now maps to its own glyph (see [Selectors](#selectors)).
+3. **Selectors must be variation sequences.** A kanji followed by a variation selector is split off its run unless the font maps that sequence in `cmap` format 14. A rule matching 市 + VS243 + 場 then never sees 場. Each sequence now maps to its own glyph (see [Selectors](#selectors)).
 4. **The newspaper ranking misleads.** JMdict's `nf` buckets belong to a written form. Ranking by them gives 今日 こんにち and 昨日 さくじつ, the newspaper readings. JMdict's own order gives きょう and きのう. The ranking in [Defaults](#defaults) follows from this.
 
 ## Rule planning
@@ -120,7 +119,7 @@ A plan picks its words in four steps:
 
 1. **Sources.** Every run with a reading from the plan's `sources` (default: all of `jmdict`, `ichi`, `news`, `spec`, `gai`, `nf`, `tatoeba`, `place` and the manual lists). Its readings are those the lists or the sentences back, the default first; a run with none takes its first reading, which is no evidence for its kanji's own.
 2. **Removals.** A run is **skipped** whole when any of its readings is on the JLPT lists up to `skipJlpt` (`N4` covers N5 and N4); so is a form the dictionary keeps bare (月, 日, 年) or the user removes.
-3. **Skip and take.** Runs and lone kanji are sorted by score, and the `skip` most common are skipped (default 0); then `take` runs get furigana (default: all of them).
+3. **Skip and take.** Runs and lone kanji are sorted by score, and the `skip` most common are skipped (default 0); then `take` runs get furigana (default: all of them). `take: 'max'` takes as many as the base font has glyph room for: the planner bisects `take`, counting the glyphs, variants and probe a plan adds as the compiler does, against 65,535 minus the base font's glyphs, which the caller passes in. It stops within 100 words of the limit, and judges the whole font even for a preview, so the preview shows the build's words. Glyphs are shared by words that read alike, so the count is not the words: about 168,000 on Source Han Sans JP with hiragana, a little fewer with romaji.
 4. **The user's words** (`words.add`), the curated defaults and the user's pins.
 
 Dropping only a known reading would leave another one as the default: 今日 would show こんにち. The curated defaults don't bring a skipped word back; the user's own words do. A skipped run stays bare: no place name claims it, it gets no selectors, and protection gives it no reading.
@@ -153,6 +152,8 @@ The readings of a pattern are ranked:
 3. as the dictionary ranks them (see [The compiled dictionary](#the-compiled-dictionary)).
 
 The curated list is short and commented. It covers words where the data cannot tell readings apart (出来 でき, not しゅったい) and forms that drop okurigana that running text adds back (支払 しはら, for 支払い).
+
+Okurigana pairs have their own curated list, `raw/okurigana.overrides.jsonc`: a pair such as `上[うえ]に` replaces the generated pair with the same key, and a longer generated key still wins over a shorter one, so 入って needs its own entry. `pnpm dict:override` writes an entry with kana after its kanji there.
 
 ### Lone kanji
 
@@ -198,6 +199,7 @@ Each glyph is keyed by what it draws: one or more base characters plus furigana 
 | `alternates` | `salt` | `salt` n picks the nth reading of a kanji, before `furigana` sees it |
 | `variant_readings` | `rclt` | A selector no word claimed picks the kanji's own reading |
 | `variants_off` | `ccmp` | Variant glyphs left over go back to plain kanji, for example when `rclt` is off |
+| `kana_digraphs`, `kana_context`, `kana` | `rclt` | Romaji over kana: digraphs, then っ, ん and ー by the kana after them, then single kana (nested `kana_*` hold the contextual glyphs) |
 | `ruby_off`, `ruby_off_ligatures` | `ss01` | Furigana glyphs back to their bases |
 
 The order of these lookups matters more than their features. Shapers apply lookups in lookup-list order, so the fallbacks only see what `furigana` left.
@@ -206,20 +208,20 @@ The main lookup has a `subtable;` break every 600 rules, plus one before the cla
 
 ## Selectors
 
-Each sequence of kanji + variation selector in VS225..VS240 is mapped in `cmap` format 14 to an **empty placeholder glyph** with the kanji's advance. These selectors sit at the end of the IVD range, where nothing is registered, and Source Han Sans' own sequences use VS17 and up.
+Each sequence of kanji + variation selector in VS241..VS256 is mapped in `cmap` format 14 to an **empty placeholder glyph** with the kanji's advance. These selectors sit at the end of the IVD range, where nothing is registered, and Source Han Sans' own sequences use VS17 and up.
 
 | Selector | Meaning |
 | --- | --- |
-| VS225 (U+E01E0) | No furigana on this kanji |
-| VS226 + n (U+E01E1 + n) | Reading n + 1 |
+| VS241 (U+E01E0) | No furigana on this kanji |
+| VS242 + n (U+E01E1 + n) | Reading n + 1 |
 
-After the first kanji of a pattern with several readings, a selector picks the word's reading: 市 + VS227 + 場 is しじょう. After any other kanji, the selector picks that kanji's own reading. Each kanji's readings are ordered by evidence.
+After the first kanji of a pattern with several readings, a selector picks the word's reading: 市 + VS243 + 場 is しじょう. After any other kanji, the selector picks that kanji's own reading. Each kanji's readings are ordered by evidence.
 
 The rules always replace a placeholder: with a furigana glyph, or with the plain kanji through `variants_off`. Placeholders therefore cost nothing in outlines. The reading lists ship as `<font>.ivs.json`, with the reading each lone kanji shows by default (`lone`), and on the demo's reference page.
 
 ### Salt
 
-A selector is a character in the text, and it shows up in copy and paste. Markup can carry the same choice with `font-feature-settings: "salt" n`, on a span around a run of kanji: `salt` n does what selector n (VS225 + n) does after the run's first kanji. An alternate substitution (GSUB type 3) maps each such kanji to its selector glyphs, and a chain rule applies it only to a kanji that no other Han glyph precedes, so a word's second kanji is left alone. The word rules and the kanji's own readings then see the choice as a glyph, exactly as for a selector: 今日 with `salt` 2 is こん, にち, and 日 alone is にち. The lookup comes before `furigana` in the lookup list. It is a full-build feature: a preview leaves it out, and `ivs.salt` in `.ivs.json` says whether the font has it. The compiler reads `sub X from [...]` for it.
+A selector is a character in the text, and it shows up in copy and paste. Markup can carry the same choice with `font-feature-settings: "salt" n`, on a span around a run of kanji: `salt` n does what selector n (VS241 + n) does after the run's first kanji. An alternate substitution (GSUB type 3) maps each such kanji to its selector glyphs, and a chain rule applies it only to a kanji that no other Han glyph precedes, so a word's second kanji is left alone. The word rules and the kanji's own readings then see the choice as a glyph, exactly as for a selector: 今日 with `salt` 2 is こん, にち, and 日 alone is にち. The lookup comes before `furigana` in the lookup list. It is a full-build feature: a preview leaves it out, and `ivs.salt` in `.ivs.json` says whether the font has it. The compiler reads `sub X from [...]` for it.
 
 ## Web pages
 
@@ -272,6 +274,18 @@ Kana furigana uses the base font's own kana. Romaji uses its Latin glyphs. Sourc
 | `katakanaOn` | Readings that match one of the kanji's on'yomi in KANJIDIC2, allowing rendaku and sokuon (学 がっ in 学校), in katakana; kun'yomi in hiragana |
 | `hepburn` | Modified Hepburn with macrons (kyō, tōkyō), n before b/m/p (shinbun). A trailing っ doubles the next segment's consonant, so 学校 is gak + kō. |
 
+### Romaji over kana
+
+`kanaRomaji` (on by default, and only with `furiganaScript: 'hepburn'`) puts Hepburn romaji over hiragana and katakana, a syllable at a time. A kana run is shaped apart from the kanji, as a run of kanji is, so the rules never see a kanji and only see the kana of their own run:
+
+- A yōon or loanword digraph is one glyph: きゃ kya, ティ ti.
+- っ shows the consonant it doubles (っか k, っちゃ t), and nothing before a vowel or at the end of a run.
+- ん is n, and n' before a vowel or y.
+- ー lengthens the syllable before it with a macron (コー kō) and stays bare itself.
+- Long vowels written in kana stay as written (おう ou), since without the word おもう and おう look alike; は and へ are ha and he, since a font cannot tell a particle.
+
+These glyphs are not in `@han`, so they never make a kanji less alone, and `ss01` turns them off with the furigana. They cost about 600 glyphs of the budget `take: 'max'` fills.
+
 ## Compiler
 
 `@furifont/compiler` is TypeScript. It reads outlines, shapes and subsets with harfbuzzjs, HarfBuzz built to WebAssembly, and compresses WOFF2 with the Brotli it is given. It writes the tables it changes itself and copies every other table as bytes. For a build, it does this:
@@ -320,7 +334,7 @@ On the static demo site the studio page finds no server and explains how to star
 - **e2e** (Playwright, on Chromium, Firefox and WebKit, with the font as WOFF2):
   - furigana differs from `ss01`;
   - a suffix gets furigana at the end of a run, and a prefix-heavy one stays bare inside a run;
-  - VS227 differs from the default, and VS225 matches plain text;
+  - VS243 differs from the default, and VS241 matches plain text;
   - selection returns the source text;
   - furigana is not clipped at `line-height: normal`;
   - wrapped lines do not overlap;
@@ -348,11 +362,11 @@ The tag runs `release.yml`:
 
 - npm publishing and the changelog, through `sxzz/workflows`;
 - all eight fonts, Regular as OpenType and WOFF2 and the variable fonts as TrueType and WOFF2, built from the tagged code and attached to the GitHub Release with the OFL and the data license;
-- a redeploy of the site, through a Vercel deploy hook.
+- an empty `chore: deploy v<version>` commit pushed to `main`, which deploys the site.
 
 Each font carries the version it was released with: `0.1.2` is `head.fontRevision` 0.102 and the name `Version 0.102`, so an operating system that caches installed fonts by version takes a new one. Its `head.modified` is the tag's commit time (`SOURCE_DATE_EPOCH`), so the same tag builds the same bytes. A font built with the CLI carries Furifont's version, or the config's `version`.
 
-The site is deployed by Vercel (`vercel.json`) on every push to `main`, at https://furifont.antfu.me. Its build compiles no font: `scripts/fetch-fonts.ts` downloads the variable WOFF2s and their `.ivs.json` from the release of the version in `package.json`, and the site serves them at `/fonts`. Vercel's build of the release commit runs before CI has attached the fonts and fails, leaving the last deploy up; the deploy hook builds it again once they are there.
+The site is deployed by Vercel (`vercel.json`) on every push to `main`, at https://furifont.antfu.me. Its build compiles no font: `scripts/fetch-fonts.ts` downloads the variable WOFF2s and their `.ivs.json` from the release of the version in `package.json`, and the site serves them at `/fonts`. The release commit lands before CI has attached the fonts, so Vercel skips it (`ignoreCommand` in `vercel.json`), leaving the last deploy up; CI's deploy commit, pushed once they are there, builds the new version.
 
 The site's pages, the bookmarklet and the userscript ask for `/fonts/<file>?v=<version>`, which the site serves as immutable: a font and its `.ivs.json` change together, with the version. Without `?v=` a browser checks the file on every load.
 

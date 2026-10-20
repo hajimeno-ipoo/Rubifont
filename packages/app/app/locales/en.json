@@ -85,11 +85,11 @@
     }
   },
   "selectors": {
-    "body": "Some words have more than one common reading. Furifont shows the most common one. To choose another, put a variation selector (an invisible character) right after the first kanji. VS226 gives reading 1, VS227 gives reading 2, and so on. VS225 removes the furigana.",
+    "body": "Some words have more than one common reading. Furifont shows the most common one. To choose another, put a variation selector (an invisible character) right after the first kanji. VS242 gives reading 1, VS243 gives reading 2, and so on. VS241 removes the furigana.",
     "lookUp": "Look up readings",
     "default": "Default",
-    "reading2": "Reading 2 (VS227)",
-    "none": "No furigana (VS225)"
+    "reading2": "Reading 2 (VS243)",
+    "none": "No furigana (VS241)"
   },
   "downloads": {
     "all": "Download all as zip",
@@ -124,7 +124,7 @@
   "reference": {
     "eyebrow": "Reference",
     "title": "Pick a reading",
-    "body": "Furifont shows the most common reading of a word. To show another reading, put a variation selector (an invisible character) right after the first kanji of the word. VS226 gives reading 1, VS227 gives reading 2, and so on. After a single kanji, the selector chooses the reading of that kanji. VS225 shows the kanji with no furigana.",
+    "body": "Furifont shows the most common reading of a word. To show another reading, put a variation selector (an invisible character) right after the first kanji of the word. VS242 gives reading 1, VS243 gives reading 2, and so on. After a single kanji, the selector chooses the reading of that kanji. VS241 shows the kanji with no furigana.",
     "search": "Search a word or kanji: 市場, 今日, 生",
     "searchLabel": "Search readings",
     "hint": "Click a reading to copy the word with its selector.",
@@ -138,7 +138,7 @@
   "report": {
     "eyebrow": "Report",
     "title": "Report a wrong reading",
-    "body": "Did Furifont show the wrong furigana, or none where a word needs it? Tell us the words and the readings they should have. You can report several words at once. We go through the reports to fix the dictionary.",
+    "body": "Did Furifont show the wrong furigana, or none where a word needs it? Tell us the words and the readings they should have. You can report several words at once. We go through the reports to fix the dictionary.\n\nWe are fixing and improving the font fast, so make sure you are using the latest font and scripts. You can also check the preview to see if it behaves like the problem you have encountered.",
     "link": "Report a wrong reading.",
     "sections": {
       "words": "Words / {count}",
@@ -149,6 +149,7 @@
     "expected": "Correct reading",
     "shown": "Reading shown (optional)",
     "context": "Sentence (optional)",
+    "preview": "Preview",
     "remove": "Remove {word}",
     "add": "Add another word",
     "environment": "Environment",
@@ -199,6 +200,7 @@
       "body": "{command} showed a six-digit code in your terminal (the window where you started it).",
       "code": "Code",
       "failed": "That code did not work. Check the terminal and try again.",
+      "disconnected": "The connection to {command} was lost. Check that it is still running, then reload this page.",
       "unlock": "Unlock"
     },
     "sections": {
@@ -275,6 +277,7 @@
           "hint": "Names of municipalities and towns, such as 一宮, from Japan Post's postal code data. Furifont uses them where no common word matches the text."
         }
       },
+      "kanaRomaji": "Romaji over hiragana and katakana",
       "isolated": "Furigana on single kanji",
       "share": "Single kanji: how sure",
       "shareHint": "A single kanji gets furigana only when one reading makes up at least this share of its uses in the dictionary. Use a number from 0.5 to 1. A higher number gives furigana to fewer kanji.",

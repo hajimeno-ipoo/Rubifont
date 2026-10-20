@@ -13,7 +13,7 @@
 
 ## ダウンロード
 
-[Rubifont 0.4.0のZIPをダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.4.0/Rubifont-0.4.0.zip)
+[Rubifont 0.5.0のZIPをダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.5.0/Rubifont-0.5.0.zip)
 
 ほかの配布版は[Releases](https://github.com/hajimeno-ipoo/Rubifont/releases)から取得できます。ZIPを展開すると、次のファイルを使えます。
 
@@ -64,7 +64,7 @@ ZIPには、読み選択用の一覧、生成記録、検証報告書、ライ�
 
 | 対象 | 対応内容 |
 | --- | --- |
-| 日本語 | 228,356の読みパターンと、単独漢字1,703字への読み設定 |
+| 日本語 | 228,363の読みパターンと、単独漢字1,705字への読み設定 |
 | 英語 | 登録した2,562語・7,684表記。複数形や活用形は一覧にある表記のみ |
 | 書体 | 横書きのSans Regular一種類 |
 
@@ -80,7 +80,7 @@ WebKitでは、異体字セレクターによる単語の別読み指定が正�
 
 ## 出典とライセンス
 
-Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語のカタカナ読みを追加しています。現在の基準はFurifont v0.5.0です。書体にはAdobeのSource Han Sans JP Regularを使用しています。
+Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語のカタカナ読みを追加しています。現在の基準はFurifont v0.6.1です。書体にはAdobeのSource Han Sans JP Regularを使用しています。
 
 | 対象 | ライセンス |
 | --- | --- |
@@ -89,7 +89,7 @@ Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語の�
 | 日本語辞書・読み規則 | 主にCC BY-SA 4.0、TatoebaはCC BY 2.0 FR。[出典と個別条件](packages/dictionary/LICENSE.md) |
 | Rubifont用に作成した英語2,562語の一覧 | CC0 1.0。外部辞書の転載はありません |
 
-配布ZIPには、`CODE-LICENSE.md`・`OFL.txt`・`DATA-LICENSE.md`としてライセンス文書を同梱しています。基になったFurifontの説明・謝辞は[元のREADME](https://github.com/antfu/furifont/blob/v0.5.0/README.md)を参照してください。
+配布ZIPには、`CODE-LICENSE.md`・`OFL.txt`・`DATA-LICENSE.md`としてライセンス文書を同梱しています。基になったFurifontの説明・謝辞は[元のREADME](https://github.com/antfu/furifont/blob/v0.6.1/README.md)を参照してください。
 
 ## 開発者向け：フォントの再生成
 

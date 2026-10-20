@@ -12,9 +12,9 @@ export async function writeRubifontPages(root: URL, output: URL, japanese: { pat
   const count = (value: number) => value.toLocaleString('ja-JP')
   const fontRevision = createHash('sha256').update(await readFile(new URL('RubifontSans-Regular.woff2', output))).digest('hex').slice(0, 12)
   const forms = english.reduce((total, { word }) => total + new Set([word, word[0]!.toUpperCase() + word.slice(1), word.toUpperCase()]).size, 0)
-  const japaneseCoverage = `<p>日本語はFurifont v0.5.0の辞書・読み規則を使い、漢字の上にひらがなを表示します。従来の辞書ソースを収録し、新しく追加された日本郵便の住所データは、英語と同じフォントに収めるため追加対象から外しています。</p>
+  const japaneseCoverage = `<p>日本語はFurifont v0.6.1の辞書・読み規則を使い、漢字の上にひらがなを表示します。従来の辞書ソースを収録し、日本郵便の住所データは、英語と同じフォントに収めるため追加対象から外しています。</p>
 <ul><li>単語・地名の読みパターン：${count(japanese.patterns)}件</li><li>単独の漢字への読み設定：${count(japanese.isolated)}字</li></ul>
-<p>v0.5.0では、部品の組み合わせで同じ読みになる単語の規則を整理しています。件数は生成時に採用した読みパターンの数です。日本語の単語をすべて正しく読めることを示す数ではありません。辞書にない語や、文脈で読みが変わる語には限界があり、読みが付かない場合や誤読もあります。</p>
+<p>部品の組み合わせで同じ読みになる単語の規則を整理しています。件数は生成時に採用した読みパターンの数です。日本語の単語をすべて正しく読めることを示す数ではありません。辞書にない語や、文脈で読みが変わる語には限界があり、読みが付かない場合や誤読もあります。</p>
 <p>WebKitでは異体字セレクターによる単語の別読み指定が正しく働かない場合があります。読みを自動で表示する通常の利用とは別の機能です。読みの指定番号は辞書の更新で変わる場合があるため、同じ版のRubifontSans-Regular.ivs.jsonを使ってください。</p>`
   const withCoverage = (html: string) => html
     .replace('<!-- JAPANESE_COVERAGE -->', japaneseCoverage)

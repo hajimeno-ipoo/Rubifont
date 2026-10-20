@@ -1,8 +1,8 @@
-# Rubifont Sans Regular 0.4.0
+# Rubifont Sans Regular 0.5.0
 
 漢字の上にひらがな、登録した英単語の上にカタカナを表示するフォントです。同じ文章の中で、日本語と英語の両方に読みを添えられます。
 
-[配布版をダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/tag/rubifont-v0.4.0) · [ソースコード](https://github.com/hajimeno-ipoo/Rubifont)
+[配布版をダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/tag/rubifont-v0.5.0) · [ソースコード](https://github.com/hajimeno-ipoo/Rubifont)
 
 ## 主な機能
 
@@ -56,7 +56,7 @@ ZIPを展開したフォルダで、次のHTMLファイルを開いてくださ�
 
 ## 対応範囲と制限
 
-日本語は228,356の読みパターンと、単独漢字1,703字への読み設定を収録しています。パターン数は生成規則の数で、正しく読める単語の総数ではありません。部品の組み合わせで同じ読みになる単語もあります。日本郵便の住所データは、字形数の上限を超えるため収録対象から外しています。
+日本語は228,363の読みパターンと、単独漢字1,705字への読み設定を収録しています。パターン数は生成規則の数で、正しく読める単語の総数ではありません。部品の組み合わせで同じ読みになる単語もあります。日本郵便の住所データは、字形数の上限を超えるため収録対象から外しています。
 
 英語は同梱の`english-readings.json`にある2,562語が対象です。複数形や活用形も一覧にある表記だけに対応します。カタカナは発音の目安で、未知語、任意の大小文字混在、文脈による発音の変更には対応しません。
 
@@ -70,7 +70,7 @@ WebKitでは、異体字セレクターによる単語の別読み指定が正�
 
 ## 出典とライセンス
 
-Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語のカタカナ読みを追加しています。基準はFurifont v0.5.0、書体はAdobeのSource Han Sans JP Regularです。
+Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語のカタカナ読みを追加しています。基準はFurifont v0.6.1、書体はAdobeのSource Han Sans JP Regularです。
 
 | 対象 | ライセンス |
 | --- | --- |
