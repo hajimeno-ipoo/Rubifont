@@ -18,7 +18,7 @@ const output = new URL(process.argv[2] ?? 'outputs/', root)
 const cache = fileURLToPath(new URL('.cache/fonts/', root))
 // Fixed release epoch: midnight in Japan. Rebuilding the same inputs keeps font bytes stable.
 const date = new Date('2026-10-21T00:00:00+09:00')
-const version = '0.6.2'
+const version = '0.6.3'
 await mkdir(output, { recursive: true })
 // Keep the existing sources. The postal-address source alone exceeds the glyph budget.
 const sources = WORD_SOURCES.filter(source => source !== 'japan-post')
@@ -73,8 +73,8 @@ const manifest = {
   version,
   fontDate: date.toISOString(),
   createdAt: new Date().toISOString(),
-  upstreamVersion: '0.6.1',
-  upstreamCommit: 'afcb999aac301225b3b69b9a06c18add32aff471',
+  upstreamVersion: '0.6.2',
+  upstreamCommit: 'da8ddae359aab8ba3df43b5156fb77fb1aa2b2c3',
   japaneseSources: sources,
   japaneseSupplement: japanese,
   base: regular.base,

@@ -19,7 +19,7 @@ export async function writeRubifontPages(root: URL, output: URL, japanese: { pat
     const { form, spans } = parseNotation(notation)
     return hanRuns(form, spans).map(run => `${run.text}＝${run.spans.map(span => span.ruby).join('')}`)
   }).join('、')
-  const japaneseCoverage = `<p>日本語はFurifont v0.6.1の辞書・読み規則に、Rubifont独自の追加辞書を合わせて使います。漢字の上にひらがなを表示します。従来の辞書ソースを収録し、日本郵便の住所データは、英語と同じフォントに収めるため追加対象から外しています。</p>
+  const japaneseCoverage = `<p>日本語はFurifont v0.6.2の辞書・読み規則に、Rubifont独自の追加辞書を合わせて使います。漢字の上にひらがなを表示します。従来の辞書ソースを収録し、日本郵便の住所データは、英語と同じフォントに収めるため追加対象から外しています。</p>
 <ul><li>単語・地名の読みパターン：${count(japanese.patterns)}件</li><li>単独の漢字への読み設定：${count(japanese.isolated)}字</li></ul>
 <p>追加辞書で指定した通常の読みは、${japanesePins}です。同じ漢字が単独で現れるほかの語にも適用されます。「来＝く」「止＝と」も別読みとして収録していますが、送り仮名や文脈では自動で切り替わりません。「来る」を「くる」、「止めた」を「とめた」と表示する場合は、別読みを指定してください。</p>
 <p>部品の組み合わせで同じ読みになる単語の規則を整理しています。件数は生成時に採用した読みパターンの数です。日本語の単語をすべて正しく読めることを示す数ではありません。辞書にない語や、文脈で読みが変わる語には限界があり、読みが付かない場合や誤読もあります。</p>

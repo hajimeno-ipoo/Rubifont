@@ -1,8 +1,8 @@
-# Rubifont Sans 0.6.2
+# Rubifont Sans 0.6.3
 
 漢字の上にひらがな、登録した英単語の上にカタカナを表示するフォントです。同じ文章の中で、日本語と英語の両方に読みを添えられます。
 
-[配布版をダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/tag/rubifont-v0.6.2) · [ソースコード](https://github.com/hajimeno-ipoo/Rubifont)
+[配布版をダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/tag/rubifont-v0.6.3) · [ソースコード](https://github.com/hajimeno-ipoo/Rubifont)
 
 ## 主な機能
 
@@ -86,7 +86,7 @@ ZIPを展開したフォルダで、次のHTMLファイルを開いてくださ�
 
 日本語は本家の辞書に、Rubifont独自の追加辞書を合わせています。追加辞書では11漢字の通常読みを指定しています。同じ漢字が単独で現れるほかの語にも適用されます。「来」は「き」、「止」は「や」を通常表示し、「く」「と」も別読みとして収録しています。「来る」を「くる」、「止めた」を「とめた」と表示する場合は別読みの指定が必要です。送り仮名や文脈による自動切替には対応していません。
 
-日本語は228,363の読みパターンと、単独漢字1,716字への読み設定を収録しています。パターン数は生成規則の数で、正しく読める単語の総数ではありません。部品の組み合わせで同じ読みになる単語もあります。日本郵便の住所データは、字形数の上限を超えるため収録対象から外しています。
+日本語は228,368の読みパターンと、単独漢字1,716字への読み設定を収録しています。パターン数は生成規則の数で、正しく読める単語の総数ではありません。部品の組み合わせで同じ読みになる単語もあります。日本郵便の住所データは、字形数の上限を超えるため収録対象から外しています。
 
 英語は同梱の`english-readings.json`にある2,614語が対象です。複数形や活用形も一覧にある表記だけに対応します。カタカナは発音の目安で、未知語、任意の大小文字混在、文脈による発音の変更には対応しません。
 
@@ -100,7 +100,7 @@ Firefoxの描画は未確認です。確認した環境と検証結果の詳細�
 
 ## 出典とライセンス
 
-Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語のカタカナ読みと、日本語の追加辞書を組み込んでいます。基準はFurifont v0.6.1、書体はAdobeのSource Han Sans JP RegularとSource Han Sans JP VFです。
+Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語のカタカナ読みと、日本語の追加辞書を組み込んでいます。基準はFurifont v0.6.2、書体はAdobeのSource Han Sans JP RegularとSource Han Sans JP VFです。
 
 | 対象 | ライセンス |
 | --- | --- |

@@ -13,7 +13,7 @@
 
 ## ダウンロード
 
-[Rubifont 0.6.2のZIPをダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.6.2/Rubifont-0.6.2.zip)
+[Rubifont 0.6.3のZIPをダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.6.3/Rubifont-0.6.3.zip)
 
 ほかの配布版は[Releases](https://github.com/hajimeno-ipoo/Rubifont/releases)から取得できます。ZIPを展開すると、次のファイルを使えます。
 
@@ -89,7 +89,7 @@ ZIPには、読み選択用の一覧、生成記録、検証報告書、ライ�
 
 | 対象 | 対応内容 |
 | --- | --- |
-| 日本語 | 228,363の読みパターンと、単独漢字1,716字への読み設定 |
+| 日本語 | 228,368の読みパターンと、単独漢字1,716字への読み設定 |
 | 英語 | 登録した2,614語・7,879表記。複数形や活用形は一覧にある表記のみ |
 | 書体 | 横書きのSans RegularとSans VF（太さ250〜900）。読みの対応範囲は共通 |
 
@@ -107,7 +107,7 @@ Firefoxの描画は未確認です。確認した環境と検証結果の詳細�
 
 ## 出典とライセンス
 
-Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語のカタカナ読みと、日本語の追加辞書を組み込んでいます。現在の基準はFurifont v0.6.1です。書体にはAdobeのSource Han Sans JP RegularとSource Han Sans JP VFを使用しています。
+Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語のカタカナ読みと、日本語の追加辞書を組み込んでいます。現在の基準はFurifont v0.6.2です。書体にはAdobeのSource Han Sans JP RegularとSource Han Sans JP VFを使用しています。
 
 | 対象 | ライセンス |
 | --- | --- |
@@ -116,7 +116,7 @@ Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語の�
 | 日本語辞書・読み規則 | 主にCC BY-SA 4.0、TatoebaはCC BY 2.0 FR。[出典と個別条件](packages/dictionary/LICENSE.md) |
 | Rubifont用に作成した英語2,614語の一覧と日本語追加辞書 | CC0 1.0。外部辞書の転載はありません |
 
-配布ZIPには、`CODE-LICENSE.md`・`OFL.txt`・`DATA-LICENSE.md`としてライセンス文書を同梱しています。基になったFurifontの説明・謝辞は[元のREADME](https://github.com/antfu/furifont/blob/v0.6.1/README.md)を参照してください。
+配布ZIPには、`CODE-LICENSE.md`・`OFL.txt`・`DATA-LICENSE.md`としてライセンス文書を同梱しています。基になったFurifontの説明・謝辞は[元のREADME](https://github.com/antfu/furifont/blob/v0.6.2/README.md)を参照してください。
 
 ## 開発者向け：フォントの再生成
 
