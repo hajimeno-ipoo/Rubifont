@@ -12,7 +12,7 @@
 <a href="./index.html">← フォントの見本へ戻る</a>
 <h1>英語の対応語一覧</h1>
 <p>英単語と、フォントに収録したカタカナの読みを掲載しています。</p>
-<p>小文字・頭だけ大文字・全大文字に対応します。たとえば、save・Save・SAVEには同じ読みが付きます。カタカナは発音の目安です。</p>
+<p>小文字・頭だけ大文字・全大文字に対応します。たとえば、save・Save・SAVEには同じ読みが付きます。登録した短縮形・所有形は、直線形と曲線形のアポストロフィに対応します。カタカナは発音の目安です。</p>
 <details><summary>日本語の対応範囲</summary><!-- JAPANESE_COVERAGE --></details>
 <p><label for="word-search">英単語・カタカナで絞り込み <input id="word-search" type="search" style="max-width:100%;font:inherit" placeholder="例：network、ネットワーク"></label></p>
 <p id="search-status" role="status" aria-live="polite"></p>
@@ -27,6 +27,6 @@
 </main>
 <script>
 const search=document.querySelector('#word-search'), rows=[...document.querySelectorAll('tbody tr')], status=document.querySelector('#search-status');
-search.addEventListener('input',()=>{const query=search.value.trim().toLowerCase();let shown=0;for(const row of rows){row.hidden=!row.textContent.toLowerCase().includes(query);if(!row.hidden)shown++}status.textContent=`${rows.length.toLocaleString('ja-JP')}語中 ${shown.toLocaleString('ja-JP')}語を表示`});
+search.addEventListener('input',()=>{const query=search.value.trim().toLowerCase().replaceAll('’', "'");let shown=0;for(const row of rows){row.hidden=!row.textContent.toLowerCase().includes(query);if(!row.hidden)shown++}status.textContent=`${rows.length.toLocaleString('ja-JP')}語中 ${shown.toLocaleString('ja-JP')}語を表示`});
 </script>
 </body></html>

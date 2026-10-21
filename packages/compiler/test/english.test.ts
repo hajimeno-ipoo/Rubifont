@@ -18,6 +18,11 @@ const entries = [
   { word: 'file', reading: 'ファイル' },
   { word: 'office', reading: 'オフィス' },
   { word: 'offline', reading: 'オフライン' },
+  { word: 'can', reading: 'キャン' },
+  { word: 'can\'t', reading: 'キャント' },
+  { word: 'i\'m', reading: 'アイム' },
+  { word: 'we\'ll', reading: 'ウィール' },
+  { word: 'heart\'s', reading: 'ハーツ' },
 ]
 const japanese: Dictionary = fuseDictionary({
   versions: { fixture: '1' },
@@ -40,10 +45,11 @@ interface Built {
 }
 
 /** Shape the actual compiled font, exposing its planned ruby rather than simulating FEA. */
-function shape(built: Built, text: string, features: hb.Feature[] = []): { names: string[], readings: string[] } {
+function shape(built: Built, text: string, features: hb.Feature[] = [], language = 'en'): { names: string[], readings: string[] } {
   const buffer = new hb.Buffer()
   buffer.addText(text)
   buffer.guessSegmentProperties()
+  buffer.setLanguage(language)
   hb.shape(built.font, buffer, features)
   const names = buffer.getGlyphInfos().map(g => built.names[g.codepoint]!)
   const readings = names.flatMap((name) => {
@@ -81,6 +87,37 @@ describe('english readings in an actual Japanese font', () => {
 
   it('annotates single-letter words alongside longer words', () => {
     expect(shape(bilingual, 'a A save Save').readings).toEqual(['a:ア', 'A:ア', 'save:セーブ', 'Save:セーブ'])
+  })
+
+  it.each(['en', 'ja'])('reads registered contractions with either apostrophe under %s', (language) => {
+    const readings = shape(bilingual, 'can\'t Can\'t CAN\'T can’t Can’t CAN’T I\'m I’m WE\'LL WE’LL heart\'s heart’s', [], language).readings
+    expect(readings).toEqual([
+      'can\'t:キャント',
+      'Can\'t:キャント',
+      'CAN\'T:キャント',
+      'can’t:キャント',
+      'Can’t:キャント',
+      'CAN’T:キャント',
+      'I\'m:アイム',
+      'I’m:アイム',
+      'WE\'LL:ウィール',
+      'WE’LL:ウィール',
+      'heart\'s:ハーツ',
+      'heart’s:ハーツ',
+    ])
+    expect(shape(bilingual, 'can').readings).toEqual(['can:キャン'])
+  })
+
+  it.each(['en', 'ja'])('does not take a registered contraction from inside a longer token under %s', (language) => {
+    for (const text of ['xcan\'t', 'can\'tx', 'can\'t2', 'can\'t\'s', 'xcan’t', 'can’tx', 'can’t2', 'can’t’s', 'can\'tsave', 'cAn\'T'])
+      expect(shape(bilingual, text, [], language).readings, text).toEqual([])
+  })
+
+  it('restores the exact apostrophe when ss01 disables contractions', () => {
+    const text = 'can\'t can’t I\'m I’m heart\'s heart’s'
+    const off = shape(bilingual, text, [new hb.Feature('ss01')])
+    expect(off.readings).toEqual([])
+    expect(off.names).toEqual([...text].map(c => bilingual.names[bilingual.font.nominalGlyph(c.codePointAt(0)!)!]!))
   })
 
   it('restores single-letter and longer words together when ss01 disables readings', () => {

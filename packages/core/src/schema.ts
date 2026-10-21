@@ -95,7 +95,7 @@ export const PlanSchema = v.object({
   /** Base characters the rules name; each must be in the base font's cmap. */
   codepoints: v.array(Codepoint),
   /** Names for localized base glyphs, resolved after subsetting. No new outlines are added. */
-  aliases: v.optional(v.array(v.object({ name: v.pipe(v.string(), v.regex(/^[A-Z_][\w.]{0,62}$/i)), codepoint: Codepoint, script: v.string() }))),
+  aliases: v.optional(v.array(v.object({ name: v.pipe(v.string(), v.regex(/^[A-Z_][\w.]{0,62}$/i)), codepoint: Codepoint, script: v.string(), language: v.optional(v.string()) }))),
   /**
    * Base + variation selector sequences to map in `cmap` format 14, each to an
    * empty glyph named `name`, with the base's advance: the rules replace it.

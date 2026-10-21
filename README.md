@@ -7,13 +7,13 @@
 ## 主な機能
 
 - 日本語の漢字・単語に、辞書に基づくひらがなの読みを表示します。
-- 英語2,562語に対応し、小文字・頭だけ大文字・全大文字の7,684表記を収録しています。たとえば`save`・`Save`・`SAVE`には「セーブ」が付きます。
+- 英語2,611語に対応し、小文字・頭だけ大文字・全大文字の7,867表記を収録しています。たとえば`save`・`Save`・`SAVE`には「セーブ」が付きます。
 - 本文の文字データは元のままです。読みはフォントの文字の形として表示します。
 - Webでは`font-feature-settings: 'ss01' 1`で、日英の読みをまとめて非表示にできます。
 
 ## ダウンロード
 
-[Rubifont 0.6.0のZIPをダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.6.0/Rubifont-0.6.0.zip)
+[Rubifont 0.6.1のZIPをダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.6.1/Rubifont-0.6.1.zip)
 
 ほかの配布版は[Releases](https://github.com/hajimeno-ipoo/Rubifont/releases)から取得できます。ZIPを展開すると、次のファイルを使えます。
 
@@ -83,12 +83,14 @@ ZIPには、読み選択用の一覧、生成記録、検証報告書、ライ�
 
 ダウンロードしたZIPの`index.html`を開くと、Webページを作らずに表示を試せます。
 
+登録した短縮形・所有形は、`can't`・`can’t`のような直線形と曲線形のアポストロフィに対応します。未登録の短縮形や所有形へ、自動で読みを付ける機能はありません。
+
 ## 対応範囲と制限
 
 | 対象 | 対応内容 |
 | --- | --- |
 | 日本語 | 228,363の読みパターンと、単独漢字1,705字への読み設定 |
-| 英語 | 登録した2,562語・7,684表記。複数形や活用形は一覧にある表記のみ |
+| 英語 | 登録した2,611語・7,867表記。複数形や活用形は一覧にある表記のみ |
 | 書体 | 横書きのSans RegularとSans VF（太さ250〜900）。読みの対応範囲は共通 |
 
 日本語のパターン数は生成規則の数で、正しく読める単語の総数ではありません。部品の組み合わせで同じ読みになる単語もあります。日本郵便の住所データは、フォントの字形数の上限を超えるため収録対象から外しています。
@@ -110,7 +112,7 @@ Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語の�
 | FurifontのコードとRubifontの追加コード | [MIT](LICENSE.md) |
 | 生成フォント | [SIL Open Font License 1.1](OFL.txt) |
 | 日本語辞書・読み規則 | 主にCC BY-SA 4.0、TatoebaはCC BY 2.0 FR。[出典と個別条件](packages/dictionary/LICENSE.md) |
-| Rubifont用に作成した英語2,562語の一覧 | CC0 1.0。外部辞書の転載はありません |
+| Rubifont用に作成した英語2,611語の一覧 | CC0 1.0。外部辞書の転載はありません |
 
 配布ZIPには、`CODE-LICENSE.md`・`OFL.txt`・`DATA-LICENSE.md`としてライセンス文書を同梱しています。基になったFurifontの説明・謝辞は[元のREADME](https://github.com/antfu/furifont/blob/v0.6.1/README.md)を参照してください。
 

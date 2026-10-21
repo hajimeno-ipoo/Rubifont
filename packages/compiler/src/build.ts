@@ -135,6 +135,8 @@ function nameGlyphs(plan: Plan, font: hb.Font, baseCount: number, taken: Set<str
     buffer.addText(String.fromCodePoint(alias.codepoint))
     buffer.guessSegmentProperties()
     buffer.setScript(alias.script)
+    if (alias.language)
+      buffer.setLanguage(alias.language)
     hb.shape(font, buffer)
     const shaped = buffer.getGlyphInfos()
     if (shaped.length !== 1 || shaped[0]!.codepoint === 0)

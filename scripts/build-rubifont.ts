@@ -16,7 +16,7 @@ const output = new URL(process.argv[2] ?? 'outputs/', root)
 const cache = fileURLToPath(new URL('.cache/fonts/', root))
 // Fixed release epoch: midnight in Japan. Rebuilding the same inputs keeps font bytes stable.
 const date = new Date('2026-10-21T00:00:00+09:00')
-const version = '0.6.0'
+const version = '0.6.1'
 await mkdir(output, { recursive: true })
 // Keep the existing sources. The postal-address source alone exceeds the glyph budget.
 const sources = WORD_SOURCES.filter(source => source !== 'japan-post')
@@ -54,7 +54,7 @@ async function buildFace(baseName: string, family: string, stem: string, variabl
     name: family,
     base: { name: source.name, url: source.url, sha256: createHash('sha256').update(base).digest('hex'), glyphs: info.glyphCount },
     japanese: report.stats,
-    english: { words: english.length, wordForms: bilingual.glyphs.length - plan.glyphs.length, cases: ['lowercase', 'Titlecase', 'UPPERCASE'] },
+    english: { words: english.length, wordForms: bilingual.glyphs.length - plan.glyphs.length, cases: ['lowercase', 'Titlecase', 'UPPERCASE'], apostrophes: ['\'', '’'] },
     glyphs: { ...(referenceGlyphs === undefined ? {} : { reference: referenceGlyphs }), bilingual: built.glyphNames.length, limit: 65535 },
     files,
   }

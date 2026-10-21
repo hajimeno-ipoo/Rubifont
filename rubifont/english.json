@@ -316,6 +316,10 @@
     "reading": "エニーウェア"
   },
   {
+    "word": "apart",
+    "reading": "アパート"
+  },
+  {
     "word": "apartment",
     "reading": "アパートメント"
   },
@@ -404,6 +408,10 @@
     "reading": "アスク"
   },
   {
+    "word": "asleep",
+    "reading": "アスリープ"
+  },
+  {
     "word": "asset",
     "reading": "アセット"
   },
@@ -438,6 +446,10 @@
   {
     "word": "attend",
     "reading": "アテンド"
+  },
+  {
+    "word": "attended",
+    "reading": "アテンディド"
   },
   {
     "word": "attention",
@@ -598,6 +610,10 @@
   {
     "word": "beautiful",
     "reading": "ビューティフル"
+  },
+  {
+    "word": "became",
+    "reading": "ビケイム"
   },
   {
     "word": "because",
@@ -808,6 +824,10 @@
     "reading": "ブレックファスト"
   },
   {
+    "word": "breath",
+    "reading": "ブレス"
+  },
+  {
     "word": "bridge",
     "reading": "ブリッジ"
   },
@@ -818,6 +838,10 @@
   {
     "word": "brightness",
     "reading": "ブライトネス"
+  },
+  {
+    "word": "bring",
+    "reading": "ブリング"
   },
   {
     "word": "broadcast",
@@ -924,6 +948,10 @@
     "reading": "コールバック"
   },
   {
+    "word": "calling",
+    "reading": "コーリング"
+  },
+  {
     "word": "came",
     "reading": "ケイム"
   },
@@ -938,6 +966,10 @@
   {
     "word": "can",
     "reading": "キャン"
+  },
+  {
+    "word": "can't",
+    "reading": "キャント"
   },
   {
     "word": "cancel",
@@ -970,6 +1002,10 @@
   {
     "word": "care",
     "reading": "ケア"
+  },
+  {
+    "word": "cared",
+    "reading": "ケアド"
   },
   {
     "word": "career",
@@ -1476,6 +1512,10 @@
     "reading": "カウント"
   },
   {
+    "word": "counting",
+    "reading": "カウンティング"
+  },
+  {
     "word": "country",
     "reading": "カントリー"
   },
@@ -1540,6 +1580,10 @@
     "reading": "クルー"
   },
   {
+    "word": "cried",
+    "reading": "クライド"
+  },
+  {
     "word": "crime",
     "reading": "クライム"
   },
@@ -1562,6 +1606,10 @@
   {
     "word": "crowd",
     "reading": "クラウド"
+  },
+  {
+    "word": "crown",
+    "reading": "クラウン"
   },
   {
     "word": "cry",
@@ -1666,6 +1714,10 @@
   {
     "word": "day",
     "reading": "デイ"
+  },
+  {
+    "word": "days",
+    "reading": "デイズ"
   },
   {
     "word": "dead",
@@ -1782,6 +1834,10 @@
   {
     "word": "description",
     "reading": "ディスクリプション"
+  },
+  {
+    "word": "deserve",
+    "reading": "ディザーヴ"
   },
   {
     "word": "design",
@@ -2964,6 +3020,10 @@
     "reading": "フライ"
   },
   {
+    "word": "flying",
+    "reading": "フライング"
+  },
+  {
     "word": "focus",
     "reading": "フォウカス"
   },
@@ -3046,6 +3106,10 @@
   {
     "word": "formula",
     "reading": "フォーミュラ"
+  },
+  {
+    "word": "forth",
+    "reading": "フォース"
   },
   {
     "word": "fortunate",
@@ -3418,6 +3482,10 @@
   {
     "word": "gone",
     "reading": "ゴーン"
+  },
+  {
+    "word": "gonna",
+    "reading": "ガナ"
   },
   {
     "word": "good",
@@ -3796,6 +3864,10 @@
     "reading": "ハート"
   },
   {
+    "word": "heart's",
+    "reading": "ハーツ"
+  },
+  {
     "word": "heat",
     "reading": "ヒート"
   },
@@ -3914,6 +3986,10 @@
   {
     "word": "holder",
     "reading": "ホールダー"
+  },
+  {
+    "word": "holding",
+    "reading": "ホールディング"
   },
   {
     "word": "hole",
@@ -4052,6 +4128,14 @@
     "reading": "アイ"
   },
   {
+    "word": "i'm",
+    "reading": "アイム"
+  },
+  {
+    "word": "i've",
+    "reading": "アイヴ"
+  },
+  {
     "word": "ice",
     "reading": "アイス"
   },
@@ -4077,6 +4161,10 @@
   },
   {
     "word": "idle",
+    "reading": "アイドル"
+  },
+  {
+    "word": "idol",
     "reading": "アイドル"
   },
   {
@@ -4508,6 +4596,10 @@
     "reading": "イット"
   },
   {
+    "word": "it's",
+    "reading": "イッツ"
+  },
+  {
     "word": "item",
     "reading": "アイテム"
   },
@@ -4704,6 +4796,10 @@
     "reading": "カインド"
   },
   {
+    "word": "kindly",
+    "reading": "カインドリー"
+  },
+  {
     "word": "kindness",
     "reading": "カインドネス"
   },
@@ -4732,8 +4828,16 @@
     "reading": "ニー"
   },
   {
+    "word": "knew",
+    "reading": "ニュー"
+  },
+  {
     "word": "knife",
     "reading": "ナイフ"
+  },
+  {
+    "word": "knives",
+    "reading": "ナイヴズ"
   },
   {
     "word": "knock",
@@ -4876,6 +4980,10 @@
     "reading": "レッグ"
   },
   {
+    "word": "legacies",
+    "reading": "レガシーズ"
+  },
+  {
     "word": "legacy",
     "reading": "レガシー"
   },
@@ -4914,6 +5022,10 @@
   {
     "word": "license",
     "reading": "ライセンス"
+  },
+  {
+    "word": "lies",
+    "reading": "ライズ"
   },
   {
     "word": "life",
@@ -5136,6 +5248,10 @@
     "reading": "メイク"
   },
   {
+    "word": "makeup's",
+    "reading": "メイクアップス"
+  },
+  {
     "word": "malware",
     "reading": "マルウェア"
   },
@@ -5278,6 +5394,10 @@
   {
     "word": "metal",
     "reading": "メタル"
+  },
+  {
+    "word": "meteors",
+    "reading": "ミーティアーズ"
   },
   {
     "word": "meter",
@@ -6024,6 +6144,10 @@
     "reading": "オーバー"
   },
   {
+    "word": "overcome",
+    "reading": "オーヴァーカム"
+  },
+  {
     "word": "overflow",
     "reading": "オーバーフロー"
   },
@@ -6066,6 +6190,10 @@
   {
     "word": "oxygen",
     "reading": "オクシジェン"
+  },
+  {
+    "word": "paced",
+    "reading": "ペイスト"
   },
   {
     "word": "pack",
@@ -7524,6 +7652,10 @@
     "reading": "ラッシュ"
   },
   {
+    "word": "sacrifice",
+    "reading": "サクリファイス"
+  },
+  {
     "word": "sad",
     "reading": "サッド"
   },
@@ -7634,6 +7766,10 @@
   {
     "word": "scared",
     "reading": "スケアード"
+  },
+  {
+    "word": "scars",
+    "reading": "スカーズ"
   },
   {
     "word": "scary",
@@ -8320,6 +8456,10 @@
     "reading": "ソート"
   },
   {
+    "word": "sought",
+    "reading": "ソート"
+  },
+  {
     "word": "soul",
     "reading": "ソウル"
   },
@@ -8486,6 +8626,10 @@
   {
     "word": "star",
     "reading": "スター"
+  },
+  {
+    "word": "stare",
+    "reading": "ステア"
   },
   {
     "word": "start",
@@ -8752,6 +8896,10 @@
     "reading": "サーヴェイ"
   },
   {
+    "word": "survive",
+    "reading": "サヴァイヴ"
+  },
+  {
     "word": "suspend",
     "reading": "サスペンド"
   },
@@ -8846,6 +8994,10 @@
   {
     "word": "talk",
     "reading": "トーク"
+  },
+  {
+    "word": "talking",
+    "reading": "トーキング"
   },
   {
     "word": "tall",
@@ -8988,6 +9140,10 @@
     "reading": "ザット"
   },
   {
+    "word": "that's",
+    "reading": "ザッツ"
+  },
+  {
     "word": "the",
     "reading": "ザ"
   },
@@ -9046,6 +9202,10 @@
   {
     "word": "think",
     "reading": "シンク"
+  },
+  {
+    "word": "thinking",
+    "reading": "シンキング"
   },
   {
     "word": "third",
@@ -9440,6 +9600,10 @@
     "reading": "トゥウィン"
   },
   {
+    "word": "twinkle",
+    "reading": "トゥインクル"
+  },
+  {
     "word": "two",
     "reading": "トゥー"
   },
@@ -9502,6 +9666,10 @@
   {
     "word": "unfair",
     "reading": "アンフェア"
+  },
+  {
+    "word": "unicorn",
+    "reading": "ユニコーン"
   },
   {
     "word": "uniform",
@@ -9884,6 +10052,14 @@
     "reading": "ウィー"
   },
   {
+    "word": "we'll",
+    "reading": "ウィール"
+  },
+  {
+    "word": "we've",
+    "reading": "ウィーヴ"
+  },
+  {
     "word": "weak",
     "reading": "ウィーク"
   },
@@ -10088,6 +10264,14 @@
     "reading": "ワン"
   },
   {
+    "word": "won't",
+    "reading": "ウォウント"
+  },
+  {
+    "word": "wonder",
+    "reading": "ワンダー"
+  },
+  {
     "word": "wood",
     "reading": "ウッド"
   },
@@ -10152,6 +10336,10 @@
     "reading": "ラップ"
   },
   {
+    "word": "wrinkle",
+    "reading": "リンクル"
+  },
+  {
     "word": "write",
     "reading": "ライト"
   },
@@ -10210,6 +10398,14 @@
   {
     "word": "you",
     "reading": "ユー"
+  },
+  {
+    "word": "you'll",
+    "reading": "ユール"
+  },
+  {
+    "word": "you're",
+    "reading": "ユア"
   },
   {
     "word": "young",

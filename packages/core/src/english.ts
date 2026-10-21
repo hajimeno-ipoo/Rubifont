@@ -6,6 +6,12 @@ export interface EnglishReading {
   reading: string
 }
 
+/** Case forms, including both common apostrophes for registered contractions. */
+export function englishWordForms(word: string): string[] {
+  const cases = [word, word[0]!.toUpperCase() + word.slice(1), word.toUpperCase()]
+  return [...new Set([...cases, ...(word.includes('\'') ? cases.map(text => text.replaceAll('\'', '’')) : [])])]
+}
+
 /** Extend a Japanese plan with whole English words; keep its Han rules and metrics intact. */
 export function addEnglishReadings(plan: Plan, entries: readonly EnglishReading[], coverage: ReadonlySet<number>): Plan {
   if (!entries.length)
@@ -15,12 +21,12 @@ export function addEnglishReadings(plan: Plan, entries: readonly EnglishReading[
 
   const seen = new Set<string>()
   const words = entries.flatMap(({ word, reading }) => {
-    if (!/^[a-z]+$/.test(word) || !/^[\u30A1-\u30FA\u30FC]+$/.test(reading))
+    if (!/^[a-z]+(?:'[a-z]+)*$/.test(word) || !/^[\u30A1-\u30FA\u30FC]+$/.test(reading))
       throw new Error(`Invalid English reading: ${word} / ${reading}`)
     if (seen.has(word))
       throw new Error(`Duplicate English word: ${word}`)
     seen.add(word)
-    return [...new Set([word, word[0]!.toUpperCase() + word.slice(1), word.toUpperCase()])]
+    return englishWordForms(word)
       .map(text => ({ text, reading }))
   }).sort((a, b) => b.text.length - a.text.length || a.text.localeCompare(b.text, 'en'))
 
@@ -36,11 +42,16 @@ export function addEnglishReadings(plan: Plan, entries: readonly EnglishReading[
   const ligatures = Array.from({ length: 7 }, (_, i) => 0xFB00 + i)
     .filter(cp => coverage.has(cp))
     .map(cp => ({ text: String.fromCodePoint(cp).normalize('NFKD'), cp }))
-  const sequences = (text: string): number[][] => {
+  // Japanese locl substitutes alternate quote glyphs before English rules run.
+  const apostrophes = [0x27, 0x2019].filter(cp => coverage.has(cp)).map(cp => ({ name: `enApostrophe_${cp}`, codepoint: cp, script: 'Latn', language: 'ja' }))
+  const sequences = (text: string): (number | string)[][] => {
     if (!text.length)
       return [[]]
     return [
-      ...sequences(text.slice(1)).map(rest => [text.codePointAt(0)!, ...rest]),
+      ...sequences(text.slice(1)).flatMap(rest => [
+        [text.codePointAt(0)!, ...rest],
+        ...apostrophes.filter(a => a.codepoint === text.codePointAt(0)).map(a => [a.name, ...rest]),
+      ]),
       ...ligatures.filter(l => text.startsWith(l.text))
         .flatMap(l => sequences(text.slice(l.text.length)).map(rest => [l.cp, ...rest])),
     ]
@@ -53,7 +64,8 @@ export function addEnglishReadings(plan: Plan, entries: readonly EnglishReading[
   const aliases = Array.from({ length: 10 }, (_, i) => 0x30 + i)
     .filter(cp => coverage.has(cp))
     .map(cp => ({ name: `enDigit_${cp}`, codepoint: cp, script: 'Latn' }))
-  const required = new Set([...boundary, ...substitutions.flatMap(s => s.input), ...glyphs.flatMap(g => [...g.bases, ...g.ruby.flatMap(r => codepoints(r.text))])])
+  aliases.push(...apostrophes)
+  const required = new Set([...boundary, ...substitutions.flatMap(s => s.input).filter((cp): cp is number => typeof cp === 'number'), ...glyphs.flatMap(g => [...g.bases, ...g.ruby.flatMap(r => codepoints(r.text))])])
   for (const cp of required) {
     if (!coverage.has(cp))
       throw new Error(`The base font does not cover U+${cp.toString(16).toUpperCase()}`)
@@ -72,7 +84,7 @@ export function addEnglishReadings(plan: Plan, entries: readonly EnglishReading[
   const contexts = Array.from({ length: Math.ceil(substitutions.length / 256) }, (_, i) => ({
     name: `en_words_${i}`,
     rules: substitutions.slice(i * 256, (i + 1) * 256).flatMap(({ input }) => {
-      const names = input.map(glyphName)
+      const names = input.map(value => typeof value === 'number' ? glyphName(value) : value)
       const marked = names.map(n => `${n}'`).join(' ')
       const lookup = input.length > 1 ? 'en_draw' : 'en_draw_single'
       return [
@@ -84,7 +96,7 @@ export function addEnglishReadings(plan: Plan, entries: readonly EnglishReading[
   }))
   const prelude = [
     `@englishWord = [${[...boundary.map(glyphName), ...aliases.map(a => a.name), ...glyphs.map(g => g.name)].join(' ')}];`,
-    ...draw.map(group => block(group.name, group.substitutions.map(({ input, glyph }) => `sub ${input.map(glyphName).join(' ')} by ${glyph.name};`))),
+    ...draw.map(group => block(group.name, group.substitutions.map(({ input, glyph }) => `sub ${input.map(value => typeof value === 'number' ? glyphName(value) : value).join(' ')} by ${glyph.name};`))),
     ...contexts.map(context => block(context.name, context.rules)),
     ...off.map(group => block(group.name, group.glyphs.map(g => `sub ${g.name} by ${g.bases.map(glyphName).join(' ')};`))),
   ].join('\n')
