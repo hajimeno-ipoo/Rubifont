@@ -57,6 +57,38 @@ test('Rubifont leaves unknown words and word fragments unchanged', async ({ page
     expect(await shot(page, `#on${i}`), texts[i]).toEqual(await shot(page, `#off${i}`))
 })
 
+// The variable TTF and its compressed WOFF2 must draw the same ruby at every weight.
+const RUBIFONT_VARIABLE = process.env.RUBIFONT_TEST_VARIABLE_FONT ?? new URL('../../outputs/RubifontSansVF.woff2', import.meta.url).pathname
+const RUBIFONT_VARIABLE_TTF = process.env.RUBIFONT_TEST_VARIABLE_TTF ?? new URL('../../outputs/RubifontSansVF.ttf', import.meta.url).pathname
+
+test('Rubifont variable TTF and WOFF2 vary Japanese and English ruby together', async ({ page }) => {
+  const weights = [250, 400, 900]
+  // A fractional English advance can leave antialiased ink in the next pixel.
+  // One pixel of horizontal padding isolates the line-height clipping check.
+  const body = '<style>p { padding-right: 1px }</style>' + weights.map(weight => `
+    <p id="on${weight}" style="font-weight:${weight}">日本語 Save Settings File</p>
+    <p id="off${weight}" class="off" style="font-weight:${weight}">日本語 Save Settings File</p>
+    <p id="clipped${weight}" style="font-weight:${weight};overflow:hidden">日本語 Save Settings File</p>
+    <p id="unknown${weight}" style="font-weight:${weight}">qzxvunknown save2</p>
+    <p id="unknown-off${weight}" class="off" style="font-weight:${weight}">qzxvunknown save2</p>`).join('')
+  const pictures: Buffer[][] = []
+  for (const file of [RUBIFONT_VARIABLE_TTF, RUBIFONT_VARIABLE]) {
+    await show(page, body, file)
+    const samples: Buffer[] = []
+    for (const weight of weights) {
+      const on = await shot(page, `#on${weight}`)
+      expect(on).not.toEqual(await shot(page, `#off${weight}`))
+      expect(on).toEqual(await shot(page, `#clipped${weight}`))
+      expect(await shot(page, `#unknown${weight}`)).toEqual(await shot(page, `#unknown-off${weight}`))
+      samples.push(on)
+    }
+    expect(samples[0]).not.toEqual(samples[1])
+    expect(samples[1]).not.toEqual(samples[2])
+    pictures.push(samples)
+  }
+  expect(pictures[0]).toEqual(pictures[1])
+})
+
 test('draws ruby that ss01 turns off', async ({ page }) => {
   await show(page, '<p id="on">日本</p><p id="off" class="off">日本</p>')
   expect(await shot(page, '#on')).not.toEqual(await shot(page, '#off'))

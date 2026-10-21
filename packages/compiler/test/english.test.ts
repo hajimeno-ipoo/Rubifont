@@ -157,3 +157,99 @@ describe('english readings in an actual Japanese font', () => {
     expect(shape(large, '日本語 今日')).toEqual(shape(baseline, '日本語 今日'))
   }, 120_000)
 })
+
+describe('bilingual readings in a variable TrueType font', () => {
+  const weights = [250, 400, 900]
+  const emTop = 880
+  let built: Built
+  let fontBytes: Uint8Array
+  let sourceFace: hb.Face
+
+  const atWeight = (weight: number): Built => {
+    const font = new hb.Font(new hb.Face(new hb.Blob(fontBytes)))
+    font.setVariations([new hb.Variation('wght', weight)])
+    return { ...built, font }
+  }
+
+  /** Separate the ruby ink above the em box from the original letters below it. */
+  function ink(font: hb.Font, glyph: number, ruby: boolean): number[][] {
+    return font.glyphToJson(glyph).flatMap(({ values }) => Array.from({ length: values.length / 2 }, (_, i) => [values[i * 2]!, values[i * 2 + 1]!])
+      .filter(([, y]) => (y! > emTop) === ruby))
+  }
+
+  const glyphOf = (text: string): number => built.names.indexOf(built.plan.glyphs.find(g => String.fromCodePoint(...g.bases) === text)!.name)
+
+  beforeAll(async () => {
+    const base = await readFile(new URL('./fixtures/SourceHanSansJP-VF-Subset.ttf', import.meta.url))
+    sourceFace = new hb.Face(new hb.Blob(base))
+    const coverage = new Set(readFontInfo(base).codepoints)
+    const { plan } = createFontPlanner(japanese)(resolveOptions({ family: 'Rubifont Variable Test' }), coverage, '日本語 今日')
+    const extended = addEnglishReadings(plan, [
+      { word: 'edit', reading: 'エディット' },
+      { word: 'settings', reading: 'セッティングス' },
+    ], coverage)
+    const result = await compileFont({ plan: extended, base, subsetWasm, version: '0.0.0', date: new Date(0) })
+    expect(result.variable).toBe(true)
+    expect(result.outlines).toBe('truetype')
+    fontBytes = result.font
+    built = { plan: extended, names: result.glyphNames, font: new hb.Font(new hb.Face(new hb.Blob(result.font))) }
+  })
+
+  it.each(['今日', 'edit', 'settings'])('varies both the base and ruby outlines of %s at three weights', (text) => {
+    const glyph = glyphOf(text)
+    const samples = weights.map(weight => atWeight(weight))
+    for (const ruby of [false, true]) {
+      const outlines = samples.map(({ font }) => ink(font, glyph, ruby))
+      expect(outlines.every(points => points.length > 0)).toBe(true)
+      expect(outlines[0]).not.toEqual(outlines[1])
+      expect(outlines[1]).not.toEqual(outlines[2])
+    }
+    for (const [i, { font }] of samples.entries()) {
+      const original = new hb.Font(sourceFace)
+      original.setVariations([new hb.Variation('wght', weights[i]!)])
+      const originalAdvance = [...text].reduce((sum, char) => {
+        const cp = char.codePointAt(0)!
+        const advance = original.glyphHAdvance(original.nominalGlyph(cp)!)
+        expect(font.glyphHAdvance(font.nominalGlyph(cp)!)).toBe(advance)
+        return sum + advance
+      }, 0)
+      if (weights[i] === 400) {
+        // HVAR rounds the summed delta once; summing separately rounded base
+        // widths can differ by at most half a unit per base, plus one rounding.
+        expect(Math.abs(font.glyphHAdvance(glyph) - originalAdvance)).toBeLessThanOrEqual(Math.floor(([...text].length + 1) / 2))
+      }
+      else {
+        expect(font.glyphHAdvance(glyph)).toBe(originalAdvance)
+      }
+    }
+  })
+
+  it.each(['今日', 'edit', 'settings'])('keeps the ruby of %s above and centred over its base while the weight changes', (text) => {
+    const glyph = glyphOf(text)
+    const bounds = weights.map((weight) => {
+      const { font } = atWeight(weight)
+      const points = ink(font, glyph, true)
+      const xs = points.map(([x]) => x!)
+      const ys = points.map(([, y]) => y!)
+      const left = Math.min(...xs)
+      const right = Math.max(...xs)
+      const centre = (left + right) / 2
+      expect(Math.min(...ys)).toBeGreaterThanOrEqual(emTop + 50)
+      expect(Math.max(...ys)).toBeLessThanOrEqual(emTop + 550)
+      expect(Math.abs(centre - font.glyphHAdvance(glyph) / 2)).toBeLessThan(100)
+      return { centre: centre - font.glyphHAdvance(glyph) / 2, width: right - left }
+    })
+    expect(Math.max(...bounds.map(b => b.centre)) - Math.min(...bounds.map(b => b.centre))).toBeLessThan(10)
+    expect(bounds[1]!.width).toBeGreaterThan(bounds[0]!.width)
+    expect(bounds[2]!.width).toBeGreaterThan(bounds[1]!.width)
+  })
+
+  it.each(weights)('preserves bilingual shaping, unknown words and ss01 at weight %i', (weight) => {
+    const sample = atWeight(weight)
+    expect(shape(sample, '今日edit settings').readings).toEqual(['今日:きょう', 'edit:エディット', 'settings:セッティングス'])
+    expect(shape(sample, 'edits xsettings unknown').readings).toEqual([])
+    const off = shape(sample, '今日edit settings', [new hb.Feature('ss01')])
+    expect(off.readings).toEqual([])
+    expect(off.names).not.toContain('glyph0')
+  })
+})

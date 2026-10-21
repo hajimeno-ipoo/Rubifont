@@ -17,7 +17,7 @@ import { drawGlyph, emptyOutline } from './outline'
 import { appendGlyphNames, postGlyphNames } from './post'
 import { readSfnt, writeSfnt } from './sfnt'
 import { subsetFont } from './subset'
-import { appendAdvanceMap, appendGlyphVariations } from './variations'
+import { appendAdvanceMap, appendGlyphVariations, appendHorizontalAdvances } from './variations'
 
 const PROBE_NAME = 'furifont.version'
 /** Per-glyph tables a new glyph count would invalidate; all optional. */
@@ -165,8 +165,10 @@ class NewGlyphs {
   private readonly glyf?: Glyf
   private readonly horizontal: Metric[] = []
   private readonly vertical: Metric[] = []
-  /** Per new glyph: its components' moves at each master, and the base glyph whose metric variations it takes. */
+  /** Per new glyph: its components' moves and horizontal advance changes at each master. */
   private readonly deltas: Outline['deltas'][] = []
+  private readonly advanceDeltas: number[][] = []
+  private readonly advanceBases: number[][] = []
   private readonly likes: number[] = []
   readonly head: Uint8Array
   /** Where vertical metrics measure from: VORG's default origin, else the ascender. */
@@ -189,12 +191,14 @@ class NewGlyphs {
     return post ? postGlyphNames(post) : new Set()
   }
 
-  add(name: string, outline: Outline, like: number): void {
+  add(name: string, outline: Outline, like: number, advanceBases: number[]): void {
     if (this.cff)
       this.cff.addGlyph(name, outline, like)
     else
       this.glyf!.addGlyph(outline)
     this.deltas.push(outline.deltas)
+    this.advanceDeltas.push(outline.advanceDeltas)
+    this.advanceBases.push(advanceBases)
     this.likes.push(like)
     const bounds = outline.bounds
     const [xMin, yMin, xMax, yMax] = bounds ?? [0, 0, 0, 0]
@@ -228,8 +232,11 @@ class NewGlyphs {
     }
     const gvar = tables.get('gvar')
     if (gvar)
-      tables.set('gvar', appendGlyphVariations(gvar, this.deltas, peaks))
-    for (const [tag, sideMaps] of [['HVAR', 2], ['VVAR', 3]] as const) {
+      tables.set('gvar', appendGlyphVariations(gvar, this.deltas, peaks, this.advanceDeltas))
+    const hvar = tables.get('HVAR')
+    if (hvar)
+      tables.set('HVAR', appendHorizontalAdvances(hvar, this.baseCount, this.advanceBases))
+    for (const [tag, sideMaps] of [['VVAR', 3]] as const) {
       const table = tables.get(tag)
       if (!table)
         continue
@@ -315,16 +322,16 @@ export async function buildFont(options: CompileOptions): Promise<BuiltFont> {
   for (const [i, spec] of plan.glyphs.entries()) {
     if (i % 500 === 0)
       await progress('draw', i, plan.glyphs.length)
-    glyphs.add(spec.name, drawGlyph(spec, ctx), glyphOf(spec.bases[0]!)!)
+    glyphs.add(spec.name, drawGlyph(spec, ctx), glyphOf(spec.bases[0]!)!, spec.bases.map(cp => glyphOf(cp)!))
   }
   await progress('draw', plan.glyphs.length, plan.glyphs.length)
   // Empty glyphs for base + selector sequences: the rules always replace them.
   for (const v of plan.variants) {
     const base = glyphOf(v.base)!
-    glyphs.add(v.name, emptyOutline(font.glyphHAdvance(base)), base)
+    glyphs.add(v.name, emptyOutline(font.glyphHAdvance(base)), base, [base])
   }
   // So pages can tell the font's version: see VERSION_PROBE.
-  glyphs.add(PROBE_NAME, emptyOutline(Math.round(upm * (2 + Number(revision)))), 0)
+  glyphs.add(PROBE_NAME, emptyOutline(Math.round(upm * (2 + Number(revision)))), 0, [])
   const sequences = [...plan.variants, { ...VERSION_PROBE, name: PROBE_NAME }]
   tables.set('cmap', addVariationSequences(tables.get('cmap')!, sequences.map(v => ({ ...v, glyph: resolve(v.name) }))))
 

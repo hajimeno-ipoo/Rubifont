@@ -1,8 +1,8 @@
-# Rubifont Sans Regular 0.5.0
+# Rubifont Sans 0.6.0
 
 漢字の上にひらがな、登録した英単語の上にカタカナを表示するフォントです。同じ文章の中で、日本語と英語の両方に読みを添えられます。
 
-[配布版をダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/tag/rubifont-v0.5.0) · [ソースコード](https://github.com/hajimeno-ipoo/Rubifont)
+[配布版をダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/tag/rubifont-v0.6.0) · [ソースコード](https://github.com/hajimeno-ipoo/Rubifont)
 
 ## 主な機能
 
@@ -11,7 +11,12 @@
 - 本文の文字データは元のままです。読みはフォントの文字の形として表示します。
 - Webでは`font-feature-settings: 'ss01' 1`で日英の読みをまとめて非表示にできます。
 
-横書きのSans Regular一種類です。
+横書きのRubifont Sans Regularと、太さを250〜900の範囲で指定できる可変フォントRubifont Sans VFを同梱しています。読みの対応範囲は共通です。別のフォント名なので、両方をインストールして使えます。
+
+| 書体 | インストール用 | Web用 |
+| --- | --- | --- |
+| Rubifont Sans Regular | `RubifontSans-Regular.otf` | `RubifontSans-Regular.woff2` |
+| Rubifont Sans VF | `RubifontSansVF.ttf` | `RubifontSansVF.woff2` |
 
 ## 使い方
 
@@ -20,6 +25,8 @@
 1. 配布ZIPを展開します。
 2. `RubifontSans-Regular.otf`を開き、Font Bookでインストールします。
 3. 使いたいアプリで、フォントを「Rubifont Sans」に指定します。
+
+可変フォントを使う場合は`RubifontSansVF.ttf`をインストールし、「Rubifont Sans VF」を選びます。太さをどのように指定できるかは、利用するアプリによって異なります。
 
 読みが切れる場合は行間を広げてください。表示はアプリのOpenType対応や組版の設定によって異なります。
 
@@ -44,6 +51,25 @@
 <p class="reading">日本語で Hello。Settings を開いて Save。</p>
 ```
 
+可変フォントは`RubifontSansVF.woff2`を置き、次のように読み込みます。`font-weight`で250〜900の太さを指定できます。
+
+```css
+@font-face {
+  font-family: 'Rubifont Sans VF';
+  src: url('./RubifontSansVF.woff2') format('woff2');
+  font-weight: 250 900;
+}
+.reading-variable {
+  font-family: 'Rubifont Sans VF', sans-serif;
+  font-weight: 400;
+  line-height: 1.9;
+}
+```
+
+```html
+<p class="reading-variable">日本語で Hello。Settings を開いて Save。</p>
+```
+
 ### 同梱ページで試す
 
 ZIPを展開したフォルダで、次のHTMLファイルを開いてください。
@@ -64,13 +90,13 @@ ZIPを展開したフォルダで、次のHTMLファイルを開いてくださ�
 
 単語が別の要素や書式に分かれると、フォントから見える範囲も分かれます。英語では、前後の英字・数字・アクセント文字・アンダースコア・アポストロフィーを確認し、単語の一部分への読み付けを抑制します。
 
-WebKitでは、異体字セレクターによる単語の別読み指定が正しく働かない場合があります。異体字セレクターや`salt`で読みを指定する場合は、同じ配布版の`RubifontSans-Regular.ivs.json`を使ってください。指定番号は更新によって変わる場合があります。
+WebKitでは、異体字セレクターによる単語の別読み指定が正しく働かない場合があります。異体字セレクターや`salt`で読みを指定する場合は、同じ配布版の、Regularには`RubifontSans-Regular.ivs.json`、可変フォントには`RubifontSansVF.ivs.json`を使ってください。指定番号は更新によって変わる場合があります。
 
-確認した環境と検証結果の詳細は、同梱の`verification.md`をご覧ください。生成元・容量・SHA-256は`build-manifest.json`に記録しています。
+Firefoxの描画は未確認です。確認した環境と検証結果の詳細は、同梱の`verification.md`をご覧ください。生成元・容量・SHA-256は`build-manifest.json`に記録しています。
 
 ## 出典とライセンス
 
-Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語のカタカナ読みを追加しています。基準はFurifont v0.6.1、書体はAdobeのSource Han Sans JP Regularです。
+Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語のカタカナ読みを追加しています。基準はFurifont v0.6.1、書体はAdobeのSource Han Sans JP RegularとSource Han Sans JP VFです。
 
 | 対象 | ライセンス |
 | --- | --- |

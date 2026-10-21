@@ -21,6 +21,8 @@ export interface Outline {
   components: Component[]
   /** At each master of a variable base font, how far each component moves: `[dx, dy]`. */
   deltas: [number, number][][]
+  /** Change in the whole base string's advance at each variation master. */
+  advanceDeltas: number[]
   /** Control box of the points, `[xMin, yMin, xMax, yMax]`; none for an empty glyph. */
   bounds?: [number, number, number, number]
 }
@@ -118,11 +120,10 @@ export function drawGlyph(spec: PlanGlyph, ctx: DrawContext): Outline {
     .map(font => place(spec, ctx, font).squeezes)
     .reduce((a, b) => a.map((s, i) => Math.min(s, b[i]!)))
   const { components, stops } = place(spec, ctx, ctx.font, squeezes)
+  const advanceDeltas: number[] = []
   const deltas = ctx.masters.map((font) => {
     const master = place(spec, ctx, font, squeezes)
-    // The advance and the bases then stay put, which the new glyph's metric variations rely on.
-    if (master.stops.join() !== stops.join())
-      throw new Error(`the base font varies the advance of ${String.fromCodePoint(...spec.bases)}, which Furifont does not support`)
+    advanceDeltas.push(master.stops.at(-1)! - stops.at(-1)!)
     return master.components.map(({ transform: [, , dx, dy] }, i): [number, number] => {
       const [, , x, y] = components[i]!.transform
       return [Math.round(dx) - Math.round(x), Math.round(dy) - Math.round(y)]
@@ -131,7 +132,7 @@ export function drawGlyph(spec: PlanGlyph, ctx: DrawContext): Outline {
   const pen = new Pen()
   for (const { glyph, transform } of components)
     pen.draw(ctx.font, glyph, transform)
-  return { segments: pen.segments, advance: stops.at(-1)!, components, deltas, bounds: pen.bounds() }
+  return { segments: pen.segments, advance: stops.at(-1)!, components, deltas, advanceDeltas, bounds: pen.bounds() }
 }
 
-export const emptyOutline = (advance: number): Outline => ({ segments: [], advance, components: [], deltas: [] })
+export const emptyOutline = (advance: number): Outline => ({ segments: [], advance, components: [], deltas: [], advanceDeltas: [] })

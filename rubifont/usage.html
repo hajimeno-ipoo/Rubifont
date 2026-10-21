@@ -11,11 +11,11 @@
 <body><main>
 <a href="./index.html">← フォントの見本へ戻る</a>
 <h1>使い方・ライセンス</h1>
-<p class="caption">Rubifont Sans Regular 0.5.0</p>
+<p class="caption">Rubifont Sans 0.6.0</p>
 <p>漢字の上にひらがな、登録した英単語の上にカタカナを表示するフォントです。</p>
 <section><h2>Macで使う</h2>
 <ol><li><a href="./RubifontSans-Regular.otf" download>インストール用フォント（OTF）</a>をダウンロードします。</li><li>OTFファイルを開き、Font Bookでインストールします。</li><li>使いたいアプリで、フォントを「Rubifont Sans」に指定します。</li></ol>
-<p>横書き・Regularの一種類です。アプリのOpenType対応や行間設定によって表示が異なります。</p></section>
+<p>可変版は<a href="./RubifontSansVF.ttf" download>RubifontSansVF.ttf</a>をFont Bookへインストールし、フォントを「Rubifont Sans VF」に指定してください。太さは250〜900です。Regular版と併用できます。太さを指定できるかはアプリによって異なります。</p><p>どちらも横書きです。アプリのOpenType対応や行間設定によって表示が異なります。</p></section>
 <section><h2>Webサイトで使う</h2>
 <p><a href="./RubifontSans-Regular.woff2" download>Web用フォント（WOFF2）</a>をページと同じフォルダへ置き、次のように指定します。</p>
 <pre><code>@font-face {
@@ -28,6 +28,18 @@
   font-weight: 400;
   line-height: 1.9;
 }</code></pre>
+<p>可変版は<a href="./RubifontSansVF.woff2" download>可変WOFF2</a>を使い、太さの範囲を指定します。</p>
+<pre><code>@font-face {
+  font-family: 'Rubifont Sans VF';
+  src: url('./RubifontSansVF.woff2') format('woff2');
+  font-weight: 250 900;
+}
+.variable-reading {
+  font-family: 'Rubifont Sans VF', sans-serif;
+  font-weight: 700;
+  line-height: 1.9;
+}</code></pre>
+<p>見本ページの「自分の文章で試す」で書体を「可変」にすると、太さを調整できます。</p>
 <p>読みが切れないよう、行間を広めに設定してください。<code>font-feature-settings: 'ss01' 1</code>で日英の読みを非表示にできます。</p></section>
 <section><h2>対応範囲</h2>
 <p>英語は同梱の一覧にある<!-- ENGLISH_COUNT -->語が対象です。小文字・頭だけ大文字・全大文字の<!-- FORM_COUNT -->表記に対応しています。未知語、任意の大小文字混在、文脈による読み分けは対象外です。カタカナは発音の目安です。</p>

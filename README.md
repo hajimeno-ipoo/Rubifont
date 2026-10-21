@@ -2,7 +2,7 @@
 
 漢字の上にひらがな、登録した英単語の上にカタカナを表示するフォントです。同じ文章の中で、日本語と英語の両方に読みを添えられます。
 
-配布している書体は **Rubifont Sans Regular** です。横書き・Regularの一種類で、インストール用のOTFとWeb用のWOFF2を用意しています。
+横書きの **Rubifont Sans Regular** と、太さを250〜900の範囲で指定できる可変フォント **Rubifont Sans VF** を用意しています。別のフォント名なので、両方をインストールして使えます。
 
 ## 主な機能
 
@@ -13,14 +13,16 @@
 
 ## ダウンロード
 
-[Rubifont 0.5.0のZIPをダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.5.0/Rubifont-0.5.0.zip)
+[Rubifont 0.6.0のZIPをダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.6.0/Rubifont-0.6.0.zip)
 
 ほかの配布版は[Releases](https://github.com/hajimeno-ipoo/Rubifont/releases)から取得できます。ZIPを展開すると、次のファイルを使えます。
 
 | ファイル | 用途 |
 | --- | --- |
-| `RubifontSans-Regular.otf` | インストール用フォント |
-| `RubifontSans-Regular.woff2` | Web用フォント |
+| `RubifontSans-Regular.otf` | Regularのインストール用フォント |
+| `RubifontSans-Regular.woff2` | RegularのWeb用フォント |
+| `RubifontSansVF.ttf` | 可変フォントのインストール用ファイル |
+| `RubifontSansVF.woff2` | 可変フォントのWeb用ファイル |
 | `index.html` | 自分の文章を入力できる見本ページ |
 | `usage.html` | 使い方とライセンス原文 |
 | `english.html` | 英単語とカタカナ読みの対応一覧 |
@@ -34,6 +36,8 @@ ZIPには、読み選択用の一覧、生成記録、検証報告書、ライ�
 1. ダウンロードしたZIPを展開します。
 2. `RubifontSans-Regular.otf`を開き、Font Bookでインストールします。
 3. 使いたいアプリで、フォントを「Rubifont Sans」に指定します。
+
+可変フォントを使う場合は`RubifontSansVF.ttf`をインストールし、「Rubifont Sans VF」を選びます。太さをどのように指定できるかは、利用するアプリによって異なります。
 
 読みが切れる場合は、アプリの行間設定を広げてください。表示はアプリのOpenType対応や組版の設定によって異なります。
 
@@ -58,6 +62,25 @@ ZIPには、読み選択用の一覧、生成記録、検証報告書、ライ�
 <p class="reading">日本語で Hello。Settings を開いて Save。</p>
 ```
 
+可変フォントは`RubifontSansVF.woff2`を置き、次のように読み込みます。`font-weight`で250〜900の太さを指定できます。
+
+```css
+@font-face {
+  font-family: 'Rubifont Sans VF';
+  src: url('./RubifontSansVF.woff2') format('woff2');
+  font-weight: 250 900;
+}
+.reading-variable {
+  font-family: 'Rubifont Sans VF', sans-serif;
+  font-weight: 400;
+  line-height: 1.9;
+}
+```
+
+```html
+<p class="reading-variable">日本語で Hello。Settings を開いて Save。</p>
+```
+
 ダウンロードしたZIPの`index.html`を開くと、Webページを作らずに表示を試せます。
 
 ## 対応範囲と制限
@@ -66,7 +89,7 @@ ZIPには、読み選択用の一覧、生成記録、検証報告書、ライ�
 | --- | --- |
 | 日本語 | 228,363の読みパターンと、単独漢字1,705字への読み設定 |
 | 英語 | 登録した2,562語・7,684表記。複数形や活用形は一覧にある表記のみ |
-| 書体 | 横書きのSans Regular一種類 |
+| 書体 | 横書きのSans RegularとSans VF（太さ250〜900）。読みの対応範囲は共通 |
 
 日本語のパターン数は生成規則の数で、正しく読める単語の総数ではありません。部品の組み合わせで同じ読みになる単語もあります。日本郵便の住所データは、フォントの字形数の上限を超えるため収録対象から外しています。
 
@@ -74,13 +97,13 @@ ZIPには、読み選択用の一覧、生成記録、検証報告書、ライ�
 
 単語が別の要素や書式に分かれると、フォントから見える範囲も分かれます。英語では、長い単語の一部分へ読みが付かないよう、前後の英字・数字などを確認しています。
 
-WebKitでは、異体字セレクターによる単語の別読み指定が正しく働かない場合があります。読みを指定する場合は、フォントと同じ配布版の`RubifontSans-Regular.ivs.json`を使ってください。
+WebKitでは、異体字セレクターによる単語の別読み指定が正しく働かない場合があります。読みを指定する場合は、同じ配布版の、Regularには`RubifontSans-Regular.ivs.json`、可変フォントには`RubifontSansVF.ivs.json`を使ってください。
 
-確認した環境と検証結果の詳細は、配布ZIP内の`verification.md`をご覧ください。
+Firefoxの描画は未確認です。確認した環境と検証結果の詳細は、配布ZIP内の`verification.md`をご覧ください。
 
 ## 出典とライセンス
 
-Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語のカタカナ読みを追加しています。現在の基準はFurifont v0.6.1です。書体にはAdobeのSource Han Sans JP Regularを使用しています。
+Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語のカタカナ読みを追加しています。現在の基準はFurifont v0.6.1です。書体にはAdobeのSource Han Sans JP RegularとSource Han Sans JP VFを使用しています。
 
 | 対象 | ライセンス |
 | --- | --- |
