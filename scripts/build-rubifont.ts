@@ -10,7 +10,7 @@ import { loadDictionary } from '@furifont/dictionary'
 import { fetchBaseFont } from '../packages/cli/src/base-fonts.ts'
 import english from '../rubifont/english.json' with { type: 'json' }
 import japanese from '../rubifont/japanese.json' with { type: 'json' }
-import { mergeJapaneseReadings } from './rubifont-japanese.ts'
+import { japaneseOkurigana, mergeJapaneseReadings } from './rubifont-japanese.ts'
 import { writeRubifontPages } from './rubifont-pages.ts'
 
 const root = new URL('../', import.meta.url)
@@ -18,7 +18,7 @@ const output = new URL(process.argv[2] ?? 'outputs/', root)
 const cache = fileURLToPath(new URL('.cache/fonts/', root))
 // Fixed release epoch: midnight in Japan. Rebuilding the same inputs keeps font bytes stable.
 const date = new Date('2026-10-22T00:00:00+09:00')
-const version = '0.6.4'
+const version = '0.6.5'
 await mkdir(output, { recursive: true })
 // Keep the existing sources. The postal-address source alone exceeds the glyph budget.
 const sources = WORD_SOURCES.filter(source => source !== 'japan-post')
@@ -67,6 +67,9 @@ const regular = await buildFace('Source Han Sans JP Regular', 'Rubifont Sans', '
 const variable = await buildFace('Source Han Sans JP VF', 'Rubifont Sans VF', 'RubifontSansVF', true)
 await writeFile(new URL('english-readings.json', output), `${JSON.stringify(english, null, 2)}\n`)
 await writeFile(new URL('japanese-readings.json', output), `${JSON.stringify(japanese, null, 2)}\n`)
+const pairs = japaneseOkurigana(japanese.add)
+const pairsFile = `${JSON.stringify(pairs, null, 2)}\n`
+await writeFile(new URL('okurigana.json', output), pairsFile)
 await writeRubifontPages(root, output, regular.japanese)
 const manifest = {
   name: 'Rubifont Sans',
@@ -77,6 +80,12 @@ const manifest = {
   upstreamCommit: 'da8ddae359aab8ba3df43b5156fb77fb1aa2b2c3',
   japaneseSources: sources,
   japaneseSupplement: japanese,
+  japaneseOkurigana: {
+    file: 'okurigana.json',
+    pairs: Object.values(pairs).flatMap(group => Object.values(group).flat()).length,
+    ambiguous: Object.values(pairs).flatMap(group => group[''] ?? []).length,
+    sha256: createHash('sha256').update(pairsFile).digest('hex'),
+  },
   base: regular.base,
   japanese: regular.japanese,
   english: regular.english,

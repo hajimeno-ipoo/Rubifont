@@ -5,6 +5,7 @@ import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { VERSION_PROBE } from '@furifont/core'
 import { expect, test } from '@playwright/test'
+import { createOkuriganaReader } from '../../packages/helper-web/src/okurigana'
 import { TEST_FONT, TEST_OTF, TEST_READINGS, TEST_ROMAJI_FONT, TEST_VARIABLE_FONT, WOFF2_PAGE } from './setup'
 
 const ORIGIN = 'https://furifont.test'
@@ -34,8 +35,22 @@ const shot = (page: Page, selector: string): Promise<Buffer> => page.locator(sel
 // Generate the actual deliverable first: pnpm build && pnpm rubifont.
 const RUBIFONT = process.env.RUBIFONT_TEST_FONT ?? new URL('../../outputs/RubifontSans-Regular.woff2', import.meta.url).pathname
 
+test('Rubifont okurigana pairs switch a reading while keeping the original text', async ({ page }) => {
+  const [pairs, ivs] = await Promise.all(['okurigana.json', 'RubifontSans-Regular.ivs.json'].map(async name => JSON.parse(await readFile(new URL(`../../outputs/${name}`, import.meta.url), 'utf8'))))
+  const reader = createOkuriganaReader({ pairs, readings: ivs.kanji, words: ivs.words, lone: ivs.lone })
+  expect(reader.find('来る')).toEqual([expect.objectContaining({ reading: 'く' })])
+  expect(reader.find('止めた')).toEqual([])
+  const texts = ['来て', '来る', '止まった', '失くした', '止めた']
+  const markup = (text: string) => reader.find(text).toReversed().reduce((html, match) => `${html.slice(0, match.at)}<span style="font-feature-settings:'salt' ${match.salt}">${html.slice(match.at, match.at + match.length)}</span>${html.slice(match.at + match.length)}`, text)
+  await show(page, texts.map((text, i) => `<p id="pair${i}">${markup(text)}</p><p id="plain${i}">${text}</p>`).join(''), RUBIFONT)
+  for (let i = 0; i < texts.length; i++)
+    await expect(page.locator(`#pair${i}`)).toHaveText(texts[i]!)
+  expect(await shot(page, '#pair1')).not.toEqual(await shot(page, '#plain1'))
+  expect(await shot(page, '#pair4')).toEqual(await shot(page, '#plain4'))
+})
+
 test('Rubifont draws English and Japanese ruby from the delivered WOFF2', async ({ page }) => {
-  const texts = ['save', 'Save', 'SAVE', 'hello', 'Hello', 'HELLO', 'file', 'File', 'confirm', 'profile', 'Settings', 'Download', '日本語', '今日', '日本語Save今日', '保存してSaveを押す', 'network', 'NETWORK', 'computer', 'language', 'water', 'the', 'a', 'I', 'English', 'Japanese', 'wonder', 'gonna', 'survive', 'knives', 'sacrifice', 'wrinkle', 'twinkle', 'can\'t', 'Can\'t', 'CAN\'T', 'can’t', 'Can’t', 'CAN’T', 'I\'m', 'I’m', 'heart\'s', 'heart’s', 'makeup\'s', 'makeup’s', 'didn\'t', 'didn’t', 'hurting', 'felt', '抱いた', '止めた', '触れた', '嫌いな', '消えた', 'あの日', '負けたくない', '決して', '頼る', '来て', '閉じる', 'wanting', 'recognize', 'seems', 'speck', 'breaking', 'nite', 'saw', 'tides', 'caught', 'desperation', 'helpless', 'falling', 'sensation', 'endlessly', 'hoping', 'it\'d', 'i’ll', 'ways', 'cuz', 'feels', 'wondering', 'eyes', 'arms', 'singin', 'sigh', 'breath\'s', 'keeps', 'coming', 'oh', 'dawn', 'starts', 'expectations', 'engulfs', 'speculations', 'patience', 'cadence', 'shoulder', 'plunge', 'rests', 'you\'ve', 'held', '冷たく', '中', '陽がおとす', '重なる', '命の', '指の', '出して', '時は', '一つ', '出す', '光の', '全てを']
+  const texts = ['save', 'Save', 'SAVE', 'hello', 'Hello', 'HELLO', 'file', 'File', 'confirm', 'profile', 'Settings', 'Download', '日本語', '今日', '日本語Save今日', '保存してSaveを押す', 'network', 'NETWORK', 'computer', 'language', 'water', 'the', 'a', 'I', 'English', 'Japanese', 'wonder', 'gonna', 'survive', 'knives', 'sacrifice', 'wrinkle', 'twinkle', 'can\'t', 'Can\'t', 'CAN\'T', 'can’t', 'Can’t', 'CAN’T', 'I\'m', 'I’m', 'heart\'s', 'heart’s', 'makeup\'s', 'makeup’s', 'didn\'t', 'didn’t', 'hurting', 'felt', '抱いた', '止めた', '触れた', '嫌いな', '消えた', 'あの日', '負けたくない', '決して', '頼る', '来て', '閉じる', 'wanting', 'recognize', 'seems', 'speck', 'breaking', 'nite', 'saw', 'tides', 'caught', 'desperation', 'helpless', 'falling', 'sensation', 'endlessly', 'hoping', 'it\'d', 'i’ll', 'ways', 'cuz', 'feels', 'wondering', 'eyes', 'arms', 'singin', 'sigh', 'breath\'s', 'keeps', 'coming', 'oh', 'dawn', 'starts', 'expectations', 'engulfs', 'speculations', 'patience', 'cadence', 'shoulder', 'plunge', 'rests', 'you\'ve', 'held', '冷たく', '中', '陽がおとす', '重なる', '命の', '指の', '出して', '時は', '一つ', '出す', '光の', '全てを', 'ends', 'endless', '止まった', '失くした']
   await show(page, texts.map((text, i) => `<p id="on${i}" lang="ja">${text}</p><p id="off${i}" lang="ja" class="off">${text}</p><p id="english${i}" lang="en">${text}</p>`).join(''), RUBIFONT)
   for (let i = 0; i < texts.length; i++) {
     expect(await shot(page, `#on${i}`), texts[i]).not.toEqual(await shot(page, `#off${i}`))
@@ -54,7 +69,7 @@ test('Rubifont draws English and Japanese ruby from the delivered WOFF2', async 
 })
 
 test('Rubifont leaves unknown words and word fragments unchanged', async ({ page }) => {
-  const texts = ['qzxvunknown', 'autosaveqzxv', 'savesave', 'SaveSettings', 'save2', '2save', 'save_', '_save', 'saveé', 'ésave', 'save\'s', 'save’s', 'sAvE', 'profilex', 'offline2', 'office\'s', 'xcan\'t', 'can\'tx', 'can’t2', 'can’t’s', 'xdidn\'t', 'didn\'tx', 'didn’t2', 'hurtingx', 'felts', 'xrecognize', 'recognize2', 'xit’d', 'it’d2', 'breath’sx', 'you’vex', 'singinx']
+  const texts = ['qzxvunknown', 'autosaveqzxv', 'savesave', 'SaveSettings', 'save2', '2save', 'save_', '_save', 'saveé', 'ésave', 'save\'s', 'save’s', 'sAvE', 'profilex', 'offline2', 'office\'s', 'xcan\'t', 'can\'tx', 'can’t2', 'can’t’s', 'xdidn\'t', 'didn\'tx', 'didn’t2', 'hurtingx', 'felts', 'xrecognize', 'recognize2', 'xit’d', 'it’d2', 'breath’sx', 'you’vex', 'singinx', 'ends2', 'xendless']
   await show(page, texts.map((text, i) => `<p id="on${i}" lang="ja">${text}</p><p id="off${i}" lang="ja" class="off">${text}</p>`).join(''), RUBIFONT)
   for (let i = 0; i < texts.length; i++)
     expect(await shot(page, `#on${i}`), texts[i]).toEqual(await shot(page, `#off${i}`))
