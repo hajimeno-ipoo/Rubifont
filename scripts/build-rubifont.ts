@@ -9,6 +9,8 @@ import { addEnglishReadings, createFontPlanner, resolveOptions, WORD_SOURCES } f
 import { loadDictionary } from '@furifont/dictionary'
 import { fetchBaseFont } from '../packages/cli/src/base-fonts.ts'
 import english from '../rubifont/english.json' with { type: 'json' }
+import japanese from '../rubifont/japanese.json' with { type: 'json' }
+import { mergeJapaneseReadings } from './rubifont-japanese.ts'
 import { writeRubifontPages } from './rubifont-pages.ts'
 
 const root = new URL('../', import.meta.url)
@@ -16,18 +18,19 @@ const output = new URL(process.argv[2] ?? 'outputs/', root)
 const cache = fileURLToPath(new URL('.cache/fonts/', root))
 // Fixed release epoch: midnight in Japan. Rebuilding the same inputs keeps font bytes stable.
 const date = new Date('2026-10-21T00:00:00+09:00')
-const version = '0.6.1'
+const version = '0.6.2'
 await mkdir(output, { recursive: true })
 // Keep the existing sources. The postal-address source alone exceeds the glyph budget.
 const sources = WORD_SOURCES.filter(source => source !== 'japan-post')
-const planner = createFontPlanner(await loadDictionary())
+const words = resolveOptions({ words: japanese }).words
+const planner = createFontPlanner(mergeJapaneseReadings(await loadDictionary(), words))
 
 async function buildFace(baseName: string, family: string, stem: string, variable: boolean) {
   const source = BASE_FONTS.find(f => f.name === baseName)!
   const base = new Uint8Array(await readFile(await fetchBaseFont(source, cache)))
   const info = readFontInfo(base)
   const coverage = new Set(info.codepoints)
-  const { plan, report } = planner(resolveOptions({ family, sources }), coverage)
+  const { plan, report } = planner(resolveOptions({ family, sources, words }), coverage)
   const bilingual = addEnglishReadings(plan, english, coverage)
   console.log('Base:', { family: info.family, style: info.style, glyphs: info.glyphCount })
   console.log('Japanese:', report.stats, 'English word forms:', bilingual.glyphs.length - plan.glyphs.length)
@@ -63,6 +66,7 @@ async function buildFace(baseName: string, family: string, stem: string, variabl
 const regular = await buildFace('Source Han Sans JP Regular', 'Rubifont Sans', 'RubifontSans-Regular', false)
 const variable = await buildFace('Source Han Sans JP VF', 'Rubifont Sans VF', 'RubifontSansVF', true)
 await writeFile(new URL('english-readings.json', output), `${JSON.stringify(english, null, 2)}\n`)
+await writeFile(new URL('japanese-readings.json', output), `${JSON.stringify(japanese, null, 2)}\n`)
 await writeRubifontPages(root, output, regular.japanese)
 const manifest = {
   name: 'Rubifont Sans',
@@ -72,6 +76,7 @@ const manifest = {
   upstreamVersion: '0.6.1',
   upstreamCommit: 'afcb999aac301225b3b69b9a06c18add32aff471',
   japaneseSources: sources,
+  japaneseSupplement: japanese,
   base: regular.base,
   japanese: regular.japanese,
   english: regular.english,

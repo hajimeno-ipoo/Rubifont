@@ -35,7 +35,7 @@ const shot = (page: Page, selector: string): Promise<Buffer> => page.locator(sel
 const RUBIFONT = process.env.RUBIFONT_TEST_FONT ?? new URL('../../outputs/RubifontSans-Regular.woff2', import.meta.url).pathname
 
 test('Rubifont draws English and Japanese ruby from the delivered WOFF2', async ({ page }) => {
-  const texts = ['save', 'Save', 'SAVE', 'hello', 'Hello', 'HELLO', 'file', 'File', 'confirm', 'profile', 'Settings', 'Download', '日本語', '今日', '日本語Save今日', '保存してSaveを押す', 'network', 'NETWORK', 'computer', 'language', 'water', 'the', 'a', 'I', 'English', 'Japanese', 'wonder', 'gonna', 'survive', 'knives', 'sacrifice', 'wrinkle', 'twinkle', 'can\'t', 'Can\'t', 'CAN\'T', 'can’t', 'Can’t', 'CAN’T', 'I\'m', 'I’m', 'heart\'s', 'heart’s', 'makeup\'s', 'makeup’s']
+  const texts = ['save', 'Save', 'SAVE', 'hello', 'Hello', 'HELLO', 'file', 'File', 'confirm', 'profile', 'Settings', 'Download', '日本語', '今日', '日本語Save今日', '保存してSaveを押す', 'network', 'NETWORK', 'computer', 'language', 'water', 'the', 'a', 'I', 'English', 'Japanese', 'wonder', 'gonna', 'survive', 'knives', 'sacrifice', 'wrinkle', 'twinkle', 'can\'t', 'Can\'t', 'CAN\'T', 'can’t', 'Can’t', 'CAN’T', 'I\'m', 'I’m', 'heart\'s', 'heart’s', 'makeup\'s', 'makeup’s', 'didn\'t', 'didn’t', 'hurting', 'felt', '抱いた', '止めた', '触れた', '嫌いな', '消えた', 'あの日', '負けたくない', '決して', '頼る', '来て', '閉じる']
   await show(page, texts.map((text, i) => `<p id="on${i}" lang="ja">${text}</p><p id="off${i}" lang="ja" class="off">${text}</p><p id="english${i}" lang="en">${text}</p>`).join(''), RUBIFONT)
   for (let i = 0; i < texts.length; i++) {
     expect(await shot(page, `#on${i}`), texts[i]).not.toEqual(await shot(page, `#off${i}`))
@@ -54,7 +54,7 @@ test('Rubifont draws English and Japanese ruby from the delivered WOFF2', async 
 })
 
 test('Rubifont leaves unknown words and word fragments unchanged', async ({ page }) => {
-  const texts = ['qzxvunknown', 'autosaveqzxv', 'savesave', 'SaveSettings', 'save2', '2save', 'save_', '_save', 'saveé', 'ésave', 'save\'s', 'save’s', 'sAvE', 'profilex', 'offline2', 'office\'s', 'xcan\'t', 'can\'tx', 'can’t2', 'can’t’s']
+  const texts = ['qzxvunknown', 'autosaveqzxv', 'savesave', 'SaveSettings', 'save2', '2save', 'save_', '_save', 'saveé', 'ésave', 'save\'s', 'save’s', 'sAvE', 'profilex', 'offline2', 'office\'s', 'xcan\'t', 'can\'tx', 'can’t2', 'can’t’s', 'xdidn\'t', 'didn\'tx', 'didn’t2', 'hurtingx', 'felts']
   await show(page, texts.map((text, i) => `<p id="on${i}" lang="ja">${text}</p><p id="off${i}" lang="ja" class="off">${text}</p>`).join(''), RUBIFONT)
   for (let i = 0; i < texts.length; i++)
     expect(await shot(page, `#on${i}`), texts[i]).toEqual(await shot(page, `#off${i}`))
@@ -69,9 +69,9 @@ test('Rubifont variable TTF and WOFF2 vary Japanese and English ruby together', 
   // A fractional English advance can leave antialiased ink in the next pixel.
   // One pixel of horizontal padding isolates the line-height clipping check.
   const body = `<style>p { padding-right: 1px }</style>${weights.map(weight => `
-    <p id="on${weight}" lang="ja" style="font-weight:${weight}">日本語 Save Settings File can't can’t</p>
-    <p id="off${weight}" lang="ja" class="off" style="font-weight:${weight}">日本語 Save Settings File can't can’t</p>
-    <p id="clipped${weight}" lang="ja" style="font-weight:${weight};overflow:hidden">日本語 Save Settings File can't can’t</p>
+    <p id="on${weight}" lang="ja" style="font-weight:${weight}">日本語 Save Settings File didn't can’t 抱いた 止めた 来て</p>
+    <p id="off${weight}" lang="ja" class="off" style="font-weight:${weight}">日本語 Save Settings File didn't can’t 抱いた 止めた 来て</p>
+    <p id="clipped${weight}" lang="ja" style="font-weight:${weight};overflow:hidden">日本語 Save Settings File didn't can’t 抱いた 止めた 来て</p>
     <p id="unknown${weight}" style="font-weight:${weight}">qzxvunknown save2</p>
     <p id="unknown-off${weight}" class="off" style="font-weight:${weight}">qzxvunknown save2</p>`).join('')}`
   const pictures: Buffer[][] = []

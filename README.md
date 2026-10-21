@@ -7,13 +7,13 @@
 ## 主な機能
 
 - 日本語の漢字・単語に、辞書に基づくひらがなの読みを表示します。
-- 英語2,611語に対応し、小文字・頭だけ大文字・全大文字の7,867表記を収録しています。たとえば`save`・`Save`・`SAVE`には「セーブ」が付きます。
+- 英語2,614語に対応し、小文字・頭だけ大文字・全大文字の7,879表記を収録しています。たとえば`save`・`Save`・`SAVE`には「セーブ」が付きます。
 - 本文の文字データは元のままです。読みはフォントの文字の形として表示します。
 - Webでは`font-feature-settings: 'ss01' 1`で、日英の読みをまとめて非表示にできます。
 
 ## ダウンロード
 
-[Rubifont 0.6.1のZIPをダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.6.1/Rubifont-0.6.1.zip)
+[Rubifont 0.6.2のZIPをダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.6.2/Rubifont-0.6.2.zip)
 
 ほかの配布版は[Releases](https://github.com/hajimeno-ipoo/Rubifont/releases)から取得できます。ZIPを展開すると、次のファイルを使えます。
 
@@ -89,9 +89,11 @@ ZIPには、読み選択用の一覧、生成記録、検証報告書、ライ�
 
 | 対象 | 対応内容 |
 | --- | --- |
-| 日本語 | 228,363の読みパターンと、単独漢字1,705字への読み設定 |
-| 英語 | 登録した2,611語・7,867表記。複数形や活用形は一覧にある表記のみ |
+| 日本語 | 228,363の読みパターンと、単独漢字1,716字への読み設定 |
+| 英語 | 登録した2,614語・7,879表記。複数形や活用形は一覧にある表記のみ |
 | 書体 | 横書きのSans RegularとSans VF（太さ250〜900）。読みの対応範囲は共通 |
+
+日本語は本家の辞書に、Rubifont独自の追加辞書を合わせています。追加辞書では11漢字の通常読みを指定しています。同じ漢字が単独で現れるほかの語にも適用されます。「来」は「き」、「止」は「や」を通常表示し、「く」「と」も別読みとして収録しています。「来る」を「くる」、「止めた」を「とめた」と表示する場合は別読みの指定が必要です。送り仮名や文脈による自動切替には対応していません。
 
 日本語のパターン数は生成規則の数で、正しく読める単語の総数ではありません。部品の組み合わせで同じ読みになる単語もあります。日本郵便の住所データは、フォントの字形数の上限を超えるため収録対象から外しています。
 
@@ -105,14 +107,14 @@ Firefoxの描画は未確認です。確認した環境と検証結果の詳細�
 
 ## 出典とライセンス
 
-Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語のカタカナ読みを追加しています。現在の基準はFurifont v0.6.1です。書体にはAdobeのSource Han Sans JP RegularとSource Han Sans JP VFを使用しています。
+Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語のカタカナ読みと、日本語の追加辞書を組み込んでいます。現在の基準はFurifont v0.6.1です。書体にはAdobeのSource Han Sans JP RegularとSource Han Sans JP VFを使用しています。
 
 | 対象 | ライセンス |
 | --- | --- |
 | FurifontのコードとRubifontの追加コード | [MIT](LICENSE.md) |
 | 生成フォント | [SIL Open Font License 1.1](OFL.txt) |
 | 日本語辞書・読み規則 | 主にCC BY-SA 4.0、TatoebaはCC BY 2.0 FR。[出典と個別条件](packages/dictionary/LICENSE.md) |
-| Rubifont用に作成した英語2,611語の一覧 | CC0 1.0。外部辞書の転載はありません |
+| Rubifont用に作成した英語2,614語の一覧と日本語追加辞書 | CC0 1.0。外部辞書の転載はありません |
 
 配布ZIPには、`CODE-LICENSE.md`・`OFL.txt`・`DATA-LICENSE.md`としてライセンス文書を同梱しています。基になったFurifontの説明・謝辞は[元のREADME](https://github.com/antfu/furifont/blob/v0.6.1/README.md)を参照してください。
 
@@ -128,4 +130,4 @@ pnpm rubifont
 
 フォント・見本ページ・対応語一覧は`outputs/`へ生成します。初回はAdobeの元フォントを取得し、`.cache/fonts/`へ保存します。
 
-英語の一覧は`rubifont/english.json`、生成処理は`scripts/build-rubifont.ts`です。構成の詳細は[開発用の説明](<FOR[hazimeno_ipoo].md>)を参照してください。
+日本語の追加辞書は`rubifont/japanese.json`、英語の一覧は`rubifont/english.json`、生成処理は`scripts/build-rubifont.ts`です。構成の詳細は[開発用の説明](<FOR[hazimeno_ipoo].md>)を参照してください。

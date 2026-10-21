@@ -23,6 +23,10 @@ const entries = [
   { word: 'i\'m', reading: 'アイム' },
   { word: 'we\'ll', reading: 'ウィール' },
   { word: 'heart\'s', reading: 'ハーツ' },
+  { word: 'did', reading: 'ディド' },
+  { word: 'didn\'t', reading: 'ディドゥント' },
+  { word: 'hurting', reading: 'ハーティング' },
+  { word: 'felt', reading: 'フェルト' },
 ]
 const japanese: Dictionary = fuseDictionary({
   versions: { fixture: '1' },
@@ -118,6 +122,25 @@ describe('english readings in an actual Japanese font', () => {
     const off = shape(bilingual, text, [new hb.Feature('ss01')])
     expect(off.readings).toEqual([])
     expect(off.names).toEqual([...text].map(c => bilingual.names[bilingual.font.nominalGlyph(c.codePointAt(0)!)!]!))
+  })
+
+  it.each(['en', 'ja'])('reads reported past and progressive forms in full under %s', (language) => {
+    expect(shape(bilingual, 'didn\'t Didn\'t DIDN\'T didn’t Didn’t DIDN’T hurting Hurting HURTING felt Felt FELT', [], language).readings).toEqual([
+      'didn\'t:ディドゥント',
+      'Didn\'t:ディドゥント',
+      'DIDN\'T:ディドゥント',
+      'didn’t:ディドゥント',
+      'Didn’t:ディドゥント',
+      'DIDN’T:ディドゥント',
+      'hurting:ハーティング',
+      'Hurting:ハーティング',
+      'HURTING:ハーティング',
+      'felt:フェルト',
+      'Felt:フェルト',
+      'FELT:フェルト',
+    ])
+    for (const text of ['xdidn\'t', 'didn\'tx', 'didn’t2', 'hurtingx', 'felts'])
+      expect(shape(bilingual, text, [], language).readings, text).toEqual([])
   })
 
   it('restores single-letter and longer words together when ss01 disables readings', () => {
