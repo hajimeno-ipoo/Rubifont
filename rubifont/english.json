@@ -372,6 +372,10 @@
     "reading": "アーム"
   },
   {
+    "word": "arms",
+    "reading": "アームズ"
+  },
+  {
     "word": "army",
     "reading": "アーミー"
   },
@@ -824,7 +828,15 @@
     "reading": "ブレックファスト"
   },
   {
+    "word": "breaking",
+    "reading": "ブレイキング"
+  },
+  {
     "word": "breath",
+    "reading": "ブレス"
+  },
+  {
+    "word": "breath's",
     "reading": "ブレス"
   },
   {
@@ -926,6 +938,10 @@
   {
     "word": "cache",
     "reading": "キャッシュ"
+  },
+  {
+    "word": "cadence",
+    "reading": "ケイデンス"
   },
   {
     "word": "cake",
@@ -1038,6 +1054,10 @@
   {
     "word": "category",
     "reading": "カテゴリー"
+  },
+  {
+    "word": "caught",
+    "reading": "コート"
   },
   {
     "word": "cell",
@@ -1270,6 +1290,10 @@
   {
     "word": "come",
     "reading": "カム"
+  },
+  {
+    "word": "coming",
+    "reading": "カミング"
   },
   {
     "word": "comma",
@@ -1668,6 +1692,10 @@
     "reading": "カット"
   },
   {
+    "word": "cuz",
+    "reading": "カズ"
+  },
+  {
     "word": "cycle",
     "reading": "サイクル"
   },
@@ -1710,6 +1738,10 @@
   {
     "word": "daughter",
     "reading": "ドーター"
+  },
+  {
+    "word": "dawn",
+    "reading": "ドーン"
   },
   {
     "word": "day",
@@ -1854,6 +1886,10 @@
   {
     "word": "desktop",
     "reading": "デスクトップ"
+  },
+  {
+    "word": "desperation",
+    "reading": "デスペレーション"
   },
   {
     "word": "detail",
@@ -2396,6 +2432,10 @@
     "reading": "エンド"
   },
   {
+    "word": "endlessly",
+    "reading": "エンドレスリー"
+  },
+  {
     "word": "endpoint",
     "reading": "エンドポイント"
   },
@@ -2418,6 +2458,10 @@
   {
     "word": "english",
     "reading": "イングリッシュ"
+  },
+  {
+    "word": "engulfs",
+    "reading": "エンガルフス"
   },
   {
     "word": "enhance",
@@ -2628,6 +2672,10 @@
     "reading": "イクスペクト"
   },
   {
+    "word": "expectations",
+    "reading": "エクスペクテーションズ"
+  },
+  {
     "word": "expense",
     "reading": "イクスペンス"
   },
@@ -2696,6 +2744,10 @@
     "reading": "アイ"
   },
   {
+    "word": "eyes",
+    "reading": "アイズ"
+  },
+  {
     "word": "fabric",
     "reading": "ファブリック"
   },
@@ -2742,6 +2794,10 @@
   {
     "word": "fall",
     "reading": "フォール"
+  },
+  {
+    "word": "falling",
+    "reading": "フォーリング"
   },
   {
     "word": "false",
@@ -2846,6 +2902,10 @@
   {
     "word": "feeling",
     "reading": "フィーリング"
+  },
+  {
+    "word": "feels",
+    "reading": "フィールズ"
   },
   {
     "word": "felt",
@@ -3888,6 +3948,10 @@
     "reading": "ハイト"
   },
   {
+    "word": "held",
+    "reading": "ヘルド"
+  },
+  {
     "word": "hello",
     "reading": "ハロー"
   },
@@ -3906,6 +3970,10 @@
   {
     "word": "helpful",
     "reading": "ヘルプフル"
+  },
+  {
+    "word": "helpless",
+    "reading": "ヘルプレス"
   },
   {
     "word": "her",
@@ -4048,6 +4116,10 @@
     "reading": "ホープフリー"
   },
   {
+    "word": "hoping",
+    "reading": "ホーピング"
+  },
+  {
     "word": "horizontal",
     "reading": "ホリゾンタル"
   },
@@ -4138,6 +4210,10 @@
   {
     "word": "i",
     "reading": "アイ"
+  },
+  {
+    "word": "i'll",
+    "reading": "アイル"
   },
   {
     "word": "i'm",
@@ -4608,6 +4684,10 @@
     "reading": "イット"
   },
   {
+    "word": "it'd",
+    "reading": "イタド"
+  },
+  {
     "word": "it's",
     "reading": "イッツ"
   },
@@ -4734,6 +4814,10 @@
   {
     "word": "keep",
     "reading": "キープ"
+  },
+  {
+    "word": "keeps",
+    "reading": "キープス"
   },
   {
     "word": "kept",
@@ -5804,6 +5888,10 @@
     "reading": "ナイン"
   },
   {
+    "word": "nite",
+    "reading": "ナイト"
+  },
+  {
     "word": "no",
     "reading": "ノウ"
   },
@@ -5974,6 +6062,10 @@
   {
     "word": "offline",
     "reading": "オフライン"
+  },
+  {
+    "word": "oh",
+    "reading": "オー"
   },
   {
     "word": "oil",
@@ -6300,6 +6392,10 @@
     "reading": "パス"
   },
   {
+    "word": "patience",
+    "reading": "ペイシェンス"
+  },
+  {
     "word": "patient",
     "reading": "ペイシェント"
   },
@@ -6554,6 +6650,10 @@
   {
     "word": "plugin",
     "reading": "プラグイン"
+  },
+  {
+    "word": "plunge",
+    "reading": "プランジ"
   },
   {
     "word": "plural",
@@ -7228,6 +7328,10 @@
     "reading": "レコグニション"
   },
   {
+    "word": "recognize",
+    "reading": "レコグナイズ"
+  },
+  {
     "word": "recommend",
     "reading": "レコメンド"
   },
@@ -7470,6 +7574,10 @@
   {
     "word": "restriction",
     "reading": "リストリクション"
+  },
+  {
+    "word": "rests",
+    "reading": "レスツ"
   },
   {
     "word": "result",
@@ -7744,6 +7852,10 @@
     "reading": "セイヴィング"
   },
   {
+    "word": "saw",
+    "reading": "ソー"
+  },
+  {
     "word": "say",
     "reading": "セイ"
   },
@@ -7900,6 +8012,10 @@
     "reading": "シーム"
   },
   {
+    "word": "seems",
+    "reading": "シームズ"
+  },
+  {
     "word": "seen",
     "reading": "シーン"
   },
@@ -7946,6 +8062,10 @@
   {
     "word": "senior",
     "reading": "シニア"
+  },
+  {
+    "word": "sensation",
+    "reading": "センセーション"
   },
   {
     "word": "sense",
@@ -8132,6 +8252,10 @@
     "reading": "シュッド"
   },
   {
+    "word": "shoulder",
+    "reading": "ショルダー"
+  },
+  {
     "word": "shout",
     "reading": "シャウト"
   },
@@ -8170,6 +8294,10 @@
   {
     "word": "sidebar",
     "reading": "サイドバー"
+  },
+  {
+    "word": "sigh",
+    "reading": "サイ"
   },
   {
     "word": "sight",
@@ -8234,6 +8362,10 @@
   {
     "word": "singer",
     "reading": "シンガー"
+  },
+  {
+    "word": "singin",
+    "reading": "シンギン"
   },
   {
     "word": "single",
@@ -8528,6 +8660,14 @@
     "reading": "スペシファイ"
   },
   {
+    "word": "speck",
+    "reading": "スペック"
+  },
+  {
+    "word": "speculations",
+    "reading": "スペキュレーションズ"
+  },
+  {
     "word": "speech",
     "reading": "スピーチ"
   },
@@ -8646,6 +8786,10 @@
   {
     "word": "start",
     "reading": "スタート"
+  },
+  {
+    "word": "starts",
+    "reading": "スターツ"
   },
   {
     "word": "startup",
@@ -9286,6 +9430,10 @@
   {
     "word": "ticket",
     "reading": "ティケット"
+  },
+  {
+    "word": "tides",
+    "reading": "タイズ"
   },
   {
     "word": "tidy",
@@ -10020,6 +10168,10 @@
     "reading": "ウォンティッド"
   },
   {
+    "word": "wanting",
+    "reading": "ウォンティング"
+  },
+  {
     "word": "war",
     "reading": "ウォー"
   },
@@ -10058,6 +10210,10 @@
   {
     "word": "way",
     "reading": "ウェイ"
+  },
+  {
+    "word": "ways",
+    "reading": "ウェイズ"
   },
   {
     "word": "we",
@@ -10284,6 +10440,10 @@
     "reading": "ワンダー"
   },
   {
+    "word": "wondering",
+    "reading": "ワンダリング"
+  },
+  {
     "word": "wood",
     "reading": "ウッド"
   },
@@ -10418,6 +10578,10 @@
   {
     "word": "you're",
     "reading": "ユア"
+  },
+  {
+    "word": "you've",
+    "reading": "ユーヴ"
   },
   {
     "word": "young",
