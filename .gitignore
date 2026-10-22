@@ -24,3 +24,11 @@ test-results
 playwright-report
 .vercel
 .env*
+
+# Local development settings and documents
+/.vscode/
+/.claude
+/AGENTS.md
+/CLAUDE.md
+/CONTRIBUTING.md
+/FOR[[]hazimeno_ipoo].md

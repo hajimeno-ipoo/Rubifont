@@ -1,7 +1,0 @@
-{
-  "recommendations": [
-    "dbaeumer.vscode-eslint",
-    "antfu.pnpm-catalog-lens",
-    "lokalise.i18n-ally"
-  ]
-}

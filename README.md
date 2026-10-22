@@ -132,4 +132,4 @@ pnpm rubifont
 
 フォント・見本ページ・対応語一覧は`outputs/`へ生成します。初回はAdobeの元フォントを取得し、`.cache/fonts/`へ保存します。
 
-日本語の追加辞書は`rubifont/japanese.json`、英語の一覧は`rubifont/english.json`、生成処理は`scripts/build-rubifont.ts`です。構成の詳細は[開発用の説明](<FOR[hazimeno_ipoo].md>)を参照してください。
+日本語の追加辞書は`rubifont/japanese.json`、英語の一覧は`rubifont/english.json`、生成処理は`scripts/build-rubifont.ts`です。

@@ -14,7 +14,7 @@ const printed: ReportStore = {
   },
 }
 
-/** Upstash for Redis from the Vercel Marketplace sets KV_REST_API_URL and KV_REST_API_TOKEN; `UPSTASH_REDIS_REST_*` work too (see CONTRIBUTING.md). */
+/** Upstash for Redis from the Vercel Marketplace sets KV_REST_API_URL and KV_REST_API_TOKEN; `UPSTASH_REDIS_REST_*` work too. */
 const ownStore = Boolean(process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL)
 
 export default defineEventHandler((event) => {
