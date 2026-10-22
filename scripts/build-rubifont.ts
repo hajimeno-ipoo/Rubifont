@@ -10,7 +10,9 @@ import { loadDictionary } from '@furifont/dictionary'
 import { fetchBaseFont } from '../packages/cli/src/base-fonts.ts'
 import english from '../rubifont/english.json' with { type: 'json' }
 import japanese from '../rubifont/japanese.json' with { type: 'json' }
-import { japaneseOkurigana, mergeJapaneseReadings } from './rubifont-japanese.ts'
+import okuriganaSupplement from '../rubifont/okurigana.json' with { type: 'json' }
+import { mergeJapaneseReadings } from './rubifont-japanese.ts'
+import { additionalOkurigana, buildOkurigana, loadUpstreamOkurigana } from './rubifont-okurigana.ts'
 import { writeRubifontPages } from './rubifont-pages.ts'
 
 const root = new URL('../', import.meta.url)
@@ -18,11 +20,13 @@ const output = new URL(process.argv[2] ?? 'outputs/', root)
 const cache = fileURLToPath(new URL('.cache/fonts/', root))
 // Fixed release epoch: midnight in Japan. Rebuilding the same inputs keeps font bytes stable.
 const date = new Date('2026-10-22T00:00:00+09:00')
-const version = '0.6.6'
+const version = '0.6.7'
 await mkdir(output, { recursive: true })
 // Keep the existing sources. The postal-address source alone exceeds the glyph budget.
 const sources = WORD_SOURCES.filter(source => source !== 'japan-post')
-const words = resolveOptions({ words: japanese }).words
+const upstreamPairs = await loadUpstreamOkurigana()
+const additionalPairs = additionalOkurigana(upstreamPairs, okuriganaSupplement)
+const words = resolveOptions({ words: { ...japanese, add: [...japanese.add, ...additionalPairs.filter(entry => entry.includes('['))] } }).words
 const planner = createFontPlanner(mergeJapaneseReadings(await loadDictionary(), words))
 
 async function buildFace(baseName: string, family: string, stem: string, variable: boolean) {
@@ -54,6 +58,7 @@ async function buildFace(baseName: string, family: string, stem: string, variabl
   await writeFile(new URL(files[1]!, output), await toWoff2(built.font, brotli))
   await writeFile(new URL(`${stem}.ivs.json`, output), `${JSON.stringify(report.ivs)}\n`)
   return {
+    readings: report.ivs,
     name: family,
     base: { name: source.name, url: source.url, sha256: createHash('sha256').update(base).digest('hex'), glyphs: info.glyphCount },
     japanese: report.stats,
@@ -63,11 +68,14 @@ async function buildFace(baseName: string, family: string, stem: string, variabl
   }
 }
 
-const regular = await buildFace('Source Han Sans JP Regular', 'Rubifont Sans', 'RubifontSans-Regular', false)
-const variable = await buildFace('Source Han Sans JP VF', 'Rubifont Sans VF', 'RubifontSansVF', true)
+const { readings: regularReadings, ...regular } = await buildFace('Source Han Sans JP Regular', 'Rubifont Sans', 'RubifontSans-Regular', false)
+const { readings: variableReadings, ...variable } = await buildFace('Source Han Sans JP VF', 'Rubifont Sans VF', 'RubifontSansVF', true)
 await writeFile(new URL('english-readings.json', output), `${JSON.stringify(english, null, 2)}\n`)
 await writeFile(new URL('japanese-readings.json', output), `${JSON.stringify(japanese, null, 2)}\n`)
-const pairs = japaneseOkurigana(japanese.add)
+const pairs = buildOkurigana(upstreamPairs, additionalPairs, { readings: regularReadings.kanji, words: regularReadings.words, lone: regularReadings.lone })
+const variablePairs = buildOkurigana(upstreamPairs, additionalPairs, { readings: variableReadings.kanji, words: variableReadings.words, lone: variableReadings.lone })
+if (JSON.stringify(pairs) !== JSON.stringify(variablePairs))
+  throw new Error('Regular and variable fonts need different okurigana tables')
 const pairsFile = `${JSON.stringify(pairs, null, 2)}\n`
 await writeFile(new URL('okurigana.json', output), pairsFile)
 await writeRubifontPages(root, output, regular.japanese)
@@ -82,6 +90,8 @@ const manifest = {
   japaneseSupplement: japanese,
   japaneseOkurigana: {
     file: 'okurigana.json',
+    upstreamPairs: Object.values(upstreamPairs).flatMap(group => Object.values(group).flat()).length,
+    additionalPairs: new Set(additionalPairs.map(entry => entry.replace(/\[[^\]]*\]/g, ''))).size,
     pairs: Object.values(pairs).flatMap(group => Object.values(group).flat()).length,
     ambiguous: Object.values(pairs).flatMap(group => group[''] ?? []).length,
     sha256: createHash('sha256').update(pairsFile).digest('hex'),

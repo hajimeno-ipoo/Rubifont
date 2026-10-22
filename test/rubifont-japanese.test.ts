@@ -1,32 +1,9 @@
 import { createFontPlanner, fuseDictionary, resolveOptions } from '@furifont/core'
 import { describe, expect, it } from 'vitest'
 import { coverage, dictionary } from '../packages/core/test/fixture'
-import { createOkuriganaReader } from '../packages/helper-web/src/okurigana'
-import { japaneseOkurigana, mergeJapaneseReadings } from '../scripts/rubifont-japanese'
+import { mergeJapaneseReadings } from '../scripts/rubifont-japanese'
 
 describe('rubifont Japanese supplement', () => {
-  it('feeds okurigana-specific readings into the existing reading selector', () => {
-    const pairs = japaneseOkurigana(['来[き]て', '来[く]る', '止[と]まった', '失[な]くした'])
-    const reader = createOkuriganaReader({ pairs, readings: { 来: ['き', 'く'], 止: ['や', 'と'], 失: ['うしな', 'な'] }, words: {}, lone: { 来: 'き', 止: 'や', 失: 'うしな' } })
-    expect(reader.find('来て 来る 止まった 失くした')).toEqual([
-      { at: 3, length: 1, reading: 'く', salt: 2 },
-      { at: 6, length: 1, reading: 'と', salt: 2 },
-      { at: 11, length: 1, reading: 'な', salt: 2 },
-    ])
-  })
-
-  it('keeps a same-spelling ambiguity unresolved and deduplicates repeated pairs', () => {
-    const pairs = japaneseOkurigana(['止[と]めた', '止[や]めた', '止[と]まった', '止[と]まった'])
-    const reader = createOkuriganaReader({ pairs, readings: { 止: ['と', 'や'] }, words: {}, lone: { 止: 'と' } })
-    expect(pairs).toEqual({ 止: { '': ['めた'], 'と': ['まった'] } })
-    expect(reader.find('止めた')).toEqual([])
-  })
-
-  it('collects complete kanji readings beside prefix kana and skips forms without okurigana', () => {
-    expect(japaneseOkurigana(['あの日[ひ]は', '今[こん]日[にち]では', '中[なか]'])).toEqual({ 日: { ひ: ['は'] }, 今日: { こんにち: ['では'] } })
-    expect(() => japaneseOkurigana(['日[に]本では'])).toThrow('Incomplete okurigana reading')
-  })
-
   it('adds a missing word, prioritizes a custom reading and retains upstream alternatives', () => {
     const words = resolveOptions({ words: { add: ['大本[おおもと]'], pin: ['今[こん]日[にち]'] } }).words
     const { plan, report } = createFontPlanner(mergeJapaneseReadings(dictionary, words))(resolveOptions({ words }), coverage)
