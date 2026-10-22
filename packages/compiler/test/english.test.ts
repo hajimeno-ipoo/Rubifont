@@ -27,6 +27,7 @@ const entries = [
   { word: 'didn\'t', reading: 'ディドゥント' },
   { word: 'hurting', reading: 'ハーティング' },
   { word: 'felt', reading: 'フェルト' },
+  { word: 'singin', reading: 'シンギン' },
 ]
 const japanese: Dictionary = fuseDictionary({
   versions: { fixture: '1' },
@@ -122,6 +123,29 @@ describe('english readings in an actual Japanese font', () => {
     const off = shape(bilingual, text, [new hb.Feature('ss01')])
     expect(off.readings).toEqual([])
     expect(off.names).toEqual([...text].map(c => bilingual.names[bilingual.font.nominalGlyph(c.codePointAt(0)!)!]!))
+  })
+
+  it.each(['en', 'ja'])('reads any registered word before a final apostrophe under %s', (language) => {
+    const words = 'singin\' Singin’ SINGIN\' hello’ Save\' office’'
+    const text = `${words} can\'t\' can’t’`
+    expect(shape(bilingual, text, [], language).readings).toEqual([
+      'singin:シンギン',
+      'Singin:シンギン',
+      'SINGIN:シンギン',
+      'hello:ハロー',
+      'Save:セーブ',
+      'office:オフィス',
+      'can\'t:キャント',
+      'can’t:キャント',
+    ])
+    const off = shape(bilingual, words, [new hb.Feature('ss01')], language)
+    expect(off.readings).toEqual([])
+    expect(off.names).toEqual(shape(bilingual, words, [new hb.Feature('rclt', 0), new hb.Feature('liga', 0)], language).names)
+  })
+
+  it.each(['en', 'ja'])('still blocks an apostrophe followed by word characters under %s', (language) => {
+    for (const text of ['singin\'x', 'singin’x', 'singin\'2', 'singin’_', 'singin\'\'', 'singin’’', 'xsingin\'', 'singin\'é', 'save\'s', 'can\'t\'s'])
+      expect(shape(bilingual, text, [], language).readings, text).toEqual([])
   })
 
   it.each(['en', 'ja'])('reads reported past and progressive forms in full under %s', (language) => {

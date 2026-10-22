@@ -1,8 +1,8 @@
-# Rubifont Sans 0.6.5
+# Rubifont Sans 0.6.6
 
 漢字の上にひらがな、登録した英単語の上にカタカナを表示するフォントです。同じ文章の中で、日本語と英語の両方に読みを添えられます。
 
-[配布版をダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/tag/rubifont-v0.6.5) · [ソースコード](https://github.com/hajimeno-ipoo/Rubifont)
+[配布版をダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/tag/rubifont-v0.6.6) · [ソースコード](https://github.com/hajimeno-ipoo/Rubifont)
 
 ## 主な機能
 
@@ -80,7 +80,7 @@ ZIPを展開したフォルダで、次のHTMLファイルを開いてくださ�
 | `usage.html` | 使い方とライセンス原文 |
 | `english.html` | 英単語とカタカナ読みの対応一覧 |
 
-登録した短縮形・所有形は、`can't`・`can’t`のような直線形と曲線形のアポストロフィに対応します。未登録の短縮形や所有形へ、自動で読みを付ける機能はありません。
+登録した短縮形・所有形は、`can't`・`can’t`のような直線形と曲線形のアポストロフィに対応します。未登録の短縮形や所有形へ、自動で読みを付ける機能はありません。登録済みの単語の末尾に単独の`'`・`’`が付く場合も、記号を残したまま読みを表示します。たとえば`singin`・`singin'`・`singin’`には「シンギン」が付きます。`singin'x`や未登録の`save's`のように、アポストロフィの後ろにも文字が続く表記は対象外です。
 
 ## 対応範囲と制限
 

@@ -13,7 +13,7 @@
 
 ## ダウンロード
 
-[Rubifont 0.6.5のZIPをダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.6.5/Rubifont-0.6.5.zip)
+[Rubifont 0.6.6のZIPをダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.6.6/Rubifont-0.6.6.zip)
 
 ほかの配布版は[Releases](https://github.com/hajimeno-ipoo/Rubifont/releases)から取得できます。ZIPを展開すると、次のファイルを使えます。
 
@@ -83,7 +83,7 @@ ZIPには、読み選択用の一覧、生成記録、検証報告書、ライ�
 
 ダウンロードしたZIPの`index.html`を開くと、Webページを作らずに表示を試せます。
 
-登録した短縮形・所有形は、`can't`・`can’t`のような直線形と曲線形のアポストロフィに対応します。未登録の短縮形や所有形へ、自動で読みを付ける機能はありません。
+登録した短縮形・所有形は、`can't`・`can’t`のような直線形と曲線形のアポストロフィに対応します。未登録の短縮形や所有形へ、自動で読みを付ける機能はありません。登録済みの単語の末尾に単独の`'`・`’`が付く場合も、記号を残したまま読みを表示します。たとえば`singin`・`singin'`・`singin’`には「シンギン」が付きます。`singin'x`や未登録の`save's`のように、アポストロフィの後ろにも文字が続く表記は対象外です。
 
 ## 対応範囲と制限
 

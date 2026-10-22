@@ -65,6 +65,9 @@ export function addEnglishReadings(plan: Plan, entries: readonly EnglishReading[
     .filter(cp => coverage.has(cp))
     .map(cp => ({ name: `enDigit_${cp}`, codepoint: cp, script: 'Latn' }))
   aliases.push(...apostrophes)
+  const quoteNames = [...apostrophes.map(a => glyphName(a.codepoint)), ...apostrophes.map(a => a.name)]
+  const wordNames = [...boundary.map(glyphName), ...aliases.map(a => a.name), ...glyphs.map(g => g.name)]
+  const afterWord = quoteNames.length ? '@englishWordAfter' : '@englishWord'
   const required = new Set([...boundary, ...substitutions.flatMap(s => s.input).filter((cp): cp is number => typeof cp === 'number'), ...glyphs.flatMap(g => [...g.bases, ...g.ruby.flatMap(r => codepoints(r.text))])])
   for (const cp of required) {
     if (!coverage.has(cp))
@@ -89,13 +92,26 @@ export function addEnglishReadings(plan: Plan, entries: readonly EnglishReading[
       const lookup = input.length > 1 ? 'en_draw' : 'en_draw_single'
       return [
         `ignore sub @englishWord ${marked};`,
-        `ignore sub ${marked} @englishWord;`,
+        `ignore sub ${marked} ${afterWord};`,
+        // A final apostrophe may follow the whole word, but not the start of an unregistered suffix.
+        ...quoteNames.length
+          ? [
+              `ignore sub ${marked} @englishApostrophe @englishWordAfter;`,
+              `ignore sub ${marked} @englishApostrophe @englishApostrophe;`,
+            ]
+          : [],
         `sub ${names.map((n, j) => `${n}'${j === 0 ? ` lookup ${lookup}` : ''}`).join(' ')};`,
       ]
     }),
   }))
   const prelude = [
-    `@englishWord = [${[...boundary.map(glyphName), ...aliases.map(a => a.name), ...glyphs.map(g => g.name)].join(' ')}];`,
+    `@englishWord = [${wordNames.join(' ')}];`,
+    ...quoteNames.length
+      ? [
+          `@englishApostrophe = [${quoteNames.join(' ')}];`,
+          `@englishWordAfter = [${wordNames.filter(name => !quoteNames.includes(name)).join(' ')}];`,
+        ]
+      : [],
     ...draw.map(group => block(group.name, group.substitutions.map(({ input, glyph }) => `sub ${input.map(value => typeof value === 'number' ? glyphName(value) : value).join(' ')} by ${glyph.name};`))),
     ...contexts.map(context => block(context.name, context.rules)),
     ...off.map(group => block(group.name, group.glyphs.map(g => `sub ${g.name} by ${g.bases.map(glyphName).join(' ')};`))),
