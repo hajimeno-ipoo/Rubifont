@@ -174,6 +174,17 @@ describe.each([
     expect(read(built, '日日', [new hb.Feature('salt', 2)])).toEqual(['日:にち', '日'])
   })
 
+  it('explicitly shows a sole reading while the ordinary kanji remains bare', async () => {
+    const single = await build(file, undefined, { isolated: false })
+    expect(single.readings['桜']).toEqual(['さくら'])
+    expect(read(single, '桜')).toEqual(['桜'])
+    expect(read(single, '桜', [new hb.Feature('salt', 1)])).toEqual(['桜:さくら'])
+    expect(read(single, `桜${VS(1)}`)).toEqual(['桜:さくら'])
+    expect(read(single, '桜桜', [new hb.Feature('salt', 1)])).toEqual(['桜:さくら', '桜'])
+    expect(read(single, `桜${VS(0)}`)).toEqual(['桜'])
+    expect(read(single, '桜', [new hb.Feature('salt', 1), new hb.Feature('ss01')])).toEqual(['桜'])
+  })
+
   it('shapes every run of up to four of its kanji as the ruby reader predicts', () => {
     const kanji = [...new Set(sources.entries.flatMap(e => [...e.form]))]
     let texts = ['']

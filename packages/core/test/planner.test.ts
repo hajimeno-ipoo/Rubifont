@@ -135,10 +135,12 @@ describe('planner', () => {
   })
 
   it('turns lone kanji off, keeping their selector readings', () => {
-    const { report } = plan({ isolated: false, words: { pin: ['書[か]'] } })
+    const { plan: p, report } = plan({ isolated: false, words: { pin: ['書[か]'] } })
     expect(report.ivs.lone).toEqual({})
     expect(report.stats.isolated).toBe(0)
     expect(report.ivs.kanji['桜']).toEqual(['さくら'])
+    expect(p.variants).toContainEqual({ name: 'uni685C.vs1', base: 0x685C, selector: 0xE01E1 })
+    expect(p.fea).toContain('sub uni685C from [uni685C.vs1];')
     expect(report.ivs.kanji['書']![0]).toBe('か')
   })
 

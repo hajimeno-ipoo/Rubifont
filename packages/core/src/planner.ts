@@ -562,8 +562,7 @@ function buildRules(
   const variantReadings: VariantReading[] = []
   for (const [kanji, readings] of kanjiReadings) {
     variants.name(kanji, 0)
-    if (readings.length < 2)
-      continue
+    // A single reading still needs an explicit selector when the default is bare.
     readings.forEach((ruby, i) => variantReadings.push({ input: variants.name(kanji, i + 1), glyph: glyphs.lone(kanji, ruby), selector: SELECTOR_SUPPRESS + i + 1 }))
   }
   rules.sort((a, b) => a.input[0]!.localeCompare(b.input[0]!) || b.input.length - a.input.length)

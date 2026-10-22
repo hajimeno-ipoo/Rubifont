@@ -1,8 +1,8 @@
-# Rubifont Sans 0.6.8
+# Rubifont Sans 0.6.9
 
 漢字の上にひらがな、登録した英単語の上にカタカナを表示するフォントです。同じ文章の中で、日本語と英語の両方に読みを添えられます。
 
-[配布版をダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/tag/rubifont-v0.6.8) · [ソースコード](https://github.com/hajimeno-ipoo/Rubifont)
+[配布版をダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/tag/rubifont-v0.6.9) · [ソースコード](https://github.com/hajimeno-ipoo/Rubifont)
 
 ## 主な機能
 
@@ -98,7 +98,7 @@ ZIPを展開したフォルダで、次のHTMLファイルを開いてくださ�
 
 WebKitでは、異体字セレクターによる単語の別読み指定が正しく働かない場合があります。異体字セレクターや`salt`で読みを指定する場合は、同じ配布版の、Regularには`RubifontSans-Regular.ivs.json`、可変フォントには`RubifontSansVF.ivs.json`を使ってください。指定番号は更新によって変わる場合があります。
 
-読み候補が1つで通常読みがない漢字では、候補の読み番号を指定しても読みが表示されない既存の制限があります。今回の実測では414字で確認し、0.6.6でも同じ結果でした。詳細は`verification.md`に記載しています。
+0.6.9では、読み候補が1つの漢字にも明示指定の規則を生成するよう修正しました。通常読みがない「綾」なども、`salt`の1番またはVS242で候補の読みを選べます。0.6.6〜0.6.8で説明していた、指定しても読みが表示されない問題への修正です。通常の表示、`ss01`による読みの非表示、複数候補からの選択方法は従来どおりです。報告対象414字と、その条件を含む910字すべてで、RegularとVF・Mediumの読み表示をCore TextとSwiftUIで確認しました。確認結果の詳細は`verification.md`をご覧ください。
 
 Firefoxの描画は未確認です。確認した環境と検証結果の詳細は、同梱の`verification.md`をご覧ください。生成元・容量・SHA-256は`build-manifest.json`に記録しています。
 

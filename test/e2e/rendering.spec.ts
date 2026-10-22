@@ -43,6 +43,9 @@ for (const face of [
     const [pairs, ivs] = await Promise.all(['okurigana.json', face.readings].map(async name => JSON.parse(await readFile(new URL(`../../outputs/${name}`, import.meta.url), 'utf8'))))
     const reader = createOkuriganaReader({ pairs, readings: ivs.kanji, words: ivs.words, lone: ivs.lone })
     const switched = [
+      { text: '綾', kanji: '綾', reading: 'あや' },
+      { text: '蔭', kanji: '蔭', reading: 'かげ' },
+      { text: '意', kanji: '意', reading: 'い' },
       { text: '来ない', kanji: '来', reading: 'こ' },
       { text: '来る', kanji: '来', reading: 'く' },
       { text: '重い', kanji: '重', reading: 'おも' },
@@ -52,13 +55,19 @@ for (const face of [
     for (const { text, kanji, reading } of switched) {
       const salt = ivs.kanji[kanji].indexOf(reading) + 1
       expect(salt, text).toBeGreaterThan(0)
-      expect(reader.find(text), text).toEqual([{ at: 0, length: kanji.length, reading, salt }])
+      // The standalone regression cases exercise explicit selection; the others use okurigana.
+      if (text !== kanji)
+        expect(reader.find(text), text).toEqual([{ at: 0, length: kanji.length, reading, salt }])
     }
     // The upstream ambiguous pair wins over an independent custom reading.
     expect(pairs.止['']).toContain('めた')
     expect(reader.find('止めた')).toEqual([])
     const texts = [...switched.map(({ text }) => text), '来て', '止まった', '失くした', '止めた']
-    const markup = (text: string) => reader.find(text).toReversed().reduce((html, match) => `${html.slice(0, match.at)}<span style="font-feature-settings:'salt' ${match.salt}">${html.slice(match.at, match.at + match.length)}</span>${html.slice(match.at + match.length)}`, text)
+    const markup = (text: string) => {
+      const explicit = switched.find(item => item.text === text && item.text === item.kanji)
+      const matches = explicit ? [{ at: 0, length: text.length, salt: ivs.kanji[text].indexOf(explicit.reading) + 1 }] : reader.find(text)
+      return matches.toReversed().reduce((html, match) => `${html.slice(0, match.at)}<span style="font-feature-settings:'salt' ${match.salt}">${html.slice(match.at, match.at + match.length)}</span>${html.slice(match.at + match.length)}`, text)
+    }
     await show(page, texts.map((text, i) => `<p id="pair${i}" lang="ja">${markup(text)}</p><p id="plain${i}" lang="ja">${text}</p>`).join(''), face.font)
     for (let i = 0; i < texts.length; i++)
       await expect(page.locator(`#pair${i}`)).toHaveText(texts[i]!)
