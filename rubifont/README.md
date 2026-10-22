@@ -1,8 +1,8 @@
-# Rubifont Sans 0.6.7
+# Rubifont Sans 0.6.8
 
 漢字の上にひらがな、登録した英単語の上にカタカナを表示するフォントです。同じ文章の中で、日本語と英語の両方に読みを添えられます。
 
-[配布版をダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/tag/rubifont-v0.6.7) · [ソースコード](https://github.com/hajimeno-ipoo/Rubifont)
+[配布版をダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/tag/rubifont-v0.6.8) · [ソースコード](https://github.com/hajimeno-ipoo/Rubifont)
 
 ## 主な機能
 
@@ -125,7 +125,15 @@ pnpm rubifont
 
 出力先はリポジトリ直下の`outputs/`です。初回はAdobeの元フォントを取得し、`.cache/fonts/`へ保存します。日本語の追加辞書は`rubifont/japanese.json`、英語の一覧は`rubifont/english.json`で編集できます。
 
-`rubifont/japanese.json`はフォントに追加する読みと通常読みの指定です。送り仮名に応じて読みを選ぶ独自の対応は、次のコマンドで登録します。
+`rubifont/japanese.json`の`add`には本家にない漢字列と読みだけを保存し、`pin`には希望する通常読みを保存します。日本語の読みは、次のコマンドで追加できます。
+
+```sh
+pnpm rubifont:japanese '来[く]る'
+```
+
+この例の「来＝く」は本家にあるため、`add`へは保存しません。登録時とフォント生成時の両方で、本家と同じ漢字列・読みを持つ項目を重複として除きます。漢字ごとに読みを付けるか、複数漢字をまとめて付けるかが違っていても、同じ読みなら本家のルビの区切り方を使います。既存の`add`27件はすべて本家に同じ読みがあったため、独自追加は0件へ整理しました。`pin`の通常読み指定23件は保持しています。
+
+フォントが扱うのは漢字列です。「来る」の送り仮名から「く」を選ぶ対応は別に管理します。送り仮名に応じて読みを選ぶ独自の対応は、次のコマンドで登録します。
 
 ```sh
 pnpm rubifont:okurigana '来[こ]ない'

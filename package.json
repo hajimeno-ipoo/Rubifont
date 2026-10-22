@@ -40,7 +40,8 @@
     "ci": "pnpm run lint && pnpm run build && pnpm run typecheck && pnpm run knip && pnpm run rubifont && pnpm run test",
     "prepare": "git config core.hooksPath .githooks && simple-git-hooks && skills experimental_sync -y",
     "rubifont": "node scripts/build-rubifont.ts",
-    "rubifont:okurigana": "node scripts/add-rubifont-okurigana.ts"
+    "rubifont:okurigana": "node scripts/add-rubifont-okurigana.ts",
+    "rubifont:japanese": "node scripts/add-rubifont-japanese.ts"
   },
   "scripts-info": {
     "setup": "Install dependencies and the test browsers, then build; run it as `pnpm run setup`",

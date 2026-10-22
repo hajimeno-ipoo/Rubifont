@@ -13,7 +13,7 @@
 
 ## ダウンロード
 
-[Rubifont 0.6.7のZIPをダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.6.7/Rubifont-0.6.7.zip)
+[Rubifont 0.6.8のZIPをダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.6.8/Rubifont-0.6.8.zip)
 
 ほかの配布版は[Releases](https://github.com/hajimeno-ipoo/Rubifont/releases)から取得できます。ZIPを展開すると、次のファイルを使えます。
 
@@ -136,7 +136,15 @@ pnpm rubifont
 
 日本語の追加辞書は`rubifont/japanese.json`、英語の一覧は`rubifont/english.json`、生成処理は`scripts/build-rubifont.ts`です。
 
-`rubifont/japanese.json`はフォントに追加する読みと通常読みの指定です。送り仮名に応じて読みを選ぶ独自の対応は、次のコマンドで登録します。
+`rubifont/japanese.json`の`add`には本家にない漢字列と読みだけを保存し、`pin`には希望する通常読みを保存します。日本語の読みは、次のコマンドで追加できます。
+
+```sh
+pnpm rubifont:japanese '来[く]る'
+```
+
+この例の「来＝く」は本家にあるため、`add`へは保存しません。登録時とフォント生成時の両方で、本家と同じ漢字列・読みを持つ項目を重複として除きます。漢字ごとに読みを付けるか、複数漢字をまとめて付けるかが違っていても、同じ読みなら本家のルビの区切り方を使います。既存の`add`27件はすべて本家に同じ読みがあったため、独自追加は0件へ整理しました。`pin`の通常読み指定23件は保持しています。
+
+フォントが扱うのは漢字列です。「来る」の送り仮名から「く」を選ぶ対応は別に管理します。送り仮名に応じて読みを選ぶ独自の対応は、次のコマンドで登録します。
 
 ```sh
 pnpm rubifont:okurigana '来[こ]ない'

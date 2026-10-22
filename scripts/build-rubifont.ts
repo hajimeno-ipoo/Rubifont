@@ -11,7 +11,7 @@ import { fetchBaseFont } from '../packages/cli/src/base-fonts.ts'
 import english from '../rubifont/english.json' with { type: 'json' }
 import japanese from '../rubifont/japanese.json' with { type: 'json' }
 import okuriganaSupplement from '../rubifont/okurigana.json' with { type: 'json' }
-import { mergeJapaneseReadings } from './rubifont-japanese.ts'
+import { additionalJapaneseReadings, mergeJapaneseReadings } from './rubifont-japanese.ts'
 import { additionalOkurigana, buildOkurigana, loadUpstreamOkurigana } from './rubifont-okurigana.ts'
 import { writeRubifontPages } from './rubifont-pages.ts'
 
@@ -20,14 +20,16 @@ const output = new URL(process.argv[2] ?? 'outputs/', root)
 const cache = fileURLToPath(new URL('.cache/fonts/', root))
 // Fixed release epoch: midnight in Japan. Rebuilding the same inputs keeps font bytes stable.
 const date = new Date('2026-10-22T00:00:00+09:00')
-const version = '0.6.7'
+const version = '0.6.8'
 await mkdir(output, { recursive: true })
 // Keep the existing sources. The postal-address source alone exceeds the glyph budget.
 const sources = WORD_SOURCES.filter(source => source !== 'japan-post')
 const upstreamPairs = await loadUpstreamOkurigana()
 const additionalPairs = additionalOkurigana(upstreamPairs, okuriganaSupplement)
-const words = resolveOptions({ words: { ...japanese, add: [...japanese.add, ...additionalPairs.filter(entry => entry.includes('['))] } }).words
-const planner = createFontPlanner(mergeJapaneseReadings(await loadDictionary(), words))
+const upstreamDictionary = await loadDictionary()
+const additions = additionalJapaneseReadings(upstreamDictionary, [...japanese.add, ...additionalPairs.filter(entry => entry.includes('['))])
+const words = resolveOptions({ words: { ...japanese, add: additions } }).words
+const planner = createFontPlanner(mergeJapaneseReadings(upstreamDictionary, words))
 
 async function buildFace(baseName: string, family: string, stem: string, variable: boolean) {
   const source = BASE_FONTS.find(f => f.name === baseName)!
