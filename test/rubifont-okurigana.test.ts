@@ -4,9 +4,9 @@ import { createOkuriganaReader } from '../packages/helper-web/src/okurigana'
 import { additionalOkurigana, buildOkurigana, loadUpstreamOkurigana } from '../scripts/rubifont-okurigana'
 
 const lists = {
-  readings: { 来: ['らい', 'き', 'く', 'こ'], 重: ['じゅう', 'おも', 'かさ'], 失: ['しつ', 'うしな', 'な'], 止: ['と', 'や'], 光: ['ひかり'] },
+  readings: { 来: ['らい', 'き', 'く', 'こ'], 重: ['じゅう', 'おも', 'かさ'], 失: ['しつ', 'うしな', 'な'], 止: ['と', 'や'], 光: ['ひかり'], 出: ['しゅつ', 'で', 'だ'] },
   words: {},
-  lone: { 来: 'き', 重: 'かさ', 失: 'な', 止: 'と', 光: 'ひかり' },
+  lone: { 来: 'き', 重: 'かさ', 失: 'な', 止: 'と', 光: 'ひかり', 出: 'だ' },
 }
 
 describe('rubifont upstream and supplemental okurigana', () => {
@@ -46,6 +46,18 @@ describe('rubifont upstream and supplemental okurigana', () => {
     const reader = createOkuriganaReader({ pairs: buildOkurigana(upstream, ['来[く]ながら'], lists), ...lists })
     expect(reader.find('来ない')).toEqual([{ at: 0, length: 1, reading: 'こ', salt: 4 }])
     expect(reader.find('来ながら')).toEqual([])
+  })
+
+  it('reads 出 as で before を without changing its だ default or verb pairs', async () => {
+    const upstream = await loadUpstreamOkurigana()
+    const local: string[] = JSON.parse(await readFile(new URL('../rubifont/okurigana.json', import.meta.url), 'utf8'))
+    const reader = createOkuriganaReader({ pairs: buildOkurigana(upstream, local, lists), ...lists })
+    for (const text of ['想い出を', '思い出を'])
+      expect(reader.find(text), text).toEqual([{ at: 2, length: 1, reading: 'で', salt: 2 }])
+    for (const text of ['出して', '出す', '想い出', '船出を', '門出を'])
+      expect(reader.find(text), text).toEqual([])
+    for (const text of ['出る', '出た'])
+      expect(reader.find(text), text).toEqual([{ at: 0, length: 1, reading: 'で', salt: 2 }])
   })
 
   it('loads curated upstream corrections and keeps pairs needed after custom defaults change', async () => {

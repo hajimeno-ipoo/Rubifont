@@ -5,13 +5,15 @@ import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import { BASE_FONTS, compileFont, readFontInfo, toWoff2 } from '@furifont/compiler'
 import { brotli, subsetWasm } from '@furifont/compiler/node'
-import { addEnglishReadings, createFontPlanner, resolveOptions, WORD_SOURCES } from '@furifont/core'
+import { addEnglishReadings, createFontPlanner, parseNotation, resolveOptions, WORD_SOURCES } from '@furifont/core'
 import { loadDictionary } from '@furifont/dictionary'
 import { fetchBaseFont } from '../packages/cli/src/base-fonts.ts'
 import english from '../rubifont/english.json' with { type: 'json' }
 import japanese from '../rubifont/japanese.json' with { type: 'json' }
 import okuriganaSupplement from '../rubifont/okurigana.json' with { type: 'json' }
+import { addContextualWordReadings } from './rubifont-contextual.ts'
 import { additionalJapaneseReadings, mergeJapaneseReadings } from './rubifont-japanese.ts'
+import { addNumericCharacterReadings, addNumericReadings } from './rubifont-numeric.ts'
 import { additionalOkurigana, buildOkurigana, loadUpstreamOkurigana } from './rubifont-okurigana.ts'
 import { writeRubifontPages } from './rubifont-pages.ts'
 
@@ -19,8 +21,8 @@ const root = new URL('../', import.meta.url)
 const output = new URL(process.argv[2] ?? 'outputs/', root)
 const cache = fileURLToPath(new URL('.cache/fonts/', root))
 // Fixed release epoch: midnight in Japan. Rebuilding the same inputs keeps font bytes stable.
-const date = new Date('2026-10-22T00:00:00+09:00')
-const version = '0.6.10'
+const date = new Date('2026-10-24T00:00:00+09:00')
+const version = '0.6.19'
 await mkdir(output, { recursive: true })
 // Keep the existing sources. The postal-address source alone exceeds the glyph budget.
 const sources = WORD_SOURCES.filter(source => source !== 'japan-post')
@@ -37,16 +39,21 @@ async function buildFace(baseName: string, family: string, stem: string, variabl
   const info = readFontInfo(base)
   const coverage = new Set(info.codepoints)
   const { plan, report } = planner(resolveOptions({ family, sources, words }), coverage)
-  const bilingual = addEnglishReadings(plan, english, coverage)
+  const contextual = addContextualWordReadings(plan, japanese.contextualWords)
+  Object.assign(report.ivs.words, contextual.words)
+  const japanesePlan = addNumericCharacterReadings(addNumericReadings(contextual.plan, japanese.numeric, coverage), japanese.numericCharacters, coverage)
+  for (const [text, entries] of Map.groupBy(japanese.numericCharacters, entry => entry.text))
+    report.ivs.kanji[text] = entries.map(entry => entry.reading)
+  const bilingual = addEnglishReadings(japanesePlan, english, coverage)
   console.log('Base:', { family: info.family, style: info.style, glyphs: info.glyphCount })
-  console.log('Japanese:', report.stats, 'English word forms:', bilingual.glyphs.length - plan.glyphs.length)
+  console.log('Japanese:', report.stats, 'English word forms:', bilingual.glyphs.length - japanesePlan.glyphs.length)
   const build = (p: typeof plan) => compileFont({ plan: p, base, subsetWasm, version, date, onProgress: ({ step, done, total }) => {
     if (done === null || done === total)
       console.log(`[${family}]`, step, done ?? '', total ?? '')
   } })
   let referenceGlyphs: number | undefined
   if (!variable) {
-    const reference = await build({ ...plan, names: { ...plan.names, family: 'Rubifont Reference' } })
+    const reference = await build({ ...japanesePlan, names: { ...plan.names, family: 'Rubifont Reference' } })
     await mkdir(new URL('.cache/rubifont/', root), { recursive: true })
     await writeFile(new URL('.cache/rubifont/JapaneseReference.otf', root), reference.font)
     referenceGlyphs = reference.glyphNames.length
@@ -64,7 +71,7 @@ async function buildFace(baseName: string, family: string, stem: string, variabl
     name: family,
     base: { name: source.name, url: source.url, sha256: createHash('sha256').update(base).digest('hex'), glyphs: info.glyphCount },
     japanese: report.stats,
-    english: { words: english.length, wordForms: bilingual.glyphs.length - plan.glyphs.length, cases: ['lowercase', 'Titlecase', 'UPPERCASE'], apostrophes: ['\'', '’'] },
+    english: { words: english.length, wordForms: bilingual.glyphs.length - japanesePlan.glyphs.length, cases: ['lowercase', 'Titlecase', 'UPPERCASE'], apostrophes: ['\'', '’'] },
     glyphs: { ...(referenceGlyphs === undefined ? {} : { reference: referenceGlyphs }), bilingual: built.glyphNames.length, limit: 65535 },
     files,
   }
@@ -72,6 +79,23 @@ async function buildFace(baseName: string, family: string, stem: string, variabl
 
 const { readings: regularReadings, ...regular } = await buildFace('Source Han Sans JP Regular', 'Rubifont Sans', 'RubifontSans-Regular', false)
 const { readings: variableReadings, ...variable } = await buildFace('Source Han Sans JP VF', 'Rubifont Sans VF', 'RubifontSansVF', true)
+function candidates(lists: typeof regularReadings, text: string): string[] | undefined {
+  return [...text].length === 1
+    ? lists.kanji[text]
+    : lists.words[text]?.map(notation => parseNotation(notation).spans.map(span => span.ruby).join(''))
+}
+const contextReadings = japanese.context.map(({ selections, ...rule }) => ({
+  ...rule,
+  selections: selections.map(({ start, text, reading }) => {
+    if ([...rule.text].slice(start, start + [...text].length).join('') !== text)
+      throw new Error(`Invalid context selection: ${rule.text} / ${text}`)
+    const index = candidates(regularReadings, text)?.indexOf(reading) ?? -1
+    if (index < ([...text].length > 1 ? 1 : 0) || index >= 15 || candidates(variableReadings, text)?.[index] !== reading)
+      throw new Error(`Unavailable context reading: ${text} / ${reading}`)
+    return { start, count: [...text].length, salt: index + 1 }
+  }),
+}))
+await writeFile(new URL('context-readings.json', output), `${JSON.stringify(contextReadings, null, 2)}\n`)
 await writeFile(new URL('english-readings.json', output), `${JSON.stringify(english, null, 2)}\n`)
 await writeFile(new URL('japanese-readings.json', output), `${JSON.stringify(japanese, null, 2)}\n`)
 const pairs = buildOkurigana(upstreamPairs, additionalPairs, { readings: regularReadings.kanji, words: regularReadings.words, lone: regularReadings.lone })

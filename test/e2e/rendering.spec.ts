@@ -39,6 +39,215 @@ for (const face of [
   { name: 'Regular', font: RUBIFONT, readings: 'RubifontSans-Regular.ivs.json' },
   { name: 'VF', font: process.env.RUBIFONT_TEST_VARIABLE_FONT ?? new URL('../../outputs/RubifontSansVF.woff2', import.meta.url).pathname, readings: 'RubifontSansVF.ivs.json' },
 ]) {
+  test(`Rubifont reads the registered full-width number expressions (${face.name})`, async ({ page }) => {
+    const texts = ['１つ', '２人', 'もう１つだけ', '２人で']
+    await show(page, texts.map((text, i) => `<p id="on${i}" lang="ja">${text}</p><p id="off${i}" lang="ja" class="off">${text}</p>`).join('')
+    + ['１１つ', '１２人', '２２人', '１', '２', '３人'].map((text, i) => `<p id="unknown${i}" lang="ja">${text}</p><p id="unknown-off${i}" lang="ja" class="off">${text}</p>`).join(''), face.font)
+    for (let i = 0; i < texts.length; i++) {
+      await expect(page.locator(`#on${i}`)).toHaveText(texts[i]!)
+      expect(await shot(page, `#on${i}`), texts[i]).not.toEqual(await shot(page, `#off${i}`))
+    }
+    for (let i = 0; i < 6; i++)
+      expect(await shot(page, `#unknown${i}`)).toEqual(await shot(page, `#unknown-off${i}`))
+  })
+
+  test(`Rubifont records the numeric script-boundary limitation (${face.name})`, async ({ page }) => {
+    // The preceding hiragana takes ２ into its run, so the font never sees ２人 together.
+    await show(page, '<p id="on" lang="ja">わたしたち２人で</p><p id="off" lang="ja" class="off">わたしたち２人で</p>', face.font)
+    expect(await shot(page, '#on')).toEqual(await shot(page, '#off'))
+  })
+
+  test(`Rubifont reads the added lyric English forms (${face.name})`, async ({ page }) => {
+    const texts = ['livin\'', 'fallin\'', 'leavin\'', 'lookin\'', 'nights', 'tryin\'', 'what\'s', 'meanin\'', 'midnight', 'wanna', 'ya', 'ya,', 'moonlight', 'freedom', 'don\'t', 'lonely', 'forever', 'suppose', 'let\'s', 'beginin\'', 'doin\'', 'somebody\'s']
+    await show(page, texts.map((text, i) => `<p id="on${i}" lang="ja">${text}</p><p id="off${i}" lang="ja" class="off">${text}</p>`).join(''), face.font)
+    for (let i = 0; i < texts.length; i++) {
+      await expect(page.locator(`#on${i}`)).toHaveText(texts[i]!)
+      expect(await shot(page, `#on${i}`), texts[i]).not.toEqual(await shot(page, `#off${i}`))
+    }
+  })
+
+  test(`Rubifont reads 夜待 as よる・ま without a space (${face.name})`, async ({ page }) => {
+    await show(page, `
+      <p id="joined" lang="ja">夜待ち合わせ</p>
+      <p id="separated" lang="ja"><span style="display:inline-block">夜</span><span style="display:inline-block">待</span>ち合わせ</p>
+      <p id="off" lang="ja" class="off">夜待ち合わせ</p>`, face.font)
+    await expect(page.locator('#joined')).toHaveText('夜待ち合わせ')
+    // Independent shaping makes the existing lone readings the reference for each kanji.
+    expect(await shot(page, '#joined')).toEqual(await shot(page, '#separated'))
+    expect(await shotEms(page, '#joined', 2)).not.toEqual(await shotEms(page, '#off', 2))
+  })
+
+  test(`Rubifont keeps the reported lyric readings beside other kanji (${face.name})`, async ({ page }) => {
+    const [pairs, ivs] = await Promise.all(['okurigana.json', face.readings].map(async name => JSON.parse(await readFile(new URL(`../../outputs/${name}`, import.meta.url), 'utf8'))))
+    const reader = createOkuriganaReader({ pairs, readings: ivs.kanji, words: ivs.words, lone: ivs.lone })
+    const salt = (kanji: string, reading: string): number => {
+      const value = ivs.kanji[kanji].indexOf(reading) + 1
+      expect(value, `${kanji}[${reading}]`).toBeGreaterThan(0)
+      return value
+    }
+    const hito = salt('人', 'ひと')
+    const ko = salt('娘', 'こ')
+    expect(reader.find('街と人が')).toEqual([{ at: 2, length: 1, reading: 'ひと', salt: hito }])
+    expect(ivs.lone.娘).toBe('むすめ')
+    const selected = (kanji: string, value: number, isolated = false): string => `<span style="${isolated ? 'display:inline-block;' : ''}font-feature-settings:'salt' ${value}">${kanji}</span>`
+    await show(page, `
+      <p id="running" lang="ja">暗闇走り抜ける</p>
+      <p id="running-reference" lang="ja">${selected('暗', salt('暗', 'くら'), true)}${selected('闇', salt('闇', 'やみ'), true)}${selected('走', salt('走', 'はし'), true)}り抜ける</p>
+      <p id="person" lang="ja">街と${selected('人', hito)}が</p>
+      <p id="person-reference" lang="ja">街と${selected('人', hito, true)}が</p>
+      <p id="girl" lang="ja">あの${selected('娘', ko)}</p>
+      <p id="girl-reference" lang="ja">あの${selected('娘', ko, true)}</p>
+      <p id="girl-default" lang="ja">あの娘</p>
+      <p id="girl-default-reference" lang="ja">あの<span style="display:inline-block">娘</span></p>`, face.font)
+    for (const id of ['running', 'person', 'girl', 'girl-default'])
+      expect(await shot(page, `#${id}`), id).toEqual(await shot(page, `#${id}-reference`))
+    await expect(page.locator('#running')).toHaveText('暗闇走り抜ける')
+    await expect(page.locator('#person')).toHaveText('街と人が')
+    await expect(page.locator('#girl')).toHaveText('あの娘')
+    expect(await shot(page, '#girl')).not.toEqual(await shot(page, '#girl-default'))
+  })
+
+  test(`Rubifont selects digit readings across the numeric script boundary (${face.name})`, async ({ page }) => {
+    const ivs = JSON.parse(await readFile(new URL(`../../outputs/${face.readings}`, import.meta.url), 'utf8'))
+    const ri = ivs.kanji.人.indexOf('り') + 1
+    expect(ri).toBeGreaterThan(0)
+    const selected = (text: string, value: number, isolated: boolean): string => `<span style="${isolated ? 'display:inline-block;' : ''}font-feature-settings:'salt' ${value}">${text}</span>`
+    const cases = [
+      { digit: '1', after: 'つだけ', prefix: 'もう', person: false },
+      { digit: '１', after: 'つだけ', prefix: 'もう', person: false },
+      { digit: '2', after: 'でいても離れていても', prefix: 'わたしたち', person: true },
+      { digit: '２', after: 'でいても離れていても', prefix: 'わたしたち', person: true },
+    ]
+    const markup = (sample: typeof cases[number], isolated: boolean): string => `${sample.prefix}${selected(sample.digit, 1, isolated)}${sample.person ? selected('人', ri, isolated) : ''}${sample.after}`
+    await show(page, cases.map((sample, i) => `<p id="numeric${i}" lang="ja">${markup(sample, false)}</p><p id="numeric-reference${i}" lang="ja">${markup(sample, true)}</p><p id="numeric-off${i}" lang="ja" class="off">${sample.prefix}${sample.digit}${sample.person ? '人' : ''}${sample.after}</p>`).join(''), face.font)
+    for (let i = 0; i < cases.length; i++) {
+      expect(await shot(page, `#numeric${i}`), cases[i]!.digit).toEqual(await shot(page, `#numeric-reference${i}`))
+      expect(await shot(page, `#numeric${i}`), cases[i]!.digit).not.toEqual(await shot(page, `#numeric-off${i}`))
+      await expect(page.locator(`#numeric${i}`)).toHaveText(`${cases[i]!.prefix}${cases[i]!.digit}${cases[i]!.person ? '人' : ''}${cases[i]!.after}`)
+    }
+  })
+
+  test(`Rubifont reads the newly reported lyric phrases with limited context (${face.name})`, async ({ page }) => {
+    const [ivs, contexts, english] = await Promise.all([face.readings, 'context-readings.json', 'english-readings.json'].map(async name => JSON.parse(await readFile(new URL(`../../outputs/${name}`, import.meta.url), 'utf8'))))
+    const salt = (text: string, reading: string): number => {
+      const value = ivs.kanji[text].indexOf(reading) + 1
+      expect(value, `${text}[${reading}]`).toBeGreaterThan(0)
+      return value
+    }
+    interface Selection { start: number, count: number, salt: number }
+    const cases = [
+      { text: '2つの国と', readings: [['2', 'ふた']], contexts: 1 },
+      { text: '２つの国と', readings: [['２', 'ふた']], contexts: 1 },
+      { text: 'あの時感じた', readings: [['時', 'とき'], ['感', 'かん']], contexts: 0 },
+      { text: '不満の声', readings: [['声', 'こえ']], contexts: 1 },
+      { text: 'あなたの声聞きたくて', readings: [['声', 'こえ'], ['聞', 'き']], contexts: 0 },
+      { text: '金のハンドルで街を飛びまわれ', readings: [['金', 'きん']], contexts: 1 },
+      { text: '胸の鼓動焼きつけろ', readings: [['鼓', 'こ'], ['動', 'どう'], ['焼', 'や']], contexts: 0 },
+      { text: 'AH AH いくつかの場面', readings: [], contexts: 0 },
+    ]
+    const markup = (text: string, selections: Selection[], isolated: boolean): string => selections.toSorted((a, b) => b.start - a.start).reduce((html, selection) => `${html.slice(0, selection.start)}<span style="${isolated ? 'display:inline-block;' : ''}font-feature-settings:'salt' ${selection.salt}">${html.slice(selection.start, selection.start + selection.count)}</span>${html.slice(selection.start + selection.count)}`, text)
+    const source = (text: string): Selection[] => contexts.flatMap((rule: { text: string, selections: Selection[] }) => {
+      const start = text.indexOf(rule.text)
+      return start < 0 ? [] : rule.selections.map(selection => ({ ...selection, start: start + selection.start }))
+    })
+    expect(english.find((entry: { word: string, reading: string }) => entry.word === 'ah')?.reading).toBe('アー')
+    expect(ivs.lone.金).toBe('かね')
+    expect(ivs.words.声聞).toEqual(['声[こえ]聞[き]', '声[しょう]聞[もん]'])
+    await show(page, `${cases.map((sample, i) => {
+      const selections = source(sample.text)
+      expect(selections, sample.text).toHaveLength(sample.contexts)
+      const reference = sample.readings.length
+        ? markup(sample.text, sample.readings.map(([text, reading]) => ({ start: sample.text.indexOf(text!), count: text!.length, salt: salt(text!, reading!) })), true)
+        : sample.text.replaceAll('AH', '<span style="display:inline-block">AH</span>')
+      return `<p id="reported${i}" lang="ja">${markup(sample.text, selections, false)}</p><p id="reported-reference${i}" lang="ja">${reference}</p><p id="reported-off${i}" lang="ja" class="off">${sample.text}</p>`
+    }).join('')}<p id="default-gold" lang="ja">金</p><p id="default-gold-reference" lang="ja">${markup('金', [{ start: 0, count: 1, salt: salt('金', 'かね') }], true)}</p><p id="voice-default" lang="ja">声聞</p><p id="voice-alternate" lang="ja"><span style="font-feature-settings:'salt' 2">声聞</span></p>`, face.font)
+    for (let i = 0; i < cases.length; i++) {
+      await expect(page.locator(`#reported${i}`)).toHaveText(cases[i]!.text)
+      if (cases[i]!.text.startsWith('AH')) {
+        // Chromium rounds each inline-block's variable advance separately
+        // (404.703125px together / 404.75px separated). Compare the first AH's
+        // full ruby and glyphs before this rounding accumulates across the line.
+        expect(await shotEms(page, `#reported${i}`, 1.35)).toEqual(await shotEms(page, `#reported-reference${i}`, 1.35))
+        const widths = await Promise.all([`#reported${i}`, `#reported-reference${i}`].map(selector => page.locator(selector).evaluate(element => element.getBoundingClientRect().width)))
+        expect(Math.abs(widths[0]! - widths[1]!)).toBeLessThan(0.1)
+      }
+      else {
+        expect(await shot(page, `#reported${i}`), cases[i]!.text).toEqual(await shot(page, `#reported-reference${i}`))
+      }
+      expect(await shot(page, `#reported${i}`), cases[i]!.text).not.toEqual(await shot(page, `#reported-off${i}`))
+    }
+    expect(await shot(page, '#default-gold')).toEqual(await shot(page, '#default-gold-reference'))
+    expect(await shot(page, '#voice-default')).not.toEqual(await shot(page, '#voice-alternate'))
+  })
+
+  test(`Rubifont distinguishes numeric readings and draws the new English words (${face.name})`, async ({ page }) => {
+    const [ivs, contexts, english] = await Promise.all([face.readings, 'context-readings.json', 'english-readings.json'].map(async name => JSON.parse(await readFile(new URL(`../../outputs/${name}`, import.meta.url), 'utf8'))))
+    for (const digit of ['1', '１'])
+      expect(ivs.kanji[digit]).toEqual(['ひと', 'いち'])
+    const nichi = ivs.kanji.日.indexOf('にち') + 1
+    expect(nichi).toBe(1)
+    const selected = (text: string, salt: number, isolated = false): string => `<span style="${isolated ? 'display:inline-block;' : ''}font-feature-settings:'salt' ${salt}">${text}</span>`
+    const words = [{ word: 'candy', reading: 'キャンディ' }, { word: 'pretty', reading: 'プリティ' }, { word: 'doll', reading: 'ドール' }]
+    for (const entry of words)
+      expect(english.find((item: { word: string }) => item.word === entry.word)).toEqual(entry)
+    const forms = words.flatMap(({ word }) => [word, word[0]!.toUpperCase() + word.slice(1), word.toUpperCase()])
+    await show(page, `${['1', '１'].map((digit, i) => {
+      const day = contexts.find((rule: { text: string }) => rule.text === `${digit}日`)
+      const one = contexts.find((rule: { text: string }) => rule.text === `${digit}つ`)
+      expect(day.selections).toEqual([{ start: 0, count: 1, salt: 2 }, { start: 1, count: 1, salt: nichi }])
+      expect(one.selections).toEqual([{ start: 0, count: 1, salt: 1 }])
+      return `<p id="day${i}" lang="ja">${selected(digit, day.selections[0].salt)}${selected('日', day.selections[1].salt)}</p><p id="day-reference${i}" lang="ja">${selected(digit, 2, true)}${selected('日', nichi, true)}</p><p id="one${i}" lang="ja">${selected(digit, one.selections[0].salt)}つ</p><p id="one-reference${i}" lang="ja">${selected(digit, 1, true)}つ</p>`
+    }).join('')}${forms.map((text, i) => `<p id="new-english${i}" lang="ja">${text}</p><p id="new-english-off${i}" lang="ja" class="off">${text}</p>`).join('')}`, face.font)
+    for (let i = 0; i < 2; i++) {
+      expect(await shot(page, `#day${i}`)).toEqual(await shot(page, `#day-reference${i}`))
+      expect(await shot(page, `#one${i}`)).toEqual(await shot(page, `#one-reference${i}`))
+    }
+    for (let i = 0; i < forms.length; i++)
+      expect(await shot(page, `#new-english${i}`), forms[i]).not.toEqual(await shot(page, `#new-english-off${i}`))
+  })
+
+  test(`Rubifont reads 人生楽ありゃ and 中走 without changing other 人生楽 phrases (${face.name})`, async ({ page }) => {
+    const [ivs, contexts, pairs] = await Promise.all([face.readings, 'context-readings.json', 'okurigana.json'].map(async name => JSON.parse(await readFile(new URL(`../../outputs/${name}`, import.meta.url), 'utf8'))))
+    const reader = createOkuriganaReader({ pairs, readings: ivs.kanji, words: ivs.words, lone: ivs.lone })
+    interface Selection { start: number, count: number, salt: number }
+    const salt = (text: string, reading: string): number => {
+      const choices: string[] = ivs.kanji[text]
+      expect(choices, text).toContain(reading)
+      return choices.indexOf(reading) + 1
+    }
+    const markup = (text: string, selections: Selection[], isolated: boolean): string => selections.toSorted((a, b) => b.start - a.start).reduce((html, selection) => `${html.slice(0, selection.start)}<span style="${isolated ? 'display:inline-block;' : ''}font-feature-settings:'salt' ${selection.salt}">${html.slice(selection.start, selection.start + selection.count)}</span>${html.slice(selection.start + selection.count)}`, text)
+    const cases = [
+      { text: 'Oh 人生楽ありゃ苦あり', readings: [['人', 'じん'], ['生', 'せい'], ['楽', 'らく'], ['苦', 'く']] },
+      { text: '大きな声で 自由に歌っているの', readings: [['声', 'こえ']] },
+      { text: 'もっと楽に生きていきたい', readings: [['楽', 'らく']] },
+      { text: '今朝もミニのスカートで 人ゴミの中走ってく', readings: [['人', 'ひと'], ['中', 'なか'], ['走', 'はし']] },
+      { text: '人ゴミ', readings: [['人', 'ひと']] },
+      { text: 'ゴミの中走っていく', readings: [['中', 'なか'], ['走', 'はし']] },
+      { text: '走っていく', readings: [['走', 'はし']] },
+    ]
+    expect(ivs.words.人生楽).toEqual(['人[じん]生[せい]楽', '人[じん]生[せい]楽[らく]'])
+    const contextual = contexts.find((rule: { text: string }) => rule.text === '人生楽ありゃ')
+    expect(contextual.selections).toEqual([{ start: 0, count: 3, salt: 2 }])
+    const unchanged = ['人生楽しい', '人生楽しむ', '人生楽']
+    await show(page, `${cases.map((sample, i) => {
+      const selections: Selection[] = reader.find(sample.text).map(match => ({ start: match.at, count: match.length, salt: match.salt }))
+      for (const context of contexts) {
+        const start = sample.text.indexOf(context.text)
+        if (start >= 0)
+          selections.push(...context.selections.map((selection: Selection) => ({ ...selection, start: start + selection.start })))
+      }
+      const expected = sample.readings.map(([text, reading]) => ({ start: sample.text.indexOf(text!), count: text!.length, salt: salt(text!, reading!) }))
+      const reference = [...selections.filter(selection => !expected.some(item => selection.start < item.start + item.count && item.start < selection.start + selection.count)), ...expected]
+      return `<p id="latest${i}" lang="ja">${markup(sample.text, selections, false)}</p><p id="latest-reference${i}" lang="ja">${markup(sample.text, reference, true)}</p>`
+    }).join('')}${unchanged.map((text, i) => `<p id="unchanged${i}" lang="ja">${text}</p><p id="unchanged-reference${i}" lang="ja"><span style="display:inline-block">人生</span><span style="display:inline-block;font-feature-settings:'ss01'">楽</span>${text.slice(3)}</p>`).join('')}`, face.font)
+    for (let i = 0; i < cases.length; i++) {
+      await expect(page.locator(`#latest${i}`)).toHaveText(cases[i]!.text)
+      expect(await shot(page, `#latest${i}`), cases[i]!.text).toEqual(await shot(page, `#latest-reference${i}`))
+    }
+    for (let i = 0; i < unchanged.length; i++)
+      expect(await shot(page, `#unchanged${i}`), unchanged[i]).toEqual(await shot(page, `#unchanged-reference${i}`))
+  })
+
   test(`Rubifont okurigana pairs switch a reading while keeping the original text (${face.name})`, async ({ page }) => {
     const [pairs, ivs] = await Promise.all(['okurigana.json', face.readings].map(async name => JSON.parse(await readFile(new URL(`../../outputs/${name}`, import.meta.url), 'utf8'))))
     const reader = createOkuriganaReader({ pairs, readings: ivs.kanji, words: ivs.words, lone: ivs.lone })
@@ -46,6 +255,10 @@ for (const face of [
       { text: '綾', kanji: '綾', reading: 'あや' },
       { text: '蔭', kanji: '蔭', reading: 'かげ' },
       { text: '意', kanji: '意', reading: 'い' },
+      { text: '娘', kanji: '娘', reading: 'こ' },
+      { text: '方が', kanji: '方', reading: 'ほお' },
+      { text: '哀く', kanji: '哀', reading: 'かなし' },
+      { text: '出を', kanji: '出', reading: 'で' },
       { text: '来ない', kanji: '来', reading: 'こ' },
       { text: '来る', kanji: '来', reading: 'く' },
       { text: '重い', kanji: '重', reading: 'おも' },
@@ -147,6 +360,7 @@ test('draws ruby that ss01 turns off', async ({ page }) => {
 
 /** The first `ems` characters of `selector`, ruby included. */
 async function shotEms(page: Page, selector: string, ems: number): Promise<Buffer> {
+  await page.locator(selector).scrollIntoViewIfNeeded()
   const box = (await page.locator(selector).boundingBox())!
   return page.screenshot({ clip: { x: box.x, y: box.y, width: ems * 40, height: box.height } })
 }

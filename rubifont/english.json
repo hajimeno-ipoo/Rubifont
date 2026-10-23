@@ -168,6 +168,10 @@
     "reading": "アグリーメント"
   },
   {
+    "word": "ah",
+    "reading": "アー"
+  },
+  {
     "word": "ahead",
     "reading": "アヘッド"
   },
@@ -648,6 +652,10 @@
     "reading": "ビギン"
   },
   {
+    "word": "beginin",
+    "reading": "ビギニン"
+  },
+  {
     "word": "behind",
     "reading": "ビハインド"
   },
@@ -990,6 +998,10 @@
   {
     "word": "cancel",
     "reading": "キャンセル"
+  },
+  {
+    "word": "candy",
+    "reading": "キャンディ"
   },
   {
     "word": "cannot",
@@ -2096,12 +2108,24 @@
     "reading": "ドッグ"
   },
   {
+    "word": "doin",
+    "reading": "ドゥーイン"
+  },
+  {
+    "word": "doll",
+    "reading": "ドール"
+  },
+  {
     "word": "dollar",
     "reading": "ドラー"
   },
   {
     "word": "domain",
     "reading": "ドメイン"
+  },
+  {
+    "word": "don't",
+    "reading": "ドウント"
   },
   {
     "word": "done",
@@ -2804,6 +2828,10 @@
     "reading": "フォール"
   },
   {
+    "word": "fallin",
+    "reading": "フォーリン"
+  },
+  {
     "word": "falling",
     "reading": "フォーリング"
   },
@@ -3152,6 +3180,10 @@
     "reading": "フォレスト"
   },
   {
+    "word": "forever",
+    "reading": "フォーエヴァー"
+  },
+  {
     "word": "forget",
     "reading": "フォーゲット"
   },
@@ -3234,6 +3266,10 @@
   {
     "word": "free",
     "reading": "フリー"
+  },
+  {
+    "word": "freedom",
+    "reading": "フリーダム"
   },
   {
     "word": "freeze",
@@ -5076,6 +5112,10 @@
     "reading": "リーヴ"
   },
   {
+    "word": "leavin",
+    "reading": "リーヴィン"
+  },
+  {
     "word": "left",
     "reading": "レフト"
   },
@@ -5110,6 +5150,10 @@
   {
     "word": "let",
     "reading": "レット"
+  },
+  {
+    "word": "let's",
+    "reading": "レッツ"
   },
   {
     "word": "letter",
@@ -5204,6 +5248,10 @@
     "reading": "リトル"
   },
   {
+    "word": "livin",
+    "reading": "リヴィン"
+  },
+  {
     "word": "load",
     "reading": "ロード"
   },
@@ -5256,12 +5304,20 @@
     "reading": "ログアウト"
   },
   {
+    "word": "lonely",
+    "reading": "ロウンリー"
+  },
+  {
     "word": "long",
     "reading": "ロング"
   },
   {
     "word": "look",
     "reading": "ルック"
+  },
+  {
+    "word": "lookin",
+    "reading": "ルッキン"
   },
   {
     "word": "loop",
@@ -5452,6 +5508,10 @@
     "reading": "ミーン"
   },
   {
+    "word": "meanin",
+    "reading": "ミーニン"
+  },
+  {
     "word": "meaning",
     "reading": "ミーニング"
   },
@@ -5518,6 +5578,10 @@
   {
     "word": "middle",
     "reading": "ミドル"
+  },
+  {
+    "word": "midnight",
+    "reading": "ミッドナイト"
   },
   {
     "word": "might",
@@ -5654,6 +5718,10 @@
   {
     "word": "moon",
     "reading": "ムーン"
+  },
+  {
+    "word": "moonlight",
+    "reading": "ムーンライト"
   },
   {
     "word": "more",
@@ -5890,6 +5958,10 @@
   {
     "word": "night",
     "reading": "ナイト"
+  },
+  {
+    "word": "nights",
+    "reading": "ナイツ"
   },
   {
     "word": "nine",
@@ -6878,6 +6950,10 @@
   {
     "word": "pressure",
     "reading": "プレシャー"
+  },
+  {
+    "word": "pretty",
+    "reading": "プリティ"
   },
   {
     "word": "prevent",
@@ -8568,6 +8644,10 @@
     "reading": "サムバディ"
   },
   {
+    "word": "somebody's",
+    "reading": "サムバディズ"
+  },
+  {
     "word": "somehow",
     "reading": "サムハウ"
   },
@@ -9042,6 +9122,10 @@
   {
     "word": "supported",
     "reading": "サポーティッド"
+  },
+  {
+    "word": "suppose",
+    "reading": "サポウズ"
   },
   {
     "word": "sure",
@@ -9732,6 +9816,10 @@
     "reading": "トライ"
   },
   {
+    "word": "tryin",
+    "reading": "トライイン"
+  },
+  {
     "word": "trying",
     "reading": "トライイング"
   },
@@ -10168,6 +10256,10 @@
     "reading": "ウォレット"
   },
   {
+    "word": "wanna",
+    "reading": "ワナ"
+  },
+  {
     "word": "want",
     "reading": "ウォント"
   },
@@ -10290,6 +10382,10 @@
   {
     "word": "what",
     "reading": "ワット"
+  },
+  {
+    "word": "what's",
+    "reading": "ワッツ"
   },
   {
     "word": "whatever",
@@ -10542,6 +10638,10 @@
   {
     "word": "wrote",
     "reading": "ロウト"
+  },
+  {
+    "word": "ya",
+    "reading": "ヤ"
   },
   {
     "word": "yard",
