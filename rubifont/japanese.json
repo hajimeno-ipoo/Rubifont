@@ -10,7 +10,7 @@
     "声[こえ]聞[き]",
     "中[なか]走[はし]"
   ],
-  "contextualWords": ["人[じん]生[せい]楽[らく]"],
+  "contextualWords": ["人[じん]生[せい]楽[らく]", "全[ぜん]部[ぶ]抱[だ]"],
   "numeric": [
     {
       "text": "１つ",
@@ -30,6 +30,8 @@
     { "text": "１", "reading": "いち" }
   ],
   "context": [
+    { "text": "全部抱きしめ", "selections": [{ "start": 0, "text": "全部抱", "reading": "ぜんぶだ" }] },
+    { "text": "入れて", "selections": [{ "start": 0, "text": "入", "reading": "い" }] },
     { "text": "人ゴミ", "selections": [{ "start": 0, "text": "人", "reading": "ひと" }] },
     { "text": "人生楽ありゃ", "selections": [{ "start": 0, "text": "人生楽", "reading": "じんせいらく" }] },
     { "text": "1日", "numberBoundary": true, "selections": [{ "start": 0, "text": "1", "reading": "いち" }, { "start": 1, "text": "日", "reading": "にち" }] },

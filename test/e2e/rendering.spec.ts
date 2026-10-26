@@ -217,6 +217,10 @@ for (const face of [
     }
     const markup = (text: string, selections: Selection[], isolated: boolean): string => selections.toSorted((a, b) => b.start - a.start).reduce((html, selection) => `${html.slice(0, selection.start)}<span style="${isolated ? 'display:inline-block;' : ''}font-feature-settings:'salt' ${selection.salt}">${html.slice(selection.start, selection.start + selection.count)}</span>${html.slice(selection.start + selection.count)}`, text)
     const cases = [
+      { text: 'あぁ、愛で全部抱きしめて愛して', readings: [['全', 'ぜん'], ['部', 'ぶ'], ['抱', 'だ']] },
+      { text: '抱きしめて', readings: [['抱', 'だ']] },
+      { text: '受け入れて', readings: [['入', 'い']] },
+      { text: '終わんないで 見続けてる 逃さないで', readings: [['終', 'お']] },
       { text: 'Oh 人生楽ありゃ苦あり', readings: [['人', 'じん'], ['生', 'せい'], ['楽', 'らく'], ['苦', 'く']] },
       { text: '大きな声で 自由に歌っているの', readings: [['声', 'こえ']] },
       { text: 'もっと楽に生きていきたい', readings: [['楽', 'らく']] },

@@ -60,6 +60,17 @@ describe('rubifont upstream and supplemental okurigana', () => {
       expect(reader.find(text), text).toEqual([{ at: 0, length: 1, reading: 'で', salt: 2 }])
   })
 
+  it('blocks the shorter しまわ pair for 終わんないで without changing other 終 readings', async () => {
+    const upstream = await loadUpstreamOkurigana()
+    const local: string[] = JSON.parse(await readFile(new URL('../rubifont/okurigana.json', import.meta.url), 'utf8'))
+    const endings = { readings: { 終: ['しゅう', 'お', 'おわり', 'じゅう', 'おわ', 'しま'] }, words: {}, lone: { 終: 'お' } }
+    const reader = createOkuriganaReader({ pairs: buildOkurigana(upstream, local, endings), ...endings })
+    expect(upstream.終?.しま).toContain('わ')
+    expect(reader.find('終わんないで')).toEqual([])
+    expect(reader.find('終わらないで')).toEqual([])
+    expect(reader.find('終います')).toEqual([{ at: 0, length: 1, reading: 'しま', salt: 6 }])
+  })
+
   it('loads curated upstream corrections and keeps pairs needed after custom defaults change', async () => {
     const upstream = await loadUpstreamOkurigana()
     expect(upstream.上?.うえ).toContain('の')
