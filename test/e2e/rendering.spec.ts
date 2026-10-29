@@ -187,7 +187,7 @@ for (const face of [
     const nichi = ivs.kanji.日.indexOf('にち') + 1
     expect(nichi).toBe(1)
     const selected = (text: string, salt: number, isolated = false): string => `<span style="${isolated ? 'display:inline-block;' : ''}font-feature-settings:'salt' ${salt}">${text}</span>`
-    const words = [{ word: 'candy', reading: 'キャンディ' }, { word: 'pretty', reading: 'プリティ' }, { word: 'doll', reading: 'ドール' }]
+    const words = [{ word: 'candy', reading: 'キャンディ' }, { word: 'pretty', reading: 'プリティ' }, { word: 'doll', reading: 'ドール' }, { word: 'prototype', reading: 'プロトタイプ' }, { word: 'shelter', reading: 'シェルター' }]
     for (const entry of words)
       expect(english.find((item: { word: string }) => item.word === entry.word)).toEqual(entry)
     const forms = words.flatMap(({ word }) => [word, word[0]!.toUpperCase() + word.slice(1), word.toUpperCase()])
@@ -206,17 +206,31 @@ for (const face of [
       expect(await shot(page, `#new-english${i}`), forms[i]).not.toEqual(await shot(page, `#new-english-off${i}`))
   })
 
-  test(`Rubifont reads 人生楽ありゃ and 中走 without changing other 人生楽 phrases (${face.name})`, async ({ page }) => {
+  test(`Rubifont reads the reported lyric phrases without changing ordinary readings (${face.name})`, async ({ page }) => {
     const [ivs, contexts, pairs] = await Promise.all([face.readings, 'context-readings.json', 'okurigana.json'].map(async name => JSON.parse(await readFile(new URL(`../../outputs/${name}`, import.meta.url), 'utf8'))))
     const reader = createOkuriganaReader({ pairs, readings: ivs.kanji, words: ivs.words, lone: ivs.lone })
     interface Selection { start: number, count: number, salt: number }
     const salt = (text: string, reading: string): number => {
-      const choices: string[] = ivs.kanji[text]
+      const choices: string[] = [...text].length === 1 ? ivs.kanji[text] : ivs.words[text].map((notation: string) => [...notation.matchAll(/\[([^\]]*)\]/g)].map(match => match[1]).join(''))
       expect(choices, text).toContain(reading)
       return choices.indexOf(reading) + 1
     }
     const markup = (text: string, selections: Selection[], isolated: boolean): string => selections.toSorted((a, b) => b.start - a.start).reduce((html, selection) => `${html.slice(0, selection.start)}<span style="${isolated ? 'display:inline-block;' : ''}font-feature-settings:'salt' ${selection.salt}">${html.slice(selection.start, selection.start + selection.count)}</span>${html.slice(selection.start + selection.count)}`, text)
     const cases = [
+      { text: '乱す風に負けぬ様に', readings: [['負', 'ま'], ['様', 'よう']] },
+      { text: '欲しいのは 抱き上げる手を 手を', readings: [['抱', 'だ']] },
+      { text: 'ずっと傍にいてあげるよ', readings: [['傍', 'そば']] },
+      { text: 'Prototype boy 明日の理想だけで', readings: [['明日', 'あす']] },
+      { text: '抱いた', readings: [['抱', 'いだ']] },
+      { text: '明日', readings: [] },
+      { text: '来ぬ人の嘆きに星は落ちて', readings: [['来', 'こ']] },
+      { text: '消さないで灯火', readings: [['灯', 'ともし'], ['火', 'び']] },
+      { text: '灯火', readings: [['灯', 'とう'], ['火', 'か']] },
+      { text: '赤く染めた砂遥か越えて行く', readings: [['砂', 'すな'], ['遥', 'はる']] },
+      { text: '胸の糸激しく掻き鳴らして', readings: [['糸', 'いと'], ['激', 'はげ']] },
+      { text: '手のひらの記憶遥か', readings: [['記', 'き'], ['憶', 'おく'], ['遥', 'はる']] },
+      { text: 'やわらかな額に残された', readings: [['額', 'ひたい']] },
+      { text: 'Prototype boy 心奪われてく', readings: [['心', 'こころ'], ['奪', 'うば']] },
       { text: 'あぁ、愛で全部抱きしめて愛して', readings: [['全', 'ぜん'], ['部', 'ぶ'], ['抱', 'だ']] },
       { text: '抱きしめて', readings: [['抱', 'だ']] },
       { text: '受け入れて', readings: [['入', 'い']] },

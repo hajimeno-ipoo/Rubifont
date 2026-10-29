@@ -17,10 +17,10 @@ export function addContextualWordReadings(plan: Plan, notations: readonly string
   for (const [wordIndex, notation] of notations.entries()) {
     const { form, spans } = parseNotation(notation)
     const characters = [...form]
-    if (characters.length !== 3 || !characters.every(isHan) || spans.length !== 3
+    if ((characters.length !== 2 && characters.length !== 3) || !characters.every(isHan) || spans.length !== characters.length
       || !spans.every((span, i) => span.start === i && span.end === i + 1)
       || formatNotation(form, spans) !== notation) {
-      throw new Error(`Expected three kanji with one reading each: ${notation}`)
+      throw new Error(`Expected two or three kanji with one reading each: ${notation}`)
     }
     const bases = characters.map(character => glyphName(character.codePointAt(0)!))
     const variant = plan.variants.find(item => item.base === characters[0]!.codePointAt(0) && item.selector === SELECTOR_SUPPRESS + 2)
@@ -29,10 +29,10 @@ export function addContextualWordReadings(plan: Plan, notations: readonly string
     const inputs = [variant.name, ...bases.slice(1)]
     const existing = plan.fea.split('\n').some((line) => {
       const marked = [...line.matchAll(/(\S+)'/g)].map(match => match[1])
-      return [bases, inputs].some(sequence => marked.length === sequence.length && marked.every((name, i) => name === sequence[i]))
+      return marked.length === inputs.length && marked.every((name, i) => name === inputs[i])
     })
     if (existing || words[form])
-      throw new Error(`The contextual word already has a rule: ${form}`)
+      throw new Error(`The contextual word already has a selected rule: ${form}`)
     const defaultReading = formatNotation(form, read(form))
     if (defaultReading === notation)
       throw new Error(`The font already shows the requested reading: ${notation}`)

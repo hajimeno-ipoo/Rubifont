@@ -21,8 +21,8 @@ const root = new URL('../', import.meta.url)
 const output = new URL(process.argv[2] ?? 'outputs/', root)
 const cache = fileURLToPath(new URL('.cache/fonts/', root))
 // Fixed release epoch: midnight in Japan. Rebuilding the same inputs keeps font bytes stable.
-const date = new Date('2026-10-24T00:00:00+09:00')
-const version = '0.6.20'
+const date = new Date('2026-10-30T00:00:00+09:00')
+const version = '0.6.23'
 await mkdir(output, { recursive: true })
 // Keep the existing sources. The postal-address source alone exceeds the glyph budget.
 const sources = WORD_SOURCES.filter(source => source !== 'japan-post')
@@ -82,7 +82,7 @@ const { readings: variableReadings, ...variable } = await buildFace('Source Han 
 function candidates(lists: typeof regularReadings, text: string): string[] | undefined {
   return [...text].length === 1
     ? lists.kanji[text]
-    : lists.words[text]?.map(notation => parseNotation(notation).spans.map(span => span.ruby).join(''))
+    : lists.words[text]?.map(notation => notation === text ? '' : parseNotation(notation).spans.map(span => span.ruby).join(''))
 }
 const contextReadings = japanese.context.map(({ selections, ...rule }) => ({
   ...rule,

@@ -8,9 +8,10 @@
     "鼓[こ]動[どう]焼[や]",
     "時[とき]感[かん]",
     "声[こえ]聞[き]",
-    "中[なか]走[はし]"
+    "中[なか]走[はし]",
+    "灯[ともし]"
   ],
-  "contextualWords": ["人[じん]生[せい]楽[らく]", "全[ぜん]部[ぶ]抱[だ]"],
+  "contextualWords": ["人[じん]生[せい]楽[らく]", "全[ぜん]部[ぶ]抱[だ]", "砂[すな]遥[はる]", "糸[いと]激[はげ]", "記[き]憶[おく]遥[はる]", "心[こころ]奪[うば]", "灯[ともし]火[び]"],
   "numeric": [
     {
       "text": "１つ",
@@ -30,6 +31,14 @@
     { "text": "１", "reading": "いち" }
   ],
   "context": [
+    { "text": "負けぬ様に", "selections": [{ "start": 3, "text": "様", "reading": "よう" }] },
+    { "text": "抱き上げる", "selections": [{ "start": 0, "text": "抱", "reading": "だ" }] },
+    { "text": "消さないで灯火", "selections": [{ "start": 5, "text": "灯火", "reading": "ともしび" }] },
+    { "text": "砂遥か", "selections": [{ "start": 0, "text": "砂遥", "reading": "すなはる" }] },
+    { "text": "糸激しく", "selections": [{ "start": 0, "text": "糸激", "reading": "いとはげ" }] },
+    { "text": "記憶遥か", "selections": [{ "start": 0, "text": "記憶遥", "reading": "きおくはる" }] },
+    { "text": "やわらかな額", "selections": [{ "start": 5, "text": "額", "reading": "ひたい" }] },
+    { "text": "心奪われ", "selections": [{ "start": 0, "text": "心奪", "reading": "こころうば" }] },
     { "text": "全部抱きしめ", "selections": [{ "start": 0, "text": "全部抱", "reading": "ぜんぶだ" }] },
     { "text": "入れて", "selections": [{ "start": 0, "text": "入", "reading": "い" }] },
     { "text": "人ゴミ", "selections": [{ "start": 0, "text": "人", "reading": "ひと" }] },

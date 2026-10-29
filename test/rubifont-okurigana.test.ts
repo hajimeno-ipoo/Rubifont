@@ -60,6 +60,28 @@ describe('rubifont upstream and supplemental okurigana', () => {
       expect(reader.find(text), text).toEqual([{ at: 0, length: 1, reading: 'で', salt: 2 }])
   })
 
+  it('selects 傍に and 明日の without changing standalone words or 明日は', async () => {
+    const upstream = await loadUpstreamOkurigana()
+    const local: string[] = JSON.parse(await readFile(new URL('../rubifont/okurigana.json', import.meta.url), 'utf8'))
+    const choices = { readings: { 傍: ['ぼう', 'かたわ', 'そば'] }, words: { 明日: ['明日[あした]', '明日[あす]'] }, lone: { 傍: 'かたわ' } }
+    const reader = createOkuriganaReader({ pairs: buildOkurigana(upstream, local, choices), ...choices })
+    expect(reader.find('傍に')).toEqual([{ at: 0, length: 1, reading: 'そば', salt: 3 }])
+    expect(reader.find('明日の')).toEqual([{ at: 0, length: 2, reading: 'あす', salt: 2 }])
+    for (const text of ['傍', '傍ら', '明日', '明日は'])
+      expect(reader.find(text), text).toEqual([])
+  })
+
+  it('reads 来ぬ as こ without changing the existing 来 endings', async () => {
+    const upstream = await loadUpstreamOkurigana()
+    const local: string[] = JSON.parse(await readFile(new URL('../rubifont/okurigana.json', import.meta.url), 'utf8'))
+    expect(upstream.来?.こ).not.toContain('ぬ')
+    const reader = createOkuriganaReader({ pairs: buildOkurigana(upstream, local, lists), ...lists })
+    expect(reader.find('来ぬ')).toEqual([{ at: 0, length: 1, reading: 'こ', salt: 4 }])
+    expect(reader.find('来ない')).toEqual([{ at: 0, length: 1, reading: 'こ', salt: 4 }])
+    expect(reader.find('来る')).toEqual([{ at: 0, length: 1, reading: 'く', salt: 3 }])
+    expect(reader.find('来ます')).toEqual([])
+  })
+
   it('blocks the shorter しまわ pair for 終わんないで without changing other 終 readings', async () => {
     const upstream = await loadUpstreamOkurigana()
     const local: string[] = JSON.parse(await readFile(new URL('../rubifont/okurigana.json', import.meta.url), 'utf8'))
