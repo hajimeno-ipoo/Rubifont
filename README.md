@@ -11,9 +11,13 @@
 - 本文の文字データは元のままです。読みはフォントの文字の形として表示します。
 - Webでは`font-feature-settings: 'ss01' 1`で、日英の読みをまとめて非表示にできます。
 
+## 0.7.0の更新
+
+Furifont v0.7.0の辞書修正、縦書き生成機能、ユーザースクリプトのサイト別設定を取り込みました。Rubifont独自の日英ルビ、送り仮名・文脈による読み指定を保ち、横書きのRegularと可変フォントを再生成します。Rubifontの日英両対応の縦書きフォントは、この生成物には含みません。本家の縦書き機能はCLIと公式アプリ側で利用できます。
+
 ## ダウンロード
 
-[Rubifont 0.6.10のZIPをダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.6.10/Rubifont-0.6.10.zip)
+[Rubifont 0.7.0のZIPをダウンロード](https://github.com/hajimeno-ipoo/Rubifont/releases/download/rubifont-v0.7.0/Rubifont-0.7.0.zip)
 
 ほかの配布版は[Releases](https://github.com/hajimeno-ipoo/Rubifont/releases)から取得できます。ZIPを展開すると、次のファイルを使えます。
 
@@ -136,7 +140,7 @@ Anthony Fuの[Furifont](https://github.com/antfu/furifont)を基に、英語の�
 | 日本語辞書・読み規則 | 主にCC BY-SA 4.0、TatoebaはCC BY 2.0 FR。[出典と個別条件](packages/dictionary/LICENSE.md) |
 | Rubifont用に作成した英語2,684語の一覧と日本語追加辞書 | CC0 1.0。外部辞書の転載はありません |
 
-配布ZIPには、`CODE-LICENSE.md`・`OFL.txt`・`DATA-LICENSE.md`としてライセンス文書を同梱しています。基になったFurifontの説明・謝辞は[元のREADME](https://github.com/antfu/furifont/blob/v0.6.2/README.md)を参照してください。
+配布ZIPには、`CODE-LICENSE.md`・`OFL.txt`・`DATA-LICENSE.md`としてライセンス文書を同梱しています。基になったFurifontの説明・謝辞は[元のREADME](https://github.com/antfu/furifont/blob/v0.7.0/README.md)を参照してください。
 
 ## 開発者向け：フォントの再生成
 
